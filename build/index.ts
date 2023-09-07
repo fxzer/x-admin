@@ -7,7 +7,7 @@ import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import vueSetupExtend from 'unplugin-vue-setup-extend-plus/vite'
 import UnoCSS from 'unocss/vite'
-import { setupCompression, setupVitePWA } from './plugins'
+import { setupAtuoComponent, setupAtuoImport, setupCompression, setupVitePWA } from './plugins'
 
 /**
  * 创建 vite 插件
@@ -22,6 +22,8 @@ export function setupVitePlugins(viteEnv: ViteEnv): (PluginOption | PluginOption
     UnoCSS(),
     // esLint 报错信息显示在浏览器界面上
     // name 可以写在 script 标签上
+    setupAtuoImport(),
+    setupAtuoComponent(),
     vueSetupExtend({}),
     // 创建打包压缩配置
     setupCompression(viteEnv),
