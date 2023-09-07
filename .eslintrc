@@ -1,0 +1,14 @@
+{
+  "extends": [
+    "@antfu"
+  ],
+  "rules": {
+    "no-console": "warn",
+    "vue/require-component-is": "off",
+    "n/prefer-global/process": "off",
+    "unicorn/prefer-node-protocol": "off",
+    "@typescript-eslint/ban-types": "off",
+    "@typescript-eslint/ban-ts-comment": "off",
+    "@typescript-eslint/no-namespace": "off"
+ }
+}
