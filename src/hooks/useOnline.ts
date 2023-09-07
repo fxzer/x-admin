@@ -1,5 +1,3 @@
-import { onMounted, onUnmounted, ref } from 'vue'
-
 /**
  * @description 网络是否可用
  * */

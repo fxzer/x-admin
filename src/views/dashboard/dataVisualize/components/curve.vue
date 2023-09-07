@@ -1,5 +1,4 @@
 <script setup lang="ts" name="cure">
-import { ref } from 'vue'
 import * as echarts from 'echarts'
 import { useEcharts } from '@/hooks/useEcharts'
 

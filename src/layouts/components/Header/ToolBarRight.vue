@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { computed } from 'vue'
 import AssemblySize from './components/AssemblySize.vue'
 import Language from './components/Language.vue'
 import SearchMenu from './components/SearchMenu.vue'

@@ -1,6 +1,5 @@
 <!-- 横向布局 -->
 <script setup lang="ts" name="layoutTransverse">
-import { computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useAuthStore } from '@/stores/modules/auth'
 import Main from '@/layouts/components/Main/index.vue'

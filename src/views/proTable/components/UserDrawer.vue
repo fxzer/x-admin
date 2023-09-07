@@ -1,5 +1,4 @@
 <script setup lang="ts" name="UserDrawer">
-import { reactive, ref } from 'vue'
 import type { FormInstance } from 'element-plus'
 import { ElMessage } from 'element-plus'
 import { genderType } from '@/utils/serviceDict'

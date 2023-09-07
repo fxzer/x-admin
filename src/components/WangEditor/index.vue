@@ -1,5 +1,4 @@
 <script setup lang="ts" name="WangEditor">
-import { computed, inject, nextTick, onBeforeUnmount, shallowRef } from 'vue'
 import type { IEditorConfig, IToolbarConfig } from '@wangeditor/editor'
 import { Editor, Toolbar } from '@wangeditor/editor-for-vue'
 import { formContextKey, formItemContextKey } from 'element-plus'

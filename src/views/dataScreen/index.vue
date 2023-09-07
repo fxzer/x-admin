@@ -1,6 +1,5 @@
 <script setup lang="ts" name="dataScreen">
 import type { Ref } from 'vue'
-import { onBeforeUnmount, onMounted, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import type { ECharts } from 'echarts'
 import mapChart from './components/chinaMapChart.vue'

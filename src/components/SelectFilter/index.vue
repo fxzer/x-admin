@@ -1,6 +1,4 @@
 <script setup lang="ts" name="selectFilter">
-import { ref, watch } from 'vue'
-
 interface OptionsProps {
   value: string | number
   label: string

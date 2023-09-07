@@ -1,5 +1,4 @@
 <script setup lang="tsx" name="complexProTable">
-import { ref } from 'vue'
 import { ElMessage } from 'element-plus'
 import type { TableColumnCtx } from 'element-plus/es/components/table/src/table-column/defaults'
 import { CirclePlus, Delete, Pointer, Refresh } from '@element-plus/icons-vue'

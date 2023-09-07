@@ -1,5 +1,4 @@
 <script setup lang="ts" name="treeFilter">
-import { reactive } from 'vue'
 import { ElMessage } from 'element-plus'
 import { getUserDepartment } from '@/api/modules/user'
 import TreeFilter from '@/components/TreeFilter/index.vue'

@@ -1,5 +1,4 @@
 <script setup lang="ts" name="selectFilter">
-import { ref } from 'vue'
 import SelectFilter from '@/components/SelectFilter/index.vue'
 
 const filterResult = ref({ state: '1', type: ['1', '3'] })

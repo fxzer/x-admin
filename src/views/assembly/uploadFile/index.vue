@@ -1,5 +1,4 @@
 <script setup lang="ts" name="uploadFile">
-import { reactive, ref } from 'vue'
 import type { FormInstance } from 'element-plus'
 import UploadImg from '@/components/Upload/Img.vue'
 import UploadImgs from '@/components/Upload/Imgs.vue'

@@ -1,6 +1,6 @@
 <!-- 💥 这里是一次性加载 LayoutComponents -->
 <script setup lang="ts" name="layout">
-import { type Component, computed } from 'vue'
+import { type Component } from 'vue'
 import ThemeDrawer from './components/ThemeDrawer/index.vue'
 import LayoutVertical from './LayoutVertical/index.vue'
 import LayoutClassic from './LayoutClassic/index.vue'

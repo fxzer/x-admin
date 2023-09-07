@@ -1,7 +1,6 @@
 <!-- 📚📚📚 Pro-Table 文档: https://juejin.cn/post/7166068828202336263 -->
 
 <script setup lang="ts" name="ProTable">
-import { computed, onMounted, provide, ref, watch } from 'vue'
 import { ElTable } from 'element-plus'
 import { Operation, Printer, Refresh, Search } from '@element-plus/icons-vue'
 import printJS from 'print-js'

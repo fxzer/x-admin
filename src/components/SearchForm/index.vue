@@ -1,5 +1,4 @@
 <script setup lang="ts" name="SearchForm">
-import { computed, ref } from 'vue'
 import { ArrowDown, ArrowUp, Delete, Search } from '@element-plus/icons-vue'
 import SearchFormItem from './components/SearchFormItem.vue'
 import type { ColumnProps } from '@/components/ProTable/interface'

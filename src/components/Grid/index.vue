@@ -3,18 +3,7 @@ import type {
   VNode,
   VNodeArrayChildren,
 } from 'vue'
-import {
-  computed,
-  onActivated,
-  onBeforeMount,
-  onDeactivated,
-  onMounted,
-  onUnmounted,
-  provide,
-  ref,
-  useSlots,
-  watch,
-} from 'vue'
+
 import type { BreakPoint } from './interface/index'
 
 interface Props {

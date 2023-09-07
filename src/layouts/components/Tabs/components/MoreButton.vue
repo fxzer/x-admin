@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { inject, nextTick } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { HOME_URL } from '@/config'
 import { useTabsStore } from '@/stores/modules/tabs'

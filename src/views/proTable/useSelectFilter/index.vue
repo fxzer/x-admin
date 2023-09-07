@@ -1,5 +1,4 @@
 <script setup lang="ts" name="useSelectFilter">
-import { onMounted, reactive, ref } from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import { CirclePlus, Delete, Download, EditPen, Pointer, Refresh, Upload, View } from '@element-plus/icons-vue'
 import type { User } from '@/api/interface'

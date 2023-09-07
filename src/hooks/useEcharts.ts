@@ -1,4 +1,3 @@
-import { onBeforeUnmount, onDeactivated } from 'vue'
 import type * as echarts from 'echarts'
 
 /**

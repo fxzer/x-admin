@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { onBeforeUnmount, provide, ref, watch } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useDebounceFn } from '@vueuse/core'
 import Maximize from './components/Maximize.vue'

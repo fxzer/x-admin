@@ -1,6 +1,5 @@
 <script setup lang="ts" name="GridItem">
 import type { Ref } from 'vue'
-import { computed, inject, ref, useAttrs, watch } from 'vue'
 import type { BreakPoint, Responsive } from '../interface/index'
 
 interface Props {

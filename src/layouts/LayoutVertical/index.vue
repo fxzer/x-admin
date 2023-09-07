@@ -1,6 +1,5 @@
 <!-- 纵向布局 -->
 <script setup lang="ts" name="layoutVertical">
-import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { useAuthStore } from '@/stores/modules/auth'
 import { useGlobalStore } from '@/stores/modules/global'

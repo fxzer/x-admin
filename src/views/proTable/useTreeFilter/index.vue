@@ -1,5 +1,4 @@
 <script setup lang="ts" name="useTreeFilter">
-import { reactive, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import { CirclePlus, Delete, Download, EditPen, Refresh, Upload, View } from '@element-plus/icons-vue'

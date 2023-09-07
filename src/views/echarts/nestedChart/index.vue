@@ -1,5 +1,4 @@
 <script setup lang="ts" name="nestedChart">
-import { onMounted, ref } from 'vue'
 import * as echarts from 'echarts'
 import { useEcharts } from '@/hooks/useEcharts'
 

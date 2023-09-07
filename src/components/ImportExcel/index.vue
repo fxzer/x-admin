@@ -1,5 +1,4 @@
 <script setup lang="ts" name="ImportExcel">
-import { ref } from 'vue'
 import { Download } from '@element-plus/icons-vue'
 import type { UploadRawFile, UploadRequestOptions } from 'element-plus'
 import { ElNotification } from 'element-plus'

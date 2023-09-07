@@ -1,6 +1,6 @@
 <!-- 💥 这里是异步加载 LayoutComponents -->
 <script setup lang="ts" name="layoutAsync">
-import { type Component, computed, defineAsyncComponent } from 'vue'
+import { type Component } from 'vue'
 import ThemeDrawer from './components/ThemeDrawer/index.vue'
 import type { LayoutType } from '@/stores/interface'
 import { useGlobalStore } from '@/stores/modules/global'

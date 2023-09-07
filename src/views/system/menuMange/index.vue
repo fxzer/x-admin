@@ -1,5 +1,4 @@
 <script setup lang="ts" name="menuMange">
-import { ref } from 'vue'
 import { CirclePlus, Delete, EditPen } from '@element-plus/icons-vue'
 import type { ColumnProps } from '@/components/ProTable/interface'
 import authMenuList from '@/assets/json/authMenuList.json'

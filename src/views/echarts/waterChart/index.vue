@@ -1,5 +1,4 @@
 <script setup lang="ts" name="waterChart">
-import { onMounted, ref } from 'vue'
 import * as echarts from 'echarts'
 import { useEcharts } from '@/hooks/useEcharts'
 import 'echarts-liquidfill'

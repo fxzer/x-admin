@@ -1,5 +1,4 @@
 <script setup lang="tsx" name="treeProTable">
-import { onMounted, reactive, ref } from 'vue'
 import { ElMessage, ElNotification } from 'element-plus'
 import { CirclePlus, Delete, EditPen, View } from '@element-plus/icons-vue'
 import type { User } from '@/api/interface'

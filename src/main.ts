@@ -26,7 +26,6 @@ import '@/styles/element.scss'
 import 'virtual:svg-icons-register'
 
 // element plus
-import ElementPlus from 'element-plus'
 
 // element icons
 import * as Icons from '@element-plus/icons-vue'

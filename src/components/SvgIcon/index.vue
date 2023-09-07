@@ -1,6 +1,5 @@
 <script setup lang="ts" name="SvgIcon">
 import type { CSSProperties } from 'vue'
-import { computed } from 'vue'
 
 interface SvgProps {
   name: string // 图标的名称 ==> 必传

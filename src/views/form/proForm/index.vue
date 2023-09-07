@@ -1,6 +1,4 @@
 <script setup lang="ts" name="proForm">
-import { ref } from 'vue'
-
 const model = ref<any>({})
 
 const options = ref({

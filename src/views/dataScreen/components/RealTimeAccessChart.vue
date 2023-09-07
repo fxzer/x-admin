@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { Ref } from 'vue'
-import { ref } from 'vue'
+
 import type { ECharts } from 'echarts'
 import { init } from 'echarts'
 import 'echarts-liquidfill'

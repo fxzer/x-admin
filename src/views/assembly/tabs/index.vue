@@ -1,5 +1,4 @@
 <script setup lang="ts" name="tabs">
-import { inject, nextTick, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { CircleClose, FolderDelete, FullScreen, Promotion, Refresh, Remove } from '@element-plus/icons-vue'
 import { HOME_URL } from '@/config'

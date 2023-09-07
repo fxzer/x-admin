@@ -1,5 +1,4 @@
 <script setup lang="ts" name="draggable">
-import { ref } from 'vue'
 import draggable from 'vuedraggable'
 
 const gridList = ref([

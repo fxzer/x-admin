@@ -76,11 +76,9 @@ pnpm build:pro
 # eslint 检测代码
 pnpm lint:eslint
 
-# prettier 格式化代码
-pnpm lint:prettier
+#  修复并格式化代码
+pnpm lint:fix
 
-# stylelint 格式化样式
-pnpm lint:stylelint
 ```
 
 - **commit：**
@@ -88,35 +86,11 @@ pnpm lint:stylelint
 ```text
 # 提交代码（提交前会自动执行 lint:lint-staged 命令）
 pnpm commit
+
+# 交互式提交
+git cz
 ```
 
-### 项目截图 📷
-
-- 登录页：
-
-![login_light](https://i.imgtg.com/2023/04/13/8tknp.png)
-
-![login_dark](https://i.imgtg.com/2023/04/13/8tmpP.png)
-
-- 首页：
-
-![home_light](https://i.imgtg.com/2023/04/13/8tl1j.png)
-
-![home_dark](https://i.imgtg.com/2023/04/13/8tpfb.png)
-
-- 表格页：
-
-![table_light](https://i.imgtg.com/2023/04/13/8tfMx.png)
-
-![table_dark](https://i.imgtg.com/2023/04/13/8tv8F.png)
-
-- 数据可视化
-
-![dashboard](https://i.imgtg.com/2023/04/14/82Grx.png)
-
-- 数据大屏：
-
-![dataScreen](https://i.imgtg.com/2023/01/16/QP8HF.png)
 
 ### 文件资源目录 📚
 
@@ -186,21 +160,3 @@ modern-adminx
 - FastMock： https://www.fastmock.site
 - EasyMock：https://mock.mengxuegu.com
 
-### 微信交流群 👨‍👨‍👦‍👦
-
-微信一群、二群、三群已满，扫描二维码添加作者微信，拉大家进入四群 🤪
-
-|                           微信二维码                           |
-| :------------------------------------------------------------: |
-| <img src="https://i.imgtg.com/2023/01/16/QRbJL.png" width=170> |
-
-### 捐赠 🍵
-
-如果你正在使用这个项目或者喜欢这个项目的，可以通过以下方式支持我：
-
-- Star、Fork、Watch 一键三连 🚀
-- 通过微信、支付宝一次性捐款 ❤
-
-|                                        微信                                        |                                       支付宝                                       |
-| :--------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------: |
-| <img src="https://i.imgtg.com/2023/01/16/QRzBX.png" alt="Alipay QRcode" width=170> | <img src="https://i.imgtg.com/2023/01/16/QRFZt.png" alt="Wechat QRcode" width=170> |

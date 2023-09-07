@@ -1,5 +1,4 @@
 <script setup lang="ts" name="selectIcon">
-import { ref } from 'vue'
 import SelectIcon from '@/components/SelectIcon/index.vue'
 
 const iconValue = ref('')

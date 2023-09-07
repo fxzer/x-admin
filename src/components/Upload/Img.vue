@@ -1,5 +1,4 @@
 <script setup lang="ts" name="UploadImg">
-import { computed, inject, ref } from 'vue'
 import { ElNotification, formContextKey, formItemContextKey } from 'element-plus'
 import type { UploadProps, UploadRequestOptions } from 'element-plus'
 import { generateUUID } from '@/utils'

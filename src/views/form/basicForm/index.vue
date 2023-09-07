@@ -1,6 +1,5 @@
 <script setup lang="ts" name="basicForm">
 import { ElMessage } from 'element-plus'
-import { reactive } from 'vue'
 
 // do not use same name with ref
 const formData = reactive({

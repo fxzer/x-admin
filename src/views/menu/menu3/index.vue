@@ -1,6 +1,4 @@
 <script setup lang="ts" name="menu3">
-import { ref } from 'vue'
-
 const value = ref<string>('')
 </script>
 

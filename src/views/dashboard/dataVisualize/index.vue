@@ -1,5 +1,4 @@
 <script setup lang="ts" name="dataVisualize">
-import { onMounted, ref } from 'vue'
 import Pie from './components/pie.vue'
 import Curve from './components/curve.vue'
 

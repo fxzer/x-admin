@@ -1,5 +1,4 @@
 <script setup lang="ts" name="batchImport">
-import { ref } from 'vue'
 import { Upload } from '@element-plus/icons-vue'
 import { BatchAddUser, exportUserInfo } from '@/api/modules/user'
 import ImportExcel from '@/components/ImportExcel/index.vue'
