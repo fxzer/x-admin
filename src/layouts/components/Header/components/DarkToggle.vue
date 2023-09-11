@@ -1,6 +1,5 @@
 <script setup lang='ts'>
 import { useDark } from '@vueuse/core'
-import { useGlobalStore } from '@/stores/modules/global'
 
 const isDark = useDark()
 // const globalStore = useGlobalStore()

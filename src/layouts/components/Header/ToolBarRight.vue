@@ -6,7 +6,6 @@ import ThemeSetting from './components/ThemeSetting.vue'
 import Message from './components/Message.vue'
 import Fullscreen from './components/Fullscreen.vue'
 import Avatar from './components/Avatar.vue'
-import DarkToggle from './components/DarkToggle.vue'
 
 import { useUserStore } from '@/stores/modules/user'
 
