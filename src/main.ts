@@ -31,6 +31,7 @@ import 'virtual:svg-icons-register'
 import * as Icons from '@element-plus/icons-vue'
 
 // custom directives
+import ElementPlus from 'element-plus'
 import App from './App.vue'
 import directives from '@/directives/index'
 
@@ -46,6 +47,8 @@ import pinia from '@/stores'
 // errorHandler
 import errorHandler from '@/utils/errorHandler'
 
+import 'element-plus/dist/index.css'
+
 const app = createApp(App)
 
 app.config.errorHandler = errorHandler
@@ -55,4 +58,4 @@ Object.keys(Icons).forEach((key) => {
   app.component(key, Icons[key as keyof typeof Icons])
 })
 
-app.use(directives).use(router).use(I18n).use(pinia).mount('#app')
+app.use(ElementPlus).use(directives).use(router).use(I18n).use(pinia).mount('#app')

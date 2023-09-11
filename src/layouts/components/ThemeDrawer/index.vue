@@ -6,6 +6,7 @@ import type { LayoutType } from '@/stores/interface'
 import { DEFAULT_PRIMARY } from '@/config'
 import mittBus from '@/utils/mittBus'
 import SwitchDark from '@/components/SwitchDark/index.vue'
+import MaterialSymbols24mpSharp from '~icons/material-symbols/24mp-sharp'
 
 const { changePrimary, changeGreyOrWeak, setAsideTheme, setHeaderTheme } = useTheme()
 
@@ -177,6 +178,7 @@ mittBus.on('openThemeDrawer', () => (drawerVisible.value = true))
       <span>页脚</span>
       <el-switch v-model="footer" />
     </div>
+    <MaterialSymbols24mpSharp />
   </el-drawer>
 </template>
 

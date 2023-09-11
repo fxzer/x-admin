@@ -113,7 +113,7 @@ modern-adminx
 │  ├─ routers             # 路由管理
 │  ├─ stores              # pinia store
 │  ├─ styles              # 全局样式文件
-│  ├─ typings             # 全局 ts 声明
+│  ├─ types             # 全局 ts 声明
 │  ├─ utils               # 常用工具库
 │  ├─ views               # 项目所有页面
 │  ├─ App.vue             # 项目主组件

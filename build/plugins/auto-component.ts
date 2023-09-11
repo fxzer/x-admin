@@ -2,14 +2,14 @@
 import Components from 'unplugin-vue-components/vite'
 
 // ElementPlus 解析器
-import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+// import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import IconsResolver from 'unplugin-icons/resolver'
 
 export function setupAtuoComponent() {
   // 自动导入 相关库的 API
   return Components({
     resolvers: [
-      ElementPlusResolver(), // 自动导入组件
+      // ElementPlusResolver(), // 自动导入组件
       IconsResolver(), // 自动注册解析到的图标为组件
     ],
     deep: true, // 搜索子目录

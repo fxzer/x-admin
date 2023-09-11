@@ -7,6 +7,7 @@ import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import vueSetupExtend from 'unplugin-vue-setup-extend-plus/vite'
 import UnoCSS from 'unocss/vite'
+import Icons from 'unplugin-icons/vite'
 import { setupAtuoComponent, setupAtuoImport, setupCompression, setupVitePWA } from './plugins'
 
 /**
@@ -24,6 +25,12 @@ export function setupVitePlugins(viteEnv: ViteEnv): (PluginOption | PluginOption
     // name 可以写在 script 标签上
     setupAtuoImport(),
     setupAtuoComponent(),
+    // 按需自动安装 iconify 图标
+    Icons({
+      scale: 0.8, // icon 大小缩放比例
+      autoInstall: true, // 自动安装图标集
+      defaultClass: 'cursor-pointer', // 默认样式
+    }),
     vueSetupExtend({}),
     // 创建打包压缩配置
     setupCompression(viteEnv),
@@ -33,6 +40,7 @@ export function setupVitePlugins(viteEnv: ViteEnv): (PluginOption | PluginOption
         data: { title: VITE_GLOB_APP_TITLE },
       },
     }),
+
     // 使用 svg 图标
     createSvgIconsPlugin({
       iconDirs: [resolve(process.cwd(), 'src/assets/icons')],
