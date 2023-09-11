@@ -59,9 +59,6 @@ dependencies:
   qs:
     specifier: ^6.11.2
     version: 6.11.2
-  screenfull:
-    specifier: ^6.0.2
-    version: 6.0.2
   sortablejs:
     specifier: ^1.15.0
     version: 1.15.0
@@ -94,6 +91,9 @@ devDependencies:
   '@iconify-json/material-symbols':
     specifier: ^1.1.50
     version: 1.1.50
+  '@iconify-json/mdi':
+    specifier: ^1.1.52
+    version: 1.1.52
   '@iconify-json/solar':
     specifier: ^1.1.1
     version: 1.1.1
@@ -2291,6 +2291,12 @@ packages:
 
   /@iconify-json/material-symbols@1.1.50:
     resolution: {integrity: sha512-sz2Vuws9CIL9doMBqB/M3awCQ9gzmk5m2UdosKgHd3/qIC12q1hq/wFZ6QisP8fLwgl+jRLdKenfA5mytIa2Xw==}
+    dependencies:
+      '@iconify/types': 2.0.0
+    dev: true
+
+  /@iconify-json/mdi@1.1.52:
+    resolution: {integrity: sha512-tLzpFcmoGw1/jHcl+BshUd4bqvP4755OUluaARsuKskTp2aIPIAkRQOhzJGpry9CZ0i82z0alq4HrKrp9uvj4A==}
     dependencies:
       '@iconify/types': 2.0.0
     dev: true
@@ -8305,11 +8311,6 @@ packages:
       immutable: 4.3.0
       source-map-js: 1.0.2
     dev: true
-
-  /screenfull@6.0.2:
-    resolution: {integrity: sha512-AQdy8s4WhNvUZ6P8F6PB21tSPIYKniic+Ogx0AacBMjKP1GUHN2E9URxQHtCusiwxudnCKkdy4GrHXPPJSkCCw==}
-    engines: {node: ^14.13.1 || >=16.0.0}
-    dev: false
 
   /scroll-into-view-if-needed@2.2.31:
     resolution: {integrity: sha512-dGCXy99wZQivjmjIqihaBQNjryrz5rueJY7eHfTdyWEiR4ttYpsajb14rn9s5d4DY4EcY6+4+U/maARBXJedkA==}

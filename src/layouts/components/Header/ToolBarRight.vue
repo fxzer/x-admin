@@ -6,6 +6,8 @@ import ThemeSetting from './components/ThemeSetting.vue'
 import Message from './components/Message.vue'
 import Fullscreen from './components/Fullscreen.vue'
 import Avatar from './components/Avatar.vue'
+import DarkToggle from './components/DarkToggle.vue'
+
 import { useUserStore } from '@/stores/modules/user'
 
 const userStore = useUserStore()
@@ -15,6 +17,7 @@ const username = computed(() => userStore.userInfo.name)
 <template>
   <div class="tool-bar-ri">
     <div class="header-icon">
+      <!-- <DarkToggle id="darkToggle" /> -->
       <AssemblySize id="assemblySize" />
       <Language id="language" />
       <SearchMenu id="searchMenu" />
