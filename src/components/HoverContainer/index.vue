@@ -30,7 +30,7 @@ const invertedClass = computed(
   <div v-if="showTooltip">
     <el-tooltip :placement="placement" trigger="hover">
       <template #default>
-        <div class="flex-center h-full cursor-pointer  dark:hover:bg-#333  " :class="invertedClass">
+        <div class="h-full flex-center cursor-pointer dark:hover:bg-#333" :class="invertedClass">
           <slot />
         </div>
       </template>
@@ -40,7 +40,7 @@ const invertedClass = computed(
     </el-tooltip>
   </div>
 
-  <div v-else class="flex-center cursor-pointer   dark:hover:bg-#333  h-full" :class="invertedClass">
+  <div v-else class="h-full flex-center cursor-pointer dark:hover:bg-#333" :class="invertedClass">
     <slot />
   </div>
 </template>

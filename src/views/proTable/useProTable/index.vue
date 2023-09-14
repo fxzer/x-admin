@@ -108,7 +108,7 @@ const columns: ColumnProps<User.ResUserList>[] = [
         return (
           <div class="flx-center">
             <el-input vModel_trim={searchParam.minAge} placeholder="最小年龄" />
-            <span class="mr10 ml10">-</span>
+            <span class="mx-10">-</span>
             <el-input vModel_trim={searchParam.maxAge} placeholder="最大年龄" />
           </div>
         )

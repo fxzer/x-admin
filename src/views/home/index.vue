@@ -1,7 +1,7 @@
 <script setup lang="ts" name="home"></script>
 
 <template>
-  <div class="home card">
+  <div class="card home">
     <img class="home-bg" src="@/assets/images/welcome.png" alt="welcome">
   </div>
 </template>

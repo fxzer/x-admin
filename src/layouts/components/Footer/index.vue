@@ -1,5 +1,5 @@
 <template>
-  <div class="footer flx-center">
+  <div class="flx-center footer">
     <a href="https://github.com/HalseySpicy" target="_blank"> 2022 © modern-adminx By fxzer Technology. </a>
   </div>
 </template>

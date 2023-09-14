@@ -27,7 +27,7 @@ function onBreadcrumbClick(item: Menu.MenuOptions, index: number) {
 </script>
 
 <template>
-  <div class="breadcrumb-box mask-image" :class="[!globalStore.breadcrumbIcon && 'no-icon']">
+  <div class="mask-image breadcrumb-box" :class="[!globalStore.breadcrumbIcon && 'no-icon']">
     <el-breadcrumb :separator-icon="ArrowRight">
       <transition-group name="breadcrumb">
         <el-breadcrumb-item v-for="(item, index) in breadcrumbList" :key="item.path">

@@ -1,6 +1,7 @@
 {
   "extends": [
-    "@antfu"
+    "@antfu",
+    "@unocss"
   ],
   "rules": {
     "no-console": "warn",

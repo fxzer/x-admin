@@ -173,7 +173,7 @@ function openDrawer(title: string, row: Partial<User.ResUserList> = {}) {
       @change="changeTreeFilter"
     />
     <div class="table-box">
-      <div class="card mb10 pt0 pb0">
+      <div class="card mb10 pb0 pt0">
         <SelectFilter :data="selectFilterData" :default-values="selectFilterValues" @change="changeSelectFilter" />
       </div>
       <ProTable

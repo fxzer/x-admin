@@ -33,7 +33,7 @@ function changeTreeFilter1(val: string[]) {
       :default-value="treeFilterValue1.departmentId"
       @change="changeTreeFilter1"
     />
-    <div class="descriptions-box card">
+    <div class="card descriptions-box">
       <span class="text"> 树形筛选器 🍓🍇🍈🍉</span>
       <el-descriptions title="配置项 📚" :column="1" border>
         <el-descriptions-item label="requestApi">

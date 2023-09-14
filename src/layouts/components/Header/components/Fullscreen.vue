@@ -12,6 +12,6 @@ function toggleScreen() {
 
 <template>
   <div class="fullscreen">
-    <i :class="[isFullscreen ? 'icon-suoxiao' : 'icon-fangda']" class="toolBar-icon iconfont" @click="toggleScreen" />
+    <i :class="[isFullscreen ? 'icon-suoxiao' : 'icon-fangda']" class="iconfont toolBar-icon" @click="toggleScreen" />
   </div>
 </template>

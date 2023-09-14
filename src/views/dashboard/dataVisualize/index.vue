@@ -47,7 +47,7 @@ const tab = [
       <div class="top-content">
         <el-row :gutter="40">
           <el-col class="mb40" :xs="24" :sm="12" :md="12" :lg="6" :xl="6">
-            <div class="item-left sle">
+            <div class="sle item-left">
               <span class="left-title">访问总数</span>
               <div class="img-box">
                 <img src="./images/book-sum.png" alt="">
@@ -62,23 +62,23 @@ const tab = [
                   <img src="./images/add_person.png" alt="">
                 </div>
                 <span class="item-value">2222</span>
-                <span class="traffic-name sle">Gitee 访问量</span>
+                <span class="sle traffic-name">Gitee 访问量</span>
               </div>
-              <div class="gitHub-traffic traffic-box">
+              <div class="traffic-box gitHub-traffic">
                 <div class="traffic-img">
                   <img src="./images/add_team.png" alt="">
                 </div>
                 <span class="item-value">2222</span>
                 <span class="traffic-name sle">GitHub 访问量</span>
               </div>
-              <div class="today-traffic traffic-box">
+              <div class="traffic-box today-traffic">
                 <div class="traffic-img">
                   <img src="./images/today.png" alt="">
                 </div>
                 <span class="item-value">4567</span>
                 <span class="traffic-name sle">今日访问量</span>
               </div>
-              <div class="yesterday-traffic traffic-box">
+              <div class="traffic-box yesterday-traffic">
                 <div class="traffic-img">
                   <img src="./images/book_sum.png" alt="">
                 </div>

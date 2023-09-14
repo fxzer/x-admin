@@ -3,7 +3,7 @@
 <template>
   <div class="card content-box">
     <span class="text">拖拽指令 🍇🍇🍇🍓🍓🍓</span>
-    <div v-draggable class="drag-box flx-center">
+    <div v-draggable class="flx-center drag-box">
       我可以拖拽哦~
     </div>
   </div>
