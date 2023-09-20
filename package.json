@@ -1,6 +1,6 @@
 {
   "name": "modern-adminx",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "private": true,
   "description": "modern-adminx open source management system",
   "license": "MIT",
@@ -18,7 +18,7 @@
     "url": "https://github.com/fxzer/modern-adminx.git/issues"
   },
   "engines": {
-  "node": ">=16.0.0"
+    "node": ">=18.0.0"
   },
   "scripts": {
     "dev": "vite",
