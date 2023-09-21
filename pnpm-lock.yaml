@@ -97,6 +97,9 @@ devDependencies:
   '@iconify-json/solar':
     specifier: ^1.1.1
     version: 1.1.1
+  '@plugin-web-update-notification/vite':
+    specifier: ^1.6.5
+    version: 1.6.5(vite@4.4.8)
   '@types/md5':
     specifier: ^2.3.2
     version: 2.3.2
@@ -2472,6 +2475,19 @@ packages:
       open: 9.1.0
       picocolors: 1.0.0
       tslib: 2.6.1
+    dev: true
+
+  /@plugin-web-update-notification/core@1.6.5:
+    resolution: {integrity: sha512-DgyeVczO3nziivhI1p9+iWILFwnBmH0tmlVJKMf6q3YlFSqG8pDgNEylBN77Whwkuso2JrBcuhLqHSAnm1tiYw==}
+    dev: true
+
+  /@plugin-web-update-notification/vite@1.6.5(vite@4.4.8):
+    resolution: {integrity: sha512-11nsEiOdDRZFbsSTNHWN4dA/dLoABwCPqErQZtDndPOQF9dW3TVpyCm4YZ6uuRv5RdretK2ELq+2kDkDFB4uFQ==}
+    peerDependencies:
+      vite: '>4.0.0 || ^3.0.0 || ^2.0.0'
+    dependencies:
+      '@plugin-web-update-notification/core': 1.6.5
+      vite: 4.4.8(@types/node@18.15.3)(sass@1.64.2)
     dev: true
 
   /@polka/url@1.0.0-next.23:

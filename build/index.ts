@@ -8,7 +8,7 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 import vueSetupExtend from 'unplugin-vue-setup-extend-plus/vite'
 import UnoCSS from 'unocss/vite'
 import Icons from 'unplugin-icons/vite'
-import { setupAtuoComponent, setupAtuoImport, setupCompression, setupVitePWA } from './plugins'
+import { setupAtuoComponent, setupAtuoImport, setupCompression, setupVitePWA, setupWebUpdateNotification } from './plugins'
 
 /**
  * 创建 vite 插件
@@ -25,6 +25,7 @@ export function setupVitePlugins(viteEnv: ViteEnv): (PluginOption | PluginOption
     // name 可以写在 script 标签上
     setupAtuoImport(),
     setupAtuoComponent(),
+    setupWebUpdateNotification(),
     // 按需自动安装 iconify 图标
     Icons({
       scale: 0.8, // icon 大小缩放比例

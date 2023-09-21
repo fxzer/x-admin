@@ -76,7 +76,7 @@ export default defineConfig({
     presetRemToPx(),
     // presetIcons({ /* options */ }), // 以 CSS 方式使用 iconify
   ],
-  safelist: Object.keys(connectEpTheme()) // 生成所需的静态类名组合
+  safelist: [...Object.keys(connectEpTheme()) // 生成所需的静态类名组合
     .map(key => [
       `bg-${key}`,
       `text-${key}`,
@@ -85,7 +85,7 @@ export default defineConfig({
       `hover:text-${key}`,
       `hover:border-${key}`,
     ])
-    .flat(),
+    .flat(), 'cursor-pointer'], // 防止动态绑定误判为未使用，被 tree-shaking
   transformers: [
     transformerDirectives(), // @apply, @screen, @variants
     transformerVariantGroup(), // 样式分组

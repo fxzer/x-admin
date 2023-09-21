@@ -16,7 +16,6 @@ const username = computed(() => userStore.userInfo.name)
 <template>
   <div class="tool-bar-ri">
     <div class="header-icon">
-      <!-- <DarkToggle id="darkToggle" /> -->
       <AssemblySize id="assemblySize" />
       <Language id="language" />
       <SearchMenu id="searchMenu" />
