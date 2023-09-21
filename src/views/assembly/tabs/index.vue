@@ -65,7 +65,7 @@ function handleToDetail(id: string) {
 
 <template>
   <div class="card content-box">
-    <span class="text"> 标签页操作 🍓🍇🍈🍉</span>
+    <span class="text"> 标签页操作 🍓🍇🍈🍉123</span>
     <div class="mb30">
       <el-input v-model="tabsTitle" placeholder="请输入内容" style="width: 500px">
         <template #append>
