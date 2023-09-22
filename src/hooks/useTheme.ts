@@ -10,7 +10,7 @@ import { headerTheme } from '@/styles/theme/header'
 
 /**
  * @description 全局主题 hooks
- * */
+ */
 
 export function useTheme() {
   const globalStore = useGlobalStore()

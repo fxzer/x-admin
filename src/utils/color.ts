@@ -2,8 +2,8 @@ import { ElMessage } from 'element-plus'
 
 /**
  * @description hex颜色转rgb颜色
- * @param {String} str 颜色值字符串
- * @returns {String} 返回处理后的颜色值
+ * @param {string} str 颜色值字符串
+ * @returns {string} 返回处理后的颜色值
  */
 export function hexToRgb(str: any) {
   let hexs: any = ''
@@ -21,7 +21,7 @@ export function hexToRgb(str: any) {
  * @param {*} r 代表红色
  * @param {*} g 代表绿色
  * @param {*} b 代表蓝色
- * @returns {String} 返回处理后的颜色值
+ * @returns {string} 返回处理后的颜色值
  */
 export function rgbToHex(r: any, g: any, b: any) {
   const reg = /^\d{1,3}$/
@@ -37,9 +37,9 @@ export function rgbToHex(r: any, g: any, b: any) {
 
 /**
  * @description 加深颜色值
- * @param {String} color 颜色值字符串
- * @param {Number} level 加深的程度，限0-1之间
- * @returns {String} 返回处理后的颜色值
+ * @param {string} color 颜色值字符串
+ * @param {number} level 加深的程度，限0-1之间
+ * @returns {string} 返回处理后的颜色值
  */
 export function getDarkColor(color: string, level: number) {
   const reg = /^\#?[0-9A-Fa-f]{6}$/
@@ -52,9 +52,9 @@ export function getDarkColor(color: string, level: number) {
 
 /**
  * @description 变浅颜色值
- * @param {String} color 颜色值字符串
- * @param {Number} level 加深的程度，限0-1之间
- * @returns {String} 返回处理后的颜色值
+ * @param {string} color 颜色值字符串
+ * @param {number} level 加深的程度，限0-1之间
+ * @returns {string} 返回处理后的颜色值
  */
 export function getLightColor(color: string, level: number) {
   const reg = /^\#?[0-9A-Fa-f]{6}$/

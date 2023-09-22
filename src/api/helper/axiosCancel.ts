@@ -13,7 +13,7 @@ export function getPendingUrl(config: CustomAxiosRequestConfig) {
 export class AxiosCanceler {
   /**
    * @description: 添加请求
-   * @param {Object} config
+   * @param {object} config
    * @return void
    */
   addPending(config: CustomAxiosRequestConfig) {
@@ -27,7 +27,7 @@ export class AxiosCanceler {
 
   /**
    * @description: 移除请求
-   * @param {Object} config
+   * @param {object} config
    */
   removePending(config: CustomAxiosRequestConfig) {
     const url = getPendingUrl(config)

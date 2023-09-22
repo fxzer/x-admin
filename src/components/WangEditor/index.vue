@@ -77,7 +77,7 @@ const valueHtml = computed({
  * @description 图片自定义上传
  * @param file 上传的文件
  * @param insertFn 上传成功后的回调函数（插入到富文本编辑器中）
- * */
+ */
 type InsertFnTypeImg = (url: string, alt?: string, href?: string) => void
 props.editorConfig.MENU_CONF!.uploadImage = {
   async customUpload(file: File, insertFn: InsertFnTypeImg) {
@@ -105,7 +105,7 @@ function uploadImgValidate(file: File): boolean {
  * @description 视频自定义上传
  * @param file 上传的文件
  * @param insertFn 上传成功后的回调函数（插入到富文本编辑器中）
- * */
+ */
 type InsertFnTypeVideo = (url: string, poster?: string) => void
 props.editorConfig.MENU_CONF!.uploadVideo = {
   async customUpload(file: File, insertFn: InsertFnTypeVideo) {

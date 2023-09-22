@@ -1,7 +1,7 @@
 /**
  * @description 表格多选数据操作
- * @param {String} rowKey 当表格可以多选时，所指定的 id
- * */
+ * @param {string} rowKey 当表格可以多选时，所指定的 id
+ */
 export function useSelection(rowKey: string = 'id') {
   const isSelected = ref<boolean>(false)
   const selectedList = ref<{ [key: string]: any }[]>([])

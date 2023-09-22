@@ -42,10 +42,10 @@ interface FilterEmits {
 }
 /**
  * @description 选择筛选项
- * @param {Object} item 选中的哪项列表
- * @param {Object} option 选中的值
+ * @param {object} item 选中的哪项列表
+ * @param {object} option 选中的值
  * @return void
- * */
+ */
 function select(item: SelectDataProps, option: OptionsProps) {
   if (!item.multiple) {
     // * 单选

@@ -3,10 +3,10 @@ import type { Table } from './interface'
 /**
  * @description table 页面操作方法封装
  * @param {Function} api 获取表格数据 api 方法 (必传)
- * @param {Object} initParam 获取数据初始化参数 (非必传，默认为{})
- * @param {Boolean} isPageable 是否有分页 (非必传，默认为true)
+ * @param {object} initParam 获取数据初始化参数 (非必传，默认为{})
+ * @param {boolean} isPageable 是否有分页 (非必传，默认为true)
  * @param {Function} dataCallBack 对后台返回的数据进行处理的方法 (非必传)
- * */
+ */
 export function useTable(api?: (params: any) => Promise<any>,
   initParam: object = {},
   isPageable: boolean = true,
@@ -34,7 +34,7 @@ export function useTable(api?: (params: any) => Promise<any>,
 
   /**
    * @description 分页查询参数(只包括分页和表格字段排序,其他排序方式可自行配置)
-   * */
+   */
   const pageParam = computed({
     get: () => {
       return {
@@ -48,9 +48,9 @@ export function useTable(api?: (params: any) => Promise<any>,
   })
   /**
    * @description 更新分页信息
-   * @param {Object} pageable 后台返回的分页数据
+   * @param {object} pageable 后台返回的分页数据
    * @return void
-   * */
+   */
   const updatePageable = (pageable: Table.Pageable) => {
     Object.assign(state.pageable, pageable)
   }
@@ -58,7 +58,7 @@ export function useTable(api?: (params: any) => Promise<any>,
   /**
    * @description 获取表格数据
    * @return void
-   * */
+   */
   const getTableList = async () => {
     if (!api)
       return
@@ -82,7 +82,7 @@ export function useTable(api?: (params: any) => Promise<any>,
   /**
    * @description 更新查询参数
    * @return void
-   * */
+   */
   const updatedTotalParam = () => {
     state.totalParam = {}
     // 处理查询参数，可以给查询参数加自定义前缀操作
@@ -99,7 +99,7 @@ export function useTable(api?: (params: any) => Promise<any>,
   /**
    * @description 表格数据查询
    * @return void
-   * */
+   */
   const search = () => {
     state.pageable.pageNum = 1
     updatedTotalParam()
@@ -109,7 +109,7 @@ export function useTable(api?: (params: any) => Promise<any>,
   /**
    * @description 表格数据重置
    * @return void
-   * */
+   */
   const reset = () => {
     state.pageable.pageNum = 1
     state.searchParam = {}
@@ -123,9 +123,9 @@ export function useTable(api?: (params: any) => Promise<any>,
 
   /**
    * @description 每页条数改变
-   * @param {Number} val 当前条数
+   * @param {number} val 当前条数
    * @return void
-   * */
+   */
   const handleSizeChange = (val: number) => {
     state.pageable.pageNum = 1
     state.pageable.pageSize = val
@@ -134,9 +134,9 @@ export function useTable(api?: (params: any) => Promise<any>,
 
   /**
    * @description 当前页改变
-   * @param {Number} val 当前页
+   * @param {number} val 当前页
    * @return void
-   * */
+   */
   const handleCurrentChange = (val: number) => {
     state.pageable.pageNum = val
     getTableList()

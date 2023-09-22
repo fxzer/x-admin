@@ -52,7 +52,7 @@ async function uploadExcel(param: UploadRequestOptions) {
 /**
  * @description 文件上传之前判断
  * @param file 上传的文件
- * */
+ */
 function beforeExcelUpload(file: UploadRawFile) {
   const isExcel = parameter.value.fileType!.includes(file.type as File.ExcelMimeType)
   const fileSize = file.size / 1024 / 1024 < parameter.value.fileSize!

@@ -47,7 +47,7 @@ const self_disabled = computed(() => {
 /**
  * @description 图片上传
  * @param options upload 所有配置项
- * */
+ */
 interface UploadEmits {
   (e: 'update:imageUrl', value: string): void
 }
@@ -68,14 +68,14 @@ async function handleHttpUpload(options: UploadRequestOptions) {
 
 /**
  * @description 删除图片
- * */
+ */
 function deleteImg() {
   emit('update:imageUrl', '')
 }
 
 /**
  * @description 编辑图片
- * */
+ */
 function editImg() {
   const dom = document.querySelector(`#${uuid.value} .el-upload__input`)
   dom && dom.dispatchEvent(new MouseEvent('click'))
@@ -84,7 +84,7 @@ function editImg() {
 /**
  * @description 文件上传之前判断
  * @param rawFile 选择的文件
- * */
+ */
 const beforeUpload: UploadProps['beforeUpload'] = (rawFile) => {
   const imgSize = rawFile.size / 1024 / 1024 < props.fileSize
   const imgType = props.fileType.includes(rawFile.type as File.ImageMimeType)
@@ -109,7 +109,7 @@ const beforeUpload: UploadProps['beforeUpload'] = (rawFile) => {
 
 /**
  * @description 图片上传成功
- * */
+ */
 function uploadSuccess() {
   ElNotification({
     title: '温馨提示',
@@ -120,7 +120,7 @@ function uploadSuccess() {
 
 /**
  * @description 图片上传错误
- * */
+ */
 function uploadError() {
   ElNotification({
     title: '温馨提示',

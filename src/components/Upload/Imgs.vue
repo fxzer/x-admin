@@ -52,7 +52,7 @@ watch(
 /**
  * @description 文件上传之前判断
  * @param rawFile 选择的文件
- * */
+ */
 const beforeUpload: UploadProps['beforeUpload'] = (rawFile) => {
   const imgSize = rawFile.size / 1024 / 1024 < props.fileSize
   const imgType = props.fileType.includes(rawFile.type as File.ImageMimeType)
@@ -78,7 +78,7 @@ const beforeUpload: UploadProps['beforeUpload'] = (rawFile) => {
 /**
  * @description 图片上传
  * @param options upload 所有配置项
- * */
+ */
 async function handleHttpUpload(options: UploadRequestOptions) {
   const formData = new FormData()
   formData.append('file', options.file)
@@ -96,7 +96,7 @@ async function handleHttpUpload(options: UploadRequestOptions) {
  * @description 图片上传成功
  * @param response 上传响应结果
  * @param uploadFile 上传的文件
- * */
+ */
 interface UploadEmits {
   (e: 'update:fileList', value: UploadUserFile[]): void
 }
@@ -117,7 +117,7 @@ function uploadSuccess(response: { fileUrl: string } | undefined, uploadFile: Up
 /**
  * @description 删除图片
  * @param file 删除的文件
- * */
+ */
 function handleRemove(file: UploadFile) {
   _fileList.value = _fileList.value.filter(item => item.url !== file.url || item.name !== file.name)
   emit('update:fileList', _fileList.value)
@@ -125,7 +125,7 @@ function handleRemove(file: UploadFile) {
 
 /**
  * @description 图片上传错误
- * */
+ */
 function uploadError() {
   ElNotification({
     title: '温馨提示',
@@ -136,7 +136,7 @@ function uploadError() {
 
 /**
  * @description 文件数超出
- * */
+ */
 function handleExceed() {
   ElNotification({
     title: '温馨提示',
@@ -148,7 +148,7 @@ function handleExceed() {
 /**
  * @description 图片预览
  * @param file 预览的文件
- * */
+ */
 const viewImageUrl = ref('')
 const imgViewVisible = ref(false)
 const handlePictureCardPreview: UploadProps['onPreview'] = (file) => {

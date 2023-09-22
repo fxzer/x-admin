@@ -2,7 +2,7 @@ import { ElMessage } from 'element-plus'
 
 /**
  * @description: 校验网络请求状态码
- * @param {Number} status
+ * @param {number} status
  * @return void
  */
 export function checkStatus(status: number) {
