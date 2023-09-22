@@ -50,7 +50,18 @@ function closeAllTab() {
 </script>
 
 <template>
-  <el-dropdown trigger="click" :teleported="false">
+  <el-dropdown
+    trigger="click" :popper-options="{
+      modifiers: [
+        {
+          name: 'offset',
+          options: {
+            offset: [0, 500],
+          },
+        },
+      ],
+    }" :teleported="false"
+  >
     <div class="more-button">
       <i class="iconfont icon-xiala" />
     </div>

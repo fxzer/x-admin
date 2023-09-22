@@ -3,10 +3,14 @@ import Sortable from 'sortablejs'
 import { useRoute, useRouter } from 'vue-router'
 import type { TabPaneName, TabsPaneContext } from 'element-plus'
 import MoreButton from './components/MoreButton.vue'
+import { HOME_URL } from '@/config'
 import { useGlobalStore } from '@/stores/modules/global'
 import { useTabsStore } from '@/stores/modules/tabs'
 import { useAuthStore } from '@/stores/modules/auth'
 import { useKeepAliveStore } from '@/stores/modules/keepAlive'
+import type { TabsMenuProps } from '@/stores/interface'
+
+// import { usejiTabMenu } from '@/hooks/useTabMenu'
 
 const route = useRoute()
 const router = useRouter()
@@ -86,6 +90,71 @@ function tabRemove(fullPath: TabPaneName) {
   keepAliveStore.removeKeepAliveName(name)
   tabStore.removeTabs(fullPath as string, fullPath === route.fullPath)
 }
+const menuPosition = reactive({
+  x: 0,
+  y: 0,
+})
+const triggerRef = ref()
+const dropdownRef = ref()
+const currentTab = ref()
+const menuVisible = ref(false)
+function handleContextMenu(e: MouseEvent, item: TabsMenuProps) {
+  e.preventDefault()
+  menuPosition.x = e.clientX
+  menuPosition.y = e.clientY
+  menuVisible.value = !menuVisible.value
+  // 如果当前右键和上一次右键 tab 不同，则不关闭上一次的 tab
+  const isSame = currentTab.value?.path === item.path
+  if (isSame) {
+    triggerRef.value?.click()
+  }
+  else {
+    if (menuVisible) {
+      // triggerRef.value?.click()
+      dropdownRef.value.handleClose()
+      setTimeout(() => {
+        triggerRef.value?.click()
+      }, 100)
+    }
+  }
+
+  currentTab.value = item
+}
+// 右键菜单功能
+// maximize current page
+function maximize() {
+  globalStore.setGlobalState('maximize', true)
+}
+
+// Close Current
+function closeCurrentTab() {
+  const { name, path } = currentTab.value
+  tabStore.removeTabs(path)
+  keepAliveStore.removeKeepAliveName(name)
+}
+
+// Close Other
+function closeOtherTab() {
+  const { path } = currentTab.value
+  router.push(path)
+  tabStore.closeMultipleTab(path)
+}
+
+// Close All
+function closeAllTab() {
+  tabStore.closeMultipleTab()
+  router.push(HOME_URL)
+}
+// 关闭两边
+function closeTabsOnSide(path: string, direction: 'left' | 'right') {
+  // 如果是关闭左边，激活的 tab 在当前 tab 的左边，关闭后激活当前 tab
+  const currentIndex = tabStore.tabsMenuList.findIndex(item => item.path === path)
+  const activeIndex = tabStore.tabsMenuList.findIndex(item => item.path === route.fullPath)
+  if ((direction === 'left' && activeIndex < currentIndex) || (direction === 'right' && activeIndex > currentIndex))
+    router.push(path)
+
+  tabStore.closeTabsOnSide(path, direction)
+}
 </script>
 
 <template>
@@ -94,14 +163,50 @@ function tabRemove(fullPath: TabPaneName) {
       <el-tabs v-model="tabsMenuValue" type="card" @tab-click="tabClick" @tab-remove="tabRemove">
         <el-tab-pane v-for="item in tabsMenuList" :key="item.path" :label="item.title" :name="item.path" :closable="item.close">
           <template #label>
-            <el-icon v-show="item.icon && tabsIcon" class="tabs-icon">
-              <component :is="item.icon" />
-            </el-icon>
-            {{ item.title }}
+            <span class="flex-center" @contextmenu="handleContextMenu($event, item)">
+              <el-icon v-show="item.icon && tabsIcon" class="tabs-icon">
+                <component :is="item.icon" />
+              </el-icon>
+              {{ item.title }}
+            </span>
           </template>
         </el-tab-pane>
       </el-tabs>
       <MoreButton />
+      <el-dropdown
+        ref="dropdownRef"
+        trigger="click"
+        :teleported="true"
+      >
+        <i
+          ref="triggerRef" class="invisible fixed z-100000" :style="{
+            left: `${menuPosition.x}px`,
+            top: `${menuPosition.y}px`,
+          }"
+        />
+        <template #dropdown>
+          <el-dropdown-menu>
+            <el-dropdown-item @click="maximize">
+              <el-icon><FullScreen /></el-icon>{{ $t("tabs.maximize") }}
+            </el-dropdown-item>
+            <el-dropdown-item divided @click="closeCurrentTab">
+              <el-icon><Remove /></el-icon>{{ $t("tabs.close") }}
+            </el-dropdown-item>
+            <el-dropdown-item @click="closeTabsOnSide(currentTab.path, 'left')">
+              <el-icon><DArrowLeft /></el-icon>{{ $t("tabs.closeLeft") }}
+            </el-dropdown-item>
+            <el-dropdown-item @click="closeTabsOnSide(currentTab.path, 'right')">
+              <el-icon><DArrowRight /></el-icon>{{ $t("tabs.closeRight") }}
+            </el-dropdown-item>
+            <el-dropdown-item divided @click="closeOtherTab">
+              <el-icon><CircleClose /></el-icon>{{ $t("tabs.closeOther") }}
+            </el-dropdown-item>
+            <el-dropdown-item @click="closeAllTab">
+              <el-icon><FolderDelete /></el-icon>{{ $t("tabs.closeAll") }}
+            </el-dropdown-item>
+          </el-dropdown-menu>
+        </template>
+      </el-dropdown>
     </div>
   </div>
 </template>
