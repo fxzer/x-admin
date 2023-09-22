@@ -12,31 +12,21 @@ export function isTestFn(mode: string): boolean {
   return mode === 'test'
 }
 
-/**
- * Whether to generate package preview
- */
-export function isReportMode(): boolean {
-  return process.env.VITE_REPORT === 'true'
-}
-
-// Read all environment variable configuration files to process.env
+// 处理 vite环境变量，将值转换为对应的类型
 export function wrapperEnv(envConf: Recordable): ViteEnv {
-  const ret: any = {}
+  const viteEnv: any = {}
 
-  for (const envName of Object.keys(envConf)) {
-    let realName = envConf[envName].replace(/\\n/g, '\n')
-    realName = realName === 'true' ? true : realName === 'false' ? false : realName
-    if (envName === 'VITE_PORT')
-      realName = Number(realName)
-    if (envName === 'VITE_PROXY') {
-      try {
-        realName = JSON.parse(realName)
-      }
-      catch (error) {}
-    }
-    ret[envName] = realName
+  for (const envKey of Object.keys(envConf)) {
+    let envValue = envConf[envKey].replace(/\\n/g, '\n')
+    envValue = envValue === 'true' ? true : envValue === 'false' ? false : envValue
+    if (envKey === 'VITE_PORT')
+      envValue = Number(envValue)
+    if (envKey === 'VITE_PROXY')
+      envValue = JSON.parse(envValue)
+
+    viteEnv[envKey] = envValue
   }
-  return ret
+  return viteEnv
 }
 
 /**

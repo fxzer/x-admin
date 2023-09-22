@@ -8,7 +8,7 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 import vueSetupExtend from 'unplugin-vue-setup-extend-plus/vite'
 import UnoCSS from 'unocss/vite'
 import Icons from 'unplugin-icons/vite'
-import { setupAtuoComponent, setupAtuoImport, setupCompression, setupVitePWA, setupWebUpdateNotification } from './plugins'
+import { setupAtuoComponent, setupAtuoImport, setupCompression, setupPrintBuildInfo, setupVitePWA, setupWebUpdateNotification } from './plugins'
 
 /**
  * 创建 vite 插件
@@ -25,6 +25,7 @@ export function setupVitePlugins(viteEnv: ViteEnv): (PluginOption | PluginOption
     // name 可以写在 script 标签上
     setupAtuoImport(),
     setupAtuoComponent(),
+    setupPrintBuildInfo(),
     setupWebUpdateNotification(),
     // 按需自动安装 iconify 图标
     Icons({
@@ -50,6 +51,6 @@ export function setupVitePlugins(viteEnv: ViteEnv): (PluginOption | PluginOption
     // vitePWA
     VITE_PWA && setupVitePWA(viteEnv),
     // 是否生成包预览，分析依赖包大小做优化处理
-    VITE_REPORT && (visualizer({ filename: 'stats.html', gzipSize: true, brotliSize: true }) as PluginOption),
+    VITE_REPORT && (visualizer({ gzipSize: true, brotliSize: true }) as PluginOption),
   ]
 }
