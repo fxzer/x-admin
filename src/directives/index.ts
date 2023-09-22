@@ -25,4 +25,6 @@ const directives = {
   },
 }
 
-export default directives
+export function setupDirectives(app: App) {
+  app.use(directives)
+}

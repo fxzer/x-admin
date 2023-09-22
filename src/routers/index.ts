@@ -1,3 +1,4 @@
+import type { App } from 'vue'
 import { createRouter, createWebHashHistory } from 'vue-router'
 import { useUserStore } from '@/stores/modules/user'
 import { useAuthStore } from '@/stores/modules/auth'
@@ -21,7 +22,7 @@ import NProgress from '@/config/nprogress'
  * @param meta.isFull ==> 菜单是否全屏 (示例：数据大屏页面)
  * @param meta.isAffix ==> 菜单是否固定在标签页中 (首页通常是固定项)
  * @param meta.isKeepAlive ==> 当前路由是否缓存
- * */
+ */
 const router = createRouter({
   history: createWebHashHistory(),
   routes: [...staticRouter, ...errorRouter],
@@ -31,7 +32,7 @@ const router = createRouter({
 
 /**
  * @description 路由拦截 beforeEach
- * */
+ */
 router.beforeEach(async (to, from, next) => {
   const userStore = useUserStore()
   const authStore = useAuthStore()
@@ -74,7 +75,7 @@ router.beforeEach(async (to, from, next) => {
 
 /**
  * @description 重置路由
- * */
+ */
 export function resetRouter() {
   const authStore = useAuthStore()
   authStore.flatMenuListGet.forEach((route) => {
@@ -86,7 +87,7 @@ export function resetRouter() {
 
 /**
  * @description 路由跳转错误
- * */
+ */
 router.onError((error) => {
   NProgress.done()
   console.warn('路由错误', error.message)
@@ -94,9 +95,14 @@ router.onError((error) => {
 
 /**
  * @description 路由跳转结束
- * */
+ */
 router.afterEach(() => {
   NProgress.done()
 })
+
+export async function setupRouter(app: App) {
+  app.use(router)
+  await router.isReady()
+}
 
 export default router

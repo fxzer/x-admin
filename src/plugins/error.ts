@@ -1,8 +1,9 @@
+import type { App } from 'vue'
 import { ElNotification } from 'element-plus'
 
 /**
  * @description 全局代码错误捕捉
- * */
+ */
 function errorHandler(error: any) {
   // 过滤 HTTP 请求错误
   if (error.status || error.status === 0)
@@ -25,4 +26,6 @@ function errorHandler(error: any) {
   })
 }
 
-export default errorHandler
+export function setupErrorHandler(app: App) {
+  app.config.errorHandler = errorHandler
+}

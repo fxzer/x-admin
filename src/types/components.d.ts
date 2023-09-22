@@ -10,6 +10,7 @@ declare module 'vue' {
     403: typeof import('./../components/ErrorMessage/403.vue')['default']
     404: typeof import('./../components/ErrorMessage/404.vue')['default']
     500: typeof import('./../components/ErrorMessage/500.vue')['default']
+    AppLoading: typeof import('./../components/common/AppLoading/index.vue')['default']
     ColSetting: typeof import('./../components/ProTable/components/ColSetting.vue')['default']
     Grid: typeof import('./../components/Grid/index.vue')['default']
     GridItem: typeof import('./../components/Grid/components/GridItem.vue')['default']

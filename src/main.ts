@@ -1,61 +1,42 @@
 import { createApp } from 'vue'
-import 'virtual:uno.css'
-
-// reset style sheet
-import '@unocss/reset/tailwind-compat.css'
-
-// CSS common style sheet
-import '@/styles/common.scss'
-
-// iconfont css
-import '@/assets/iconfont/iconfont.scss'
-
-// font css
-import '@/assets/fonts/font.scss'
-
-// element dark css
-import 'element-plus/theme-chalk/dark/css-vars.css'
-
-// custom element dark css
-import '@/styles/element-dark.scss'
-
-// custom element css
-import '@/styles/element.scss'
-
-// svg icons
-import 'virtual:svg-icons-register'
-
-// element plus
-
-// element icons
-import * as Icons from '@element-plus/icons-vue'
-
-// custom directives
-import ElementPlus from 'element-plus'
+import { setupAssets, setupErrorHandler } from './plugins'
+import { setupStore } from './stores'
+import { setupRouter } from './routers'
+import { setupDirectives } from './directives'
+import { setupGlobalImportEp } from './plugins/element-plus'
 import App from './App.vue'
-import directives from '@/directives/index'
+import { setupI18n } from './languages'
+import Loading from '@/components/Loading/index.vue'
 
-// vue Router
-import router from '@/routers'
+async function setupApp() {
+  // 引入静态资源
+  setupAssets()
+  // 加载动画
+  const appLoading = createApp(Loading)
+  appLoading.mount('#appLoading')
 
-// vue i18n
-import I18n from '@/languages/index'
+  // 初始化 App
+  const app = createApp(App)
 
-// pinia store
-import pinia from '@/stores'
+  // 初始化错误捕捉
+  setupErrorHandler(app)
+  // 初始化 Directives
+  setupDirectives(app)
 
-// errorHandler
-import errorHandler from '@/utils/errorHandler'
+  // 初始化 Store
+  setupStore(app)
 
-import 'element-plus/dist/index.css'
+  // 初始化 I18n
+  setupI18n(app)
 
-const app = createApp(App)
+  // 全局导入 ElementPlus
+  setupGlobalImportEp(app)
 
-app.config.errorHandler = errorHandler
+  // 初始化 Router
+  await setupRouter(app)
 
-// register the element Icons component
-Object.keys(Icons).forEach((key) => {
-  app.component(key, Icons[key as keyof typeof Icons])
-})
-
-app.use(ElementPlus).use(directives).use(router).use(I18n).use(pinia).mount('#app')
+  // 卸载加载动画
+  appLoading.unmount()
+  app.mount('#app')
+}
+setupApp()
