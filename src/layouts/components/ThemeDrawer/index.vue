@@ -55,7 +55,7 @@ mittBus.on('openThemeDrawer', () => (drawerVisible.value = true))
   <el-drawer v-model="drawerVisible" title="布局设置" size="290px">
     <!-- 布局样式 -->
     <el-divider class="divider" content-position="center">
-      <el-icon><Notification /></el-icon>
+      <el-icon><IEpNotification /></el-icon>
       布局样式
     </el-divider>
     <div class="layout-box">
@@ -67,7 +67,7 @@ mittBus.on('openThemeDrawer', () => (drawerVisible.value = true))
             <div class="layout-content" />
           </div>
           <el-icon v-if="layout === 'vertical'">
-            <CircleCheckFilled />
+            <IEpCircleCheckFilled />
           </el-icon>
         </div>
       </el-tooltip>
@@ -79,7 +79,7 @@ mittBus.on('openThemeDrawer', () => (drawerVisible.value = true))
             <div class="layout-content" />
           </div>
           <el-icon v-if="layout === 'classic'">
-            <CircleCheckFilled />
+            <IEpCircleCheckFilled />
           </el-icon>
         </div>
       </el-tooltip>
@@ -88,7 +88,7 @@ mittBus.on('openThemeDrawer', () => (drawerVisible.value = true))
           <div class="layout-dark" />
           <div class="layout-content" />
           <el-icon v-if="layout === 'transverse'">
-            <CircleCheckFilled />
+            <IEpCircleCheckFilled />
           </el-icon>
         </div>
       </el-tooltip>
@@ -98,7 +98,7 @@ mittBus.on('openThemeDrawer', () => (drawerVisible.value = true))
           <div class="layout-light" />
           <div class="layout-content" />
           <el-icon v-if="layout === 'columns'">
-            <CircleCheckFilled />
+            <IEpCircleCheckFilled />
           </el-icon>
         </div>
       </el-tooltip>
@@ -107,7 +107,7 @@ mittBus.on('openThemeDrawer', () => (drawerVisible.value = true))
       <span>
         侧边栏反转色
         <el-tooltip effect="dark" content="侧边栏颜色变为深色模式" placement="top">
-          <el-icon><QuestionFilled /></el-icon>
+          <el-icon><IEpQuestionFilled /></el-icon>
         </el-tooltip>
       </span>
       <el-switch v-model="asideInverted" @change="setAsideTheme" />
@@ -116,7 +116,7 @@ mittBus.on('openThemeDrawer', () => (drawerVisible.value = true))
       <span>
         头部反转色
         <el-tooltip effect="dark" content="头部颜色变为深色模式" placement="top">
-          <el-icon><QuestionFilled /></el-icon>
+          <el-icon><IEpQuestionFilled /></el-icon>
         </el-tooltip>
       </span>
       <el-switch v-model="headerInverted" @change="setHeaderTheme" />
@@ -124,7 +124,7 @@ mittBus.on('openThemeDrawer', () => (drawerVisible.value = true))
 
     <!-- 全局主题 -->
     <el-divider class="divider" content-position="center">
-      <el-icon><ColdDrink /></el-icon>
+      <el-icon><IEpColdDrink /></el-icon>
       全局主题
     </el-divider>
     <div class="theme-item">
@@ -146,7 +146,7 @@ mittBus.on('openThemeDrawer', () => (drawerVisible.value = true))
 
     <!-- 界面设置 -->
     <el-divider class="divider" content-position="center">
-      <el-icon><Setting /></el-icon>
+      <el-icon><IEpSetting /></el-icon>
       界面设置
     </el-divider>
     <div class="theme-item">

@@ -8,7 +8,10 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 import vueSetupExtend from 'unplugin-vue-setup-extend-plus/vite'
 import UnoCSS from 'unocss/vite'
 import Icons from 'unplugin-icons/vite'
+import Inspect from 'vite-plugin-inspect'
 import { setupAtuoComponent, setupAtuoImport, setupCompression, setupPrintBuildInfo, setupVitePWA, setupWebUpdateNotification } from './plugins'
+
+// vite.config.ts
 
 /**
  * 创建 vite 插件
@@ -21,10 +24,11 @@ export function setupVitePlugins(viteEnv: ViteEnv): (PluginOption | PluginOption
     // vue 可以使用 jsx/tsx 语法
     vueJsx(),
     UnoCSS(),
+    Inspect(), // Vite调试插件
     // esLint 报错信息显示在浏览器界面上
     // name 可以写在 script 标签上
-    setupAtuoImport(),
-    setupAtuoComponent(),
+    setupAtuoImport(viteEnv),
+    setupAtuoComponent(viteEnv),
     setupPrintBuildInfo(),
     setupWebUpdateNotification(),
     // 按需自动安装 iconify 图标

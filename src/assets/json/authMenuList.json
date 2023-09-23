@@ -6,7 +6,7 @@
       "name": "home",
       "component": "/home/index",
       "meta": {
-        "icon": "HomeFilled",
+        "icon": "IEpHomeFilled",
         "title": "首页",
         "isLink": "",
         "isHide": false,
@@ -20,7 +20,7 @@
       "name": "dataScreen",
       "component": "/dataScreen/index",
       "meta": {
-        "icon": "Histogram",
+        "icon": "IEpHistogram",
         "title": "数据大屏",
         "isLink": "",
         "isHide": false,
@@ -34,7 +34,7 @@
       "name": "proTable",
       "redirect": "/proTable/useProTable",
       "meta": {
-        "icon": "MessageBox",
+        "icon": "IEpMessageBox",
         "title": "超级表格",
         "isLink": "",
         "isHide": false,
@@ -48,7 +48,7 @@
           "name": "useProTable",
           "component": "/proTable/useProTable/index",
           "meta": {
-            "icon": "Menu",
+            "icon": "IEpMenu",
             "title": "使用 ProTable",
             "isLink": "",
             "isHide": false,
@@ -62,7 +62,7 @@
               "name": "useProTableDetail",
               "component": "/proTable/useProTable/detail",
               "meta": {
-                "icon": "Menu",
+                "icon": "IEpMenu",
                 "title": "ProTable 详情",
                 "activeMenu": "/proTable/useProTable",
                 "isLink": "",
@@ -79,7 +79,7 @@
           "name": "useTreeFilter",
           "component": "/proTable/useTreeFilter/index",
           "meta": {
-            "icon": "Menu",
+            "icon": "IEpMenu",
             "title": "使用 TreeFilter",
             "isLink": "",
             "isHide": false,
@@ -93,7 +93,7 @@
           "name": "useTreeFilterDetail",
           "component": "/proTable/useTreeFilter/detail",
           "meta": {
-            "icon": "Menu",
+            "icon": "IEpMenu",
             "title": "TreeFilter 详情",
             "activeMenu": "/proTable/useTreeFilter",
             "isLink": "",
@@ -108,7 +108,7 @@
           "name": "useSelectFilter",
           "component": "/proTable/useSelectFilter/index",
           "meta": {
-            "icon": "Menu",
+            "icon": "IEpMenu",
             "title": "使用 SelectFilter",
             "isLink": "",
             "isHide": false,
@@ -122,7 +122,7 @@
           "name": "treeProTable",
           "component": "/proTable/treeProTable/index",
           "meta": {
-            "icon": "Menu",
+            "icon": "IEpMenu",
             "title": "树形 ProTable",
             "isLink": "",
             "isHide": false,
@@ -136,7 +136,7 @@
           "name": "complexProTable",
           "component": "/proTable/complexProTable/index",
           "meta": {
-            "icon": "Menu",
+            "icon": "IEpMenu",
             "title": "复杂 ProTable",
             "isLink": "",
             "isHide": false,
@@ -150,7 +150,7 @@
           "name": "proTableDocument",
           "component": "/proTable/document/index",
           "meta": {
-            "icon": "Menu",
+            "icon": "IEpMenu",
             "title": "ProTable 文档",
             "isLink": "https://juejin.cn/post/7166068828202336263/#heading-14",
             "isHide": false,
@@ -166,7 +166,7 @@
       "name": "auth",
       "redirect": "/auth/menu",
       "meta": {
-        "icon": "Lock",
+        "icon": "IEpLock",
         "title": "权限管理",
         "isLink": "",
         "isHide": false,
@@ -180,7 +180,7 @@
           "name": "authMenu",
           "component": "/auth/menu/index",
           "meta": {
-            "icon": "Menu",
+            "icon": "IEpMenu",
             "title": "菜单权限",
             "isLink": "",
             "isHide": false,
@@ -194,7 +194,7 @@
           "name": "authButton",
           "component": "/auth/button/index",
           "meta": {
-            "icon": "Menu",
+            "icon": "IEpMenu",
             "title": "按钮权限",
             "isLink": "",
             "isHide": false,
@@ -210,7 +210,7 @@
       "name": "assembly",
       "redirect": "/assembly/guide",
       "meta": {
-        "icon": "Briefcase",
+        "icon": "IEpBriefcase",
         "title": "常用组件",
         "isLink": "",
         "isHide": false,
@@ -224,7 +224,7 @@
           "name": "guide",
           "component": "/assembly/guide/index",
           "meta": {
-            "icon": "Menu",
+            "icon": "IEpMenu",
             "title": "引导页",
             "isLink": "",
             "isHide": false,
@@ -238,7 +238,7 @@
           "name": "tabs",
           "component": "/assembly/tabs/index",
           "meta": {
-            "icon": "Menu",
+            "icon": "IEpMenu",
             "title": "标签页操作",
             "isLink": "",
             "isHide": false,
@@ -252,7 +252,7 @@
               "name": "tabsDetail",
               "component": "/assembly/tabs/detail",
               "meta": {
-                "icon": "Menu",
+                "icon": "IEpMenu",
                 "title": "Tab 详情",
                 "activeMenu": "/assembly/tabs",
                 "isLink": "",
@@ -269,7 +269,7 @@
           "name": "selectIcon",
           "component": "/assembly/selectIcon/index",
           "meta": {
-            "icon": "Menu",
+            "icon": "IEpMenu",
             "title": "图标选择器",
             "isLink": "",
             "isHide": false,
@@ -283,7 +283,7 @@
           "name": "selectFilter",
           "component": "/assembly/selectFilter/index",
           "meta": {
-            "icon": "Menu",
+            "icon": "IEpMenu",
             "title": "分类筛选器",
             "isLink": "",
             "isHide": false,
@@ -297,7 +297,7 @@
           "name": "treeFilter",
           "component": "/assembly/treeFilter/index",
           "meta": {
-            "icon": "Menu",
+            "icon": "IEpMenu",
             "title": "树形筛选器",
             "isLink": "",
             "isHide": false,
@@ -311,7 +311,7 @@
           "name": "svgIcon",
           "component": "/assembly/svgIcon/index",
           "meta": {
-            "icon": "Menu",
+            "icon": "IEpMenu",
             "title": "SVG 图标",
             "isLink": "",
             "isHide": false,
@@ -325,7 +325,7 @@
           "name": "uploadFile",
           "component": "/assembly/uploadFile/index",
           "meta": {
-            "icon": "Menu",
+            "icon": "IEpMenu",
             "title": "文件上传",
             "isLink": "",
             "isHide": false,
@@ -339,7 +339,7 @@
           "name": "batchImport",
           "component": "/assembly/batchImport/index",
           "meta": {
-            "icon": "Menu",
+            "icon": "IEpMenu",
             "title": "批量添加数据",
             "isLink": "",
             "isHide": false,
@@ -353,7 +353,7 @@
           "name": "wangEditor",
           "component": "/assembly/wangEditor/index",
           "meta": {
-            "icon": "Menu",
+            "icon": "IEpMenu",
             "title": "富文本编辑器",
             "isLink": "",
             "isHide": false,
@@ -367,7 +367,7 @@
           "name": "draggable",
           "component": "/assembly/draggable/index",
           "meta": {
-            "icon": "Menu",
+            "icon": "IEpMenu",
             "title": "拖拽组件",
             "isLink": "",
             "isHide": false,
@@ -383,7 +383,7 @@
       "name": "dashboard",
       "redirect": "/dashboard/dataVisualize",
       "meta": {
-        "icon": "Odometer",
+        "icon": "IEpOdometer",
         "title": "Dashboard",
         "isLink": "",
         "isHide": false,
@@ -397,7 +397,7 @@
           "name": "dataVisualize",
           "component": "/dashboard/dataVisualize/index",
           "meta": {
-            "icon": "Menu",
+            "icon": "IEpMenu",
             "title": "数据可视化",
             "isLink": "",
             "isHide": false,
@@ -411,7 +411,7 @@
           "name": "embedded",
           "component": "/dashboard/embedded/index",
           "meta": {
-            "icon": "Menu",
+            "icon": "IEpMenu",
             "title": "内嵌页面",
             "isLink": "",
             "isHide": false,
@@ -427,7 +427,7 @@
       "name": "form",
       "redirect": "/form/proForm",
       "meta": {
-        "icon": "Tickets",
+        "icon": "IEpTickets",
         "title": "表单 Form",
         "isLink": "",
         "isHide": false,
@@ -441,7 +441,7 @@
           "name": "proForm",
           "component": "/form/proForm/index",
           "meta": {
-            "icon": "Menu",
+            "icon": "IEpMenu",
             "title": "超级 Form",
             "isLink": "",
             "isHide": false,
@@ -455,7 +455,7 @@
           "name": "basicForm",
           "component": "/form/basicForm/index",
           "meta": {
-            "icon": "Menu",
+            "icon": "IEpMenu",
             "title": "基础 Form",
             "isLink": "",
             "isHide": false,
@@ -469,7 +469,7 @@
           "name": "validateForm",
           "component": "/form/validateForm/index",
           "meta": {
-            "icon": "Menu",
+            "icon": "IEpMenu",
             "title": "校验 Form",
             "isLink": "",
             "isHide": false,
@@ -483,7 +483,7 @@
           "name": "dynamicForm",
           "component": "/form/dynamicForm/index",
           "meta": {
-            "icon": "Menu",
+            "icon": "IEpMenu",
             "title": "动态 Form",
             "isLink": "",
             "isHide": false,
@@ -499,7 +499,7 @@
       "name": "echarts",
       "redirect": "/echarts/waterChart",
       "meta": {
-        "icon": "TrendCharts",
+        "icon": "IEpTrendCharts",
         "title": "Echarts",
         "isLink": "",
         "isHide": false,
@@ -513,7 +513,7 @@
           "name": "waterChart",
           "component": "/echarts/waterChart/index",
           "meta": {
-            "icon": "Menu",
+            "icon": "IEpMenu",
             "title": "水型图",
             "isLink": "",
             "isHide": false,
@@ -527,7 +527,7 @@
           "name": "columnChart",
           "component": "/echarts/columnChart/index",
           "meta": {
-            "icon": "Menu",
+            "icon": "IEpMenu",
             "title": "柱状图",
             "isLink": "",
             "isHide": false,
@@ -541,7 +541,7 @@
           "name": "lineChart",
           "component": "/echarts/lineChart/index",
           "meta": {
-            "icon": "Menu",
+            "icon": "IEpMenu",
             "title": "折线图",
             "isLink": "",
             "isHide": false,
@@ -555,7 +555,7 @@
           "name": "pieChart",
           "component": "/echarts/pieChart/index",
           "meta": {
-            "icon": "Menu",
+            "icon": "IEpMenu",
             "title": "饼图",
             "isLink": "",
             "isHide": false,
@@ -569,7 +569,7 @@
           "name": "radarChart",
           "component": "/echarts/radarChart/index",
           "meta": {
-            "icon": "Menu",
+            "icon": "IEpMenu",
             "title": "雷达图",
             "isLink": "",
             "isHide": false,
@@ -583,7 +583,7 @@
           "name": "nestedChart",
           "component": "/echarts/nestedChart/index",
           "meta": {
-            "icon": "Menu",
+            "icon": "IEpMenu",
             "title": "嵌套环形图",
             "isLink": "",
             "isHide": false,
@@ -599,7 +599,7 @@
       "name": "directives",
       "redirect": "/directives/copyDirect",
       "meta": {
-        "icon": "Stamp",
+        "icon": "IEpStamp",
         "title": "自定义指令",
         "isLink": "",
         "isHide": false,
@@ -613,7 +613,7 @@
           "name": "copyDirect",
           "component": "/directives/copyDirect/index",
           "meta": {
-            "icon": "Menu",
+            "icon": "IEpMenu",
             "title": "复制指令",
             "isLink": "",
             "isHide": false,
@@ -627,7 +627,7 @@
           "name": "watermarkDirect",
           "component": "/directives/watermarkDirect/index",
           "meta": {
-            "icon": "Menu",
+            "icon": "IEpMenu",
             "title": "水印指令",
             "isLink": "",
             "isHide": false,
@@ -641,7 +641,7 @@
           "name": "dragDirect",
           "component": "/directives/dragDirect/index",
           "meta": {
-            "icon": "Menu",
+            "icon": "IEpMenu",
             "title": "拖拽指令",
             "isLink": "",
             "isHide": false,
@@ -655,7 +655,7 @@
           "name": "debounceDirect",
           "component": "/directives/debounceDirect/index",
           "meta": {
-            "icon": "Menu",
+            "icon": "IEpMenu",
             "title": "防抖指令",
             "isLink": "",
             "isHide": false,
@@ -669,7 +669,7 @@
           "name": "throttleDirect",
           "component": "/directives/throttleDirect/index",
           "meta": {
-            "icon": "Menu",
+            "icon": "IEpMenu",
             "title": "节流指令",
             "isLink": "",
             "isHide": false,
@@ -683,7 +683,7 @@
           "name": "longpressDirect",
           "component": "/directives/longpressDirect/index",
           "meta": {
-            "icon": "Menu",
+            "icon": "IEpMenu",
             "title": "长按指令",
             "isLink": "",
             "isHide": false,
@@ -699,7 +699,7 @@
       "name": "menu",
       "redirect": "/menu/menu1",
       "meta": {
-        "icon": "List",
+        "icon": "IEpList",
         "title": "菜单嵌套",
         "isLink": "",
         "isHide": false,
@@ -713,7 +713,7 @@
           "name": "menu1",
           "component": "/menu/menu1/index",
           "meta": {
-            "icon": "Menu",
+            "icon": "IEpMenu",
             "title": "菜单1",
             "isLink": "",
             "isHide": false,
@@ -727,7 +727,7 @@
           "name": "menu2",
           "redirect": "/menu/menu2/menu21",
           "meta": {
-            "icon": "Menu",
+            "icon": "IEpMenu",
             "title": "菜单2",
             "isLink": "",
             "isHide": false,
@@ -741,7 +741,7 @@
               "name": "menu21",
               "component": "/menu/menu2/menu21/index",
               "meta": {
-                "icon": "Menu",
+                "icon": "IEpMenu",
                 "title": "菜单2-1",
                 "isLink": "",
                 "isHide": false,
@@ -755,7 +755,7 @@
               "name": "menu22",
               "redirect": "/menu/menu2/menu22/menu221",
               "meta": {
-                "icon": "Menu",
+                "icon": "IEpMenu",
                 "title": "菜单2-2",
                 "isLink": "",
                 "isHide": false,
@@ -769,7 +769,7 @@
                   "name": "menu221",
                   "component": "/menu/menu2/menu22/menu221/index",
                   "meta": {
-                    "icon": "Menu",
+                    "icon": "IEpMenu",
                     "title": "菜单2-2-1",
                     "isLink": "",
                     "isHide": false,
@@ -783,7 +783,7 @@
                   "name": "menu222",
                   "component": "/menu/menu2/menu22/menu222/index",
                   "meta": {
-                    "icon": "Menu",
+                    "icon": "IEpMenu",
                     "title": "菜单2-2-2",
                     "isLink": "",
                     "isHide": false,
@@ -799,7 +799,7 @@
               "name": "menu23",
               "component": "/menu/menu2/menu23/index",
               "meta": {
-                "icon": "Menu",
+                "icon": "IEpMenu",
                 "title": "菜单2-3",
                 "isLink": "",
                 "isHide": false,
@@ -815,7 +815,7 @@
           "name": "menu3",
           "component": "/menu/menu3/index",
           "meta": {
-            "icon": "Menu",
+            "icon": "IEpMenu",
             "title": "菜单3",
             "isLink": "",
             "isHide": false,
@@ -831,7 +831,7 @@
       "name": "system",
       "redirect": "/system/accountManage",
       "meta": {
-        "icon": "Tools",
+        "icon": "IEpTools",
         "title": "系统管理",
         "isLink": "",
         "isHide": false,
@@ -845,7 +845,7 @@
           "name": "accountManage",
           "component": "/system/accountManage/index",
           "meta": {
-            "icon": "Menu",
+            "icon": "IEpMenu",
             "title": "账号管理",
             "isLink": "",
             "isHide": false,
@@ -859,7 +859,7 @@
           "name": "roleManage",
           "component": "/system/roleManage/index",
           "meta": {
-            "icon": "Menu",
+            "icon": "IEpMenu",
             "title": "角色管理",
             "isLink": "",
             "isHide": false,
@@ -873,7 +873,7 @@
           "name": "menuMange",
           "component": "/system/menuMange/index",
           "meta": {
-            "icon": "Menu",
+            "icon": "IEpMenu",
             "title": "菜单管理",
             "isLink": "",
             "isHide": false,
@@ -887,7 +887,7 @@
           "name": "departmentManage",
           "component": "/system/departmentManage/index",
           "meta": {
-            "icon": "Menu",
+            "icon": "IEpMenu",
             "title": "部门管理",
             "isLink": "",
             "isHide": false,
@@ -901,7 +901,7 @@
           "name": "dictManage",
           "component": "/system/dictManage/index",
           "meta": {
-            "icon": "Menu",
+            "icon": "IEpMenu",
             "title": "字典管理",
             "isLink": "",
             "isHide": false,
@@ -915,7 +915,7 @@
           "name": "timingTask",
           "component": "/system/timingTask/index",
           "meta": {
-            "icon": "Menu",
+            "icon": "IEpMenu",
             "title": "定时任务",
             "isLink": "",
             "isHide": false,
@@ -929,7 +929,7 @@
           "name": "systemLog",
           "component": "/system/systemLog/index",
           "meta": {
-            "icon": "Menu",
+            "icon": "IEpMenu",
             "title": "系统日志",
             "isLink": "",
             "isHide": false,
@@ -945,7 +945,7 @@
       "name": "link",
       "redirect": "/link/gitee",
       "meta": {
-        "icon": "Paperclip",
+        "icon": "IEpPaperclip",
         "title": "外部链接",
         "isLink": "",
         "isHide": false,
@@ -959,7 +959,7 @@
           "name": "gitee",
           "component": "/link/gitee/index",
           "meta": {
-            "icon": "Menu",
+            "icon": "IEpMenu",
             "title": "Gitee 仓库",
             "isLink": "https://gitee.com/fxzer/modern-adminx.git",
             "isHide": false,
@@ -973,7 +973,7 @@
           "name": "github",
           "component": "/link/github/index",
           "meta": {
-            "icon": "Menu",
+            "icon": "IEpMenu",
             "title": "GitHub 仓库",
             "isLink": "https://github.com/fxzer/modern-adminx.git",
             "isHide": false,
@@ -987,7 +987,7 @@
           "name": "geekerDocs",
           "component": "/link/geekerDocs/index",
           "meta": {
-            "icon": "Menu",
+            "icon": "IEpMenu",
             "title": "项目文档",
             "isLink": "https://docs.spicyboy.cn",
             "isHide": false,
@@ -1001,7 +1001,7 @@
           "name": "juejin",
           "component": "/link/juejin/index",
           "meta": {
-            "icon": "Menu",
+            "icon": "IEpMenu",
             "title": "掘金主页",
             "isLink": "https://juejin.cn/user/3263814531551816/posts",
             "isHide": false,
@@ -1017,7 +1017,7 @@
       "name": "about",
       "component": "/about/index",
       "meta": {
-        "icon": "InfoFilled",
+        "icon": "IEpInfoFilled",
         "title": "关于项目",
         "isLink": "",
         "isHide": false,

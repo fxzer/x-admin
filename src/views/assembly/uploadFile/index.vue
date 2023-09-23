@@ -50,7 +50,7 @@ function submit() {
       <div class="upload-list">
         <UploadImgs v-model:file-list="fileList" :drag="false" border-radius="50%">
           <template #empty>
-            <el-icon><Picture /></el-icon>
+            <el-icon><IEpPicture /></el-icon>
             <span>请上传照片</span>
           </template>
           <template #tip>
@@ -59,7 +59,7 @@ function submit() {
         </UploadImgs>
         <UploadImgs v-model:file-list="fileList1" width="250px">
           <template #empty>
-            <el-icon><Picture /></el-icon>
+            <el-icon><IEpPicture /></el-icon>
             <span>请上传照片</span>
           </template>
           <template #tip>
@@ -87,7 +87,7 @@ function submit() {
         </UploadImg>
         <UploadImg v-model:image-url="avatar2" :drag="false" border-radius="50%">
           <template #empty>
-            <el-icon><Avatar /></el-icon>
+            <el-icon><IEpAvatar /></el-icon>
             <span>请上传头像</span>
           </template>
           <template #tip>
@@ -96,7 +96,7 @@ function submit() {
         </UploadImg>
         <UploadImg v-model:image-url="avatar3" width="250px">
           <template #empty>
-            <el-icon><Picture /></el-icon>
+            <el-icon><IEpPicture /></el-icon>
             <span>请上传 Banner 图</span>
           </template>
           <template #tip>
@@ -159,7 +159,7 @@ function submit() {
           <el-form-item label="用户头像" prop="avatar">
             <UploadImg v-model:image-url="fromModel.avatar" width="135px" height="135px" :file-size="3">
               <template #empty>
-                <el-icon><Avatar /></el-icon>
+                <el-icon><IEpAvatar /></el-icon>
                 <span>请上传头像</span>
               </template>
               <template #tip>
@@ -170,7 +170,7 @@ function submit() {
           <el-form-item label="用户照片" prop="photo">
             <UploadImgs v-model:file-list="fromModel.photo" :limit="3" height="140px" width="140px" border-radius="50%">
               <template #empty>
-                <el-icon><Picture /></el-icon>
+                <el-icon><IEpPicture /></el-icon>
                 <span>请上传照片</span>
               </template>
               <template #tip>
@@ -207,7 +207,7 @@ function submit() {
           <el-form-item label="用户头像" prop="avatar">
             <UploadImg v-model:image-url="fromModel1.avatar" width="135px" height="135px" :file-size="3">
               <template #empty>
-                <el-icon><Avatar /></el-icon>
+                <el-icon><IEpAvatar /></el-icon>
                 <span>请上传头像</span>
               </template>
               <template #tip>
@@ -218,7 +218,7 @@ function submit() {
           <el-form-item label="用户照片" prop="photo">
             <UploadImgs v-model:file-list="fromModel1.photo" height="140px" width="140px" border-radius="50%">
               <template #empty>
-                <el-icon><Picture /></el-icon>
+                <el-icon><IEpPicture /></el-icon>
                 <span>请上传照片</span>
               </template>
               <template #tip>

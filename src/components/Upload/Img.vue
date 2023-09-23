@@ -150,15 +150,15 @@ function uploadError() {
         <img :src="imageUrl" class="upload-image">
         <div class="upload-handle" @click.stop>
           <div v-if="!self_disabled" class="handle-icon" @click="editImg">
-            <el-icon><Edit /></el-icon>
+            <el-icon><IEpEdit /></el-icon>
             <span>编辑</span>
           </div>
           <div class="handle-icon" @click="imgViewVisible = true">
-            <el-icon><ZoomIn /></el-icon>
+            <el-icon><IEpZoomIn /></el-icon>
             <span>查看</span>
           </div>
           <div v-if="!self_disabled" class="handle-icon" @click="deleteImg">
-            <el-icon><Delete /></el-icon>
+            <el-icon><IEpDelete /></el-icon>
             <span>删除</span>
           </div>
         </div>
@@ -166,7 +166,7 @@ function uploadError() {
       <template v-else>
         <div class="upload-empty">
           <slot name="empty">
-            <el-icon><Plus /></el-icon>
+            <el-icon><IEpPlus /></el-icon>
             <!-- <span>请上传图片</span> -->
           </slot>
         </div>

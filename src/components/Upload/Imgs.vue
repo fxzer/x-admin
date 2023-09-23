@@ -177,7 +177,7 @@ const handlePictureCardPreview: UploadProps['onPreview'] = (file) => {
     >
       <div class="upload-empty">
         <slot name="empty">
-          <el-icon><Plus /></el-icon>
+          <el-icon><IEpPlus /></el-icon>
           <!-- <span>请上传图片</span> -->
         </slot>
       </div>
@@ -185,11 +185,11 @@ const handlePictureCardPreview: UploadProps['onPreview'] = (file) => {
         <img :src="file.url" class="upload-image">
         <div class="upload-handle" @click.stop>
           <div class="handle-icon" @click="handlePictureCardPreview(file)">
-            <el-icon><ZoomIn /></el-icon>
+            <el-icon><IEpZoomIn /></el-icon>
             <span>查看</span>
           </div>
           <div v-if="!self_disabled" class="handle-icon" @click="handleRemove(file)">
-            <el-icon><Delete /></el-icon>
+            <el-icon><IEpDelete /></el-icon>
             <span>删除</span>
           </div>
         </div>

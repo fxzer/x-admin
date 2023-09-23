@@ -15,7 +15,7 @@ function handleClickMenu(subItem: Menu.MenuOptions) {
   <template v-for="subItem in menuList" :key="subItem.path">
     <el-sub-menu v-if="subItem.children?.length" :index="subItem.path">
       <template #title>
-        <el-icon>
+        <el-icon color="red">
           <component :is="subItem.meta.icon" />
         </el-icon>
         <span class="sle">{{ subItem.meta.title }}</span>

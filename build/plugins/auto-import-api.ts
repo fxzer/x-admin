@@ -1,10 +1,9 @@
 // 自动导入 API
 import AutoImport from 'unplugin-auto-import/vite'
+import { setupAtuoEpApi } from './auto-element-plus'
 
-// ElementPlus 解析器
-import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
-
-export function setupAtuoImport() {
+export function setupAtuoImport(viteEnv: ViteEnv) {
+  const { VITE_AUTO_EP } = viteEnv
   // 自动导入 相关库的 API
   return AutoImport({
     // 指定要进行自动导入的文件类型
@@ -21,7 +20,7 @@ export function setupAtuoImport() {
       // '@vueuse/core',
     ],
     resolvers: [
-      ElementPlusResolver({ importStyle: 'sass' }),
+      ...(VITE_AUTO_EP ? setupAtuoEpApi() : []),
     ],
     // dirs: ['src/hooks'],
     // 指定生成路径 注：需是相对路径
