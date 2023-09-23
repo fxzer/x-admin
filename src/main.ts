@@ -5,7 +5,7 @@ import { setupRouter } from './routers'
 import { setupDirectives } from './directives'
 import { setupGlobalImportEp } from './plugins/element-plus'
 import App from './App.vue'
-import { setupI18n } from './languages'
+import { setupI18n } from './locales'
 import Loading from '@/components/Loading/index.vue'
 
 async function setupApp() {

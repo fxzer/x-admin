@@ -133,7 +133,7 @@ export function getTimeState() {
 
 /**
  * @description 获取浏览器默认语言
- * @returns {string}
+ * @returns {string} 返回浏览器默认语言
  */
 export function getBrowserLang() {
   const browserLang = navigator.language ? navigator.language : navigator.browserLanguage

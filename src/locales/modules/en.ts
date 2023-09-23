@@ -4,6 +4,7 @@ export default {
   },
   tabs: {
     refresh: 'Refresh',
+    close: 'Close',
     maximize: 'Maximize',
     closeCurrent: 'Close current',
     closeLeft: 'Close Left',

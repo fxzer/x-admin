@@ -9,5 +9,4 @@ export function setupGlobalImportEp(app: App) {
   Object.keys(Icons).forEach((key) => {
     app.component(key, Icons[key as keyof typeof Icons])
   })
-  app.use(ElementPlus)
 }

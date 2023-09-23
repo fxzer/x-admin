@@ -6,7 +6,6 @@ import en from './modules/en'
 import { getBrowserLang } from '@/utils'
 
 const i18n = createI18n({
-  // Use Composition API, Set to false
   allowComposition: true,
   legacy: false,
   locale: getBrowserLang(),
