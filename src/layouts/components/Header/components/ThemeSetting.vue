@@ -8,6 +8,6 @@ function openDrawer() {
 
 <template>
   <div class="theme-setting">
-    <i-ep-setting class="wh-6" @click="openDrawer" />
+    <i-ep-setting @click="openDrawer" />
   </div>
 </template>

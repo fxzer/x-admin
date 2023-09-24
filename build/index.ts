@@ -33,9 +33,9 @@ export function setupVitePlugins(viteEnv: ViteEnv): (PluginOption | PluginOption
     setupWebUpdateNotification(),
     // 按需自动安装 iconify 图标
     Icons({
-      scale: 0.8, // icon 大小缩放比例
+      // scale: 0.8, // icon 大小缩放比例
       autoInstall: true, // 自动安装图标集
-      defaultClass: 'cursor-pointer', // 默认样式
+      defaultClass: 'cursor-pointer wh-5', // 默认样式
     }),
     vueSetupExtend({}),
     // 创建打包压缩配置

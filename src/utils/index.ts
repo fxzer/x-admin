@@ -4,7 +4,6 @@ import type { FieldNamesProps } from '@/components/ProTable/interface'
 /**
  * @description 获取localStorage
  * @param {string} key Storage名称
- * @returns {string}
  */
 export function localGet(key: string) {
   const value = window.localStorage.getItem(key)
@@ -46,7 +45,6 @@ export function localClear() {
 /**
  * @description 判断数据类型
  * @param {*} val 需要判断类型的数据
- * @returns {string}
  */
 export function isType(val: any) {
   if (val === null)
@@ -58,7 +56,6 @@ export function isType(val: any) {
 
 /**
  * @description 生成唯一 uuid
- * @returns {string}
  */
 export function generateUUID() {
   let uuid = ''
@@ -105,7 +102,6 @@ export function isObjectValueEqual(a: { [key: string]: any }, b: { [key: string]
  * @description 生成随机数
  * @param {number} min 最小值
  * @param {number} max 最大值
- * @returns {number}
  */
 export function randomNum(min: number, max: number): number {
   const num = Math.floor(Math.random() * (min - max) + max)
@@ -114,7 +110,6 @@ export function randomNum(min: number, max: number): number {
 
 /**
  * @description 获取当前时间对应的提示语
- * @returns {string}
  */
 export function getTimeState() {
   const timeNow = new Date()
@@ -149,7 +144,6 @@ export function getBrowserLang() {
 /**
  * @description 使用递归扁平化菜单，方便添加动态路由
  * @param {Array} menuList 菜单列表
- * @returns {Array}
  */
 export function getFlatMenuList(menuList: Menu.MenuOptions[]): Menu.MenuOptions[] {
   const newMenuList: Menu.MenuOptions[] = JSON.parse(JSON.stringify(menuList))
@@ -159,7 +153,6 @@ export function getFlatMenuList(menuList: Menu.MenuOptions[]): Menu.MenuOptions[
 /**
  * @description 使用递归过滤出需要渲染在左侧菜单的列表 (需剔除 isHide === true 的菜单)
  * @param {Array} menuList 菜单列表
- * @returns {Array}
  */
 export function getShowMenuList(menuList: Menu.MenuOptions[]) {
   const newMenuList: Menu.MenuOptions[] = JSON.parse(JSON.stringify(menuList))
@@ -174,7 +167,6 @@ export function getShowMenuList(menuList: Menu.MenuOptions[]) {
  * @param {Array} menuList 菜单列表
  * @param {Array} parent 父级菜单
  * @param {object} result 处理后的结果
- * @returns {object}
  */
 export function getAllBreadcrumbList(menuList: Menu.MenuOptions[], parent = [], result: { [key: string]: any } = {}) {
   for (const item of menuList) {
@@ -189,7 +181,6 @@ export function getAllBreadcrumbList(menuList: Menu.MenuOptions[], parent = [], 
  * @description 使用递归处理路由菜单 path，生成一维数组 (第一版本地路由鉴权会用到，该函数暂未使用)
  * @param {Array} menuList 所有菜单列表
  * @param {Array} menuPathArr 菜单地址的一维数组 ['**','**']
- * @returns {Array}
  */
 export function getMenuListPath(menuList: Menu.MenuOptions[], menuPathArr: string[] = []): string[] {
   for (const item of menuList) {
@@ -205,7 +196,6 @@ export function getMenuListPath(menuList: Menu.MenuOptions[], menuPathArr: strin
  * @description 递归查询当前 path 所对应的菜单对象 (该函数暂未使用)
  * @param {Array} menuList 菜单列表
  * @param {string} path 当前访问地址
- * @returns {object | null}
  */
 export function findMenuByPath(menuList: Menu.MenuOptions[], path: string): Menu.MenuOptions | null {
   for (const item of menuList) {
@@ -224,7 +214,6 @@ export function findMenuByPath(menuList: Menu.MenuOptions[], path: string): Menu
  * @description 使用递归过滤需要缓存的菜单 name (该函数暂未使用)
  * @param {Array} menuList 所有菜单列表
  * @param {Array} keepAliveNameArr 缓存的菜单 name ['**','**']
- * @returns {Array}
  */
 export function getKeepAliveRouterName(menuList: Menu.MenuOptions[], keepAliveNameArr: string[] = []) {
   menuList.forEach((item) => {
@@ -239,7 +228,6 @@ export function getKeepAliveRouterName(menuList: Menu.MenuOptions[], keepAliveNa
  * @param {number} row 行
  * @param {number} col 列
  * @param {*} callValue 当前单元格值
- * @returns {string}
  */
 export function formatTableColumn(row: number, col: number, callValue: any) {
   // 如果当前值为数组，使用 / 拼接（根据需求自定义）
@@ -251,7 +239,6 @@ export function formatTableColumn(row: number, col: number, callValue: any) {
 /**
  * @description 处理值无数据情况
  * @param {*} callValue 需要处理的值
- * @returns {string}
  */
 export function formatValue(callValue: any) {
   // 如果当前值为数组，使用 / 拼接（根据需求自定义）
@@ -264,7 +251,6 @@ export function formatValue(callValue: any) {
  * @description 处理 prop 为多级嵌套的情况，返回的数据 (列如: prop: user.name)
  * @param {object} row 当前行数据
  * @param {string} prop 当前 prop
- * @returns {*}
  */
 export function handleRowAccordingToProp(row: { [key: string]: any }, prop: string) {
   if (!prop.includes('.'))
@@ -276,7 +262,6 @@ export function handleRowAccordingToProp(row: { [key: string]: any }, prop: stri
 /**
  * @description 处理 prop，当 prop 为多级嵌套时 ==> 返回最后一级 prop
  * @param {string} prop 当前 prop
- * @returns {string}
  */
 export function handleProp(prop: string) {
   const propArr = prop.split('.')
@@ -291,7 +276,6 @@ export function handleProp(prop: string) {
  * @param {Array} enumData 字典列表
  * @param {Array} fieldNames label && value && children 的 key 值
  * @param {string} type 过滤类型（目前只有 tag）
- * @returns {string}
  */
 export function filterEnum(callValue: any, enumData?: any, fieldNames?: FieldNamesProps, type?: 'tag') {
   const value = fieldNames?.value ?? 'value'

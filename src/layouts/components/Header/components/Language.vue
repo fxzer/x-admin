@@ -20,7 +20,7 @@ function changeLanguage(lang: string) {
 
 <template>
   <el-dropdown trigger="click" @command="changeLanguage">
-    <i class="iconfont icon-zhongyingwen" />
+    <i-heroicons:language />
     <template #dropdown>
       <el-dropdown-menu>
         <el-dropdown-item

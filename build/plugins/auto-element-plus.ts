@@ -29,7 +29,7 @@ export function setupAtuoEpComponent() {
     ElementPlusResolver(),
     // 自动注册图标组件
     IconsResolver({
-      enabledCollections: ['ep'],
+      // enabledCollections: ['ep'],
     }),
   ]
 }

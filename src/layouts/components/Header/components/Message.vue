@@ -7,7 +7,7 @@ const activeName = ref('first')
     <el-popover placement="bottom" :width="310" trigger="click">
       <template #reference>
         <el-badge :value="5" class="item">
-          <i class="iconfont icon-xiaoxi" />
+          <i-ph:bell-light />
         </el-badge>
       </template>
       <el-tabs v-model="activeName">

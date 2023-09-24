@@ -11,7 +11,8 @@ function toggleScreen() {
 </script>
 
 <template>
-  <div class="fullscreen">
-    <i :class="[isFullscreen ? 'icon-suoxiao' : 'icon-fangda']" class="iconfont toolBar-icon" @click="toggleScreen" />
+  <div class="fullscreen" @click="toggleScreen">
+    <i-ant-design:fullscreen-exit-outlined v-if="isFullscreen" />
+    <i-ant-design:fullscreen-outlined v-else />
   </div>
 </template>

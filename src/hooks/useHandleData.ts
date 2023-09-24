@@ -7,7 +7,6 @@ import type { HandleData } from './interface'
  * @param {object} params 携带的操作数据参数 {id,params} (必传)
  * @param {string} message 提示信息 (必传)
  * @param {string} confirmType icon类型 (不必传,默认为 warning)
- * @returns {Promise}
  */
 export function useHandleData(api: (params: any) => Promise<any>,
   params: any = {},

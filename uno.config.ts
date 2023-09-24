@@ -45,6 +45,7 @@ export default defineConfig({
     ['flex-center-stretch', 'flex justify-center items-stretch'],
     ['flex-between-stretch', 'flex justify-between items-stretch'],
     ['flex-around-center', 'flex justify-around items-center'],
+    ['flex-start-end', 'flex justify-start items-end'],
     // 宽高相同
     [/^wh-(.+)$/, ([, c]) => `w-${c}  h-${c}`],
   ],

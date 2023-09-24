@@ -6,8 +6,8 @@ import '@unocss/reset/tailwind-compat.css'
 // CSS common style sheet
 import '@/styles/common.scss'
 
-// iconfont css
-import '@/assets/iconfont/iconfont.scss'
+// 引入 iconfont
+// import '@/assets/iconfont/iconfont.scss'
 
 // font css
 import '@/assets/fonts/font.scss'

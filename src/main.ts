@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
-import { setupAssets, setupErrorHandler, setupGlobalImportEp } from './plugins'
+import { setupAssets, setupErrorHandler } from './plugins'
 import { setupStore } from './stores'
 import { setupRouter } from './routers'
 import { setupDirectives } from './directives'
@@ -29,7 +29,7 @@ async function setupApp() {
   setupI18n(app)
 
   // 全局导入 ElementPlus
-  setupGlobalImportEp(app)
+  // setupGlobalImportEp(app)
 
   // 初始化 Router
   await setupRouter(app)

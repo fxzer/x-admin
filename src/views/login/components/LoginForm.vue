@@ -91,7 +91,7 @@ onMounted(() => {
       <el-input v-model="loginForm.username" placeholder="用户名：admin / user">
         <template #prefix>
           <el-icon class="el-input__icon">
-            <user />
+            <IEpUser />
           </el-icon>
         </template>
       </el-input>

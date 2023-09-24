@@ -6,14 +6,15 @@ const changeCollapse = () => globalStore.setGlobalState('isCollapse', !globalSto
 </script>
 
 <template>
-  <el-icon class="collapse-icon" @click="changeCollapse">
-    <component :is="globalStore.isCollapse ? 'expand' : 'fold'" />
-  </el-icon>
+  <span @click="changeCollapse">
+    <i-ep-expand v-if="globalStore.isCollapse" />
+    <i-ep-fold v-else />
+  </span>
 </template>
 
 <style scoped lang="scss">
 .collapse-icon {
-  margin-right: 20px;
+  margin-right: 10px;
   font-size: 22px;
   color: var(--el-header-text-color);
   cursor: pointer;

@@ -20,7 +20,7 @@ function setAssemblySize(item: AssemblySizeType) {
 
 <template>
   <el-dropdown trigger="click" @command="setAssemblySize">
-    <i class="iconfont icon-contentright" />
+    <i class="i-tdesign-fullscreen-2" />
     <template #dropdown>
       <el-dropdown-menu>
         <el-dropdown-item

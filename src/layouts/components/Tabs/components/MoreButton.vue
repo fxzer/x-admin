@@ -54,7 +54,7 @@ function closeAllTab() {
     trigger="click" :teleported="false"
   >
     <div class="more-button">
-      <i class="iconfont icon-xiala" />
+      <i-ep-arrow-down class="wh-5" />
     </div>
     <template #dropdown>
       <el-dropdown-menu>
