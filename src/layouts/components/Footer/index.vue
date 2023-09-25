@@ -1,6 +1,6 @@
 <template>
   <div class="flx-center footer">
-    <a href="https://github.com/HalseySpicy" target="_blank"> 2022 © modern-adminx By fxzer Technology. </a>
+    <a href="https://www.github.com/fxzer/modern-adminx" target="_blank"> 2022 © modern-adminx By fxzer Technology. </a>
   </div>
 </template>
 

@@ -3,8 +3,9 @@ import SearchModal from './SearchModal.vue'
 
 const searchVisible = ref(false)
 // 监听 CMD+K 打开搜索框
-onKeyStroke(['Meta', 'k'], () => {
-  searchVisible.value = true
+document.addEventListener('keydown', (event) => {
+  if (event.metaKey && event.key === 'k')
+    searchVisible.value = true
 })
 </script>
 

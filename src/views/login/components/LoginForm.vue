@@ -48,7 +48,7 @@ function login(formEl: FormInstance | undefined) {
 
       // 3.清空 tabs、keepAlive 数据
       tabsStore.closeMultipleTab()
-      keepAliveStore.setKeepAliveName()
+      keepAliveStore.setActiveNames()
 
       // 4.跳转到首页
       router.push(HOME_URL)

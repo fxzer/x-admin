@@ -37,12 +37,12 @@ export interface TabsMenuProps {
   title: string
   path: string
   name: string
-  close: boolean
+  closable: boolean
 }
 
 /* TabsState */
 export interface TabsState {
-  tabsMenuList: TabsMenuProps[]
+  tabList: TabsMenuProps[]
 }
 
 /* AuthState */
@@ -56,5 +56,5 @@ export interface AuthState {
 
 /* KeepAliveState */
 export interface KeepAliveState {
-  keepAliveName: string[]
+  activeNames: string[]
 }

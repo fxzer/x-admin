@@ -31,7 +31,6 @@ function close() {
     resultList.value = []
   }, 100)
 }
-
 watch(visible, (val) => {
   if (val) {
     setTimeout(() => {
@@ -53,6 +52,8 @@ function handleJump() {
   router.push(path)
   close()
 }
+
+// TODO: 如果是按 ESC 的失焦，则关闭
 // 按键盘上下键切换菜单
 onKeyStroke(['ArrowUp'], () => {
   if (activeIndex.value === 0)

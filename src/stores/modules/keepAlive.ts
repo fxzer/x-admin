@@ -4,20 +4,20 @@ import type { KeepAliveState } from '@/stores/interface'
 export const useKeepAliveStore = defineStore({
   id: 'geeker-keepAlive',
   state: (): KeepAliveState => ({
-    keepAliveName: [],
+    activeNames: [],
   }),
   actions: {
-    // Add KeepAliveName
-    async addKeepAliveName(name: string) {
-      !this.keepAliveName.includes(name) && this.keepAliveName.push(name)
+    // 添加缓存组件名
+    async addActiveName(name: string) {
+      !this.activeNames.includes(name) && this.activeNames.push(name)
     },
-    // Remove KeepAliveName
-    async removeKeepAliveName(name: string) {
-      this.keepAliveName = this.keepAliveName.filter(item => item !== name)
+    // 删除缓存组件名
+    async removeActiveName(name: string) {
+      this.activeNames = this.activeNames.filter(item => item !== name)
     },
-    // Set KeepAliveName
-    async setKeepAliveName(keepAliveName: string[] = []) {
-      this.keepAliveName = keepAliveName
+    // 设置缓存组件名
+    async setActiveNames(activeNames: string[] = []) {
+      this.activeNames = activeNames
     },
   },
 })

@@ -15,10 +15,10 @@ const keepAliveStore = useKeepAliveStore()
 const refreshCurrentPage: Function = inject('refresh') as Function
 function refresh() {
   setTimeout(() => {
-    keepAliveStore.removeKeepAliveName(route.name as string)
+    keepAliveStore.removeActiveName(route.name as string)
     refreshCurrentPage(false)
     nextTick(() => {
-      keepAliveStore.addKeepAliveName(route.name as string)
+      keepAliveStore.addActiveName(route.name as string)
       refreshCurrentPage(true)
     })
   }, 0)
@@ -33,8 +33,8 @@ function maximize() {
 function closeCurrentTab() {
   if (route.meta.isAffix)
     return
-  tabStore.removeTabs(route.fullPath)
-  keepAliveStore.removeKeepAliveName(route.name as string)
+  tabStore.removeTab(route.fullPath)
+  keepAliveStore.removeActiveName(route.name as string)
 }
 
 // Close Other

@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import Sortable from 'sortablejs'
-import { useRoute, useRouter } from 'vue-router'
 import type { TabPaneName, TabsPaneContext } from 'element-plus'
 import MoreButton from './components/MoreButton.vue'
 import { HOME_URL } from '@/config'
@@ -10,8 +9,6 @@ import { useAuthStore } from '@/stores/modules/auth'
 import { useKeepAliveStore } from '@/stores/modules/keepAlive'
 import type { TabsMenuProps } from '@/stores/interface'
 
-// import { usejiTabMenu } from '@/hooks/useTabMenu'
-
 const route = useRoute()
 const router = useRouter()
 const tabStore = useTabsStore()
@@ -20,7 +17,7 @@ const globalStore = useGlobalStore()
 const keepAliveStore = useKeepAliveStore()
 
 const tabsMenuValue = ref(route.fullPath)
-const tabsMenuList = computed(() => tabStore.tabsMenuList)
+const tabList = computed(() => tabStore.tabList)
 const tabsIcon = computed(() => globalStore.tabsIcon)
 
 onMounted(() => {
@@ -32,18 +29,19 @@ onMounted(() => {
 watch(
   () => route.fullPath,
   () => {
-    if (route.meta.isFull)
+    const { meta: { isAffix, isKeepAlive, isFull, icon = '', title = '', fullPath: path = '' }, name = '' } = route
+    if (isFull)
       return
-    tabsMenuValue.value = route.fullPath
+    tabsMenuValue.value = path as string
     const tabsParams = {
-      icon: route.meta.icon as string,
-      title: route.meta.title as string,
-      path: route.fullPath,
-      name: route.name as string,
-      close: !route.meta.isAffix,
-    }
-    tabStore.addTabs(tabsParams)
-    route.meta.isKeepAlive && keepAliveStore.addKeepAliveName(route.name as string)
+      icon,
+      title,
+      path,
+      name,
+      closable: !isAffix,
+    } as TabsMenuProps
+    tabStore.addTab(tabsParams)
+    isKeepAlive && keepAliveStore.addActiveName(name as string)
   },
   { immediate: true },
 )
@@ -54,7 +52,7 @@ function tabsDrop() {
     draggable: '.el-tabs__item',
     animation: 300,
     onEnd({ newIndex, oldIndex }) {
-      const tabsList = [...tabStore.tabsMenuList]
+      const tabsList = [...tabStore.tabList]
       const currRow = tabsList.splice(oldIndex as number, 1)[0]
       tabsList.splice(newIndex as number, 0, currRow)
       tabStore.setTabs(tabsList)
@@ -71,9 +69,9 @@ function initTabs() {
         title: item.meta.title,
         path: item.path,
         name: item.name,
-        close: !item.meta.isAffix,
+        closable: !item.meta.isAffix,
       }
-      tabStore.addTabs(tabsParams)
+      tabStore.addTab(tabsParams)
     }
   })
 }
@@ -85,10 +83,8 @@ function tabClick(tabItem: TabsPaneContext) {
 }
 
 // Remove Tab
-function tabRemove(fullPath: TabPaneName) {
-  const name = tabStore.tabsMenuList.filter(item => item.path === fullPath)[0].name || ''
-  keepAliveStore.removeKeepAliveName(name)
-  tabStore.removeTabs(fullPath as string, fullPath === route.fullPath)
+function tabRemove(path: TabPaneName) {
+  tabStore.removeTab(path as string, path === route.fullPath)
 }
 const menuPosition = reactive({
   x: 0,
@@ -98,6 +94,7 @@ const triggerRef = ref()
 const dropdownRef = ref()
 const currentTab = ref()
 const menuVisible = ref(false)
+
 function handleContextMenu(e: MouseEvent, item: TabsMenuProps) {
   e.preventDefault()
   menuPosition.x = e.clientX
@@ -129,8 +126,8 @@ function maximize() {
 // Close Current
 function closeCurrentTab() {
   const { name, path } = currentTab.value
-  tabStore.removeTabs(path)
-  keepAliveStore.removeKeepAliveName(name)
+  tabStore.removeTab(path, path === route.fullPath)
+  keepAliveStore.removeActiveName(name)
 }
 
 // Close Other
@@ -148,8 +145,8 @@ function closeAllTab() {
 // 关闭两边
 function closeTabsOnSide(path: string, direction: 'left' | 'right') {
   // 如果是关闭左边，激活的 tab 在当前 tab 的左边，关闭后激活当前 tab
-  const currentIndex = tabStore.tabsMenuList.findIndex(item => item.path === path)
-  const activeIndex = tabStore.tabsMenuList.findIndex(item => item.path === route.fullPath)
+  const currentIndex = tabStore.tabList.findIndex(item => item.path === path)
+  const activeIndex = tabStore.tabList.findIndex(item => item.path === route.fullPath)
   if ((direction === 'left' && activeIndex < currentIndex) || (direction === 'right' && activeIndex > currentIndex))
     router.push(path)
 
@@ -161,7 +158,7 @@ function closeTabsOnSide(path: string, direction: 'left' | 'right') {
   <div class="tabs-box">
     <div class="tabs-menu">
       <el-tabs v-model="tabsMenuValue" type="card" @tab-click="tabClick" @tab-remove="tabRemove">
-        <el-tab-pane v-for="item in tabsMenuList" :key="item.path" :label="item.title" :name="item.path" :closable="item.close">
+        <el-tab-pane v-for="item in tabList" :key="item.path" :label="item.title" :name="item.path" :closable="item.close">
           <template #label>
             <span class="flex-center" @contextmenu="handleContextMenu($event, item)">
               <el-icon v-show="item.icon && tabsIcon" class="tabs-icon">

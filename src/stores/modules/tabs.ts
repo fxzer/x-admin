@@ -9,55 +9,58 @@ const keepAliveStore = useKeepAliveStore()
 export const useTabsStore = defineStore({
   id: 'geeker-tabs',
   state: (): TabsState => ({
-    tabsMenuList: [],
+    tabList: [],
   }),
   actions: {
-    // Add Tabs
-    async addTabs(tabItem: TabsMenuProps) {
-      if (this.tabsMenuList.every(item => item.path !== tabItem.path))
-        this.tabsMenuList.push(tabItem)
+    // 添加 Tab
+    async addTab(tabItem: TabsMenuProps) {
+      // 若不存在则添加
+      if (this.tabList.every(item => item.path !== tabItem.path))
+        this.tabList.push(tabItem)
     },
-    // Remove Tabs
-    async removeTabs(tabPath: string, isCurrent: boolean = true) {
-      const tabsMenuList = this.tabsMenuList
+    // 根据 path 移除单个Tab
+    async removeTab(path: string, isCurrent: boolean = true) {
+      const { tabList } = this
+      const name = tabList.find(item => item.path === path)?.name || ''
+      keepAliveStore.removeActiveName(name)
       if (isCurrent) {
-        tabsMenuList.forEach((item, index) => {
-          if (item.path !== tabPath)
+        tabList.forEach((item, index) => {
+          if (item.path !== path)
             return
-          const nextTab = tabsMenuList[index + 1] || tabsMenuList[index - 1]
+          const nextTab = tabList[index + 1] || tabList[index - 1]
           if (!nextTab)
             return
           router.push(nextTab.path)
         })
       }
-      this.tabsMenuList = tabsMenuList.filter(item => item.path !== tabPath)
+      this.tabList = tabList.filter(item => item.path !== path)
     },
-    // Close Tabs On Side
+    // 关闭一边的 Tab
     async closeTabsOnSide(path: string, type: 'left' | 'right') {
-      const currentIndex = this.tabsMenuList.findIndex(item => item.path === path)
+      const currentIndex = this.tabList.findIndex(item => item.path === path)
       if (currentIndex !== -1) {
-        const range = type === 'left' ? [0, currentIndex] : [currentIndex + 1, this.tabsMenuList.length]
-        this.tabsMenuList = this.tabsMenuList.filter((item, index) => {
-          return index < range[0] || index >= range[1] || !item.close
+        const range = type === 'left' ? [0, currentIndex] : [currentIndex + 1, this.tabList.length]
+        this.tabList = this.tabList.filter((item, index) => {
+          return index < range[0] || index >= range[1] || !item.closable
         })
       }
-      keepAliveStore.setKeepAliveName(this.tabsMenuList.map(item => item.name))
+      keepAliveStore.setActiveNames(this.tabList.map(item => item.name))
     },
-    // Close MultipleTab
-    async closeMultipleTab(tabsMenuValue?: string) {
-      this.tabsMenuList = this.tabsMenuList.filter((item) => {
-        return item.path === tabsMenuValue || !item.close
+    // 关闭其他 Tab
+    async closeMultipleTab(path?: string) {
+      this.tabList = this.tabList.filter((item) => {
+        return item.path === path || !item.closable
       })
-      keepAliveStore.setKeepAliveName(this.tabsMenuList.map(item => item.name))
+      keepAliveStore.setActiveNames(this.tabList.map(item => item.name))
     },
     // Set Tabs
-    async setTabs(tabsMenuList: TabsMenuProps[]) {
-      this.tabsMenuList = tabsMenuList
+    async setTabs(tabList: TabsMenuProps[]) {
+      this.tabList = tabList
     },
     // Set Tabs Title
     async setTabsTitle(title: string) {
       const nowFullPath = location.hash.substring(1)
-      this.tabsMenuList.forEach((item) => {
+      this.tabList.forEach((item) => {
         if (item.path === nowFullPath)
           item.title = title
       })
