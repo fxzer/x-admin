@@ -6,7 +6,7 @@ const changeCollapse = () => globalStore.setGlobalState('isCollapse', !globalSto
 </script>
 
 <template>
-  <span @click="changeCollapse">
+  <span class="collapse-icon mr-3" @click="changeCollapse">
     <i-ep-expand v-if="globalStore.isCollapse" />
     <i-ep-fold v-else />
   </span>
@@ -14,9 +14,8 @@ const changeCollapse = () => globalStore.setGlobalState('isCollapse', !globalSto
 
 <style scoped lang="scss">
 .collapse-icon {
-  margin-right: 10px;
-  font-size: 22px;
-  color: var(--el-header-text-color);
-  cursor: pointer;
+  &:hover {
+    color:var(--el-color-primary)
+  }
 }
 </style>

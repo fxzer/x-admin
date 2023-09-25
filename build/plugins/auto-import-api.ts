@@ -17,7 +17,8 @@ export function setupAtuoImport(viteEnv: ViteEnv) {
       // 预定义
       'vue', // 自动导入 Vue 相关函数，如：ref, reactive, toRef 等
       'pinia',
-      // '@vueuse/core',
+      'vue-router',
+      '@vueuse/core',
     ],
     resolvers: [
       ...(VITE_AUTO_EP ? setupAtuoEpApi() : []),

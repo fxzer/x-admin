@@ -27,11 +27,11 @@ function onBreadcrumbClick(item: Menu.MenuOptions, index: number) {
 </script>
 
 <template>
-  <div class="mask-image breadcrumb-box" :class="[!globalStore.breadcrumbIcon && 'no-icon']">
-    <el-breadcrumb :separator-icon="ArrowRight">
+  <div class="mask-image">
+    <el-breadcrumb>
       <transition-group name="breadcrumb">
         <el-breadcrumb-item v-for="(item, index) in breadcrumbList" :key="item.path">
-          <div class="el-breadcrumb__inner is-link" @click="onBreadcrumbClick(item, index)">
+          <div class="el-breadcrumb__inner is-link flex-y-center space-x-2" @click="onBreadcrumbClick(item, index)">
             <el-icon v-show="item.meta.icon && globalStore.breadcrumbIcon" class="breadcrumb-icon">
               <component :is="item.meta.icon" />
             </el-icon>
@@ -42,54 +42,3 @@ function onBreadcrumbClick(item: Menu.MenuOptions, index: number) {
     </el-breadcrumb>
   </div>
 </template>
-
-<style scoped lang="scss">
-.breadcrumb-box {
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  .el-breadcrumb {
-    white-space: nowrap;
-    .el-breadcrumb__item {
-      position: relative;
-      display: inline-block;
-      float: none;
-      .el-breadcrumb__inner {
-        display: inline-flex;
-        &.is-link {
-          color: var(--el-header-text-color);
-          &:hover {
-            color: var(--el-color-primary);
-          }
-        }
-        .breadcrumb-icon {
-          margin-top: 2px;
-          margin-right: 6px;
-          font-size: 16px;
-        }
-        .breadcrumb-title {
-          margin-top: 3px;
-        }
-      }
-      &:last-child .el-breadcrumb__inner,
-      &:last-child .el-breadcrumb__inner:hover {
-        color: var(--el-header-text-color-regular);
-      }
-      :deep(.el-breadcrumb__separator) {
-        position: relative;
-        top: -1px;
-      }
-    }
-  }
-}
-.no-icon {
-  .el-breadcrumb {
-    .el-breadcrumb__item {
-      top: -2px;
-      :deep(.el-breadcrumb__separator) {
-        top: 2px;
-      }
-    }
-  }
-}
-</style>

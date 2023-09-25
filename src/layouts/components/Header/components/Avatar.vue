@@ -42,7 +42,7 @@ function openDialog(ref: string) {
 
 <template>
   <el-dropdown trigger="click">
-    <div class="avatar">
+    <div class="wh-10 cursor-pointer overflow-hidden rounded-full">
       <img src="@/assets/images/avatar.gif" alt="avatar">
     </div>
     <template #dropdown>
@@ -64,17 +64,3 @@ function openDialog(ref: string) {
   <!-- passwordDialog -->
   <PasswordDialog ref="passwordRef" />
 </template>
-
-<style scoped lang="scss">
-.avatar {
-  width: 40px;
-  height: 40px;
-  overflow: hidden;
-  cursor: pointer;
-  border-radius: 50%;
-  img {
-    width: 100%;
-    height: 100%;
-  }
-}
-</style>

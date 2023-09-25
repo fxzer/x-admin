@@ -6,8 +6,8 @@ const globalStore = useGlobalStore()
 const assemblySize = computed(() => globalStore.assemblySize)
 
 const assemblySizeList = [
-  { label: '默认', value: 'default' },
   { label: '大型', value: 'large' },
+  { label: '默认', value: 'default' },
   { label: '小型', value: 'small' },
 ]
 
@@ -20,7 +20,7 @@ function setAssemblySize(item: AssemblySizeType) {
 
 <template>
   <el-dropdown trigger="click" @command="setAssemblySize">
-    <i class="i-tdesign-fullscreen-2" />
+    <i-fluent:text-font-size-20-regular />
     <template #dropdown>
       <el-dropdown-menu>
         <el-dropdown-item

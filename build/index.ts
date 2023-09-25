@@ -35,7 +35,7 @@ export function setupVitePlugins(viteEnv: ViteEnv): (PluginOption | PluginOption
     Icons({
       // scale: 0.8, // icon 大小缩放比例
       autoInstall: true, // 自动安装图标集
-      defaultClass: 'cursor-pointer wh-5', // 默认样式
+      defaultClass: 'cursor-pointer wh-5', // 默认类名
     }),
     vueSetupExtend({}),
     // 创建打包压缩配置

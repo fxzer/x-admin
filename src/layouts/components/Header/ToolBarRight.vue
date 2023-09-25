@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import AssemblySize from './components/AssemblySize.vue'
 import Language from './components/Language.vue'
-import SearchMenu from './components/SearchMenu.vue'
+import GlobalSearch from './components/GlobalSearch/index.vue'
 import ThemeSetting from './components/ThemeSetting.vue'
 import Message from './components/Message.vue'
 import Fullscreen from './components/Fullscreen.vue'
@@ -18,7 +18,7 @@ const username = computed(() => userStore.userInfo.name)
     <div class="header-icon">
       <AssemblySize id="assemblySize" />
       <Language id="language" />
-      <SearchMenu id="searchMenu" />
+      <GlobalSearch id="globalSearch" />
       <ThemeSetting id="themeSetting" />
       <Message id="message" />
       <Fullscreen id="fullscreen" />

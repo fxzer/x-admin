@@ -10,7 +10,7 @@ const activeName = ref('first')
           <i-ph:bell-light />
         </el-badge>
       </template>
-      <el-tabs v-model="activeName">
+      <el-tabs v-model="activeName" stretch>
         <el-tab-pane label="通知(5)" name="first">
           <div class="message-list">
             <div class="message-item">
