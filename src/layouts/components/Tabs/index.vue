@@ -29,7 +29,7 @@ onMounted(() => {
 watch(
   () => route.fullPath,
   () => {
-    const { meta: { isAffix, isKeepAlive, isFull, icon = '', title = '', fullPath: path = '' }, name = '' } = route
+    const { meta: { isAffix, isKeepAlive, isFull, icon = '', title = '' }, name = '', fullPath: path = '' } = route
     if (isFull)
       return
     tabsMenuValue.value = path as string
@@ -41,7 +41,7 @@ watch(
       closable: !isAffix,
     } as TabsMenuProps
     tabStore.addTab(tabsParams)
-    isKeepAlive && keepAliveStore.addActiveName(name as string)
+    isKeepAlive && keepAliveStore.addAliveName(name as string)
   },
   { immediate: true },
 )
@@ -62,7 +62,7 @@ function tabsDrop() {
 
 // 初始化需要固定的 tabs
 function initTabs() {
-  authStore.flatMenuListGet.forEach((item) => {
+  authStore.flatMenuList.forEach((item) => {
     if (item.meta.isAffix && !item.meta.isHide && !item.meta.isFull) {
       const tabsParams = {
         icon: item.meta.icon,
@@ -127,7 +127,7 @@ function maximize() {
 function closeCurrentTab() {
   const { name, path } = currentTab.value
   tabStore.removeTab(path, path === route.fullPath)
-  keepAliveStore.removeActiveName(name)
+  keepAliveStore.removeAliveName(name)
 }
 
 // Close Other
@@ -158,7 +158,7 @@ function closeTabsOnSide(path: string, direction: 'left' | 'right') {
   <div class="tabs-box">
     <div class="tabs-menu">
       <el-tabs v-model="tabsMenuValue" type="card" @tab-click="tabClick" @tab-remove="tabRemove">
-        <el-tab-pane v-for="item in tabList" :key="item.path" :label="item.title" :name="item.path" :closable="item.close">
+        <el-tab-pane v-for="item in tabList" :key="item.path" :label="item.title" :name="item.path" :closable="item.closable">
           <template #label>
             <span class="flex-center" @contextmenu="handleContextMenu($event, item)">
               <el-icon v-show="item.icon && tabsIcon" class="tabs-icon">

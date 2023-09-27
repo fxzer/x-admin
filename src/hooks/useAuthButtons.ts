@@ -7,7 +7,7 @@ import { useAuthStore } from '@/stores/modules/auth'
 export function useAuthButtons() {
   const route = useRoute()
   const authStore = useAuthStore()
-  const authButtons = authStore.authButtonListGet[route.name as string] || []
+  const authButtons = authStore.authButtonList[route.name as string] || []
 
   const BUTTONS = computed(() => {
     const currentPageAuthButton: { [key: string]: boolean } = {}

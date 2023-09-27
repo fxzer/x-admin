@@ -11,7 +11,7 @@ const globalStore = useGlobalStore()
 const { maximize, isCollapse, layout, tabs, footer } = storeToRefs(globalStore)
 
 const keepAliveStore = useKeepAliveStore()
-const { activeNames } = storeToRefs(keepAliveStore)
+const { aliveNames } = storeToRefs(keepAliveStore)
 
 // 注入刷新页面方法
 const isRouterShow = ref(true)
@@ -61,7 +61,7 @@ onBeforeUnmount(() => {
   <el-main>
     <router-view v-slot="{ Component, route }">
       <transition appear name="fade-transform" mode="out-in">
-        <keep-alive :include="activeNames">
+        <keep-alive :include="aliveNames">
           <component :is="Component" v-if="isRouterShow" :key="route.fullPath" />
         </keep-alive>
       </transition>

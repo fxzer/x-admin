@@ -15,14 +15,14 @@ const authStore = useAuthStore()
 const globalStore = useGlobalStore()
 const accordion = computed(() => globalStore.accordion)
 const isCollapse = computed(() => globalStore.isCollapse)
-const menuList = computed(() => authStore.showMenuListGet)
+const menuList = computed(() => authStore.authMenuList)
 const activeMenu = computed(() => (route.meta.activeMenu ? route.meta.activeMenu : route.path) as string)
 </script>
 
 <template>
   <el-container class="layout">
     <el-header>
-      <div class="header-lf mask-image">
+      <div class="header-lf fog-mask">
         <div class="logo flx-center">
           <img class="logo-img" src="@/assets/images/logo.svg" alt="logo">
           <span class="logo-text">{{ title }}</span>

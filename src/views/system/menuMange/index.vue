@@ -1,12 +1,12 @@
 <script setup lang="ts" name="menuMange">
 import { CirclePlus, Delete, EditPen } from '@element-plus/icons-vue'
 import type { ColumnProps } from '@/components/ProTable/interface'
-import authMenuList from '@/assets/json/authMenuList.json'
+import authRouteList from '@/assets/json/authRouteList.json'
 import ProTable from '@/components/ProTable/index.vue'
 
 const proTable = ref()
 
-const menuData = ref(authMenuList.data)
+const menuData = ref(authRouteList.data)
 
 // 表格配置项
 const columns: ColumnProps[] = [

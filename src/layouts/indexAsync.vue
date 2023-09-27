@@ -1,4 +1,4 @@
-<!-- 💥 这里是异步加载 LayoutComponents -->
+<!-- 💥 异步加载 LayoutComponents -->
 <script setup lang="ts" name="layoutAsync">
 import { type Component } from 'vue'
 import ThemeDrawer from './components/ThemeDrawer/index.vue'

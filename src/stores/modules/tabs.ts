@@ -14,15 +14,15 @@ export const useTabsStore = defineStore({
   actions: {
     // 添加 Tab
     async addTab(tabItem: TabsMenuProps) {
-      // 若不存在则添加
-      if (this.tabList.every(item => item.path !== tabItem.path))
+      const isExist = this.tabList.some(item => item.path === tabItem.path)
+      if (!isExist) // 若不存在则添加
         this.tabList.push(tabItem)
     },
     // 根据 path 移除单个Tab
     async removeTab(path: string, isCurrent: boolean = true) {
       const { tabList } = this
       const name = tabList.find(item => item.path === path)?.name || ''
-      keepAliveStore.removeActiveName(name)
+      keepAliveStore.removeAliveName(name)
       if (isCurrent) {
         tabList.forEach((item, index) => {
           if (item.path !== path)
@@ -44,14 +44,14 @@ export const useTabsStore = defineStore({
           return index < range[0] || index >= range[1] || !item.closable
         })
       }
-      keepAliveStore.setActiveNames(this.tabList.map(item => item.name))
+      keepAliveStore.setAliveNames(this.tabList.map(item => item.name))
     },
     // 关闭其他 Tab
     async closeMultipleTab(path?: string) {
       this.tabList = this.tabList.filter((item) => {
         return item.path === path || !item.closable
       })
-      keepAliveStore.setActiveNames(this.tabList.map(item => item.name))
+      keepAliveStore.setAliveNames(this.tabList.map(item => item.name))
     },
     // Set Tabs
     async setTabs(tabList: TabsMenuProps[]) {

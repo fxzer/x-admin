@@ -10,7 +10,8 @@ const authStore = useAuthStore()
 const globalStore = useGlobalStore()
 
 const breadcrumbList = computed(() => {
-  let breadcrumbData = authStore.breadcrumbListGet[route.matched[route.matched.length - 1].path] ?? []
+  const lastPath = route.matched[route.matched.length - 1].path
+  let breadcrumbData = authStore.breadcrumbList[lastPath] ?? []
   // 🙅‍♀️不需要首页面包屑可删除以下判断
   if (breadcrumbData[0].path !== HOME_URL)
     breadcrumbData = [{ path: HOME_URL, meta: { icon: 'IEpHomeFilled', title: '首页' } }, ...breadcrumbData]
@@ -19,25 +20,43 @@ const breadcrumbList = computed(() => {
 })
 
 // Click Breadcrumb
-function onBreadcrumbClick(item: Menu.MenuOptions, index: number) {
+function onClick(item: Menu.MenuOptions, index: number) {
   if (index !== breadcrumbList.value.length - 1)
     router.push(item.path)
 }
 </script>
 
 <template>
-  <div class="mask-image">
-    <el-breadcrumb>
-      <transition-group name="breadcrumb">
-        <el-breadcrumb-item v-for="(item, index) in breadcrumbList" :key="item.path">
-          <div class="el-breadcrumb__inner is-link flex-y-center space-x-2" @click="onBreadcrumbClick(item, index)">
-            <el-icon v-show="item.meta.icon && globalStore.breadcrumbIcon" class="breadcrumb-icon">
-              <component :is="item.meta.icon" />
-            </el-icon>
-            <span class="breadcrumb-title">{{ item.meta.title }}</span>
-          </div>
-        </el-breadcrumb-item>
-      </transition-group>
-    </el-breadcrumb>
-  </div>
+  <el-breadcrumb>
+    <transition-group name="breadcrumb">
+      <el-breadcrumb-item v-for="(item, index) in breadcrumbList" :key="item.path">
+        <div class="el-breadcrumb__inner is-link flex-y-center space-x-2" @click="onClick(item, index)">
+          <el-icon v-show="item.meta.icon && globalStore.breadcrumbIcon" class="breadcrumb-icon">
+            <component :is="item.meta.icon" />
+          </el-icon>
+          <span class="breadcrumb-title">{{ item.meta.title }}</span>
+        </div>
+      </el-breadcrumb-item>
+    </transition-group>
+  </el-breadcrumb>
 </template>
+
+<style lang="scss" scoped>
+.breadcrumb-enter-active,
+.breadcrumb-leave-active {
+  transition: all 0.5s;
+}
+
+.breadcrumb-enter-from{
+  opacity: 0;
+  transform: translateX(-40px);
+}
+.breadcrumb-leave-to {
+  opacity: 0;
+  transform: translateX(40px);
+}
+//不会出现挤出空白的情况
+.breadcrumb-leave-active {
+  position: absolute;
+}
+</style>

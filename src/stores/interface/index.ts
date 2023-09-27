@@ -51,10 +51,10 @@ export interface AuthState {
   authButtonList: {
     [key: string]: string[]
   }
-  authMenuList: Menu.MenuOptions[]
+  authRouteList: Menu.MenuOptions[]
 }
 
 /* KeepAliveState */
 export interface KeepAliveState {
-  activeNames: string[]
+  aliveNames: string[]
 }

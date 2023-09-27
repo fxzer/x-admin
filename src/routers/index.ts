@@ -3,8 +3,7 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import { useUserStore } from '@/stores/modules/user'
 import { useAuthStore } from '@/stores/modules/auth'
 import { LOGIN_URL, ROUTER_WHITE_LIST } from '@/config'
-import { initDynamicRouter } from '@/routers/modules/dynamicRouter'
-import { errorRouter, staticRouter } from '@/routers/modules/staticRouter'
+import { initDynamicRouter, initStaticRouter } from '@/routers/utils'
 import NProgress from '@/config/nprogress'
 
 /**
@@ -25,7 +24,7 @@ import NProgress from '@/config/nprogress'
  */
 const router = createRouter({
   history: createWebHashHistory(),
-  routes: [...staticRouter, ...errorRouter],
+  routes: initStaticRouter(),
   strict: false,
   scrollBehavior: () => ({ left: 0, top: 0 }),
 })
@@ -61,7 +60,7 @@ router.beforeEach(async (to, from, next) => {
     return next({ path: LOGIN_URL, replace: true })
 
   // 6.如果没有菜单列表，就重新请求菜单列表并添加动态路由
-  if (!authStore.authMenuListGet.length) {
+  if (!authStore.authRouteList.length) {
     await initDynamicRouter()
     return next({ ...to, replace: true })
   }
@@ -78,7 +77,7 @@ router.beforeEach(async (to, from, next) => {
  */
 export function resetRouter() {
   const authStore = useAuthStore()
-  authStore.flatMenuListGet.forEach((route) => {
+  authStore.flatMenuList.forEach((route) => {
     const { name } = route
     if (name && router.hasRoute(name))
       router.removeRoute(name)

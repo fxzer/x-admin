@@ -20,8 +20,8 @@
   }
 }
 
-/* mask image */
-.mask-image {
+/* 迷雾遮罩 */
+.fog-mask {
   padding-right: 10px;
   mask-image: linear-gradient(90deg, #000000 0%, #000000 calc(100% - 50px), transparent);
 }

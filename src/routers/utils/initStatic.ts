@@ -4,7 +4,7 @@ import { HOME_URL, LOGIN_URL } from '@/config'
 /**
  * staticRouter (静态路由)
  */
-export const staticRouter: RouteRecordRaw[] = [
+const staticRouter: RouteRecordRaw[] = [
   {
     path: '/',
     redirect: HOME_URL,
@@ -30,7 +30,7 @@ export const staticRouter: RouteRecordRaw[] = [
 /**
  * errorRouter (错误页面路由)
  */
-export const errorRouter = [
+const errorRouter = [
   {
     path: '/403',
     name: '403',
@@ -57,7 +57,11 @@ export const errorRouter = [
   },
   // Resolve refresh page, route warnings
   {
-    path: '/:pathMatch(.*)*',
+    path: '/:pathMatch(.*)*', // 匹配所有路径
     component: () => import('@/components/ErrorMessage/404.vue'),
   },
 ]
+
+export function initStaticRouter() {
+  return [...staticRouter, ...errorRouter]
+}

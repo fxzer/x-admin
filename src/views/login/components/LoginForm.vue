@@ -10,7 +10,7 @@ import { loginApi } from '@/api/modules/login'
 import { useUserStore } from '@/stores/modules/user'
 import { useTabsStore } from '@/stores/modules/tabs'
 import { useKeepAliveStore } from '@/stores/modules/keepAlive'
-import { initDynamicRouter } from '@/routers/modules/dynamicRouter'
+import { initDynamicRouter } from '@/routers/utils'
 
 const router = useRouter()
 const userStore = useUserStore()
@@ -48,7 +48,7 @@ function login(formEl: FormInstance | undefined) {
 
       // 3.清空 tabs、keepAlive 数据
       tabsStore.closeMultipleTab()
-      keepAliveStore.setActiveNames()
+      keepAliveStore.setAliveNames()
 
       // 4.跳转到首页
       router.push(HOME_URL)
@@ -100,7 +100,7 @@ onMounted(() => {
       <el-input v-model="loginForm.password" type="password" placeholder="密码：123456" show-password autocomplete="new-password">
         <template #prefix>
           <el-icon class="el-input__icon">
-            <lock />
+            <IEpLock />
           </el-icon>
         </template>
       </el-input>

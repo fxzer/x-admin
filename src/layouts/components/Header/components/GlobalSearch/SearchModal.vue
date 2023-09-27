@@ -10,7 +10,7 @@ const emit = defineEmits(['update:modelValue'])
 const router = useRouter()
 const visible = useVModel(props, 'modelValue', emit)
 const authStore = useAuthStore()
-const menuList = computed(() => authStore.flatMenuListGet.filter(item => !item.meta.isHide))
+const menuList = computed(() => authStore.flatMenuList.filter(item => !item.meta.isHide))
 const resultList = ref<any>([])
 
 function handleSearch(keyword: string) {

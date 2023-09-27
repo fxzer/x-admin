@@ -16,7 +16,7 @@ const authStore = useAuthStore()
 const globalStore = useGlobalStore()
 const accordion = computed(() => globalStore.accordion)
 const isCollapse = computed(() => globalStore.isCollapse)
-const menuList = computed(() => authStore.showMenuListGet)
+const menuList = computed(() => authStore.authMenuList)
 const activeMenu = computed(() => (route.meta.activeMenu ? route.meta.activeMenu : route.path) as string)
 
 const subMenuList = ref<Menu.MenuOptions[]>([])
