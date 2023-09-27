@@ -21,6 +21,7 @@ export function setupPrintBuildInfo(): Plugin {
     },
     buildStart() {
       const { name, version, repository: { url } } = pkg
+      // eslint-disable-next-line no-console
       console.log(bold(green(`👏欢迎使用${blue(`[${name}]:${version}`)}，如果您感觉不错，记得点击后面链接给个star哦💖${url} `)))
       if (config.command === 'build')
         startTime = dayjs(new Date())
@@ -33,7 +34,8 @@ export function setupPrintBuildInfo(): Plugin {
       utils.getPackageSize({
         folder: outDir,
         callback: (size: string) => {
-          console.log(bold(green(`🎉恭喜打包完成（总用时${timeString}，打包后的大小为${size}）`)),
+          // eslint-disable-next-line no-console
+          console.log(bold(green(`🎉恭喜打包完成（总用时${timeString}，总体积${size}）`)),
           )
         },
       })

@@ -46,8 +46,8 @@ declare interface ViteEnv {
   VITE_PORT: number
   VITE_OPEN: boolean
   VITE_REPORT: boolean
-  VITE_BUILD_COMPRESS: 'gzip' | 'brotli' | 'gzip,brotli' | 'none'
-  VITE_BUILD_COMPRESS_DELETE_ORIGIN_FILE: boolean
+  VITE_COMPRESS_ALGORITHM: 'gzip' | 'brotli' | 'gzip,brotli' | 'none'
+  VITE_DELETE_COMPRESS_ORIGIN_FILE: boolean
   VITE_DROP_CONSOLE: boolean
   VITE_PWA: boolean
   VITE_PUBLIC_PATH: string
@@ -79,3 +79,8 @@ type ObjToKeyValUnion<T> = {
 type ObjToKeyValArray<T> = {
   [K in keyof T]: [K, T[K]];
 }[keyof T]
+
+// 声明 @pureadmin/utils 模块 ，模块中含 getPackageSize 方法
+declare module '@pureadmin/utils' {
+  export function getPackageSize(options: { folder: string; callback: (size: string) => void }): void
+}

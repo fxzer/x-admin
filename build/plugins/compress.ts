@@ -6,26 +6,26 @@ import type { PluginOption } from 'vite'
  * @param viteEnv
  */
 export function setupCompression(viteEnv: ViteEnv): PluginOption | PluginOption[] {
-  const { VITE_BUILD_COMPRESS = 'none', VITE_BUILD_COMPRESS_DELETE_ORIGIN_FILE } = viteEnv
-  const compressList = VITE_BUILD_COMPRESS.split(',')
+  const { VITE_COMPRESS_ALGORITHM = 'none', VITE_DELETE_COMPRESS_ORIGIN_FILE } = viteEnv
+  const algorithmList = VITE_COMPRESS_ALGORITHM.split(',')
   const plugins: PluginOption[] = []
-  if (compressList.includes('gzip')) {
-    plugins.push(
-      viteCompression({
-        ext: '.gz',
-        algorithm: 'gzip',
-        deleteOriginFile: VITE_BUILD_COMPRESS_DELETE_ORIGIN_FILE,
-      }),
-    )
+  // 压缩模式
+  const compressModeMap = {
+    gzip: viteCompression({
+      ext: '.gz',
+      algorithm: 'gzip',
+      deleteOriginFile: VITE_DELETE_COMPRESS_ORIGIN_FILE,
+    }),
+    brotli: viteCompression({
+      ext: '.br',
+      algorithm: 'brotliCompress',
+      deleteOriginFile: VITE_DELETE_COMPRESS_ORIGIN_FILE,
+    }),
   }
-  if (compressList.includes('brotli')) {
-    plugins.push(
-      viteCompression({
-        ext: '.br',
-        algorithm: 'brotliCompress',
-        deleteOriginFile: VITE_BUILD_COMPRESS_DELETE_ORIGIN_FILE,
-      }),
-    )
-  }
+  if (algorithmList.includes('gzip'))
+    plugins.push(compressModeMap.gzip)
+
+  if (algorithmList.includes('brotli'))
+    plugins.push(compressModeMap.brotli)
   return plugins
 }

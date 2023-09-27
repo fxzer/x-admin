@@ -22,6 +22,7 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
   return {
     base: viteEnv.VITE_PUBLIC_PATH,
     root,
+    logLevel: 'info',
     resolve: {
       alias: {
         '@': resolve(__dirname, './src'),
