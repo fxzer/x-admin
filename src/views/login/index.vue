@@ -4,7 +4,7 @@ import SwitchDark from '@/components/SwitchDark/index.vue'
 </script>
 
 <template>
-  <div class="flx-center login-container">
+  <div class="login-container flex-center">
     <div class="login-box">
       <SwitchDark class="dark" />
       <div class="login-left">

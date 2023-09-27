@@ -103,7 +103,7 @@ defineExpose({ treeData, treeAllData, treeRef })
 
 <template>
   <div class="card filter">
-    <h4 v-if="title" class="title sle">
+    <h4 v-if="title" class="title truncate">
       {{ title }}
     </h4>
     <el-input v-model="filterText" placeholder="输入关键字进行过滤" clearable />

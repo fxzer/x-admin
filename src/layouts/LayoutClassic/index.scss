@@ -9,7 +9,7 @@
     height: 55px;
     padding: 0 15px 0 0;
     background-color: var(--el-header-bg-color);
-    border-bottom: 1px solid var(--el-header-border-color);
+    border-bottom: 1px solid var(--el-border-color-extra-light);
     .header-lf {
       display: flex;
       align-items: center;
@@ -39,7 +39,7 @@
     :deep(.el-aside) {
       width: auto;
       background-color: var(--el-menu-bg-color);
-      border-right: 1px solid var(--el-aside-border-color);
+      // border-right: 1px solid var(--el-aside-border-color);
       .aside-box {
         display: flex;
         flex-direction: column;

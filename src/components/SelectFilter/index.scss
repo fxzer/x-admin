@@ -3,7 +3,6 @@
   .select-filter-item {
     display: flex;
     align-items: center;
-    border-bottom: 1px dashed var(--el-border-color-light);
     &:last-child {
       border-bottom: none;
     }

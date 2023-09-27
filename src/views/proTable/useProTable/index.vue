@@ -106,7 +106,7 @@ const columns: ColumnProps<User.ResUserList>[] = [
       // 自定义 search 显示内容
       render: ({ searchParam }) => {
         return (
-          <div class="flx-center">
+          <div class="flex-center">
             <el-input vModel_trim={searchParam.minAge} placeholder="最小年龄" />
             <span class="mx-10">-</span>
             <el-input vModel_trim={searchParam.maxAge} placeholder="最大年龄" />

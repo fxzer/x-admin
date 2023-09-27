@@ -32,7 +32,6 @@
   padding: 20px;
   overflow-x: hidden;
   background-color: var(--el-bg-color);
-  border: 1px solid var(--el-border-color-light);
   border-radius: 6px;
   box-shadow: 0 0 12px rgb(0 0 0 / 5%);
 }
@@ -210,15 +209,11 @@
   .el-drawer__header {
     padding: 16px 20px;
     margin-bottom: 0;
-    border-bottom: 1px solid var(--el-border-color-lighter);
     span {
       font-size: 17px;
       line-height: 17px;
       color: var(--el-text-color-primary) !important;
     }
-  }
-  .el-drawer__footer {
-    border-top: 1px solid var(--el-border-color-lighter);
   }
 
   // select 样式
@@ -244,7 +239,6 @@
   .el-dialog__header {
     padding: 15px 20px;
     margin: 0;
-    border-bottom: 1px solid var(--el-border-color-lighter);
     .el-dialog__title {
       font-size: 17px;
     }

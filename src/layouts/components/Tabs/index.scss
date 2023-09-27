@@ -14,7 +14,6 @@
         justify-content: center;
         width: 43px;
         cursor: pointer;
-        border-left: 1px solid var(--el-border-color-light);
         transition: all 0.3s;
         &:hover {
           background-color: var(--el-color-info-light-9);
@@ -23,6 +22,7 @@
     }
     :deep(.el-tabs) {
       .el-tabs__header {
+        border:none;
         box-sizing: border-box;
         height: 40px;
         padding: 0 10px;
@@ -39,6 +39,7 @@
               justify-content: center;
               color: #afafaf;
               border: none;
+              padding:0 10px;
               .tabs-icon {
                 margin: 1.5px 4px 0 0;
                 font-size: 15px;

@@ -24,7 +24,7 @@ function handleClickMenu(subItem: Menu.MenuOptions) {
 <template>
   <el-container class="layout">
     <el-header>
-      <div class="logo flx-center">
+      <div class="logo flex-center">
         <img class="logo-img" src="@/assets/images/logo.svg" alt="logo">
         <span class="logo-text">{{ title }}</span>
       </div>

@@ -18,7 +18,7 @@ function handleClickMenu(subItem: Menu.MenuOptions) {
         <el-icon color="red">
           <component :is="subItem.meta.icon" />
         </el-icon>
-        <span class="sle">{{ subItem.meta.title }}</span>
+        <span class="truncate">{{ subItem.meta.title }}</span>
       </template>
       <SubMenu :menu-list="subItem.children" />
     </el-sub-menu>
@@ -27,7 +27,7 @@ function handleClickMenu(subItem: Menu.MenuOptions) {
         <component :is="subItem.meta.icon" />
       </el-icon>
       <template #title>
-        <span class="sle">{{ subItem.meta.title }}</span>
+        <span class="truncate">{{ subItem.meta.title }}</span>
       </template>
     </el-menu-item>
   </template>

@@ -83,7 +83,6 @@ const activeName = ref('first')
     display: flex;
     align-items: center;
     padding: 20px 0;
-    border-bottom: 1px solid var(--el-border-color-light);
     &:last-child {
       border: none;
     }

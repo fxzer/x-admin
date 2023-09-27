@@ -1,6 +1,6 @@
 <template>
-  <div class="flx-center footer">
-    <a href="https://www.github.com/fxzer/modern-adminx" target="_blank"> 2022 © modern-adminx By fxzer Technology. </a>
+  <div class="footer flex-center">
+    <a href="https://www.github.com/fxzer/modern-adminx" target="_blank" class="hover:!text-primary-light-2"> 2022 © modern-adminx By fxzer Technology. </a>
   </div>
 </template>
 

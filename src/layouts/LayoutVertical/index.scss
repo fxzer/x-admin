@@ -4,7 +4,7 @@
   :deep(.el-aside) {
     width: auto;
     background-color: var(--el-menu-bg-color);
-    border-right: 1px solid var(--el-aside-border-color);
+    // border-right: 1px solid var(--el-aside-border-color);
     .aside-box {
       display: flex;
       flex-direction: column;
@@ -43,6 +43,6 @@
     height: 55px;
     padding: 0 15px;
     background-color: var(--el-header-bg-color);
-    border-bottom: 1px solid var(--el-header-border-color);
+    border-bottom: 1px solid var(--el-border-color-extra-light);
   }
 }
