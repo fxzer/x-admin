@@ -41,7 +41,7 @@ function openDialog(ref: string) {
 </script>
 
 <template>
-  <el-dropdown trigger="click">
+  <el-dropdown>
     <div class="wh-10 cursor-pointer overflow-hidden rounded-full">
       <img src="@/assets/images/avatar.gif" alt="avatar">
     </div>

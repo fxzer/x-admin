@@ -19,7 +19,7 @@ function changeLanguage(lang: string) {
 </script>
 
 <template>
-  <el-dropdown trigger="click" @command="changeLanguage">
+  <el-dropdown @command="changeLanguage">
     <i-heroicons:language />
     <template #dropdown>
       <el-dropdown-menu>

@@ -4,7 +4,7 @@ const activeName = ref('first')
 
 <template>
   <div class="message">
-    <el-popover placement="bottom" :width="310" trigger="click">
+    <el-popover placement="bottom" :width="310">
       <template #reference>
         <el-badge :value="5" class="item">
           <i-ph:bell-light />

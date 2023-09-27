@@ -19,7 +19,7 @@ function setAssemblySize(item: AssemblySizeType) {
 </script>
 
 <template>
-  <el-dropdown trigger="click" @command="setAssemblySize">
+  <el-dropdown @command="setAssemblySize">
     <i-fluent:text-font-size-20-regular />
     <template #dropdown>
       <el-dropdown-menu>
