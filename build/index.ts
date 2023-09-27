@@ -19,7 +19,7 @@ import { setupAtuoComponent, setupAtuoImport, setupCompression, setupPrintBuildI
  * @param viteEnv
  */
 export function setupVitePlugins(viteEnv: ViteEnv): (PluginOption | PluginOption[])[] {
-  const { VITE_GLOB_APP_TITLE, VITE_REPORT, VITE_PWA } = viteEnv
+  const { VITE_APP_TITLE, VITE_REPORT, VITE_PWA } = viteEnv
   return [
     vue(),
     // vue 可以使用 jsx/tsx 语法
@@ -45,7 +45,7 @@ export function setupVitePlugins(viteEnv: ViteEnv): (PluginOption | PluginOption
     // 注入变量到 html 文件
     createHtmlPlugin({
       inject: {
-        data: { title: VITE_GLOB_APP_TITLE },
+        data: { title: VITE_APP_TITLE },
       },
     }),
 

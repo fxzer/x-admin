@@ -3,7 +3,7 @@ const props = defineProps(['activeIndex', 'resultList'])
 
 const router = useRouter()
 
-const { resultList, activeIndex } = toRefs(props)
+const { resultList = ref([]), activeIndex } = toRefs(props)
 const isEmpty = computed(() => !resultList.value.length)
 // 点击菜单跳转
 function handleSelect(menuItem: Menu.MenuOptions | Record<string, any>) {

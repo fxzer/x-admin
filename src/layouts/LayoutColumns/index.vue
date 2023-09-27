@@ -8,7 +8,7 @@ import ToolBarLeft from '@/layouts/components/Header/ToolBarLeft.vue'
 import ToolBarRight from '@/layouts/components/Header/ToolBarRight.vue'
 import SubMenu from '@/layouts/components/Menu/SubMenu.vue'
 
-const title = import.meta.env.VITE_GLOB_APP_TITLE
+const title = import.meta.env.VITE_APP_TITLE
 
 const route = useRoute()
 const router = useRouter()

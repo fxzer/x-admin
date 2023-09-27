@@ -6,7 +6,7 @@ import type { PersistedStateOptions } from 'pinia-plugin-persistedstate'
  * @param {Array} paths 需要持久化的 state name
  * @return persist
  */
-function piniaPersistConfig(key: string, paths?: string[]) {
+export function usePiniaPersistConfig(key: string, paths?: string[]) {
   const persist: PersistedStateOptions = {
     key,
     storage: localStorage,
@@ -15,5 +15,3 @@ function piniaPersistConfig(key: string, paths?: string[]) {
   }
   return persist
 }
-
-export default piniaPersistConfig

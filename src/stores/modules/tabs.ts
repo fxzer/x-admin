@@ -2,7 +2,7 @@ import { defineStore } from 'pinia'
 import { useKeepAliveStore } from './keepAlive'
 import router from '@/routers'
 import type { TabsMenuProps, TabsState } from '@/stores/interface'
-import piniaPersistConfig from '@/config/piniaPersist'
+import { usePiniaPersistConfig } from '@/hooks'
 
 const keepAliveStore = useKeepAliveStore()
 
@@ -66,5 +66,5 @@ export const useTabsStore = defineStore({
       })
     },
   },
-  persist: piniaPersistConfig('geeker-tabs'),
+  persist: usePiniaPersistConfig('geeker-tabs'),
 })

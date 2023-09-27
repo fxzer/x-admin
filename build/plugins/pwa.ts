@@ -6,12 +6,12 @@ import type { PluginOption } from 'vite'
  * @param viteEnv
  */
 export function setupVitePWA(viteEnv: ViteEnv): PluginOption | PluginOption[] {
-  const { VITE_GLOB_APP_TITLE } = viteEnv
+  const { VITE_APP_TITLE } = viteEnv
   return VitePWA({
     registerType: 'autoUpdate',
     manifest: {
-      name: VITE_GLOB_APP_TITLE,
-      short_name: VITE_GLOB_APP_TITLE,
+      name: VITE_APP_TITLE,
+      short_name: VITE_APP_TITLE,
       theme_color: '#ffffff',
       icons: [
         {

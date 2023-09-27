@@ -8,6 +8,8 @@ import { setupVitePlugins } from './build'
 import pkg from './package.json'
 
 const { dependencies, devDependencies, name, version } = pkg
+
+// 控制台要输出的构建信息
 const __APP_INFO__ = {
   pkg: { dependencies, devDependencies, name, version },
   lastBuildTime: dayjs().format('YYYY-MM-DD HH:mm:ss'),
@@ -22,7 +24,6 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
   return {
     base: viteEnv.VITE_PUBLIC_PATH,
     root,
-    logLevel: 'info',
     resolve: {
       alias: {
         '@': resolve(__dirname, './src'),
@@ -30,7 +31,7 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
       },
     },
     define: {
-      __APP_INFO__: JSON.stringify(__APP_INFO__),
+      __APP_INFO__: JSON.stringify(__APP_INFO__), // 之前的打包时间
     },
     css: {
       preprocessorOptions: {
@@ -44,7 +45,6 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
       port: viteEnv.VITE_PORT,
       open: viteEnv.VITE_OPEN,
       cors: true,
-      // Load proxy configuration from .env.development
       proxy: setupProxy(viteEnv.VITE_PROXY),
     },
     plugins: setupVitePlugins(viteEnv),
