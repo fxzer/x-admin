@@ -137,7 +137,7 @@ defineExpose({
   box-sizing: border-box;
   width: 100%;
   height: 100%;
-  padding: 40px 65px;
+  padding: 40px 60px;
   .malefemaleRatio-header {
     display: flex;
     justify-content: space-between;

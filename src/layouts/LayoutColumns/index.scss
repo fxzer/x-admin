@@ -8,7 +8,7 @@
     width: 70px;
     height: 100%;
     background-color: var(--el-menu-bg-color);
-    // border-right: 1px solid var(--el-aside-border-color);
+    border-right: 1px solid var(--el-border-color-extra-light);
     .logo {
       box-sizing: border-box;
       height: 55px;
@@ -39,6 +39,9 @@
           .el-icon,
           .title {
             color: var(--el-menu-text-color);
+          }
+          &:hover{
+            background-color: var(--el-menu-hover-bg-color);
           }
         }
         .split-active {

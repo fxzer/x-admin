@@ -27,7 +27,7 @@ function onClick(item: Menu.MenuOptions, index: number) {
 </script>
 
 <template>
-  <el-breadcrumb>
+  <el-breadcrumb class="flex overflow-hidden">
     <transition-group name="breadcrumb">
       <el-breadcrumb-item v-for="(item, index) in breadcrumbList" :key="item.path">
         <div class="el-breadcrumb__inner is-link flex-y-center space-x-2" @click="onClick(item, index)">

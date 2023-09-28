@@ -14,38 +14,18 @@ const username = computed(() => userStore.userInfo.name)
 </script>
 
 <template>
-  <div class="tool-bar-ri">
-    <div class="header-icon">
-      <AssemblySize id="assemblySize" />
-      <Language id="language" />
-      <GlobalSearch id="globalSearch" />
-      <ThemeSetting id="themeSetting" />
-      <Message id="message" />
-      <Fullscreen id="fullscreen" />
+  <div class="flex-center">
+    <div class="flex-y-center space-x-5">
+      <AssemblySize />
+      <Language />
+      <GlobalSearch />
+      <ThemeSetting />
+      <Message />
+      <Fullscreen />
+      <Avatar />
     </div>
-    <span class="username">{{ username }}</span>
-    <Avatar />
+    <p class="ml-1 max-w-20 truncate" :title="username">
+      {{ username }}
+    </p>
   </div>
 </template>
-
-<style scoped lang="scss">
-.tool-bar-ri {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-right: 25px;
-  .header-icon {
-    display: flex;
-    align-items: center;
-    & > * {
-      margin-left: 21px;
-      color: var(--el-header-text-color);
-    }
-  }
-  .username {
-    margin: 0 20px;
-    font-size: 15px;
-    color: var(--el-header-text-color);
-  }
-}
-</style>

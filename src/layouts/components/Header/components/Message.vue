@@ -82,7 +82,7 @@ const activeName = ref('first')
   .message-item {
     display: flex;
     align-items: center;
-    padding: 20px 0;
+    padding: 12px 0;
     &:last-child {
       border: none;
     }

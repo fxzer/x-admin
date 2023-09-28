@@ -7,18 +7,8 @@ const globalStore = useGlobalStore()
 </script>
 
 <template>
-  <div class="tool-bar-lf">
-    <CollapseIcon id="collapseIcon" />
-    <Breadcrumb v-if="globalStore.breadcrumb" id="breadcrumb" />
+  <div class="flex-center overflow-hidden text-nowrap">
+    <CollapseIcon />
+    <Breadcrumb v-if="globalStore.breadcrumb" />
   </div>
 </template>
-
-<style scoped lang="scss">
-.tool-bar-lf {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  white-space: nowrap;
-}
-</style>

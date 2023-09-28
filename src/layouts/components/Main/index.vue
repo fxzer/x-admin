@@ -59,6 +59,7 @@ onBeforeUnmount(() => {
   <Maximize v-if="maximize" />
   <Tabs v-if="tabs" />
   <el-main>
+    <!-- TODO:动画过渡 -->
     <router-view v-slot="{ Component, route }">
       <transition appear name="fade-transform" mode="out-in">
         <keep-alive :include="aliveNames">
@@ -73,5 +74,13 @@ onBeforeUnmount(() => {
 </template>
 
 <style scoped lang="scss">
-@import "./index.scss";
+.el-main {
+  padding: 10px;
+  overflow-x: hidden;
+  background-color: var(--el-bg-color-page);
+}
+.el-footer {
+  height: auto;
+  padding: 0;
+}
 </style>

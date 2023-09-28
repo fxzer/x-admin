@@ -1,14 +1,16 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
+import LayoutSelect from './components/LayoutSelect.vue'
+import MoreColorIcon from './components/MoreColorIcon.vue'
+import MoreColorDialog from './components/MoreColorDialog.vue'
 import { useTheme } from '@/hooks/useTheme'
 import { useGlobalStore } from '@/stores/modules/global'
-import type { LayoutType } from '@/stores/interface'
 import { DEFAULT_PRIMARY } from '@/config'
 import mittBus from '@/utils/mittBus'
 import SwitchDark from '@/components/SwitchDark/index.vue'
 
 const { changePrimary, changeGreyOrWeak, setAsideTheme, setHeaderTheme } = useTheme()
-
+const moreColorVisible = ref(false)
 const globalStore = useGlobalStore()
 const {
   layout,
@@ -39,13 +41,6 @@ const colorList = [
   '#f39c12',
   '#9b59b6',
 ]
-
-// 设置布局方式
-function setLayout(val: LayoutType) {
-  globalStore.setGlobalState('layout', val)
-  setAsideTheme()
-}
-
 // 打开主题设置
 const drawerVisible = ref(false)
 mittBus.on('openThemeDrawer', () => (drawerVisible.value = true))
@@ -54,68 +49,25 @@ mittBus.on('openThemeDrawer', () => (drawerVisible.value = true))
 <template>
   <el-drawer v-model="drawerVisible" title="布局设置" size="290px">
     <!-- 布局样式 -->
-    <el-divider class="divider" content-position="center">
+    <el-divider class="divider">
       <el-icon><IEpNotification /></el-icon>
       布局样式
     </el-divider>
-    <div class="layout-box">
-      <el-tooltip effect="dark" content="纵向" placement="top" :show-after="200">
-        <div class="layout-item layout-vertical" :class="[{ 'is-active': layout === 'vertical' }]" @click="setLayout('vertical')">
-          <div class="layout-dark" />
-          <div class="layout-container">
-            <div class="layout-light" />
-            <div class="layout-content" />
-          </div>
-          <el-icon v-if="layout === 'vertical'">
-            <IEpCircleCheckFilled />
-          </el-icon>
-        </div>
-      </el-tooltip>
-      <el-tooltip effect="dark" content="经典" placement="top" :show-after="200">
-        <div class="layout-item layout-classic" :class="[{ 'is-active': layout === 'classic' }]" @click="setLayout('classic')">
-          <div class="layout-dark" />
-          <div class="layout-container">
-            <div class="layout-light" />
-            <div class="layout-content" />
-          </div>
-          <el-icon v-if="layout === 'classic'">
-            <IEpCircleCheckFilled />
-          </el-icon>
-        </div>
-      </el-tooltip>
-      <el-tooltip effect="dark" content="横向" placement="top" :show-after="200">
-        <div class="layout-item layout-transverse" :class="[{ 'is-active': layout === 'transverse' }]" @click="setLayout('transverse')">
-          <div class="layout-dark" />
-          <div class="layout-content" />
-          <el-icon v-if="layout === 'transverse'">
-            <IEpCircleCheckFilled />
-          </el-icon>
-        </div>
-      </el-tooltip>
-      <el-tooltip effect="dark" content="分栏" placement="top" :show-after="200">
-        <div class="layout-item layout-columns" :class="[{ 'is-active': layout === 'columns' }]" @click="setLayout('columns')">
-          <div class="layout-dark" />
-          <div class="layout-light" />
-          <div class="layout-content" />
-          <el-icon v-if="layout === 'columns'">
-            <IEpCircleCheckFilled />
-          </el-icon>
-        </div>
-      </el-tooltip>
-    </div>
-    <div class="theme-item">
+    <LayoutSelect v-model:layout="layout" />
+
+    <div class="setting-item">
       <span>
         侧边栏反转色
-        <el-tooltip effect="dark" content="侧边栏颜色变为深色模式" placement="top">
+        <el-tooltip effect="dark" content="侧边栏颜色变为深色模式">
           <el-icon><IEpQuestionFilled /></el-icon>
         </el-tooltip>
       </span>
       <el-switch v-model="asideInverted" @change="setAsideTheme" />
     </div>
-    <div class="theme-item mb50">
+    <div class="setting-item mb50">
       <span>
         头部反转色
-        <el-tooltip effect="dark" content="头部颜色变为深色模式" placement="top">
+        <el-tooltip effect="dark" content="头部颜色变为深色模式">
           <el-icon><IEpQuestionFilled /></el-icon>
         </el-tooltip>
       </span>
@@ -123,63 +75,95 @@ mittBus.on('openThemeDrawer', () => (drawerVisible.value = true))
     </div>
 
     <!-- 全局主题 -->
-    <el-divider class="divider" content-position="center">
+    <el-divider class="divider">
       <el-icon><IEpColdDrink /></el-icon>
       全局主题
     </el-divider>
-    <div class="theme-item">
+    <div class="setting-item">
       <span>主题颜色</span>
-      <el-color-picker v-model="primary" :predefine="colorList" @change="changePrimary" />
+      <div class="group flex-y-center space-x-2">
+        <el-tooltip content="更多颜色" placement="top">
+          <MoreColorIcon @click="moreColorVisible = true" />
+        </el-tooltip>
+        <el-color-picker v-model="primary" :predefine="colorList" @change="changePrimary" />
+      </div>
     </div>
-    <div class="theme-item">
+    <div class="setting-item">
       <span>暗黑模式</span>
       <SwitchDark />
     </div>
-    <div class="theme-item">
+    <div class="setting-item">
       <span>灰色模式</span>
       <el-switch v-model="isGrey" @change="changeGreyOrWeak('grey', !!$event)" />
     </div>
-    <div class="theme-item mb40">
+    <div class="setting-item mb40">
       <span>色弱模式</span>
       <el-switch v-model="isWeak" @change="changeGreyOrWeak('weak', !!$event)" />
     </div>
 
     <!-- 界面设置 -->
-    <el-divider class="divider" content-position="center">
+    <el-divider class="divider">
       <el-icon><IEpSetting /></el-icon>
       界面设置
     </el-divider>
-    <div class="theme-item">
+    <div class="setting-item">
       <span>菜单折叠</span>
       <el-switch v-model="isCollapse" />
     </div>
-    <div class="theme-item">
+    <div class="setting-item">
       <span>菜单手风琴</span>
       <el-switch v-model="accordion" />
     </div>
-    <div class="theme-item">
+    <div class="setting-item">
       <span>面包屑</span>
       <el-switch v-model="breadcrumb" />
     </div>
-    <div class="theme-item">
+    <div class="setting-item">
       <span>面包屑图标</span>
       <el-switch v-model="breadcrumbIcon" />
     </div>
-    <div class="theme-item">
+    <div class="setting-item">
       <span>标签栏</span>
       <el-switch v-model="tabs" />
     </div>
-    <div class="theme-item">
+    <div class="setting-item">
       <span>标签栏图标</span>
       <el-switch v-model="tabsIcon" />
     </div>
-    <div class="theme-item">
+    <div class="setting-item">
       <span>页脚</span>
       <el-switch v-model="footer" />
     </div>
+    <MoreColorDialog v-model="moreColorVisible" />
   </el-drawer>
 </template>
 
 <style scoped lang="scss">
-@import "./index.scss";
+.divider {
+  margin-top: 15px;
+  .el-icon {
+    position: relative;
+    top: 2px;
+    right: 5px;
+    font-size: 15px;
+  }
+}
+.setting-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5px;
+  margin: 10px 0;
+  span {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    .el-icon {
+      margin-left: 3px;
+      font-size: 15px;
+      color: var(--el-text-color-regular);
+      cursor: pointer;
+    }
+  }
+}
 </style>
