@@ -1,6 +1,7 @@
 <!-- 纵向布局 -->
 <script setup lang="ts" name="layoutVertical">
 import { useRoute } from 'vue-router'
+import CollapseIcon from '@/layouts/components/Header/components/CollapseIcon.vue'
 import { useAuthStore } from '@/stores/modules/auth'
 import { useGlobalStore } from '@/stores/modules/global'
 import Main from '@/layouts/components/Main/index.vue'
@@ -13,35 +14,36 @@ const title = import.meta.env.VITE_APP_TITLE
 const route = useRoute()
 const authStore = useAuthStore()
 const globalStore = useGlobalStore()
-const accordion = computed(() => globalStore.accordion)
-const isCollapse = computed(() => globalStore.isCollapse)
 const menuList = computed(() => authStore.authMenuList)
+const { isCollapse, accordion, menuSize } = toRefs(globalStore)
 const activeMenu = computed(() => (route.meta.activeMenu ? route.meta.activeMenu : route.path) as string)
 </script>
 
 <template>
   <el-container class="layout">
-    <el-aside>
-      <div class="aside-box" :style="{ width: isCollapse ? '64px' : '210px' }">
-        <div class="logo flex-center">
-          <img class="logo-img" src="@/assets/images/logo.svg" alt="logo">
-          <span v-show="!isCollapse" class="logo-text">{{ title }}</span>
-        </div>
-        <el-scrollbar>
-          <el-menu
-            :router="false"
-            :default-active="activeMenu"
-            :collapse="isCollapse"
-            :unique-opened="accordion"
-            :collapse-transition="false"
-          >
-            <SubMenu :menu-list="menuList" />
-          </el-menu>
-        </el-scrollbar>
+    <div
+      class="h-screen flex-col shrink-0 border-r transition-width duration-300"
+      :style="{ width: isCollapse ? menuSize.fold : menuSize.unfold }"
+    >
+      <div class="logo h-14 flex-center">
+        <img class="wh-7 object-contain" src="@/assets/images/logo.svg" alt="logo">
+        <span v-show="!isCollapse" class="truncate text-xl font-semibold text-[var(--el-color-primary)]">{{ title
+        }}</span>
       </div>
-    </el-aside>
+      <el-scrollbar class="flex-1">
+        <el-menu
+          :router="false" :default-active="activeMenu" :collapse="isCollapse" :unique-opened="accordion"
+          :collapse-transition="false"
+        >
+          <SubMenu :menu-list="menuList" />
+        </el-menu>
+      </el-scrollbar>
+      <div class="h-7 w-full flex-y-center px-4">
+        <CollapseIcon />
+      </div>
+    </div>
     <el-container>
-      <el-header>
+      <el-header class="flex-between-center">
         <ToolBarLeft />
         <ToolBarRight />
       </el-header>
@@ -51,5 +53,27 @@ const activeMenu = computed(() => (route.meta.activeMenu ? route.meta.activeMenu
 </template>
 
 <style scoped lang="scss">
-@import "./index.scss";
+// @import "./index.scss";
+.el-menu {
+  width: 100%;
+  border: none;
+  overflow: hidden;
+
+  &.el-menu--collapse :deep(.el-menu-item) {
+    .el-menu-tooltip__trigger {
+      padding: 0 !important;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  &.el-menu--collapse :deep(.el-sub-menu) {
+    .el-sub-menu__title {
+      padding: 0 !important;
+      justify-content: center;
+
+    }
+  }
+}
 </style>

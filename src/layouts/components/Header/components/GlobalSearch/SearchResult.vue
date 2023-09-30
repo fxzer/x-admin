@@ -16,8 +16,8 @@ function handleSelect(menuItem: Menu.MenuOptions | Record<string, any>) {
 </script>
 
 <template>
-  <el-empty v-if="isEmpty" :image-size="200" description="暂无搜索结果" />
-  <el-scrollbar v-else height="600" class="mt-5">
+  <el-empty v-if="isEmpty" :image-size="440" description="暂无搜索结果" />
+  <el-scrollbar v-else height="560" class="mt-5">
     <div
       v-for="(item, index) in resultList" :key="index" :class="{ 'bg-primary-light-5': activeIndex === index }"
       class="mb-2 flex-y-center cursor-pointer rounded-sm bg-gray-100 p-2 hover:(font-semibold text-primary)"

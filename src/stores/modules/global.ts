@@ -1,12 +1,12 @@
 import { defineStore } from 'pinia'
-import type { GlobalState } from '@/stores/interface'
+import type { GlobalState, LayoutSize } from '@/stores/interface'
 import { DEFAULT_PRIMARY } from '@/config'
 import { usePiniaPersistConfig } from '@/hooks'
 
 export const useGlobalStore = defineStore({
   id: 'geeker-global',
   // 修改默认值之后，需清除 localStorage 数据
-  state: (): GlobalState => ({
+  state: () => ({
     // 布局模式 (纵向：vertical | 经典：classic | 横向：transverse | 分栏：columns)
     layout: 'vertical',
     // element 组件大小
@@ -41,8 +41,40 @@ export const useGlobalStore = defineStore({
     tabsIcon: true,
     // 页脚
     footer: true,
+    sizeList: [
+      {
+        label: '大型',
+        key: 'large',
+        menu: {
+          fold: '64px',
+          unfold: '210px',
+        },
+      },
+      {
+        label: '默认',
+        key: 'default',
+        menu: {
+          fold: '56px',
+          unfold: '200px',
+        },
+      },
+      {
+        label: '小型',
+        key: 'small',
+        menu: {
+          fold: '48px',
+          unfold: '190px',
+        },
+      },
+    ],
   }),
-  getters: {},
+  getters: {
+    menuSize(): any {
+      return this.sizeList.find((item) => {
+        return item.key === this.assemblySize
+      })?.menu
+    },
+  },
   actions: {
     // 设置全局状态
     setGlobalState(...args: ObjToKeyValArray<GlobalState>) {

@@ -8,7 +8,8 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 import vueSetupExtend from 'unplugin-vue-setup-extend-plus/vite'
 import UnoCSS from 'unocss/vite'
 import Icons from 'unplugin-icons/vite'
-import Inspect from 'vite-plugin-inspect'
+
+// import Inspect from 'vite-plugin-inspect'
 import VueDevTools from 'vite-plugin-vue-devtools'
 import { setupAtuoComponent, setupAtuoImport, setupCompression, setupPrintBuildInfo, setupVitePWA, setupWebUpdateNotification } from './plugins'
 
@@ -25,7 +26,7 @@ export function setupVitePlugins(viteEnv: ViteEnv): (PluginOption | PluginOption
     // vue 可以使用 jsx/tsx 语法
     vueJsx(),
     UnoCSS(),
-    Inspect(), // Vite调试插件
+    // Inspect(), // Vite调试插件
     VueDevTools(),
     // esLint 报错信息显示在浏览器界面上
     // name 可以写在 script 标签上

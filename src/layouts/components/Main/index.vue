@@ -58,7 +58,7 @@ onBeforeUnmount(() => {
 <template>
   <Maximize v-if="maximize" />
   <Tabs v-if="tabs" />
-  <el-main>
+  <div>
     <!-- TODO:动画过渡 -->
     <router-view v-slot="{ Component, route }">
       <transition appear name="fade-transform" mode="out-in">
@@ -67,7 +67,7 @@ onBeforeUnmount(() => {
         </keep-alive>
       </transition>
     </router-view>
-  </el-main>
+  </div>
   <el-footer v-if="footer">
     <Footer />
   </el-footer>

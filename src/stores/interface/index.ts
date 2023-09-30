@@ -1,6 +1,7 @@
 export type LayoutType = 'vertical' | 'classic' | 'transverse' | 'columns'
 
 export type AssemblySizeType = 'large' | 'default' | 'small'
+export type LayoutSize = '64px' | '56px' | '48px'
 
 export type LanguageType = 'zh' | 'en' | null
 
@@ -23,6 +24,14 @@ export interface GlobalState {
   tabs: boolean
   tabsIcon: boolean
   footer: boolean
+  sizeList: {
+    label: string
+    key: AssemblySizeType
+    menu: {
+      fold: LayoutSize
+      unfold: string
+    }
+  }[]
 }
 
 /* UserState */
