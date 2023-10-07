@@ -1,14 +1,22 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router'
+import { useGlobalStore } from '@/stores/modules/global'
 
 defineProps<{ menuList: Menu.MenuOptions[] }>()
-
+const globalStore = useGlobalStore()
+const { menuSize } = storeToRefs(globalStore)
 const router = useRouter()
 function handleClickMenu(subItem: Menu.MenuOptions) {
   if (subItem.meta.isLink)
     return window.open(subItem.meta.isLink, '_blank')
   router.push(subItem.path)
 }
+watch(menuSize, () => {
+  // 设置 html 变量
+  document.documentElement.style.setProperty('--el-menu-item-height', menuSize.value.height)
+}, {
+  immediate: true,
+})
 </script>
 
 <template>

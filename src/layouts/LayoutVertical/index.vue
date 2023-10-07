@@ -22,8 +22,8 @@ const activeMenu = computed(() => (route.meta.activeMenu ? route.meta.activeMenu
 <template>
   <el-container class="layout">
     <div
-      class="h-screen flex-col shrink-0 border-r transition-width duration-300"
-      :style="{ width: isCollapse ? menuSize.fold : menuSize.unfold }"
+      class="z-100 h-screen flex-col shrink-0 border-r transition-width duration-300"
+      :style="{ width: isCollapse ? menuSize.fold : menuSize.unfold, background: `var(--el-menu-bg-color)` }"
     >
       <div class="logo h-14 flex-center">
         <img class="wh-7 object-contain" src="@/assets/images/logo.svg" alt="logo">

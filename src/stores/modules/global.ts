@@ -48,14 +48,22 @@ export const useGlobalStore = defineStore({
         menu: {
           fold: '64px',
           unfold: '210px',
+          height: '60px',
+        },
+        header: {
+          height: '60px',
         },
       },
       {
         label: '默认',
         key: 'default',
         menu: {
-          fold: '56px',
+          fold: '52px',
           unfold: '200px',
+          height: '50px',
+        },
+        header: {
+          height: '48px',
         },
       },
       {
@@ -64,6 +72,10 @@ export const useGlobalStore = defineStore({
         menu: {
           fold: '48px',
           unfold: '190px',
+          height: '46px',
+        },
+        header: {
+          height: '44px',
         },
       },
     ],
@@ -73,6 +85,12 @@ export const useGlobalStore = defineStore({
       return this.sizeList.find((item) => {
         return item.key === this.assemblySize
       })?.menu
+    },
+    headerSize(): any {
+      return this.sizeList.find((item) => {
+        return item.key === this.assemblySize
+      },
+      )?.header
     },
   },
   actions: {
