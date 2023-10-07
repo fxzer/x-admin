@@ -31,8 +31,9 @@
     "preinstall": "npx only-allow pnpm",
     "prepare": "simple-git-hooks",
     "release": "standard-version",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
+    "lint": "eslint --cache .",
+    "lint:fix": "nr lint --fix",
+    "lint-staged": "lint-staged",
     "commitlint": "commitlint --config commitlint.config.js -e -V",
     "commit": "git add -A && czg && git push",
     "clean:cache": "rimraf node_modules && rimraf .eslintcache && pnpm install"
@@ -68,6 +69,7 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.43.1",
+    "@antfu/ni": "^0.21.8",
     "@commitlint/cli": "^17.7.1",
     "@commitlint/config-conventional": "^17.7.0",
     "@iconify/json": "^2.2.119",
@@ -111,6 +113,11 @@
     "vite-plugin-vue-devtools": "1.0.0-rc.5",
     "vue-tsc": "^1.8.13"
   },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint:fix",
+    "commit-msg": "pnpm run commitlint",
+    "pre-push": "pnpm run release"
+  },
   "browserslist": {
     "production": [
       "> 1%",
@@ -127,5 +134,10 @@
     "commitizen": {
       "path": "node_modules/cz-git"
     }
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx,vue,md}": [
+      "eslint --cache --fix"
+    ]
   }
 }

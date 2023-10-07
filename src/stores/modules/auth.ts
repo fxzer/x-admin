@@ -4,7 +4,7 @@ import { getAuthButtonList, getAuthRouteList } from '@/api/modules/login'
 import { getAllBreadcrumbList, getFlatMenuList, getShowMenuList } from '@/utils'
 
 export const useAuthStore = defineStore({
-  id: 'geeker-auth',
+  id: 'store-auth',
   state: (): AuthState => ({
     // 按钮权限列表
     authButtonList: {},

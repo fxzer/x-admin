@@ -7,7 +7,7 @@ import { usePiniaPersistConfig } from '@/hooks'
 const keepAliveStore = useKeepAliveStore()
 
 export const useTabsStore = defineStore({
-  id: 'geeker-tabs',
+  id: 'store-tabs',
   state: (): TabsState => ({
     tabList: [],
   }),
@@ -66,5 +66,5 @@ export const useTabsStore = defineStore({
       })
     },
   },
-  persist: usePiniaPersistConfig('geeker-tabs'),
+  persist: usePiniaPersistConfig('store-tabs'),
 })

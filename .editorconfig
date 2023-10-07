@@ -1,4 +1,4 @@
-# @see: http://editorconfig.org
+# 配置代码格式跨平台、跨编辑器保持一致 @see: http://editorconfig.org
 
 root = true
 

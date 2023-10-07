@@ -76,6 +76,9 @@ devDependencies:
   '@antfu/eslint-config':
     specifier: ^0.43.1
     version: 0.43.1(eslint@8.50.0)(typescript@5.2.2)
+  '@antfu/ni':
+    specifier: ^0.21.8
+    version: 0.21.8
   '@commitlint/cli':
     specifier: ^17.7.1
     version: 17.7.1
@@ -322,6 +325,11 @@ packages:
     dependencies:
       execa: 5.1.1
       find-up: 5.0.0
+    dev: true
+
+  /@antfu/ni@0.21.8:
+    resolution: {integrity: sha512-90X8pU2szlvw0AJo9EZMbYc2eQKkmO7mAdC4tD4r5co2Mm56MT37MIG8EyB7p4WRheuzGxuLDxJ63mF6+Zajiw==}
+    hasBin: true
     dev: true
 
   /@antfu/utils@0.7.6:
