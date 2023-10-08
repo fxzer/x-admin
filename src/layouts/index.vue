@@ -17,7 +17,7 @@ const LayoutComponents: Record<LayoutType, Component> = {
 }
 
 const globalStore = useGlobalStore()
-const layout = computed(() => globalStore.layout)
+const layout = computed(() => globalStore.layout as LayoutType)
 </script>
 
 <template>

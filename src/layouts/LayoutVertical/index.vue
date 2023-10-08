@@ -1,28 +1,40 @@
 <!-- 纵向布局 -->
 <script setup lang="ts" name="layoutVertical">
 import { useRoute } from 'vue-router'
-import CollapseIcon from '@/layouts/components/Header/components/CollapseIcon.vue'
+import { breakpointsTailwind, useBreakpoints, useResizeObserver } from '@vueuse/core'
 import { useAuthStore } from '@/stores/modules/auth'
 import { useGlobalStore } from '@/stores/modules/global'
 import Main from '@/layouts/components/Main/index.vue'
 import ToolBarLeft from '@/layouts/components/Header/ToolBarLeft.vue'
 import ToolBarRight from '@/layouts/components/Header/ToolBarRight.vue'
 import SubMenu from '@/layouts/components/Menu/SubMenu.vue'
+import MobbileMenu from '@/layouts/components/Menu/MobileMenu.vue'
+import CollapseIcon from '@/layouts/components/Header/components/CollapseIcon.vue'
 
-const title = import.meta.env.VITE_APP_TITLE
-
-const route = useRoute()
 const authStore = useAuthStore()
 const globalStore = useGlobalStore()
-const menuList = computed(() => authStore.authMenuList)
 const { isCollapse, accordion, menuSize } = toRefs(globalStore)
+
+const breakpoints = useBreakpoints(breakpointsTailwind)
+
+const isMoblie = ref(breakpoints.isSmaller('md'))
+const title = import.meta.env.VITE_APP_TITLE
+useResizeObserver(document.body,
+  () => {
+    isMoblie.value = breakpoints.isSmaller('md')
+  },
+)
+const route = useRoute()
+
+const menuList = computed(() => authStore.authMenuList)
 const activeMenu = computed(() => (route.meta.activeMenu ? route.meta.activeMenu : route.path) as string)
 </script>
 
 <template>
   <el-container class="layout">
+    <!-- 菜单 -->
     <div
-      class="z-100 h-screen flex-col shrink-0 border-r transition-width duration-300"
+      class="z-100 hidden h-screen flex-col shrink-0 border-r border-gray-100 transition-width duration-300 md:flex dark:border-gray-800"
       :style="{ width: isCollapse ? menuSize.fold : menuSize.unfold, background: `var(--el-menu-bg-color)` }"
     >
       <div class="logo h-14 flex-center">
@@ -42,6 +54,7 @@ const activeMenu = computed(() => (route.meta.activeMenu ? route.meta.activeMenu
         <CollapseIcon />
       </div>
     </div>
+    <!-- 内容主体 -->
     <el-container>
       <el-header class="flex-between-center">
         <ToolBarLeft />
@@ -50,6 +63,7 @@ const activeMenu = computed(() => (route.meta.activeMenu ? route.meta.activeMenu
       <Main />
     </el-container>
   </el-container>
+  <MobbileMenu v-if="isMoblie" />
 </template>
 
 <style scoped lang="scss">

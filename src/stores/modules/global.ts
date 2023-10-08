@@ -98,6 +98,9 @@ export const useGlobalStore = defineStore({
     setGlobalState(...args: ObjToKeyValArray<GlobalState>) {
       this.$patch({ [args[0]]: args[1] })
     },
+    toggleMenu() {
+      this.isCollapse = !this.isCollapse
+    },
   },
   persist: usePiniaPersistConfig('store-global'),
 })

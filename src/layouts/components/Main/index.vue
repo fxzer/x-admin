@@ -1,11 +1,9 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
-import { useDebounceFn } from '@vueuse/core'
 import Maximize from './components/Maximize.vue'
 import { useGlobalStore } from '@/stores/modules/global'
 import { useKeepAliveStore } from '@/stores/modules/keepAlive'
 import Tabs from '@/layouts/components/Tabs/index.vue'
-import Footer from '@/layouts/components/Footer/index.vue'
 
 const globalStore = useGlobalStore()
 const { maximize, isCollapse, layout, tabs, footer } = storeToRefs(globalStore)
@@ -40,25 +38,25 @@ watch(
   { immediate: true },
 )
 
-// 监听窗口大小变化，折叠侧边栏
-const screenWidth = ref(0)
-const listeningWindow = useDebounceFn(() => {
-  screenWidth.value = document.body.clientWidth
-  if (!isCollapse.value && screenWidth.value < 1200)
-    globalStore.setGlobalState('isCollapse', true)
-  if (isCollapse.value && screenWidth.value > 1200)
-    globalStore.setGlobalState('isCollapse', false)
-}, 100)
-window.addEventListener('resize', listeningWindow, false)
-onBeforeUnmount(() => {
-  window.removeEventListener('resize', listeningWindow)
-})
+// // 监听窗口大小变化，折叠侧边栏
+// const screenWidth = ref(0)
+// const listeningWindow = useDebounceFn(() => {
+//   screenWidth.value = document.body.clientWidth
+//   if (!isCollapse.value && screenWidth.value < 1200)
+//     globalStore.setGlobalState('isCollapse', true)
+//   if (isCollapse.value && screenWidth.value > 1200)
+//     globalStore.setGlobalState('isCollapse', false)
+// }, 100)
+// window.addEventListener('resize', listeningWindow, false)
+// onBeforeUnmount(() => {
+//   window.removeEventListener('resize', listeningWindow)
+// })
 </script>
 
 <template>
   <Maximize v-if="maximize" />
   <Tabs v-if="tabs" />
-  <div>
+  <el-main class="main-box">
     <!-- TODO:动画过渡 -->
     <router-view v-slot="{ Component, route }">
       <transition appear name="fade-transform" mode="out-in">
@@ -67,16 +65,17 @@ onBeforeUnmount(() => {
         </keep-alive>
       </transition>
     </router-view>
-  </div>
-  <el-footer v-if="footer">
+  </el-main>
+  <!-- <el-footer v-if="footer" class="absolute bottom-0 left-0 right-0">
     <Footer />
-  </el-footer>
+  </el-footer> -->
 </template>
 
 <style scoped lang="scss">
 .el-main {
   padding: 10px;
   overflow-x: hidden;
+  height: calc(100vh - 100px);
   background-color: var(--el-bg-color-page);
 }
 .el-footer {

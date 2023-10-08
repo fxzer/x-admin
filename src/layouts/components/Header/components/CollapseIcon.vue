@@ -2,12 +2,13 @@
 import { useGlobalStore } from '@/stores/modules/global'
 
 const globalStore = useGlobalStore()
-const changeCollapse = () => globalStore.setGlobalState('isCollapse', !globalStore.isCollapse)
+const { isCollapse } = storeToRefs(globalStore)
+const { toggleMenu } = globalStore
 </script>
 
 <template>
-  <span class="collapse-icon mr-3" @click="changeCollapse">
-    <i-ep-expand v-if="globalStore.isCollapse" />
+  <span class="collapse-icon mr-3" @click="toggleMenu">
+    <i-ep-expand v-if="isCollapse" />
     <i-ep-fold v-else />
   </span>
 </template>

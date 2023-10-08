@@ -2,12 +2,10 @@ import type { App } from 'vue'
 import { createPinia } from 'pinia'
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
 
-const pinia = createPinia()
-
 export function setupStore(app: App) {
+  const pinia = createPinia()
   app.use(pinia)
   // store持久化
   pinia.use(piniaPluginPersistedstate)
 }
-
-export default pinia
+// export * from './modules' //store中使用了其他 store 报错问题
