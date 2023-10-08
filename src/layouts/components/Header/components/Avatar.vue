@@ -42,8 +42,8 @@ function openDialog(ref: string) {
 
 <template>
   <el-dropdown>
-    <div class="wh-10 cursor-pointer overflow-hidden rounded-full">
-      <img src="@/assets/images/avatar.gif" alt="avatar">
+    <div class="wh-8 cursor-pointer overflow-hidden rounded-full">
+      <img src="@/assets/images/avatar.png" alt="avatar">
     </div>
     <template #dropdown>
       <el-dropdown-menu>

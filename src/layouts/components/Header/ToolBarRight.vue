@@ -15,7 +15,7 @@ const username = computed(() => userStore.userInfo.name)
 
 <template>
   <div class="flex-center">
-    <div class="flex-y-center space-x-5">
+    <div class="flex-y-center space-x-3 md:space-x-5">
       <AssemblySize />
       <Language />
       <GlobalSearch />

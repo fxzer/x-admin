@@ -9,6 +9,6 @@ const globalStore = useGlobalStore()
 <template>
   <div class="flex-center overflow-hidden text-nowrap">
     <CollapseIcon />
-    <Breadcrumb v-if="globalStore.breadcrumb" />
+    <Breadcrumb v-if="globalStore.breadcrumb" class="block lt-md:hidden" />
   </div>
 </template>
