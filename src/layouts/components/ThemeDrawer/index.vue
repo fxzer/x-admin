@@ -4,7 +4,7 @@ import LayoutSelect from './components/LayoutSelect.vue'
 import MoreColorIcon from './components/MoreColorIcon.vue'
 import MoreColorDialog from './components/MoreColorDialog.vue'
 import { useTheme } from '@/hooks/useTheme'
-import { useGlobalStore } from '@/stores/modules/global'
+import { useGlobalStore } from '@/stores'
 import { DEFAULT_PRIMARY } from '@/config'
 import mittBus from '@/utils/mittBus'
 import SwitchDark from '@/components/SwitchDark/index.vue'
@@ -17,15 +17,15 @@ const {
   primary,
   isGrey,
   isWeak,
+  isCollapse,
+  isAccordion,
+  showTab,
+  showTabIcon,
+  showFooter,
+  showBreadcurmb,
+  showBreadcrumbIcon,
   asideInverted,
   headerInverted,
-  isCollapse,
-  accordion,
-  breadcrumb,
-  breadcrumbIcon,
-  tabs,
-  tabsIcon,
-  footer,
 } = storeToRefs(globalStore)
 
 // 预定义主题颜色
@@ -107,32 +107,28 @@ mittBus.on('openThemeDrawer', () => (drawerVisible.value = true))
       界面设置
     </el-divider>
     <div class="setting-item">
-      <span>菜单折叠</span>
-      <el-switch v-model="isCollapse" />
-    </div>
-    <div class="setting-item">
       <span>菜单手风琴</span>
-      <el-switch v-model="accordion" />
+      <el-switch v-model="isAccordion" />
     </div>
     <div class="setting-item">
       <span>面包屑</span>
-      <el-switch v-model="breadcrumb" />
+      <el-switch v-model="showBreadcurmb" />
     </div>
     <div class="setting-item">
       <span>面包屑图标</span>
-      <el-switch v-model="breadcrumbIcon" />
+      <el-switch v-model="showBreadcrumbIcon" />
     </div>
     <div class="setting-item">
       <span>标签栏</span>
-      <el-switch v-model="tabs" />
+      <el-switch v-model="showTab" />
     </div>
     <div class="setting-item">
       <span>标签栏图标</span>
-      <el-switch v-model="tabsIcon" />
+      <el-switch v-model="showTabIcon" />
     </div>
     <div class="setting-item">
       <span>页脚</span>
-      <el-switch v-model="footer" />
+      <el-switch v-model="showFooter" />
     </div>
     <MoreColorDialog v-model="moreColorVisible" />
   </el-drawer>

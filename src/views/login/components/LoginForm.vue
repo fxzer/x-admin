@@ -7,9 +7,7 @@ import { HOME_URL } from '@/config'
 import { getTimeState } from '@/utils'
 import type { Login } from '@/api/interface'
 import { loginApi } from '@/api/modules/login'
-import { useUserStore } from '@/stores/modules/user'
-import { useTabsStore } from '@/stores/modules/tabs'
-import { useKeepAliveStore } from '@/stores/modules/keepAlive'
+import { useKeepAliveStore, useTabsStore, useUserStore } from '@/stores'
 import { initDynamicRouter } from '@/routers/utils'
 
 const router = useRouter()

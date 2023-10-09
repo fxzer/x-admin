@@ -38,9 +38,11 @@ function submitForm(formEl: FormInstance | undefined) {
     return
   formEl.validate((valid) => {
     if (valid) {
+      // eslint-disable-next-line no-console
       console.log('submit!')
     }
     else {
+      // eslint-disable-next-line no-console
       console.log('error submit!')
       return false
     }

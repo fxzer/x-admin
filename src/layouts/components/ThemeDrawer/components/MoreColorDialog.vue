@@ -1,7 +1,7 @@
 <script setup lang='ts'>
 import colorsMap from '@/utils/colors'
 import { useTheme } from '@/hooks/useTheme'
-import { useGlobalStore } from '@/stores/modules/global'
+import { useGlobalStore } from '@/stores'
 
 const props = defineProps<{ modelValue: boolean }>()
 const emit = defineEmits(['update:modelValue'])

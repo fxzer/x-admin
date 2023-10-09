@@ -37,13 +37,14 @@ const fromModel1 = ref({
 const ruleFormRef = ref<FormInstance>()
 function submit() {
   ruleFormRef.value!.validate((valid) => {
+    // eslint-disable-next-line no-console
     console.log(valid)
   })
 }
 </script>
 
 <template>
-  <div class="upload content-box">
+  <div class="content-box">
     <!-- 多图上传 -->
     <div class="card img-box">
       <span class="text">多图片上传组件 🍓🍇🍈🍉</span>

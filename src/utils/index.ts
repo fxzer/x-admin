@@ -1,5 +1,6 @@
 import { isArray } from '@/utils/is'
 import type { FieldNamesProps } from '@/components/ProTable/interface'
+import type { LanguageType } from '@/stores'
 
 /**
  * @description 获取localStorage
@@ -130,9 +131,9 @@ export function getTimeState() {
  * @description 获取浏览器默认语言
  * @returns {string} 返回浏览器默认语言
  */
-export function getBrowserLang() {
+export function getBrowserLang(): LanguageType {
   const browserLang = navigator.language ? navigator.language : navigator.browserLanguage
-  let defaultBrowserLang = ''
+  let defaultBrowserLang: LanguageType = 'zh'
   if (['cn', 'zh', 'zh-cn'].includes(browserLang.toLowerCase()))
     defaultBrowserLang = 'zh'
   else

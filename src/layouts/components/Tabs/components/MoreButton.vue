@@ -1,14 +1,12 @@
 <script setup lang="ts">
 import { useRoute, useRouter } from 'vue-router'
 import { HOME_URL } from '@/config'
-import { useTabsStore } from '@/stores/modules/tabs'
-import { useGlobalStore } from '@/stores/modules/global'
-import { useKeepAliveStore } from '@/stores/modules/keepAlive'
+import { setGlobalState, useKeepAliveStore, useTabsStore } from '@/stores'
 
 const route = useRoute()
 const router = useRouter()
 const tabStore = useTabsStore()
-const globalStore = useGlobalStore()
+const { removeTab, closeTabsOnSide, closeMultipleTab } = tabStore
 const keepAliveStore = useKeepAliveStore()
 
 // refresh current page
@@ -26,20 +24,20 @@ function refresh() {
 
 // maximize current page
 function maximize() {
-  globalStore.setGlobalState('maximize', true)
+  setGlobalState('maximize', true)
 }
 
 // Close Current
 function closeCurrentTab() {
   if (route.meta.isAffix)
     return
-  tabStore.removeTab(route.fullPath)
+  removeTab(route.fullPath)
   keepAliveStore.removeAliveName(route.name as string)
 }
 
 // Close Other
 function closeOtherTab() {
-  tabStore.closeMultipleTab(route.fullPath)
+  closeMultipleTab(route.fullPath)
 }
 
 // Close All
@@ -67,10 +65,10 @@ function closeAllTab() {
         <el-dropdown-item divided @click="closeCurrentTab">
           <el-icon><IEpRemove /></el-icon>{{ $t("tabs.closeCurrent") }}
         </el-dropdown-item>
-        <el-dropdown-item @click="tabStore.closeTabsOnSide(route.fullPath, 'left')">
+        <el-dropdown-item @click="closeTabsOnSide(route.fullPath, 'left')">
           <el-icon><IEpDArrowLeft /></el-icon>{{ $t("tabs.closeLeft") }}
         </el-dropdown-item>
-        <el-dropdown-item @click="tabStore.closeTabsOnSide(route.fullPath, 'right')">
+        <el-dropdown-item @click="closeTabsOnSide(route.fullPath, 'right')">
           <el-icon><IEpDArrowRight /></el-icon>{{ $t("tabs.closeRight") }}
         </el-dropdown-item>
         <el-dropdown-item divided @click="closeOtherTab">

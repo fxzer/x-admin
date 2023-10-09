@@ -1,5 +1,5 @@
 <script setup lang='ts'>
-import type { LayoutType } from '@/stores/interface'
+import type { LayoutType } from '@/stores'
 
 const props = defineProps<{ layout: LayoutType }>()
 const emit = defineEmits(['update:layout'])

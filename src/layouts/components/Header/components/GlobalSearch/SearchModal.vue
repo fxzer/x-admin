@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import SearchResult from './SearchResult.vue'
 import SearchFooter from './SearchFooter.vue'
-import { useAuthStore } from '@/stores/modules/auth'
+import { useAuthStore } from '@/stores'
 
 const props = defineProps<{
   modelValue: boolean

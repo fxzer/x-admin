@@ -2,14 +2,11 @@
 import { useRoute, useRouter } from 'vue-router'
 import { CircleClose, FolderDelete, FullScreen, Promotion, Refresh, Remove } from '@element-plus/icons-vue'
 import { HOME_URL } from '@/config'
-import { useTabsStore } from '@/stores/modules/tabs'
-import { useGlobalStore } from '@/stores/modules/global'
-import { useKeepAliveStore } from '@/stores/modules/keepAlive'
+import { setGlobalState, useKeepAliveStore, useTabsStore } from '@/stores'
 
 const route = useRoute()
 const router = useRouter()
 const tabStore = useTabsStore()
-const globalStore = useGlobalStore()
 const keepAliveStore = useKeepAliveStore()
 
 // 刷新当前页
@@ -28,12 +25,12 @@ function refresh() {
 // 设置 Tab 标题
 const tabsTitle = ref('')
 function editTabsTitle() {
-  tabStore.setTabsTitle(tabsTitle.value)
+  tabStore.setTabTitle(tabsTitle.value)
 }
 
 // 当前页全屏
 function maximize() {
-  globalStore.setGlobalState('maximize', true)
+  setGlobalState('maximize', true)
 }
 
 // 关闭当前页

@@ -1,12 +1,11 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
 import Maximize from './components/Maximize.vue'
-import { useGlobalStore } from '@/stores/modules/global'
-import { useKeepAliveStore } from '@/stores/modules/keepAlive'
+import { useGlobalStore, useKeepAliveStore } from '@/stores'
 import Tabs from '@/layouts/components/Tabs/index.vue'
 
 const globalStore = useGlobalStore()
-const { maximize, isCollapse, layout, tabs, footer } = storeToRefs(globalStore)
+const { maximize, layout, showTab } = storeToRefs(globalStore)
 
 const keepAliveStore = useKeepAliveStore()
 const { aliveNames } = storeToRefs(keepAliveStore)
@@ -43,9 +42,9 @@ watch(
 // const listeningWindow = useDebounceFn(() => {
 //   screenWidth.value = document.body.clientWidth
 //   if (!isCollapse.value && screenWidth.value < 1200)
-//     globalStore.setGlobalState('isCollapse', true)
+//     setGlobalState('isCollapse', true)
 //   if (isCollapse.value && screenWidth.value > 1200)
-//     globalStore.setGlobalState('isCollapse', false)
+//     setGlobalState('isCollapse', false)
 // }, 100)
 // window.addEventListener('resize', listeningWindow, false)
 // onBeforeUnmount(() => {
@@ -55,7 +54,7 @@ watch(
 
 <template>
   <Maximize v-if="maximize" />
-  <Tabs v-if="tabs" />
+  <Tabs v-if="showTab" />
   <el-main class="main-box">
     <!-- TODO:动画过渡 -->
     <router-view v-slot="{ Component, route }">
@@ -66,7 +65,7 @@ watch(
       </transition>
     </router-view>
   </el-main>
-  <!-- <el-footer v-if="footer" class="absolute bottom-0 left-0 right-0">
+  <!-- <el-footer v-if="showFooter" class="absolute bottom-0 left-0 right-0">
     <Footer />
   </el-footer> -->
 </template>

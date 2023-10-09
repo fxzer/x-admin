@@ -1,7 +1,7 @@
 <!-- 横向布局 -->
 <script setup lang="ts" name="layoutTransverse">
 import { useRoute, useRouter } from 'vue-router'
-import { useAuthStore } from '@/stores/modules/auth'
+import { useAuthStore } from '@/stores'
 import Main from '@/layouts/components/Main/index.vue'
 import ToolBarRight from '@/layouts/components/Header/ToolBarRight.vue'
 import SubMenu from '@/layouts/components/Menu/SubMenu.vue'
@@ -11,8 +11,8 @@ const title = import.meta.env.VITE_APP_TITLE
 const route = useRoute()
 const router = useRouter()
 const authStore = useAuthStore()
-const menuList = computed(() => authStore.authMenuList)
-const activeMenu = computed(() => (route.meta.activeMenu ? route.meta.activeMenu : route.path) as string)
+const { authMenuList } = toRefs(authStore)
+const activeMenu = computed(() => (route.meta.activeMenu || route.path) as string)
 
 function handleClickMenu(subItem: Menu.MenuOptions) {
   if (subItem.meta.isLink)
@@ -30,7 +30,7 @@ function handleClickMenu(subItem: Menu.MenuOptions) {
       </div>
       <el-menu mode="horizontal" :router="false" :default-active="activeMenu">
         <!-- 不能直接使用 SubMenu 组件，无法触发 el-menu 隐藏省略功能 -->
-        <template v-for="subItem in menuList" :key="subItem.path">
+        <template v-for="subItem in authMenuList" :key="subItem.path">
           <el-sub-menu v-if="subItem.children?.length" :key="subItem.path" :index="`${subItem.path}el-sub-menu`">
             <template #title>
               <el-icon>

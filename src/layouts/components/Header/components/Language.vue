@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
-import { useGlobalStore } from '@/stores/modules/global'
-import type { LanguageType } from '@/stores/interface'
+import { setGlobalState, useGlobalStore } from '@/stores'
+import type { LanguageType } from '@/stores'
 
 const i18n = useI18n()
 const globalStore = useGlobalStore()
@@ -14,7 +14,7 @@ const languageList = [
 
 function changeLanguage(lang: string) {
   i18n.locale.value = lang
-  globalStore.setGlobalState('language', lang as LanguageType)
+  setGlobalState('language', lang as LanguageType)
 }
 </script>
 

@@ -1,23 +1,21 @@
 import { defineStore } from 'pinia'
-import type { KeepAliveState } from '@/stores/interface'
 
-export const useKeepAliveStore = defineStore({
-  id: 'store-keepAlive',
-  state: (): KeepAliveState => ({
-    aliveNames: [],
-  }),
-  actions: {
-    // 添加缓存组件名
-    async addAliveName(name: string) {
-      !this.aliveNames.includes(name) && this.aliveNames.push(name)
-    },
-    // 删除缓存组件名
-    async removeAliveName(name: string) {
-      this.aliveNames = this.aliveNames.filter(item => item !== name)
-    },
-    // 设置缓存组件名
-    async setAliveNames(aliveNames: string[] = []) {
-      this.aliveNames = aliveNames
-    },
-  },
+export const useKeepAliveStore = defineStore('store-keepAlive', () => {
+  const aliveNames = ref<string[]>([])
+
+  // 添加缓存组件名
+  function addAliveName(name: string) {
+    !aliveNames.value.includes(name) && aliveNames.value.push(name)
+  }
+  // 删除缓存组件名
+  function removeAliveName(name: string) {
+    aliveNames.value = aliveNames.value.filter(item => item !== name)
+  }
+  // 设置缓存组件名
+  function setAliveNames(names: string[] = []) {
+    aliveNames.value = names
+  }
+  return { aliveNames, addAliveName, removeAliveName, setAliveNames }
+}, {
+  persist: true,
 })

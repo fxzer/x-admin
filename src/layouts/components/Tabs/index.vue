@@ -3,11 +3,8 @@ import Sortable from 'sortablejs'
 import type { TabPaneName, TabsPaneContext } from 'element-plus'
 import MoreButton from './components/MoreButton.vue'
 import { HOME_URL } from '@/config'
-import { useGlobalStore } from '@/stores/modules/global'
-import { useTabsStore } from '@/stores/modules/tabs'
-import { useAuthStore } from '@/stores/modules/auth'
-import { useKeepAliveStore } from '@/stores/modules/keepAlive'
-import type { TabsMenuProps } from '@/stores/interface'
+import { setGlobalState, useAuthStore, useGlobalStore, useKeepAliveStore, useTabsStore } from '@/stores'
+import type { TabsMenuProps } from '@/stores'
 
 const route = useRoute()
 const router = useRouter()
@@ -17,8 +14,8 @@ const globalStore = useGlobalStore()
 const keepAliveStore = useKeepAliveStore()
 
 const tabsMenuValue = ref(route.fullPath)
-const tabList = computed(() => tabStore.tabList)
-const tabsIcon = computed(() => globalStore.tabsIcon)
+const { showTabIcon } = storeToRefs(globalStore)
+const { tabList } = toRefs(tabStore)
 
 onMounted(() => {
   tabsDrop()
@@ -52,10 +49,10 @@ function tabsDrop() {
     draggable: '.el-tabs__item',
     animation: 300,
     onEnd({ newIndex, oldIndex }) {
-      const tabsList = [...tabStore.tabList]
-      const currRow = tabsList.splice(oldIndex as number, 1)[0]
-      tabsList.splice(newIndex as number, 0, currRow)
-      tabStore.setTabs(tabsList)
+      const tabListClone = [...tabList.value]
+      const curTab = tabListClone.splice(oldIndex as number, 1)[0]
+      tabListClone.splice(newIndex as number, 0, curTab)
+      tabStore.setTabs(tabListClone)
     },
   })
 }
@@ -120,7 +117,7 @@ function handleContextMenu(e: MouseEvent, item: TabsMenuProps) {
 // 右键菜单功能
 // maximize current page
 function maximize() {
-  globalStore.setGlobalState('maximize', true)
+  setGlobalState('maximize', true)
 }
 
 // Close Current
@@ -161,7 +158,7 @@ function closeTabsOnSide(path: string, direction: 'left' | 'right') {
         <el-tab-pane v-for="item in tabList" :key="item.path" :label="item.title" :name="item.path" :closable="item.closable">
           <template #label>
             <span class="flex-center" @contextmenu="handleContextMenu($event, item)">
-              <el-icon v-show="item.icon && tabsIcon" class="tabs-icon">
+              <el-icon v-show="item.icon && showTabIcon" class="tabs-icon">
                 <component :is="item.icon" />
               </el-icon>
               {{ item.title }}

@@ -13,6 +13,7 @@ dist-ssr
 stats.html
 *.local
 
+.eslintcache
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

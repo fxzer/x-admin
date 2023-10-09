@@ -1,9 +1,8 @@
 <script setup lang="ts">
-import { useGlobalStore } from '@/stores/modules/global'
+import { setGlobalState } from '@/stores'
 
-const globalStore = useGlobalStore()
 function exitMaximize() {
-  globalStore.setGlobalState('maximize', false)
+  setGlobalState('maximize', false)
 }
 </script>
 

@@ -61,6 +61,7 @@ async function submitForm(formEl: FormInstance | undefined) {
     if (valid)
       ElMessage.success(`提交的数据为 : ${JSON.stringify(ruleForm)}`)
     else
+    // eslint-disable-next-line no-console
       console.log('error submit!', fields)
   })
 }

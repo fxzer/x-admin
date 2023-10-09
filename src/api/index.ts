@@ -6,7 +6,7 @@ import { showFullScreenLoading, tryHideFullScreenLoading } from '@/config/servic
 import { LOGIN_URL } from '@/config'
 import type { ResultData } from '@/api/interface'
 import { ResultEnum } from '@/enums/httpEnum'
-import { useUserStore } from '@/stores/modules/user'
+import { useUserStore } from '@/stores'
 import router from '@/routers'
 
 export interface CustomAxiosRequestConfig extends InternalAxiosRequestConfig {

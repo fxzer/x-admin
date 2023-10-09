@@ -10,7 +10,7 @@ import UnoCSS from 'unocss/vite'
 import Icons from 'unplugin-icons/vite'
 
 // import Inspect from 'vite-plugin-inspect'
-// import VueDevTools from 'vite-plugin-vue-devtools'
+import VueDevTools from 'vite-plugin-vue-devtools'
 import { setupAtuoComponent, setupAtuoImport, setupCompression, setupPrintBuildInfo, setupVitePWA, setupWebUpdateNotification } from './plugins'
 
 // vite.config.ts
@@ -27,7 +27,7 @@ export function setupVitePlugins(viteEnv: ViteEnv): (PluginOption | PluginOption
     vueJsx(),
     UnoCSS(),
     // Inspect(), // Vite调试插件
-    // VueDevTools(),
+    VueDevTools(),
     // esLint 报错信息显示在浏览器界面上
     // name 可以写在 script 标签上
     setupAtuoImport(viteEnv),

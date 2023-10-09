@@ -90,6 +90,7 @@ props.editorConfig.MENU_CONF!.uploadImage = {
       insertFn(data.fileUrl)
     }
     catch (error) {
+      // eslint-disable-next-line no-console
       console.log(error)
     }
   },
@@ -97,6 +98,7 @@ props.editorConfig.MENU_CONF!.uploadImage = {
 
 // 图片上传前判断
 function uploadImgValidate(file: File): boolean {
+  // eslint-disable-next-line no-console
   console.log(file)
   return true
 }
@@ -118,6 +120,7 @@ props.editorConfig.MENU_CONF!.uploadVideo = {
       insertFn(data.fileUrl)
     }
     catch (error) {
+      // eslint-disable-next-line no-console
       console.log(error)
     }
   },
@@ -125,6 +128,7 @@ props.editorConfig.MENU_CONF!.uploadVideo = {
 
 // 视频上传前判断
 function uploadVideoValidate(file: File): boolean {
+  // eslint-disable-next-line no-console
   console.log(file)
   return true
 }

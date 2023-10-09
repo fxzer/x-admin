@@ -1,106 +1,93 @@
 import { defineStore } from 'pinia'
-import type { GlobalState } from '@/stores/interface'
+import type { LanguageType, LayoutType, SizeConfig, SizeType } from '../interface'
 import { DEFAULT_PRIMARY } from '@/config'
-import { usePiniaPersistConfig } from '@/hooks'
+import { initLanguage } from '@/utils/language'
 
-export const useGlobalStore = defineStore({
-  id: 'store-global',
-  // 修改默认值之后，需清除 localStorage 数据
-  state: () => ({
-    // 布局模式 (纵向：vertical | 经典：classic | 横向：transverse | 分栏：columns)
-    layout: 'vertical',
-    // element 组件大小
-    assemblySize: 'default',
-    // 当前系统语言
-    language: null,
-    // 当前页面是否全屏
-    maximize: false,
-    // 主题颜色
-    primary: DEFAULT_PRIMARY,
-    // 深色模式
-    isDark: false,
-    // 灰色模式
-    isGrey: false,
-    // 色弱模式
-    isWeak: false,
-    // 侧边栏反转
-    asideInverted: false,
-    // 头部反转
-    headerInverted: false,
-    // 折叠菜单
-    isCollapse: false,
-    // 菜单手风琴
-    accordion: false,
-    // 面包屑导航
-    breadcrumb: true,
-    // 面包屑导航图标
-    breadcrumbIcon: true,
-    // 标签页
-    tabs: true,
-    // 标签页图标
-    tabsIcon: true,
-    // 页脚
-    footer: true,
-    sizeList: [
-      {
-        label: '大型',
-        key: 'large',
-        menu: {
-          fold: '64px',
-          unfold: '210px',
-          height: '60px',
-        },
-        header: {
-          height: '60px',
-        },
+export const useGlobalStore = defineStore('store-global', () => {
+  const layout = ref<LayoutType>('vertical')
+  const size = ref<SizeType>('default')
+  const language = ref<LanguageType>(initLanguage())
+  const maximize = ref(false)
+  const primary = ref(DEFAULT_PRIMARY)
+  const isDark = ref(false)
+  const isGrey = ref(false)
+  const isWeak = ref(false)
+  const isCollapse = ref(false)
+  const isAccordion = ref(false)
+  const showBreadcurmb = ref(true)
+  const showBreadcrumbIcon = ref(true)
+  const showTab = ref(true)
+  const showTabIcon = ref(true)
+  const showFooter = ref(true)
+  const asideInverted = ref(false)
+  const headerInverted = ref(false)
+  const sizeList = ref<SizeConfig[]>([
+    {
+      label: '大型',
+      key: 'large',
+      menu: {
+        fold: '64px',
+        unfold: '210px',
+        height: '60px',
       },
-      {
-        label: '默认',
-        key: 'default',
-        menu: {
-          fold: '52px',
-          unfold: '200px',
-          height: '50px',
-        },
-        header: {
-          height: '48px',
-        },
+      header: {
+        height: '60px',
       },
-      {
-        label: '小型',
-        key: 'small',
-        menu: {
-          fold: '48px',
-          unfold: '190px',
-          height: '46px',
-        },
-        header: {
-          height: '44px',
-        },
+    },
+    {
+      label: '默认',
+      key: 'default',
+      menu: {
+        fold: '52px',
+        unfold: '200px',
+        height: '50px',
       },
-    ],
-  }),
-  getters: {
-    menuSize(): any {
-      return this.sizeList.find((item) => {
-        return item.key === this.assemblySize
-      })?.menu
-    },
-    headerSize(): any {
-      return this.sizeList.find((item) => {
-        return item.key === this.assemblySize
+      header: {
+        height: '48px',
       },
-      )?.header
     },
-  },
-  actions: {
-    // 设置全局状态
-    setGlobalState(...args: ObjToKeyValArray<GlobalState>) {
-      this.$patch({ [args[0]]: args[1] })
+    {
+      label: '小型',
+      key: 'small',
+      menu: {
+        fold: '48px',
+        unfold: '190px',
+        height: '46px',
+      },
+      header: {
+        height: '44px',
+      },
     },
-    toggleMenu() {
-      this.isCollapse = !this.isCollapse
-    },
-  },
-  persist: usePiniaPersistConfig('store-global'),
+  ])
+  const currentSize = computed(() => {
+    return sizeList.value.find((item) => {
+      return item.key === size.value
+    })
+  })
+
+  function setHtmlProperty(key: string, value: string) {
+    document.documentElement.style.setProperty(key, value)
+  }
+  // 监听所选尺寸变化
+  watch(size, () => {
+    // 设置 html 变量
+    const { menu, header } = sizeList.value.find(item => item.key === size.value) || sizeList.value[1]
+    // 设置菜单子项高度
+    setHtmlProperty('--el-menu-item-height', menu.height)
+    // 设置 el-header 全局高度变量
+    setHtmlProperty('--el-header-height-global', header.height)
+  }, {
+    immediate: true,
+  })
+  function toggleMenu() {
+    isCollapse.value = !isCollapse.value
+  }
+  return { layout, currentSize, size, language, maximize, primary, isDark, isGrey, isWeak, asideInverted, headerInverted, isCollapse, isAccordion, showBreadcurmb, showBreadcrumbIcon, showTab, showTabIcon, showFooter, sizeList, toggleMenu }
+}, {
+  persist: true,
 })
+// 根据传参设置修改 Store
+export function setGlobalState(...args: any[]) {
+  const globalStore = useGlobalStore()
+  globalStore.$patch({ [args[0]]: args[1] })
+}

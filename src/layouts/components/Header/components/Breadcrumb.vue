@@ -1,14 +1,13 @@
 <script setup lang="ts">
 import { useRoute, useRouter } from 'vue-router'
 import { HOME_URL } from '@/config'
-import { useAuthStore } from '@/stores/modules/auth'
-import { useGlobalStore } from '@/stores/modules/global'
+import { useAuthStore, useGlobalStore } from '@/stores'
 
 const route = useRoute()
 const router = useRouter()
 const authStore = useAuthStore()
 const globalStore = useGlobalStore()
-
+const { showBreadcrumbIcon } = storeToRefs(globalStore)
 const breadcrumbList = computed(() => {
   const lastPath = route.matched[route.matched.length - 1].path
   let breadcrumbData = authStore.breadcrumbList[lastPath] ?? []
@@ -31,7 +30,7 @@ function onClick(item: Menu.MenuOptions, index: number) {
     <transition-group name="breadcrumb">
       <el-breadcrumb-item v-for="(item, index) in breadcrumbList" :key="item.path">
         <div class="el-breadcrumb__inner is-link flex-y-center space-x-2" @click="onClick(item, index)">
-          <el-icon v-show="item.meta.icon && globalStore.breadcrumbIcon" class="breadcrumb-icon">
+          <el-icon v-show="item.meta.icon && showBreadcrumbIcon" class="breadcrumb-icon">
             <component :is="item.meta.icon" />
           </el-icon>
           <span class="breadcrumb-title">{{ item.meta.title }}</span>

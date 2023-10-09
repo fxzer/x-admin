@@ -3,7 +3,7 @@
  * 按钮权限指令
  */
 import type { Directive, DirectiveBinding } from 'vue'
-import { useAuthStore } from '@/stores/modules/auth'
+import { useAuthStore } from '@/stores'
 
 const auth: Directive = {
   mounted(el: HTMLElement, binding: DirectiveBinding) {

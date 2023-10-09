@@ -1,8 +1,7 @@
 <!-- 经典布局 -->
 <script setup lang="ts" name="layoutClassic">
 import { useRoute } from 'vue-router'
-import { useAuthStore } from '@/stores/modules/auth'
-import { useGlobalStore } from '@/stores/modules/global'
+import { useAuthStore, useGlobalStore } from '@/stores'
 import Main from '@/layouts/components/Main/index.vue'
 import SubMenu from '@/layouts/components/Menu/SubMenu.vue'
 import ToolBarLeft from '@/layouts/components/Header/ToolBarLeft.vue'
@@ -13,10 +12,9 @@ const title = import.meta.env.VITE_APP_TITLE
 const route = useRoute()
 const authStore = useAuthStore()
 const globalStore = useGlobalStore()
-const accordion = computed(() => globalStore.accordion)
-const isCollapse = computed(() => globalStore.isCollapse)
-const menuList = computed(() => authStore.authMenuList)
-const activeMenu = computed(() => (route.meta.activeMenu ? route.meta.activeMenu : route.path) as string)
+const { isAccordion, isCollapse } = toRefs(globalStore)
+const { authMenuList } = toRefs(authStore)
+const activeMenu = computed(() => (route.meta.activeMenu || route.path) as string)
 </script>
 
 <template>
@@ -41,10 +39,10 @@ const activeMenu = computed(() => (route.meta.activeMenu ? route.meta.activeMenu
               :router="false"
               :default-active="activeMenu"
               :collapse="isCollapse"
-              :unique-opened="accordion"
+              :unique-opened="isAccordion"
               :collapse-transition="false"
             >
-              <SubMenu :menu-list="menuList" />
+              <SubMenu :menu-list="authMenuList" />
             </el-menu>
           </el-scrollbar>
         </div>

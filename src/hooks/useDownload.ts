@@ -39,6 +39,7 @@ export async function useDownload(api: (param: any) => Promise<any>,
     window.URL.revokeObjectURL(blobUrl)
   }
   catch (error) {
+    // eslint-disable-next-line no-console
     console.log(error)
   }
 }

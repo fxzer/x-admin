@@ -6,8 +6,8 @@ import LayoutVertical from './LayoutVertical/index.vue'
 import LayoutClassic from './LayoutClassic/index.vue'
 import LayoutTransverse from './LayoutTransverse/index.vue'
 import LayoutColumns from './LayoutColumns/index.vue'
-import { useGlobalStore } from '@/stores/modules/global'
-import type { LayoutType } from '@/stores/interface'
+import { useGlobalStore } from '@/stores'
+import type { LayoutType } from '@/stores'
 
 const LayoutComponents: Record<LayoutType, Component> = {
   vertical: LayoutVertical,
@@ -17,7 +17,7 @@ const LayoutComponents: Record<LayoutType, Component> = {
 }
 
 const globalStore = useGlobalStore()
-const layout = computed(() => globalStore.layout as LayoutType)
+const { layout } = storeToRefs(globalStore)
 </script>
 
 <template>

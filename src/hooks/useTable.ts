@@ -43,6 +43,7 @@ export function useTable(api?: (params: any) => Promise<any>,
       }
     },
     set: (newVal: any) => {
+      // eslint-disable-next-line no-console
       console.log('我是分页更新之后的值', newVal)
     },
   })

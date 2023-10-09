@@ -8,9 +8,9 @@ const route = useRoute()
 const title = import.meta.env.VITE_APP_TITLE
 const globalStore = useGlobalStore()
 const authStore = useAuthStore()
-const { isCollapse, accordion } = toRefs(globalStore)
-const menuList = computed(() => authStore.authMenuList)
-const activeMenu = computed(() => (route.meta.activeMenu ? route.meta.activeMenu : route.path) as string)
+const { isCollapse, isAccordion, asideInverted } = toRefs(globalStore)
+const { authMenuList } = toRefs(authStore)
+const activeMenu = computed(() => (route.meta.activeMenu || route.path) as string)
 const visible = computed<boolean>({
   set(val) {
     isCollapse.value = !val
@@ -23,7 +23,7 @@ const visible = computed<boolean>({
 
 <template>
   <div class="mobile-menu">
-    <el-drawer v-model="visible" :with-header="false" size="200px" direction="ltr">
+    <el-drawer v-model="visible" :with-header="false" size="200px" direction="ltr" :class="{ inverted: asideInverted }">
       <div class="h-full flex-col">
         <div class="logo h-14 flex-center">
           <img class="wh-7 object-contain" src="@/assets/images/logo.svg" alt="logo">
@@ -32,13 +32,13 @@ const visible = computed<boolean>({
         </div>
         <el-scrollbar class="flex-1">
           <el-menu
-            :router="false" :default-active="activeMenu" :unique-opened="accordion"
+            :router="false" :default-active="activeMenu" :unique-opened="isAccordion"
           >
-            <SubMenu :menu-list="menuList" />
+            <SubMenu :menu-list="authMenuList" />
           </el-menu>
         </el-scrollbar>
         <div class="h-6 w-full flex-end-center">
-          <CollapseIcon />
+          <CollapseIcon :class="asideInverted ? 'text-info' : ''" />
         </div>
       </div>
     </el-drawer>
@@ -49,11 +49,17 @@ const visible = computed<boolean>({
 .el-menu{
   border-right:none;
 }
- .mobile-menu :deep(.el-drawer .el-drawer__body){
+
+ .mobile-menu {
+  &:deep(.el-drawer .el-drawer__body){
     padding:0 !important;
     //隐藏滚动条
     &::-webkit-scrollbar{
       display: none;
     }
   }
+  :deep(.el-drawer.inverted){
+    background-color: #141414;
+  }
+ }
 </style>

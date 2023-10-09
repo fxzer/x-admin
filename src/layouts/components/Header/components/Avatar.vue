@@ -3,7 +3,7 @@ import { useRouter } from 'vue-router'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import InfoDialog from './InfoDialog.vue'
 import PasswordDialog from './PasswordDialog.vue'
-import { useUserStore } from '@/stores/modules/user'
+import { useUserStore } from '@/stores'
 import { logoutApi } from '@/api/modules/login'
 import { LOGIN_URL } from '@/config'
 

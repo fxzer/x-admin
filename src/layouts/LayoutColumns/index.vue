@@ -1,8 +1,7 @@
 <!-- 分栏布局 -->
 <script setup lang="ts" name="layoutColumns">
 import { useRoute, useRouter } from 'vue-router'
-import { useAuthStore } from '@/stores/modules/auth'
-import { useGlobalStore } from '@/stores/modules/global'
+import { useAuthStore, useGlobalStore } from '@/stores'
 import Main from '@/layouts/components/Main/index.vue'
 import ToolBarLeft from '@/layouts/components/Header/ToolBarLeft.vue'
 import ToolBarRight from '@/layouts/components/Header/ToolBarRight.vue'
@@ -14,21 +13,20 @@ const route = useRoute()
 const router = useRouter()
 const authStore = useAuthStore()
 const globalStore = useGlobalStore()
-const accordion = computed(() => globalStore.accordion)
-const isCollapse = computed(() => globalStore.isCollapse)
-const menuList = computed(() => authStore.authMenuList)
-const activeMenu = computed(() => (route.meta.activeMenu ? route.meta.activeMenu : route.path) as string)
+const { isAccordion, isCollapse } = toRefs(globalStore)
+const { authMenuList } = toRefs(authStore)
+const activeMenu = computed(() => (route.meta.activeMenu || route.path) as string)
 
 const subMenuList = ref<Menu.MenuOptions[]>([])
 const splitActive = ref('')
 watch(
-  () => [menuList, route],
+  () => [authMenuList, route],
   () => {
     // 当前菜单没有数据直接 return
-    if (!menuList.value.length)
+    if (!authMenuList.value.length)
       return
     splitActive.value = route.path
-    const menuItem = menuList.value.filter((item: Menu.MenuOptions) => {
+    const menuItem = authMenuList.value.filter((item: Menu.MenuOptions) => {
       return route.path === item.path || `/${route.path.split('/')[1]}` === item.path
     })
     if (menuItem[0].children?.length)
@@ -60,7 +58,7 @@ function changeSubMenu(item: Menu.MenuOptions) {
       <el-scrollbar>
         <div class="split-list">
           <div
-            v-for="item in menuList"
+            v-for="item in authMenuList"
             :key="item.path"
             class="split-item"
             :class="{ 'split-active': splitActive === item.path || `/${splitActive.split('/')[1]}` === item.path }"
@@ -83,7 +81,7 @@ function changeSubMenu(item: Menu.MenuOptions) {
           :router="false"
           :default-active="activeMenu"
           :collapse="isCollapse"
-          :unique-opened="accordion"
+          :unique-opened="isAccordion"
           :collapse-transition="false"
         >
           <SubMenu :menu-list="subMenuList" />

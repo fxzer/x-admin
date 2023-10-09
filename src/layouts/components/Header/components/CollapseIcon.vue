@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useGlobalStore } from '@/stores/modules/global'
+import { useGlobalStore } from '@/stores'
 
 const globalStore = useGlobalStore()
 const { isCollapse } = storeToRefs(globalStore)

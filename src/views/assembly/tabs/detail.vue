@@ -1,11 +1,11 @@
 <script setup lang="ts" name="tabsDetail">
 import { useRoute } from 'vue-router'
-import { useTabsStore } from '@/stores/modules/tabs'
+import { useTabsStore } from '@/stores'
 
 const route = useRoute()
 const tabStore = useTabsStore()
 
-tabStore.setTabsTitle(`No.${route.params.id} - ${route.meta.title}`)
+tabStore.setTabTitle(`No.${route.params.id} - ${route.meta.title}`)
 </script>
 
 <template>

@@ -49,7 +49,7 @@ function handleSubmit() {
       drawerProps.value.getTableList!()
       drawerVisible.value = false
     }
-    catch (error) {
+    catch (error) { // eslint-disable-next-line no-console
       console.log(error)
     }
   })

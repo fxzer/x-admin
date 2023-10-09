@@ -2,8 +2,8 @@
 <script setup lang="ts" name="layoutAsync">
 import { type Component } from 'vue'
 import ThemeDrawer from './components/ThemeDrawer/index.vue'
-import type { LayoutType } from '@/stores/interface'
-import { useGlobalStore } from '@/stores/modules/global'
+import type { LayoutType } from '@/stores'
+import { useGlobalStore } from '@/stores'
 import Loading from '@/components/Loading/index.vue'
 
 const LayoutComponents: Record<LayoutType, Component> = {
@@ -14,7 +14,7 @@ const LayoutComponents: Record<LayoutType, Component> = {
 }
 
 const globalStore = useGlobalStore()
-const layout = computed(() => globalStore.layout)
+const { layout } = storeToRefs(globalStore)
 </script>
 
 <template>

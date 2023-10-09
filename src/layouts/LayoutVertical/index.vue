@@ -2,8 +2,7 @@
 <script setup lang="ts" name="layoutVertical">
 import { useRoute } from 'vue-router'
 import { breakpointsTailwind, useBreakpoints, useResizeObserver } from '@vueuse/core'
-import { useAuthStore } from '@/stores/modules/auth'
-import { useGlobalStore } from '@/stores/modules/global'
+import { useAuthStore, useGlobalStore } from '@/stores'
 import Main from '@/layouts/components/Main/index.vue'
 import ToolBarLeft from '@/layouts/components/Header/ToolBarLeft.vue'
 import ToolBarRight from '@/layouts/components/Header/ToolBarRight.vue'
@@ -13,7 +12,7 @@ import CollapseIcon from '@/layouts/components/Header/components/CollapseIcon.vu
 
 const authStore = useAuthStore()
 const globalStore = useGlobalStore()
-const { isCollapse, accordion, menuSize } = toRefs(globalStore)
+const { isCollapse, isAccordion, currentSize } = toRefs(globalStore)
 
 const breakpoints = useBreakpoints(breakpointsTailwind)
 
@@ -35,7 +34,7 @@ const activeMenu = computed(() => (route.meta.activeMenu ? route.meta.activeMenu
     <!-- 菜单 -->
     <div
       class="z-100 hidden h-screen flex-col shrink-0 border-r border-gray-100 transition-width duration-300 md:flex dark:border-gray-800"
-      :style="{ width: isCollapse ? menuSize.fold : menuSize.unfold, background: `var(--el-menu-bg-color)` }"
+      :style="{ width: isCollapse ? currentSize?.menu.fold : currentSize?.menu.unfold, background: `var(--el-menu-bg-color)` }"
     >
       <div class="logo h-14 flex-center">
         <img class="wh-7 object-contain" src="@/assets/images/logo.svg" alt="logo">
@@ -44,7 +43,7 @@ const activeMenu = computed(() => (route.meta.activeMenu ? route.meta.activeMenu
       </div>
       <el-scrollbar class="flex-1">
         <el-menu
-          :router="false" :default-active="activeMenu" :collapse="isCollapse" :unique-opened="accordion"
+          :router="false" :default-active="activeMenu" :collapse="isCollapse" :unique-opened="isAccordion"
           :collapse-transition="false"
         >
           <SubMenu :menu-list="menuList" />
@@ -56,7 +55,7 @@ const activeMenu = computed(() => (route.meta.activeMenu ? route.meta.activeMenu
     </div>
     <!-- 内容主体 -->
     <el-container>
-      <el-header class="flex-between-center">
+      <el-header class="flex-between-center" style="height: var(--el-header-height-global)">
         <ToolBarLeft />
         <ToolBarRight />
       </el-header>

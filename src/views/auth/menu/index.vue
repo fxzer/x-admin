@@ -2,7 +2,7 @@
 import { useRouter } from 'vue-router'
 import { Promotion } from '@element-plus/icons-vue'
 import { LOGIN_URL } from '@/config'
-import { useUserStore } from '@/stores/modules/user'
+import { useUserStore } from '@/stores'
 
 const router = useRouter()
 const userStore = useUserStore()

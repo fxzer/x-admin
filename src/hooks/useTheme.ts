@@ -2,7 +2,7 @@ import { storeToRefs } from 'pinia'
 import { ElMessage } from 'element-plus'
 import type { Theme } from './interface'
 import { DEFAULT_PRIMARY } from '@/config'
-import { useGlobalStore } from '@/stores/modules/global'
+import { setGlobalState, useGlobalStore } from '@/stores'
 import { getDarkColor, getLightColor } from '@/utils/color'
 import { menuTheme } from '@/styles/theme/menu'
 import { asideTheme } from '@/styles/theme/aside'
@@ -45,7 +45,7 @@ export function useTheme() {
       const primaryColor = isDark.value ? `${getDarkColor(val, i / 10)}` : `${getLightColor(val, i / 10)}`
       document.documentElement.style.setProperty(`--el-color-primary-light-${i}`, primaryColor)
     }
-    globalStore.setGlobalState('primary', val)
+    setGlobalState('primary', val)
   }
   // 设置侧边栏样式
   const setAsideTheme = () => {
@@ -96,7 +96,7 @@ export function useTheme() {
     }
     body.setAttribute('style', styles[type])
     const propName = type === 'grey' ? 'isWeak' : 'isGrey'
-    globalStore.setGlobalState(propName, false)
+    setGlobalState(propName, false)
   }
 
   // init theme
