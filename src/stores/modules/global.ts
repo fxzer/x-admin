@@ -59,6 +59,7 @@ export const useGlobalStore = defineStore('store-global', () => {
       },
     },
   ])
+  const settingsVisible = ref(false)
   const currentSize = computed(() => {
     return sizeList.value.find((item) => {
       return item.key === size.value
@@ -82,7 +83,11 @@ export const useGlobalStore = defineStore('store-global', () => {
   function toggleMenu() {
     isCollapse.value = !isCollapse.value
   }
-  return { layout, currentSize, size, language, maximize, primary, isDark, isGrey, isWeak, asideInverted, headerInverted, isCollapse, isAccordion, showBreadcurmb, showBreadcrumbIcon, showTab, showTabIcon, showFooter, sizeList, toggleMenu }
+  // 打开偏好设置
+  function openSettings() {
+    settingsVisible.value = true
+  }
+  return { layout, currentSize, size, language, maximize, primary, isDark, isGrey, isWeak, asideInverted, headerInverted, isCollapse, settingsVisible, isAccordion, showBreadcurmb, showBreadcrumbIcon, showTab, showTabIcon, showFooter, sizeList, toggleMenu, openSettings }
 }, {
   persist: true,
 })

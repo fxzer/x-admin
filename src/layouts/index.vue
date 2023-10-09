@@ -1,7 +1,7 @@
 <!-- 💥 一次性加载 LayoutComponents -->
 <script setup lang="ts" name="layout">
 import { type Component } from 'vue'
-import ThemeDrawer from './components/ThemeDrawer/index.vue'
+import Settings from './components/Settings/index.vue'
 import LayoutVertical from './LayoutVertical/index.vue'
 import LayoutClassic from './LayoutClassic/index.vue'
 import LayoutTransverse from './LayoutTransverse/index.vue'
@@ -17,12 +17,12 @@ const LayoutComponents: Record<LayoutType, Component> = {
 }
 
 const globalStore = useGlobalStore()
-const { layout } = storeToRefs(globalStore)
+const { layout, settingsVisible } = storeToRefs(globalStore)
 </script>
 
 <template>
   <component :is="LayoutComponents[layout]" />
-  <ThemeDrawer />
+  <Settings v-model="settingsVisible" />
 </template>
 
 <style scoped lang="scss">

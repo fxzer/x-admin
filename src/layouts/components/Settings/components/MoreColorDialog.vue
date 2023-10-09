@@ -8,9 +8,7 @@ const emit = defineEmits(['update:modelValue'])
 const { changePrimary } = useTheme()
 const visible = useVModel(props, 'modelValue', emit)
 const globalStore = useGlobalStore()
-const {
-  primary,
-} = storeToRefs(globalStore)
+const { primary } = storeToRefs(globalStore)
 const activeCate = ref('红色系')
 function handleClick(color: string) {
   primary.value = color

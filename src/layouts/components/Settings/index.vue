@@ -6,8 +6,11 @@ import MoreColorDialog from './components/MoreColorDialog.vue'
 import { useTheme } from '@/hooks/useTheme'
 import { useGlobalStore } from '@/stores'
 import { DEFAULT_PRIMARY } from '@/config'
-import mittBus from '@/utils/mittBus'
 import SwitchDark from '@/components/SwitchDark/index.vue'
+
+const props = defineProps(['modelValue'])
+const emit = defineEmits(['update:modelValue'])
+const visible = useVModel(props, 'modelValue', emit)
 
 const { changePrimary, changeGreyOrWeak, setAsideTheme, setHeaderTheme } = useTheme()
 const moreColorVisible = ref(false)
@@ -17,7 +20,6 @@ const {
   primary,
   isGrey,
   isWeak,
-  isCollapse,
   isAccordion,
   showTab,
   showTabIcon,
@@ -33,7 +35,6 @@ const colorList = [
   DEFAULT_PRIMARY,
   '#daa96e',
   '#0c819f',
-  '#409eff',
   '#27ae60',
   '#ff5c93',
   '#e74c3c',
@@ -41,15 +42,12 @@ const colorList = [
   '#f39c12',
   '#9b59b6',
 ]
-// 打开主题设置
-const drawerVisible = ref(false)
-mittBus.on('openThemeDrawer', () => (drawerVisible.value = true))
 </script>
 
 <template>
-  <el-drawer v-model="drawerVisible" title="布局设置" size="290px">
+  <el-drawer v-model="visible" title="偏好设置" size="290px">
     <!-- 布局样式 -->
-    <el-divider class="divider">
+    <el-divider class="divider !mt0">
       <el-icon><IEpNotification /></el-icon>
       布局样式
     </el-divider>

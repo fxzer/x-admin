@@ -286,7 +286,7 @@ timer = setInterval(() => {
 // 销毁时触发
 onBeforeUnmount(() => {
   window.removeEventListener('resize', resize)
-  clearInterval(timer!)
+  // clearInterval(timer!)
   Object.values(dataScreen).forEach(val => val?.dispose())
 })
 </script>

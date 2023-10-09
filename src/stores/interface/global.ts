@@ -15,3 +15,7 @@ export interface SizeConfig {
     height: '60px' | '48px' | '44px'
   }
 }
+export interface Layout {
+  name: string
+  value: LayoutType
+}

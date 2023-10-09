@@ -1,7 +1,7 @@
 <!-- 💥 异步加载 LayoutComponents -->
 <script setup lang="ts" name="layoutAsync">
 import { type Component } from 'vue'
-import ThemeDrawer from './components/ThemeDrawer/index.vue'
+import Settings from './components/Settings/index.vue'
 import type { LayoutType } from '@/stores'
 import { useGlobalStore } from '@/stores'
 import Loading from '@/components/Loading/index.vue'
@@ -14,7 +14,7 @@ const LayoutComponents: Record<LayoutType, Component> = {
 }
 
 const globalStore = useGlobalStore()
-const { layout } = storeToRefs(globalStore)
+const { layout, settingsVisible } = storeToRefs(globalStore)
 </script>
 
 <template>
@@ -26,7 +26,7 @@ const { layout } = storeToRefs(globalStore)
       <Loading />
     </template>
   </suspense>
-  <ThemeDrawer />
+  <Settings v-model="settingsVisible" />
 </template>
 
 <style scoped lang="scss">

@@ -2,7 +2,7 @@
 import Size from './components/Size.vue'
 import Language from './components/Language.vue'
 import GlobalSearch from './components/GlobalSearch/index.vue'
-import ThemeSetting from './components/ThemeSetting.vue'
+import Setting from './components/Setting.vue'
 import Message from './components/Message.vue'
 import Fullscreen from './components/Fullscreen.vue'
 import Avatar from './components/Avatar.vue'
@@ -19,7 +19,7 @@ const { userInfo } = userStore
       <Size />
       <Language />
       <GlobalSearch />
-      <ThemeSetting />
+      <Setting />
       <Message />
       <Fullscreen />
       <Avatar />

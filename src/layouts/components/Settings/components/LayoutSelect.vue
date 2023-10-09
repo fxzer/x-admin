@@ -1,5 +1,5 @@
 <script setup lang='ts'>
-import type { LayoutType } from '@/stores'
+import type { Layout, LayoutType } from '@/stores'
 
 const props = defineProps<{ layout: LayoutType }>()
 const emit = defineEmits(['update:layout'])
@@ -8,10 +8,7 @@ const activeLayout = useVModel(props, 'layout', emit)
 function setLayout(val: LayoutType) {
   activeLayout.value = val
 }
-interface Layout {
-  name: string
-  value: LayoutType
-}
+
 const layouts: Layout[] = [
   {
     name: '纵向',
