@@ -10,7 +10,7 @@ export const useGlobalStore = defineStore('store-global', () => {
   const maximize = ref(false)
   const primary = ref(DEFAULT_PRIMARY)
   const onlyEffectPrimary = ref(true)
-  const isDark = ref(useDark())
+  const isDark = ref(false)
   const isGrey = ref(false)
   const isWeak = ref(false)
   const isCollapse = ref(false)
@@ -98,6 +98,9 @@ export const useGlobalStore = defineStore('store-global', () => {
   }, { immediate: true })
   watch(isWeak, (val) => {
     val ? htmlClass.add('is-weak') : htmlClass.remove('is-weak')
+  }, { immediate: true })
+  watch(isDark, (val) => {
+    val ? htmlClass.add('dark') : htmlClass.remove('dark')
   }, { immediate: true })
 
   return { layout, currentSize, size, language, maximize, primary, isDark, isGrey, isWeak, asideInverted, headerInverted, isCollapse, settingsVisible, isAccordion, showBreadcurmb, showBreadcrumbIcon, showTab, showTabIcon, showFooter, sizeList, onlyEffectPrimary, toggleMenu, openSettings }
