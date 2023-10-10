@@ -67,7 +67,7 @@ watch(isAccordion, (val) => {
     </div>
     <!-- 内容主体 -->
     <el-container>
-      <el-header class="flex-between-center" style="height: var(--el-header-height-global)">
+      <el-header class="flex-between-center">
         <ToolBarLeft />
         <ToolBarRight />
       </el-header>
@@ -78,7 +78,9 @@ watch(isAccordion, (val) => {
 </template>
 
 <style scoped lang="scss">
-// @import "./index.scss";
+.el-header{
+  height: var(--el-header-height-global);
+}
 .el-menu {
   width: 100%;
   border: none;

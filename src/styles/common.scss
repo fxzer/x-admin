@@ -48,11 +48,13 @@ body,
 
 /* scroll bar */
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 4px;
+  height: 4px;
+}
+.el-scrollbar__bar{
+  width:4px !important
 }
 ::-webkit-scrollbar-thumb {
-  // background-color: var(--el-border-color-darker);
   border-radius: 20px;
 }
 

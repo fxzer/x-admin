@@ -26,7 +26,6 @@ const {
   showBreadcurmb,
   showBreadcrumbIcon,
   asideInverted,
-  headerInverted,
   onlyEffectPrimary,
 } = storeToRefs(globalStore)
 
@@ -42,6 +41,10 @@ const colorList = [
   '#f39c12',
   '#9b59b6',
 ]
+function handleClear() {
+  localStorage.clear()
+  location.reload()
+}
 </script>
 
 <template>
@@ -53,30 +56,15 @@ const colorList = [
     </el-divider>
     <LayoutSelect v-model:layout="layout" />
 
-    <div class="setting-item">
-      <span>
-        侧边栏反转色
-        <el-tooltip effect="dark" content="侧边栏颜色变为深色模式">
-          <el-icon><IEpQuestionFilled /></el-icon>
-        </el-tooltip>
-      </span>
-      <el-switch v-model="asideInverted" />
-    </div>
-    <div class="setting-item">
-      <span>
-        头部反转色
-        <el-tooltip effect="dark" content="头部颜色变为深色模式">
-          <el-icon><IEpQuestionFilled /></el-icon>
-        </el-tooltip>
-      </span>
-      <el-switch v-model="headerInverted" />
-    </div>
-
     <!-- 全局主题 -->
     <el-divider class="divider">
       <el-icon><IEpColdDrink /></el-icon>
       全局主题
     </el-divider>
+    <div class="setting-item">
+      <span>暗黑模式</span>
+      <SwitchDark />
+    </div>
     <div class="setting-item">
       <span>主题颜色</span>
       <div class="group flex-y-center space-x-2">
@@ -96,9 +84,15 @@ const colorList = [
       <el-switch v-model="onlyEffectPrimary" />
     </div>
     <div class="setting-item">
-      <span>暗黑模式</span>
-      <SwitchDark />
+      <span>
+        侧边栏反转色
+        <el-tooltip effect="dark" content="侧边栏颜色变为深色模式">
+          <el-icon><IEpQuestionFilled /></el-icon>
+        </el-tooltip>
+      </span>
+      <el-switch v-model="asideInverted" />
     </div>
+
     <div class="setting-item">
       <span>灰色模式</span>
       <el-switch v-model="isGrey" />
@@ -140,6 +134,11 @@ const colorList = [
     <div class="setting-item">
       <span>页脚</span>
       <el-switch v-model="showFooter" />
+    </div>
+    <div class="flex-x-center">
+      <el-button type="primary" @click="handleClear">
+        清空缓存并退出
+      </el-button>
     </div>
     <MoreColorDialog v-model="moreColorVisible" />
   </el-drawer>

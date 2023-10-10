@@ -1,8 +1,17 @@
 import { defineStore } from 'pinia'
 import type { LanguageType, LayoutType, SizeConfig, SizeType } from '../interface'
 import { DEFAULT_PRIMARY } from '@/config'
-import { initLanguage, setEpHtmlVars, setHtmlProperty } from '@/utils'
+import { initLanguage, removeHtmlProperty, setEpHtmlVars, setHtmlProperty } from '@/utils'
 
+const asideTheme = {
+  '--el-menu-bg-color': '#141414',
+  '--el-menu-hover-bg-color': '#000000',
+  '--el-menu-active-bg-color': '#000000',
+  '--el-menu-text-color': '#bdbdc0',
+  '--el-menu-active-color': '#ffffff',
+  '--el-menu-hover-text-color': '#ffffff',
+  '--el-menu-horizontal-sub-item-height': '50px',
+}
 export const useGlobalStore = defineStore('store-global', () => {
   const layout = ref<LayoutType>('vertical')
   const size = ref<SizeType>('default')
@@ -21,7 +30,6 @@ export const useGlobalStore = defineStore('store-global', () => {
   const showTabIcon = ref(true)
   const showFooter = ref(true)
   const asideInverted = ref(false)
-  const headerInverted = ref(false)
   const sizeList = ref<SizeConfig[]>([
     {
       label: '大型',
@@ -103,7 +111,12 @@ export const useGlobalStore = defineStore('store-global', () => {
     val ? htmlClass.add('dark') : htmlClass.remove('dark')
   }, { immediate: true })
 
-  return { layout, currentSize, size, language, maximize, primary, isDark, isGrey, isWeak, asideInverted, headerInverted, isCollapse, settingsVisible, isAccordion, showBreadcurmb, showBreadcrumbIcon, showTab, showTabIcon, showFooter, sizeList, onlyEffectPrimary, toggleMenu, openSettings }
+  // 侧边栏反色
+  watch(asideInverted, (val) => {
+    Object.entries(asideTheme).forEach(([key, value]) => val ? setHtmlProperty(key, value) : removeHtmlProperty(key))
+  }, { immediate: true })
+
+  return { layout, currentSize, size, language, maximize, primary, isDark, isGrey, isWeak, asideInverted, isCollapse, settingsVisible, isAccordion, showBreadcurmb, showBreadcrumbIcon, showTab, showTabIcon, showFooter, sizeList, onlyEffectPrimary, toggleMenu, openSettings }
 }, {
   persist: true,
 })

@@ -36,20 +36,6 @@ watch(
   },
   { immediate: true },
 )
-
-// // 监听窗口大小变化，折叠侧边栏
-// const screenWidth = ref(0)
-// const listeningWindow = useDebounceFn(() => {
-//   screenWidth.value = document.body.clientWidth
-//   if (!isCollapse.value && screenWidth.value < 1200)
-//     setGlobalState('isCollapse', true)
-//   if (isCollapse.value && screenWidth.value > 1200)
-//     setGlobalState('isCollapse', false)
-// }, 100)
-// window.addEventListener('resize', listeningWindow, false)
-// onBeforeUnmount(() => {
-//   window.removeEventListener('resize', listeningWindow)
-// })
 </script>
 
 <template>

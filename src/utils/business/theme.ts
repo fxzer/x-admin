@@ -40,9 +40,12 @@ export function toRGB(color: string) {
 export function toHex(rgb: number[]) {
   return `#${rgb.map(value => value.toString(16).padStart(2, '0')).join('')}`
 }
-
+// 操作 html style 变量
 export function setHtmlProperty(key: string, value: string) {
   document.documentElement.style.setProperty(key, value)
+}
+export function removeHtmlProperty(key: string) {
+  document.documentElement.style.removeProperty(key)
 }
 /* 方案一：逐个循环设置属性 */
 /* 由模式、主色计算色彩层次 */

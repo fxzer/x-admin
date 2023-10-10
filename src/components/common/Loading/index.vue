@@ -1,8 +1,9 @@
 <script setup lang="ts">
 onMounted(() => {
-  const globalState = JSON.parse(localStorage.getItem('store-global') || '')
-  if (globalState) {
-    const { isDark, primary } = globalState
+  const globalState = localStorage.getItem('store-global')
+  const globalStore = globalState && JSON.parse(globalState)
+  if (globalStore) {
+    const { isDark, primary } = globalStore
     const html: HTMLHtmlElement = document.querySelector('html')!
     const dots: NodeListOf<HTMLElement> = document.querySelectorAll('.dot i')
     dots.forEach(item => (item.style.background = primary))

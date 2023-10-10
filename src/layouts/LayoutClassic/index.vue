@@ -56,4 +56,7 @@ const activeMenu = computed(() => (route.meta.activeMenu || route.path) as strin
 
 <style scoped lang="scss">
 @import "./index.scss";
+.el-header{
+  height: var(--el-header-height-global);
+}
 </style>

@@ -35,13 +35,13 @@ function handleClickMenu(subItem: Menu.MenuOptions) {
 <style lang="scss">
 .el-sub-menu .el-sub-menu__title:hover {
   color: var(--el-menu-hover-text-color) !important;
-  background-color: transparent !important;
+  background-color: var(--el-menu-hover-bg-color) !important;
 }
 .el-menu--collapse {
   .is-active {
     .el-sub-menu__title {
       color: #ffffff !important;
-      background-color: var(--el-color-primary) !important;
+      background-color: var(--el-menu-hover-bg-color) !important;
     }
   }
 }
