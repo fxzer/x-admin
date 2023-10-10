@@ -1,6 +1,8 @@
+import type { layouts } from '@/config/layouts'
+
 export type LanguageType = 'zh' | 'en' | null
 export type SizeType = 'large' | 'default' | 'small'
-export type LayoutType = 'vertical' | 'classic' | 'transverse' | 'columns'
+export type LayoutType = typeof layouts[number]['value']
 
 export interface MenuSizeList {
   fold: '64px' | '52px' | '48px'
@@ -14,8 +16,4 @@ export interface SizeConfig {
   header: {
     height: '60px' | '48px' | '44px'
   }
-}
-export interface Layout {
-  name: string
-  value: LayoutType
 }

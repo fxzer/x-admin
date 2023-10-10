@@ -2,6 +2,7 @@
 <script setup lang="ts" name="layoutAsync">
 import { type Component } from 'vue'
 import Settings from './components/Settings/index.vue'
+
 import type { LayoutType } from '@/stores'
 import { useGlobalStore } from '@/stores'
 import Loading from '@/components/Loading/index.vue'
