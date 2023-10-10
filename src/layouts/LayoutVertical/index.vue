@@ -27,6 +27,17 @@ const route = useRoute()
 
 const menuList = computed(() => authStore.authMenuList)
 const activeMenu = computed(() => (route.meta.activeMenu ? route.meta.activeMenu : route.path) as string)
+//
+const elMenuRef = ref()
+watch(isAccordion, (val) => {
+  if (val) {
+    menuList.value.forEach((item) => {
+      // 除了当前路由，其他全部关闭
+      if (!route.path.includes(item.path))
+        elMenuRef.value?.close(item.path)
+    })
+  }
+})
 </script>
 
 <template>
@@ -43,6 +54,7 @@ const activeMenu = computed(() => (route.meta.activeMenu ? route.meta.activeMenu
       </div>
       <el-scrollbar class="flex-1">
         <el-menu
+          ref="elMenuRef"
           :router="false" :default-active="activeMenu" :collapse="isCollapse" :unique-opened="isAccordion"
           :collapse-transition="false"
         >

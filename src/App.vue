@@ -6,14 +6,10 @@ import { ElConfigProvider } from 'element-plus'
 import en from 'element-plus/es/locale/lang/en'
 import zh from 'element-plus/es/locale/lang/zh-cn'
 
-import { useTheme } from '@/hooks/useTheme'
 import { useGlobalStore } from '@/stores'
 
 const globalStore = useGlobalStore()
 const { size, language } = storeToRefs(globalStore)
-
-const { initTheme } = useTheme()
-initTheme()
 
 const i18n = useI18n()
 onMounted(() => {

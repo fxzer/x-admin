@@ -83,4 +83,6 @@ type ObjToKeyValArray<T> = {
 // 声明 @pureadmin/utils 模块 ，模块中含 getPackageSize 方法
 declare module '@pureadmin/utils' {
   export function getPackageSize(options: { folder: string; callback: (size: string) => void }): void
+  export function darken(color: string, weight: number): string
+  export function lighten(color: string, weight: number): string
 }

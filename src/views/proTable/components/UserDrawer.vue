@@ -1,7 +1,7 @@
 <script setup lang="ts" name="UserDrawer">
 import type { FormInstance } from 'element-plus'
 import { ElMessage } from 'element-plus'
-import { genderType } from '@/utils/serviceDict'
+import { genderType } from '@/constants'
 import type { User } from '@/api/interface'
 import UploadImg from '@/components/Upload/Img.vue'
 import UploadImgs from '@/components/Upload/Imgs.vue'

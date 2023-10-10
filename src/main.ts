@@ -1,11 +1,10 @@
 import { createApp } from 'vue'
-import { setupAssets, setupErrorHandler, setupGlobalImportEp } from './plugins'
+import { setupAssets, setupErrorHandler, setupGlobalImportEp, setupI18n } from './plugins'
 import { setupStore } from './stores'
 import { setupRouter } from './routers'
 import { setupDirectives } from './directives'
 import App from './App.vue'
-import { setupI18n } from './locales'
-import Loading from '@/components/Loading/index.vue'
+import Loading from '@/components/common/Loading/index.vue'
 
 async function setupApp() {
   // 引入静态资源

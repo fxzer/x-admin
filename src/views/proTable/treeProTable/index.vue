@@ -2,7 +2,7 @@
 import { ElMessage, ElNotification } from 'element-plus'
 import { CirclePlus, Delete, EditPen, View } from '@element-plus/icons-vue'
 import type { User } from '@/api/interface'
-import { genderType } from '@/utils/serviceDict'
+import { genderType } from '@/constants'
 import { useHandleData } from '@/hooks/useHandleData'
 import ProTable from '@/components/ProTable/index.vue'
 import TreeFilter from '@/components/TreeFilter/index.vue'

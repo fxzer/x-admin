@@ -3,7 +3,7 @@ import { storeToRefs } from 'pinia'
 import LayoutSelect from './components/LayoutSelect.vue'
 import MoreColorIcon from './components/MoreColorIcon.vue'
 import MoreColorDialog from './components/MoreColorDialog.vue'
-import { useTheme } from '@/hooks/useTheme'
+
 import { useGlobalStore } from '@/stores'
 import { DEFAULT_PRIMARY } from '@/config'
 import SwitchDark from '@/components/SwitchDark/index.vue'
@@ -12,7 +12,6 @@ const props = defineProps(['modelValue'])
 const emit = defineEmits(['update:modelValue'])
 const visible = useVModel(props, 'modelValue', emit)
 
-const { changePrimary, changeGreyOrWeak, setAsideTheme, setHeaderTheme } = useTheme()
 const moreColorVisible = ref(false)
 const globalStore = useGlobalStore()
 const {
@@ -28,6 +27,7 @@ const {
   showBreadcrumbIcon,
   asideInverted,
   headerInverted,
+  onlyEffectPrimary,
 } = storeToRefs(globalStore)
 
 // 预定义主题颜色
@@ -60,16 +60,16 @@ const colorList = [
           <el-icon><IEpQuestionFilled /></el-icon>
         </el-tooltip>
       </span>
-      <el-switch v-model="asideInverted" @change="setAsideTheme" />
+      <el-switch v-model="asideInverted" />
     </div>
-    <div class="setting-item mb50">
+    <div class="setting-item">
       <span>
         头部反转色
         <el-tooltip effect="dark" content="头部颜色变为深色模式">
           <el-icon><IEpQuestionFilled /></el-icon>
         </el-tooltip>
       </span>
-      <el-switch v-model="headerInverted" @change="setHeaderTheme" />
+      <el-switch v-model="headerInverted" />
     </div>
 
     <!-- 全局主题 -->
@@ -83,8 +83,17 @@ const colorList = [
         <el-tooltip content="更多颜色" placement="top">
           <MoreColorIcon @click="moreColorVisible = true" />
         </el-tooltip>
-        <el-color-picker v-model="primary" :predefine="colorList" @change="changePrimary" />
+        <el-color-picker v-model="primary" :predefine="colorList" />
       </div>
+    </div>
+    <div class="setting-item">
+      <span>
+        仅影响主色
+        <el-tooltip effect="dark" content="若开启则主题颜色仅影响主色，反之，其他场景颜色(Success,Warning,Danger,Info)会混入主色调">
+          <el-icon><IEpQuestionFilled /></el-icon>
+        </el-tooltip>
+      </span>
+      <el-switch v-model="onlyEffectPrimary" />
     </div>
     <div class="setting-item">
       <span>暗黑模式</span>
@@ -92,11 +101,11 @@ const colorList = [
     </div>
     <div class="setting-item">
       <span>灰色模式</span>
-      <el-switch v-model="isGrey" @change="changeGreyOrWeak('grey', !!$event)" />
+      <el-switch v-model="isGrey" />
     </div>
     <div class="setting-item mb40">
       <span>色弱模式</span>
-      <el-switch v-model="isWeak" @change="changeGreyOrWeak('weak', !!$event)" />
+      <el-switch v-model="isWeak" />
     </div>
 
     <!-- 界面设置 -->
@@ -105,7 +114,11 @@ const colorList = [
       界面设置
     </el-divider>
     <div class="setting-item">
-      <span>菜单手风琴</span>
+      <span>菜单手风琴
+        <el-tooltip effect="dark" content="开启后，展开菜单时将自动收起其他展开项">
+          <el-icon><IEpQuestionFilled /></el-icon>
+        </el-tooltip>
+      </span>
       <el-switch v-model="isAccordion" />
     </div>
     <div class="setting-item">

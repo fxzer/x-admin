@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 import type { LanguageType, LayoutType, SizeConfig, SizeType } from '../interface'
 import { DEFAULT_PRIMARY } from '@/config'
-import { initLanguage } from '@/utils/language'
+import { initLanguage, setEpHtmlVars, setHtmlProperty } from '@/utils'
 
 export const useGlobalStore = defineStore('store-global', () => {
   const layout = ref<LayoutType>('vertical')
@@ -9,7 +9,8 @@ export const useGlobalStore = defineStore('store-global', () => {
   const language = ref<LanguageType>(initLanguage())
   const maximize = ref(false)
   const primary = ref(DEFAULT_PRIMARY)
-  const isDark = ref(false)
+  const onlyEffectPrimary = ref(true)
+  const isDark = ref(useDark())
   const isGrey = ref(false)
   const isWeak = ref(false)
   const isCollapse = ref(false)
@@ -66,9 +67,6 @@ export const useGlobalStore = defineStore('store-global', () => {
     })
   })
 
-  function setHtmlProperty(key: string, value: string) {
-    document.documentElement.style.setProperty(key, value)
-  }
   // 监听所选尺寸变化
   watch(size, () => {
     // 设置 html 变量
@@ -87,7 +85,22 @@ export const useGlobalStore = defineStore('store-global', () => {
   function openSettings() {
     settingsVisible.value = true
   }
-  return { layout, currentSize, size, language, maximize, primary, isDark, isGrey, isWeak, asideInverted, headerInverted, isCollapse, settingsVisible, isAccordion, showBreadcurmb, showBreadcrumbIcon, showTab, showTabIcon, showFooter, sizeList, toggleMenu, openSettings }
+
+  // 监听主题色变化
+  watch([isDark, primary, onlyEffectPrimary], (val) => {
+    const [i, p, o] = val
+    setEpHtmlVars(i, p, o)
+  }, { immediate: true })
+  // 监听灰色、弱色模式
+  const htmlClass = document.documentElement.classList
+  watch(isGrey, (val) => {
+    val ? htmlClass.add('is-grey') : htmlClass.remove('is-grey')
+  }, { immediate: true })
+  watch(isWeak, (val) => {
+    val ? htmlClass.add('is-weak') : htmlClass.remove('is-weak')
+  }, { immediate: true })
+
+  return { layout, currentSize, size, language, maximize, primary, isDark, isGrey, isWeak, asideInverted, headerInverted, isCollapse, settingsVisible, isAccordion, showBreadcurmb, showBreadcrumbIcon, showTab, showTabIcon, showFooter, sizeList, onlyEffectPrimary, toggleMenu, openSettings }
 }, {
   persist: true,
 })

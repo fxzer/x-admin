@@ -3,10 +3,10 @@ import { ElMessage } from 'element-plus'
 import type { Theme } from './interface'
 import { DEFAULT_PRIMARY } from '@/config'
 import { setGlobalState, useGlobalStore } from '@/stores'
-import { getDarkColor, getLightColor } from '@/utils/color'
-import { menuTheme } from '@/styles/theme/menu'
-import { asideTheme } from '@/styles/theme/aside'
-import { headerTheme } from '@/styles/theme/header'
+import { getDarkColor, getLightColor } from '@/utils'
+import { menuTheme } from '@/constants/theme/menu'
+import { asideTheme } from '@/constants/theme/aside'
+import { headerTheme } from '@/constants/theme/header'
 
 /**
  * @description 全局主题 hooks

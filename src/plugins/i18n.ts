@@ -1,9 +1,9 @@
 import type { App } from 'vue'
 import { createI18n } from 'vue-i18n'
 
-import zh from './modules/zh'
-import en from './modules/en'
-import { initLanguage } from '@/utils/language'
+import zh from '@/locales/zh'
+import en from '@/locales/en'
+import { initLanguage } from '@/utils'
 
 const i18n = createI18n({
   allowComposition: true,

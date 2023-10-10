@@ -4,7 +4,7 @@ import { CirclePlus, Delete, Download, EditPen, Pointer, Refresh, Upload, View }
 import type { User } from '@/api/interface'
 import { useHandleData } from '@/hooks/useHandleData'
 import { useDownload } from '@/hooks/useDownload'
-import { genderType, userStatus } from '@/utils/serviceDict'
+import { genderType, userStatus } from '@/constants'
 import ProTable from '@/components/ProTable/index.vue'
 import TreeFilter from '@/components/TreeFilter/index.vue'
 import ImportExcel from '@/components/ImportExcel/index.vue'

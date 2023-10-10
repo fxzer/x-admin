@@ -27,6 +27,9 @@ import 'virtual:svg-icons-register'
 // element plus
 import 'element-plus/dist/index.css'
 
+// 引入主题控制样式
+import '@/styles/theme.scss'
+
 export function setupAssets() {
 
   //

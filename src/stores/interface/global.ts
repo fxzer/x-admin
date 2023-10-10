@@ -1,4 +1,4 @@
-import type { layouts } from '@/config/layouts'
+import type { layouts } from '@/constants'
 
 export type LanguageType = 'zh' | 'en' | null
 export type SizeType = 'large' | 'default' | 'small'

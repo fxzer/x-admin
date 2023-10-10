@@ -5,7 +5,7 @@ import { checkStatus } from './helper/checkStatus'
 import { showFullScreenLoading, tryHideFullScreenLoading } from '@/config/serviceLoading'
 import { LOGIN_URL } from '@/config'
 import type { ResultData } from '@/api/interface'
-import { ResultEnum } from '@/enums/httpEnum'
+import { ResultEnum } from '@/constants/enums/httpEnum'
 import { useUserStore } from '@/stores'
 import router from '@/routers'
 

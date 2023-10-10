@@ -1,0 +1,9 @@
+/* 灰色模式 */
+.is-grey {
+  filter: grayscale(1);
+}
+
+/* 色弱模式 */
+.is-weak {
+  filter: invert(80%);
+}

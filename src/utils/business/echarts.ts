@@ -53,5 +53,4 @@ echarts.use([
   UniversalTransition,
   CanvasRenderer,
 ])
-
 export default echarts

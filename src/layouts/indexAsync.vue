@@ -5,7 +5,7 @@ import Settings from './components/Settings/index.vue'
 
 import type { LayoutType } from '@/stores'
 import { useGlobalStore } from '@/stores'
-import Loading from '@/components/Loading/index.vue'
+import Loading from '@/components/common/Loading/index.vue'
 
 const LayoutComponents: Record<LayoutType, Component> = {
   vertical: defineAsyncComponent(() => import('./LayoutVertical/index.vue')),

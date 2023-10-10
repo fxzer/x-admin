@@ -1,7 +1,7 @@
 <script setup lang="ts" name="dynamicForm">
 import type { FormInstance, FormRules } from 'element-plus'
 import { ElMessage } from 'element-plus'
-import { checkPhoneNumber } from '@/utils/eleValidate'
+import { checkPhoneNumber } from '@/utils'
 
 const ruleFormRef = ref<FormInstance>()
 const ruleForm = reactive({

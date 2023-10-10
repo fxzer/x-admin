@@ -1,19 +1,13 @@
 <script setup lang='ts'>
-import colorsMap from '@/utils/colors'
-import { useTheme } from '@/hooks/useTheme'
+import { colorsMap } from '@/constants'
 import { useGlobalStore } from '@/stores'
 
 const props = defineProps<{ modelValue: boolean }>()
 const emit = defineEmits(['update:modelValue'])
-const { changePrimary } = useTheme()
 const visible = useVModel(props, 'modelValue', emit)
 const globalStore = useGlobalStore()
 const { primary } = storeToRefs(globalStore)
 const activeCate = ref('红色系')
-function handleClick(color: string) {
-  primary.value = color
-  changePrimary(color)
-}
 </script>
 
 <template>
@@ -27,7 +21,7 @@ function handleClick(color: string) {
           <div v-for="color in colors" :key="color.hex">
             <div
               class="h-9 flex-center cursor-pointer rounded-md" :style="{ backgroundColor: color.hex }"
-              @click="handleClick(color.hex)"
+              @click="primary = color.hex"
             >
               <i-ep-select v-if="color.hex === primary" class="text-xl text-white" />
             </div>
