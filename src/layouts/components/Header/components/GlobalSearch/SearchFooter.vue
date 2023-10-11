@@ -1,5 +1,5 @@
 <template>
-  <div class="flex-y-center space-x-6">
+  <div class="flex-y-center text-gray-400 space-x-6 dark:text-gray-500/80">
     <span class="flex-y-center">
       <i-mdi-keyboard-return class="icon mr-2 p-2px" />
       <span>确认</span>
@@ -22,6 +22,6 @@
 
 <style scoped lang='scss'>
 .icon{
-  box-shadow: inset 0 -2px #cdcde6, inset 0 0 1px 1px #fff, 0 1px 2px 1px #1e235a66;
+  box-shadow: inset 0 -2px var(--el-border-color), inset 0 0 1px 1px var(--el-border-color), 0 1px 2px 1px var(--el-bg-color-page);
 }
 </style>

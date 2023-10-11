@@ -11,7 +11,7 @@ const router = useRouter()
 const visible = useVModel(props, 'modelValue', emit)
 const authStore = useAuthStore()
 const menuList = computed(() => authStore.flatMenuList.filter(item => !item.meta.isHide))
-const resultList = ref<any>([])
+const resultList = ref<Menu.MenuOptions[]>([])
 
 function handleSearch(keyword: string) {
   resultList.value = keyword ? menuList.value.filter(filterNode(keyword)) : menuList.value
@@ -47,9 +47,11 @@ function filterNode(keyword: string) {
   }
 }
 // 跳转菜单
-function handleJump() {
-  const { path } = resultList.value[activeIndex.value]
-  router.push(path)
+function handleSelect(e: Event, item: Menu.MenuOptions) {
+  const { meta: { isLink }, path } = item || resultList.value[activeIndex.value]
+  if (isLink)
+    window.open(isLink, '_blank')
+  else router.push(path)
   close()
 }
 
@@ -72,12 +74,12 @@ onKeyStroke(['ArrowDown'], () => {
 
 <template>
   <el-dialog v-model="visible" class="search-dialog" :open-close="false" :before-close="close" destroy-on-close close-on-click-modal align-center>
-    <el-input ref="inputRef" v-model="keyword" placeholder="菜单搜索 ：支持菜单名称、路径" clearable @input="handleSearch" @keyup.enter="handleJump">
+    <el-input ref="inputRef" v-model="keyword" placeholder="菜单搜索 ：支持菜单名称、路径" clearable @input="handleSearch" @keyup.enter="handleSelect">
       <template #prefix>
         <i-iconamoon:search-light />
       </template>
     </el-input>
-    <SearchResult :active-index="activeIndex" :result-list="resultList" />
+    <SearchResult :active-index="activeIndex" :result-list="resultList" @select="handleSelect" />
     <template #footer>
       <SearchFooter />
     </template>

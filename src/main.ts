@@ -18,6 +18,7 @@ async function setupApp() {
 
   // 初始化错误捕捉
   setupErrorHandler(app)
+
   // 初始化 Directives
   setupDirectives(app)
 
