@@ -6,6 +6,7 @@ import Main from '@/layouts/components/Main/index.vue'
 import ToolBarLeft from '@/layouts/components/Header/ToolBarLeft.vue'
 import ToolBarRight from '@/layouts/components/Header/ToolBarRight.vue'
 import SubMenu from '@/layouts/components/Menu/SubMenu.vue'
+import HeaderWrap from '@/layouts/components/Header/HeaderWrap.vue'
 
 const title = import.meta.env.VITE_APP_TITLE
 
@@ -72,6 +73,7 @@ function changeSubMenu(item: Menu.MenuOptions) {
         </div>
       </el-scrollbar>
     </div>
+    <!-- 展开栏 -->
     <el-aside :class="{ 'not-aside': !subMenuList.length }" :style="{ width: isCollapse ? '64px' : '210px' }">
       <div class="logo flex-center">
         <span v-show="subMenuList.length" class="logo-text">{{ isCollapse ? "M" : title }}</span>
@@ -88,11 +90,11 @@ function changeSubMenu(item: Menu.MenuOptions) {
         </el-menu>
       </el-scrollbar>
     </el-aside>
-    <el-container>
-      <el-header>
+    <el-container direction="vertical">
+      <HeaderWrap>
         <ToolBarLeft />
         <ToolBarRight />
-      </el-header>
+      </HeaderWrap>
       <Main />
     </el-container>
   </el-container>

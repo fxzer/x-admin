@@ -85,14 +85,4 @@
       }
     }
   }
-  .el-header {
-    box-sizing: border-box;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 55px;
-    padding: 0 15px;
-    background-color: var(--el-header-bg-color);
-    border-bottom: 1px solid var(--el-border-color-extra-light);
-  }
 }

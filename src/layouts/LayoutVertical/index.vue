@@ -9,6 +9,7 @@ import ToolBarRight from '@/layouts/components/Header/ToolBarRight.vue'
 import SubMenu from '@/layouts/components/Menu/SubMenu.vue'
 import MobbileMenu from '@/layouts/components/Menu/MobileMenu.vue'
 import CollapseIcon from '@/layouts/components/Header/components/CollapseIcon.vue'
+import HeaderWrap from '@/layouts/components/Header/HeaderWrap.vue'
 
 const authStore = useAuthStore()
 const globalStore = useGlobalStore()
@@ -66,11 +67,11 @@ watch(isAccordion, (val) => {
       </div>
     </div>
     <!-- 内容主体 -->
-    <el-container>
-      <el-header class="flex-between-center">
+    <el-container direction="vertical">
+      <HeaderWrap>
         <ToolBarLeft />
         <ToolBarRight />
-      </el-header>
+      </HeaderWrap>
       <Main />
     </el-container>
   </el-container>
@@ -78,9 +79,6 @@ watch(isAccordion, (val) => {
 </template>
 
 <style scoped lang="scss">
-.el-header{
-  height: var(--el-header-height-global);
-}
 .el-menu {
   width: 100%;
   border: none;

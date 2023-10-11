@@ -6,6 +6,7 @@ import Main from '@/layouts/components/Main/index.vue'
 import SubMenu from '@/layouts/components/Menu/SubMenu.vue'
 import ToolBarLeft from '@/layouts/components/Header/ToolBarLeft.vue'
 import ToolBarRight from '@/layouts/components/Header/ToolBarRight.vue'
+import HeaderWrap from '@/layouts/components/Header/HeaderWrap.vue'
 
 const title = import.meta.env.VITE_APP_TITLE
 
@@ -18,8 +19,8 @@ const activeMenu = computed(() => (route.meta.activeMenu || route.path) as strin
 </script>
 
 <template>
-  <el-container class="layout">
-    <el-header>
+  <el-container class="layout" direction="vertical">
+    <HeaderWrap>
       <div class="fog-mask header-lf">
         <div class="logo flex-center">
           <img class="logo-img" src="@/assets/images/logo.svg" alt="logo">
@@ -30,7 +31,7 @@ const activeMenu = computed(() => (route.meta.activeMenu || route.path) as strin
       <div class="header-ri">
         <ToolBarRight />
       </div>
-    </el-header>
+    </HeaderWrap>
     <el-container class="classic-content">
       <el-aside>
         <div class="aside-box" :style="{ width: isCollapse ? '64px' : '210px' }">
@@ -56,7 +57,4 @@ const activeMenu = computed(() => (route.meta.activeMenu || route.path) as strin
 
 <style scoped lang="scss">
 @import "./index.scss";
-.el-header{
-  height: var(--el-header-height-global);
-}
 </style>

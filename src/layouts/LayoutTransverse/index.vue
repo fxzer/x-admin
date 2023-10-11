@@ -5,6 +5,7 @@ import { useAuthStore, useGlobalStore } from '@/stores'
 import Main from '@/layouts/components/Main/index.vue'
 import ToolBarRight from '@/layouts/components/Header/ToolBarRight.vue'
 import SubMenu from '@/layouts/components/Menu/SubMenu.vue'
+import HeaderWrap from '@/layouts/components/Header/HeaderWrap.vue'
 
 const title = import.meta.env.VITE_APP_TITLE
 
@@ -24,8 +25,8 @@ function handleClickMenu(subItem: Menu.MenuOptions) {
 </script>
 
 <template>
-  <el-container class="layout">
-    <el-header :class="{ inverted: asideInverted }">
+  <el-container class="layout" direction="vertical">
+    <HeaderWrap :class="{ inverted: asideInverted }">
       <div class="logo flex-center">
         <img class="logo-img" src="@/assets/images/logo.svg" alt="logo">
         <span class="logo-text text-primary">{{ title }}</span>
@@ -55,7 +56,7 @@ function handleClickMenu(subItem: Menu.MenuOptions) {
         </template>
       </el-menu>
       <ToolBarRight />
-    </el-header>
+    </HeaderWrap>
     <Main />
   </el-container>
 </template>
@@ -63,8 +64,6 @@ function handleClickMenu(subItem: Menu.MenuOptions) {
 <style scoped lang="scss">
 @import "./index.scss";
 .el-header{
-  color:var(--el-menu-text-color);
-  height: var(--el-header-height-global);
   background-color: var(--el-menu-bg-color);
   //反转样式
   &.inverted {
