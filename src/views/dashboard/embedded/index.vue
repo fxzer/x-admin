@@ -2,7 +2,7 @@
 
 <template>
   <div class="card content-box">
-    <iframe src="https://cn.bing.com/" frameborder="0" class="full-iframe" />
+    <iframe src="https://www.bilibili.com/" frameborder="0" class="full-iframe" />
   </div>
 </template>
 

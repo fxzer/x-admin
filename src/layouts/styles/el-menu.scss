@@ -1,0 +1,22 @@
+.el-menu{
+  width: 100%;
+  border: none;
+  overflow: hidden;
+
+  &.el-menu--collapse :deep(.el-menu-item) {
+    .el-menu-tooltip__trigger {
+      padding: 0 !important;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  &.el-menu--collapse :deep(.el-sub-menu) {
+    .el-sub-menu__title {
+      padding: 0 !important;
+      justify-content: center;
+
+    }
+  }
+}

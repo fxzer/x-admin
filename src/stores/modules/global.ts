@@ -10,7 +10,6 @@ const asideTheme = {
   '--el-menu-text-color': '#bdbdc0',
   '--el-menu-active-color': '#ffffff',
   '--el-menu-hover-text-color': '#ffffff',
-  '--el-menu-horizontal-sub-item-height': '50px',
 }
 export const useGlobalStore = defineStore('store-global', () => {
   const layout = ref<LayoutType>('vertical')
@@ -30,59 +29,44 @@ export const useGlobalStore = defineStore('store-global', () => {
   const showTabIcon = ref(true)
   const showFooter = ref(true)
   const asideInverted = ref(false)
+
   const sizeList = ref<SizeConfig[]>([
     {
       label: '大型',
       key: 'large',
-      menu: {
-        fold: '64px',
-        unfold: '210px',
-        height: '60px',
-      },
-      header: {
-        height: '60px',
-      },
+      fold: 64,
+      unfold: 210,
     },
     {
       label: '默认',
       key: 'default',
-      menu: {
-        fold: '52px',
-        unfold: '200px',
-        height: '50px',
-      },
-      header: {
-        height: '48px',
-      },
+      fold: 56,
+      unfold: 200,
     },
     {
       label: '小型',
       key: 'small',
-      menu: {
-        fold: '48px',
-        unfold: '190px',
-        height: '46px',
-      },
-      header: {
-        height: '44px',
-      },
+      fold: 48,
+      unfold: 190,
     },
   ])
   const settingsVisible = ref(false)
-  const currentSize = computed(() => {
-    return sizeList.value.find((item) => {
-      return item.key === size.value
-    })
+  function getCurrentSize(): SizeConfig {
+    return sizeList.value.find((item => item.key === size.value))!
+  }
+  const currentSize = ref<SizeConfig>(getCurrentSize())
+  const itemHeight = ref(52)
+  // 当前菜单宽度
+  const menuWidth = computed(() => {
+    const { fold, unfold } = currentSize.value!
+    return `${isCollapse.value ? fold : unfold}px`
   })
-
   // 监听所选尺寸变化
   watch(size, () => {
-    // 设置 html 变量
-    const { menu, header } = sizeList.value.find(item => item.key === size.value) || sizeList.value[1]
     // 设置菜单子项高度
-    setHtmlProperty('--el-menu-item-height', menu.height)
-    // 设置 el-header 全局高度变量
-    setHtmlProperty('--el-header-height-global', header.height)
+    currentSize.value = getCurrentSize()
+    itemHeight.value = getCurrentSize()!.fold - 4
+    setHtmlProperty('--el-menu-item-height', `${itemHeight.value}px`)
   }, {
     immediate: true,
   })
@@ -116,7 +100,7 @@ export const useGlobalStore = defineStore('store-global', () => {
     Object.entries(asideTheme).forEach(([key, value]) => val ? setHtmlProperty(key, value) : removeHtmlProperty(key))
   }, { immediate: true })
 
-  return { layout, currentSize, size, language, maximize, primary, isDark, isGrey, isWeak, asideInverted, isCollapse, settingsVisible, isAccordion, showBreadcurmb, showBreadcrumbIcon, showTab, showTabIcon, showFooter, sizeList, onlyEffectPrimary, toggleMenu, openSettings }
+  return { layout, currentSize, menuWidth, itemHeight, size, language, maximize, primary, isDark, isGrey, isWeak, asideInverted, isCollapse, settingsVisible, isAccordion, showBreadcurmb, showBreadcrumbIcon, showTab, showTabIcon, showFooter, sizeList, onlyEffectPrimary, toggleMenu, openSettings }
 }, {
   persist: true,
 })

@@ -8,8 +8,8 @@ const { toggleMenu } = globalStore
 
 <template>
   <span class="collapse-icon mr-3" @click="toggleMenu">
-    <i-ep-expand v-if="isCollapse" />
-    <i-ep-fold v-else />
+    <i-line-md-menu-fold-right v-if="isCollapse" />
+    <i-line-md-menu-fold-left v-else />
   </span>
 </template>
 

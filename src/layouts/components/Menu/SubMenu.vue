@@ -41,7 +41,7 @@ function handleClickMenu(subItem: Menu.MenuOptions) {
   .is-active {
     .el-sub-menu__title {
       color: #ffffff !important;
-      background-color: var(--el-menu-hover-bg-color) !important;
+      background-color: var(--el-color-primary) !important;
     }
   }
 }
@@ -51,7 +51,7 @@ function handleClickMenu(subItem: Menu.MenuOptions) {
   }
   &.is-active {
     color: var(--el-menu-active-color) !important;
-    background-color: var(--el-menu-active-bg-color) !important;
+    background-color: var(--el-menu-hover-bg-color) !important;
     &::before {
       position: absolute;
       top: 0;

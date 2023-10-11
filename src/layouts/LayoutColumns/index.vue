@@ -7,14 +7,14 @@ import ToolBarLeft from '@/layouts/components/Header/ToolBarLeft.vue'
 import ToolBarRight from '@/layouts/components/Header/ToolBarRight.vue'
 import SubMenu from '@/layouts/components/Menu/SubMenu.vue'
 import HeaderWrap from '@/layouts/components/Header/HeaderWrap.vue'
-
-const title = import.meta.env.VITE_APP_TITLE
+import Logo from '@/layouts/components/Header/components/Logo.vue'
+import { getStrWidth } from '@/utils'
 
 const route = useRoute()
 const router = useRouter()
 const authStore = useAuthStore()
 const globalStore = useGlobalStore()
-const { isAccordion, isCollapse } = toRefs(globalStore)
+const { isAccordion, isCollapse, menuWidth, asideInverted } = toRefs(globalStore)
 const { authMenuList } = toRefs(authStore)
 const activeMenu = computed(() => (route.meta.activeMenu || route.path) as string)
 
@@ -27,9 +27,7 @@ watch(
     if (!authMenuList.value.length)
       return
     splitActive.value = route.path
-    const menuItem = authMenuList.value.filter((item: Menu.MenuOptions) => {
-      return route.path === item.path || `/${route.path.split('/')[1]}` === item.path
-    })
+    const menuItem = authMenuList.value.filter((item: Menu.MenuOptions) => route.path.includes(item.path))
     if (menuItem[0].children?.length)
       return (subMenuList.value = menuItem[0].children)
     subMenuList.value = []
@@ -40,7 +38,6 @@ watch(
   },
 )
 
-// change SubMenu
 function changeSubMenu(item: Menu.MenuOptions) {
   splitActive.value = item.path
   if (item.children?.length)
@@ -48,36 +45,39 @@ function changeSubMenu(item: Menu.MenuOptions) {
   subMenuList.value = []
   router.push(item.path)
 }
+function isTitleOverflow(title: string): boolean {
+  return getStrWidth(title) > 60
+}
 </script>
 
 <template>
-  <el-container class="layout">
-    <div class="aside-split">
-      <div class="logo flex-center">
-        <img class="logo-img" src="@/assets/images/logo.svg" alt="logo">
-      </div>
+  <el-container>
+    <div class="menu-border-right first-menu" :class="{ inverted: asideInverted }">
+      <Logo :show-title="false" />
       <el-scrollbar>
-        <div class="split-list">
+        <div class="first-menu-list flex-1">
           <div
             v-for="item in authMenuList"
             :key="item.path"
-            class="split-item"
-            :class="{ 'split-active': splitActive === item.path || `/${splitActive.split('/')[1]}` === item.path }"
+            class="first-menu-item h-70px flex-center flex-col cursor-pointer overflow-hidden px-1 text-[var(--el-menu-text-color)] duration-300"
+            :class="{ 'is-active': splitActive.includes(item.path) }"
             @click="changeSubMenu(item)"
           >
-            <el-icon>
+            <el-icon class="!text-22px">
               <component :is="item.meta.icon" />
             </el-icon>
-            <span class="title">{{ item.meta.title }}</span>
+            <!-- 菜单文本溢出处理 -->
+            <el-tooltip v-if="isTitleOverflow(item.meta.title)" :content="item.meta.title" placement="right">
+              <span class="title mt-2 w-full truncate text-xs">{{ item.meta.title }}</span>
+            </el-tooltip>
+            <span v-else class="title mt-2 w-full truncate text-center text-xs">{{ item.meta.title }}</span>
           </div>
         </div>
       </el-scrollbar>
     </div>
     <!-- 展开栏 -->
-    <el-aside :class="{ 'not-aside': !subMenuList.length }" :style="{ width: isCollapse ? '64px' : '210px' }">
-      <div class="logo flex-center">
-        <span v-show="subMenuList.length" class="logo-text">{{ isCollapse ? "M" : title }}</span>
-      </div>
+    <el-aside class="menu-border-right" :class="{ 'is-hide': !subMenuList.length }" :style="{ width: menuWidth }">
+      <Logo :show-logo="false" />
       <el-scrollbar>
         <el-menu
           :router="false"
@@ -102,4 +102,5 @@ function changeSubMenu(item: Menu.MenuOptions) {
 
 <style scoped lang="scss">
 @import "./index.scss";
+@import '../styles/el-menu.scss'
 </style>

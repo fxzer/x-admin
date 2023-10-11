@@ -3,9 +3,9 @@ import { useAuthStore, useGlobalStore } from '@/stores/modules'
 
 import SubMenu from '@/layouts/components/Menu/SubMenu.vue'
 import CollapseIcon from '@/layouts/components/Header/components/CollapseIcon.vue'
+import Logo from '@/layouts/components/Header/components/Logo.vue'
 
 const route = useRoute()
-const title = import.meta.env.VITE_APP_TITLE
 const globalStore = useGlobalStore()
 const authStore = useAuthStore()
 const { isCollapse, isAccordion, asideInverted } = toRefs(globalStore)
@@ -25,11 +25,7 @@ const visible = computed<boolean>({
   <div class="mobile-menu">
     <el-drawer v-model="visible" :with-header="false" size="200px" direction="ltr" :class="{ inverted: asideInverted }">
       <div class="h-full flex-col">
-        <div class="logo h-14 flex-center">
-          <img class="wh-7 object-contain" src="@/assets/images/logo.svg" alt="logo">
-          <span class="truncate text-xl font-semibold text-[var(--el-color-primary)]">{{ title
-          }}</span>
-        </div>
+        <Logo />
         <el-scrollbar class="flex-1">
           <el-menu
             :router="false" :default-active="activeMenu" :unique-opened="isAccordion"

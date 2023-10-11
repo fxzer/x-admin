@@ -11,7 +11,16 @@
 <style scoped lang='scss'>
 .el-header{
   padding:0 10px;
-  height: var(--el-header-height-global);
-  border-bottom: 1px solid var(--el-border-color-extra-light);
+  position: relative;
+  height: var(--el-menu-item-height);
+  &::after{
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: var(--el-border-color-extra-light);
+  }
 }
 </style>

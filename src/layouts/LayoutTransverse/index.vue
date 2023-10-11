@@ -6,8 +6,7 @@ import Main from '@/layouts/components/Main/index.vue'
 import ToolBarRight from '@/layouts/components/Header/ToolBarRight.vue'
 import SubMenu from '@/layouts/components/Menu/SubMenu.vue'
 import HeaderWrap from '@/layouts/components/Header/HeaderWrap.vue'
-
-const title = import.meta.env.VITE_APP_TITLE
+import Logo from '@/layouts/components/Header/components/Logo.vue'
 
 const route = useRoute()
 const router = useRouter()
@@ -25,16 +24,10 @@ function handleClickMenu(subItem: Menu.MenuOptions) {
 </script>
 
 <template>
-  <el-container class="layout" direction="vertical">
+  <el-container direction="vertical">
     <HeaderWrap :class="{ inverted: asideInverted }">
-      <div class="logo flex-center">
-        <img class="logo-img" src="@/assets/images/logo.svg" alt="logo">
-        <span class="logo-text text-primary">{{ title }}</span>
-      </div>
-      <el-menu
-        mode="horizontal" :router="false" :default-active="activeMenu"
-      >
-        <!-- 不能直接使用 SubMenu 组件，无法触发 el-menu 隐藏省略功能 -->
+      <Logo class="-ml-10px" />
+      <el-menu mode="horizontal" :router="false" :default-active="activeMenu">
         <template v-for="subItem in authMenuList" :key="subItem.path">
           <el-sub-menu v-if="subItem.children?.length" :key="subItem.path" :index="`${subItem.path}el-sub-menu`">
             <template #title>
@@ -63,17 +56,15 @@ function handleClickMenu(subItem: Menu.MenuOptions) {
 
 <style scoped lang="scss">
 @import "./index.scss";
-.el-header{
-  background-color: var(--el-menu-bg-color);
   //反转样式
-  &.inverted {
+.el-header.inverted {
+  color:var(--el-menu-text-color);
+  background-color: var(--el-menu-bg-color);
+  :deep(.el-dropdown .el-tooltip__trigger){
     color:var(--el-menu-text-color);
-    :deep(.el-dropdown .el-tooltip__trigger){
-      color:var(--el-menu-text-color);
-    }
-    :deep(.el-breadcrumb .el-breadcrumb__inner) {
-      color:var(--el-menu-text-color);
-    }
+  }
+  :deep(.el-breadcrumb .el-breadcrumb__inner) {
+    color:var(--el-menu-text-color);
   }
 }
 </style>

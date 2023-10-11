@@ -7,34 +7,28 @@ import SubMenu from '@/layouts/components/Menu/SubMenu.vue'
 import ToolBarLeft from '@/layouts/components/Header/ToolBarLeft.vue'
 import ToolBarRight from '@/layouts/components/Header/ToolBarRight.vue'
 import HeaderWrap from '@/layouts/components/Header/HeaderWrap.vue'
-
-const title = import.meta.env.VITE_APP_TITLE
+import Logo from '@/layouts/components/Header/components/Logo.vue'
 
 const route = useRoute()
 const authStore = useAuthStore()
 const globalStore = useGlobalStore()
-const { isAccordion, isCollapse } = toRefs(globalStore)
+const { isAccordion, isCollapse, menuWidth } = toRefs(globalStore)
 const { authMenuList } = toRefs(authStore)
 const activeMenu = computed(() => (route.meta.activeMenu || route.path) as string)
 </script>
 
 <template>
-  <el-container class="layout" direction="vertical">
+  <el-container direction="vertical">
     <HeaderWrap>
-      <div class="fog-mask header-lf">
-        <div class="logo flex-center">
-          <img class="logo-img" src="@/assets/images/logo.svg" alt="logo">
-          <span class="logo-text">{{ title }}</span>
-        </div>
+      <Logo class="mr-10px -ml-10px" />
+      <div class="flex-between-center flex-1">
         <ToolBarLeft />
-      </div>
-      <div class="header-ri">
         <ToolBarRight />
       </div>
     </HeaderWrap>
     <el-container class="classic-content">
       <el-aside>
-        <div class="aside-box" :style="{ width: isCollapse ? '64px' : '210px' }">
+        <div class="aside-box" :style="{ width: menuWidth }">
           <el-scrollbar>
             <el-menu
               :router="false"
@@ -57,4 +51,5 @@ const activeMenu = computed(() => (route.meta.activeMenu || route.path) as strin
 
 <style scoped lang="scss">
 @import "./index.scss";
+@import '../styles/el-menu.scss'
 </style>
