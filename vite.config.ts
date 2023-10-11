@@ -34,11 +34,11 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
       __APP_INFO__: JSON.stringify(__APP_INFO__), // 之前的打包时间
     },
     css: {
-      preprocessorOptions: {
-        scss: {
-          additionalData: '@import "@/styles/var.scss";',
-        },
-      },
+      // preprocessorOptions: {
+      //   scss: {
+      //     additionalData: '@import "@/styles/var.scss";',
+      //   },
+      // },
     },
     server: {
       host: '0.0.0.0',
