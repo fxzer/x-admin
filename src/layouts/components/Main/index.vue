@@ -3,9 +3,10 @@ import { storeToRefs } from 'pinia'
 import Maximize from './components/Maximize.vue'
 import { useGlobalStore, useKeepAliveStore } from '@/stores'
 import Tabs from '@/layouts/components/Tabs/index.vue'
+import Footer from '@/layouts/components/Footer/index.vue'
 
 const globalStore = useGlobalStore()
-const { maximize, layout, showTab } = storeToRefs(globalStore)
+const { maximize, layout, showTab, showFooter } = storeToRefs(globalStore)
 
 const keepAliveStore = useKeepAliveStore()
 const { aliveNames } = storeToRefs(keepAliveStore)
@@ -41,7 +42,7 @@ watch(
 <template>
   <Maximize v-if="maximize" />
   <Tabs v-if="showTab" />
-  <el-main class="main-box">
+  <el-main class="main-box relative" :class="{ '!pb-42px': showFooter }">
     <!-- TODO:动画过渡 -->
     <router-view v-slot="{ Component, route }">
       <transition appear name="fade-transform" mode="out-in">
@@ -50,10 +51,8 @@ watch(
         </keep-alive>
       </transition>
     </router-view>
+    <Footer v-if="showFooter" />
   </el-main>
-  <!-- <el-footer v-if="showFooter" class="absolute bottom-0 left-0 right-0">
-    <Footer />
-  </el-footer> -->
 </template>
 
 <style scoped lang="scss">
