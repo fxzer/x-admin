@@ -4,7 +4,7 @@
   <div class="card content-box">
     <span class="text">
       Gitee 仓库：
-      <a href="https://gitee.com/fxzer/modern-adminx.git" target="_blank">https://gitee.com/fxzer/modern-adminx.git</a> 🍒🍉🍊
+      <a href="https://gitee.com/fxzer/x-admin.git" target="_blank">https://gitee.com/fxzer/x-admin.git</a> 🍒🍉🍊
     </span>
   </div>
 </template>

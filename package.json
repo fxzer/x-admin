@@ -1,21 +1,21 @@
 {
-  "name": "modern-adminx",
+  "name": "x-admin",
   "version": "0.0.1",
   "private": true,
-  "description": "modern-adminx open source management system",
+  "description": "x-admin open source management system",
   "author": {
     "name": "fxzer",
     "email": "3010099292@qq.com",
     "url": "https://github.com/fxzer"
   },
   "license": "MIT",
-  "homepage": "https://github.com/fxzer/modern-adminx.git",
+  "homepage": "https://github.com/fxzer/x-admin.git",
   "repository": {
     "type": "git",
-    "url": "git@github.com:fxzer/modern-adminx.git"
+    "url": "git@github.com:fxzer/x-admin.git"
   },
   "bugs": {
-    "url": "https://github.com/fxzer/modern-adminx.git/issues"
+    "url": "https://github.com/fxzer/x-admin.git/issues"
   },
   "engines": {
     "node": ">=18.0.0"

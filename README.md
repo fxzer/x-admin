@@ -1,17 +1,17 @@
-# modern-adminx
+# x-admin
 
 ### 介绍 📖
 
-modern-adminx 一款基于 Vue3.3、TypeScript、Vite4、Pinia、Element-Plus 开源的后台管理框架，使用目前最新技术栈开发。项目提供强大的 [ProTable](https://juejin.cn/post/7166068828202336263) 组件，在一定程度上提高您的开发效率。另外本项目还封装了一些常用组件、Hooks、指令、动态路由、按钮级别权限控制等功能。
+x-admin 一款基于 Vue3.3、TypeScript、Vite4、Pinia、Element-Plus 开源的后台管理框架，使用目前最新技术栈开发。
 
 ### 在线预览 👀
 
-- Link：https://admin.spicyboy.cn
+- Link：
 
 ### 代码仓库 ⭐
 
-- Gitee：https://gitee.com/fxzer/modern-adminx.git
-- GitHub：https://github.com/fxzer/modern-adminx.git
+- Gitee：https://gitee.com/fxzer/x-admin.git
+- GitHub：https://github.com/fxzer/x-admin.git
 
 ### 项目文档 📚
 
@@ -39,9 +39,9 @@ modern-adminx 一款基于 Vue3.3、TypeScript、Vite4、Pinia、Element-Plus �
 
 ```text
 # Gitee
-git clone https://gitee.com/fxzer/modern-adminx.git.git
+git clone https://gitee.com/fxzer/x-admin.git
 # GitHub
-git clone https://github.com/fxzer/modern-adminx.git.git
+git clone https://github.com/fxzer/x-admin.git
 ```
 
 - **Install：**
@@ -95,7 +95,7 @@ git cz
 ### 文件资源目录 📚
 
 ```text
-modern-adminx
+x-admin
 ├─ .husky                 # husky 配置文件
 ├─ .vscode                # VSCode 推荐配置
 ├─ build                  # Vite 配置项

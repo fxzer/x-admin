@@ -14,7 +14,7 @@ import SwitchDark from '@/components/SwitchDark/index.vue'
         <div class="login-logo">
           <img class="login-icon" src="@/assets/images/logo.svg" alt="">
           <h2 class="logo-text">
-            modern-adminx
+            x-admin
           </h2>
         </div>
         <LoginForm />

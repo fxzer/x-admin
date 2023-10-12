@@ -4,7 +4,7 @@
   <div class="card content-box">
     <span class="text">
       GitHub 仓库：
-      <a href="https://github.com/fxzer/modern-adminx.git" target="_blank">https://github.com/fxzer/modern-adminx.git</a> 🍒🍉🍊
+      <a href="https://github.com/fxzer/x-admin.git" target="_blank">https://github.com/fxzer/x-admin.git</a> 🍒🍉🍊
     </span>
   </div>
 </template>

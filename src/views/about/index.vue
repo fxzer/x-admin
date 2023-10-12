@@ -10,7 +10,7 @@ const { dependencies, devDependencies, version } = pkg
         简介
       </h4>
       <span class="text">
-        <el-link type="primary" href="https://docs.spicyboy.cn" target="_blank">modern-adminx</el-link>
+        <el-link type="primary" href="https://docs.spicyboy.cn" target="_blank">x-admin</el-link>
         一款基于 Vue3.3、TypeScript、Vite4、Pinia、Element-Plus 开源的后台管理框架，使用目前最新技术栈开发。项目提供强大的
         <el-link type="primary" href="https://juejin.cn/post/7166068828202336263" target="_blank">ProTable 组件</el-link>
         在一定程度上提高您的开发效率。另外本项目还封装了一些常用组件、Hooks、指令、动态路由、按钮级别权限控制等功能。
@@ -28,12 +28,12 @@ const { dependencies, devDependencies, version } = pkg
           <el-tag>{{ lastBuildTime }}</el-tag>
         </el-descriptions-item>
         <el-descriptions-item label="Gitee" label-align="left">
-          <el-link type="primary" href="https://gitee.com/fxzer/modern-adminx.git" target="_blank">
+          <el-link type="primary" href="https://gitee.com/fxzer/x-admin.git" target="_blank">
             Gitee
           </el-link>
         </el-descriptions-item>
         <el-descriptions-item label="Github" label-align="left">
-          <el-link type="primary" href="https://github.com/fxzer/modern-adminx.git" target="_blank">
+          <el-link type="primary" href="https://github.com/fxzer/x-admin.git" target="_blank">
             Github
           </el-link>
         </el-descriptions-item>

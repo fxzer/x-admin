@@ -961,7 +961,7 @@
           "meta": {
             "icon": "IEpMenu",
             "title": "Gitee 仓库",
-            "isLink": "https://gitee.com/fxzer/modern-adminx.git",
+            "isLink": "https://gitee.com/fxzer/x-admin.git",
             "isHide": false,
             "isFull": false,
             "isAffix": false,
@@ -975,7 +975,7 @@
           "meta": {
             "icon": "IEpMenu",
             "title": "GitHub 仓库",
-            "isLink": "https://github.com/fxzer/modern-adminx.git",
+            "isLink": "https://github.com/fxzer/x-admin.git",
             "isHide": false,
             "isFull": false,
             "isAffix": false,

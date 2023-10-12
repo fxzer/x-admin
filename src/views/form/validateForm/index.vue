@@ -5,7 +5,7 @@ import { checkPhoneNumber } from '@/utils'
 
 const ruleFormRef = ref<FormInstance>()
 const ruleForm = reactive({
-  name: 'modern-adminx',
+  name: 'x-admin',
   phone: '',
   region: '',
   date1: '',

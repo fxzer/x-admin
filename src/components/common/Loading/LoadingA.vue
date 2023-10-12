@@ -24,7 +24,7 @@ const loadingClasses = [
       </div>
     </div>
     <h2 class="text-28px font-500 text-#646464">
-      modern-adminx
+      x-admin
     </h2>
   </div>
 </template>
