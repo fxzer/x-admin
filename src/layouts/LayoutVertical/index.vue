@@ -45,11 +45,10 @@ watch(isAccordion, (val) => {
   <el-container>
     <!-- 菜单 -->
     <div
-      class="z-100 hidden h-screen flex-col shrink-0 bg-[var(--el-menu-bg-color)] transition-width duration-300 md:flex"
+      class="border-right relative z-100 hidden h-screen flex-col shrink-0 bg-[var(--el-menu-bg-color)] transition-width duration-300 md:flex"
       :style="{ width: menuWidth }"
     >
       <Logo />
-
       <el-scrollbar class="flex-1">
         <el-menu
           ref="elMenuRef"

@@ -55,13 +55,3 @@
     }
   }
 }
-    //模拟有边框，避免 box-sizing造成的宽度少 1px 问题
-.menu-border-right::after{
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0px;
-  bottom: 0;
-  width: 1px;
-  background-color: var(--el-border-color-extra-light);
-}

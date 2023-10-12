@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <el-header class="flex-between-center">
+  <el-header class="border-bottom flex-between-center">
     <slot />
   </el-header>
 </template>
@@ -13,14 +13,5 @@
   padding:0 10px;
   position: relative;
   height: var(--el-menu-item-height);
-  &::after{
-    content: '';
-    position: absolute;
-    bottom: -1px;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background-color: var(--el-border-color-extra-light);
-  }
 }
 </style>

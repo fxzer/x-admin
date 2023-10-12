@@ -52,7 +52,7 @@ function isTitleOverflow(title: string): boolean {
 
 <template>
   <el-container>
-    <div class="menu-border-right first-menu" :class="{ inverted: asideInverted }">
+    <div class="border-right first-menu" :class="{ inverted: asideInverted }">
       <Logo :show-title="false" />
       <el-scrollbar>
         <div class="first-menu-list flex-1">
@@ -76,7 +76,7 @@ function isTitleOverflow(title: string): boolean {
       </el-scrollbar>
     </div>
     <!-- 展开栏 -->
-    <el-aside class="menu-border-right" :class="{ 'is-hide': !subMenuList.length }" :style="{ width: menuWidth }">
+    <el-aside class="border-right" :class="{ 'is-hide': !subMenuList.length }" :style="{ width: menuWidth }">
       <Logo :show-logo="false" />
       <el-scrollbar>
         <el-menu
