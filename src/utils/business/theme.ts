@@ -1,4 +1,4 @@
-import { darken, lighten } from '@pureadmin/utils'
+import { darken, lighten, mix } from './color'
 
 const baseColorTypeMap = {
   primary: '#409EFF',
@@ -10,36 +10,7 @@ const baseColorTypeMap = {
 // 推断场景类型
 type SceneType = keyof typeof baseColorTypeMap
 
-/* origin:原本各类型对应的基础色，currentPrimary：当前的主色 */
-export function mix(origin: string, currentPrimary: string, weight = 0.8) {
-  /* weight:(0-1) 越趋近于0，生成的颜色越偏向【当前的主色】； 趋近于 1，颜色 偏向【原本各类型对应的基础色】, */
-  const originRGB = toRGB(origin)
-  const currentPrimaryRGB = toRGB(currentPrimary)
-
-  // 根据权重计算混合后的颜色值
-  const w = weight * 2 - 1
-  const w1 = (w / 1 + 1) / 2
-  const w2 = 1 - w1
-  const blended = [
-    Math.round(originRGB[0] * w1 + currentPrimaryRGB[0] * w2),
-    Math.round(originRGB[1] * w1 + currentPrimaryRGB[1] * w2),
-    Math.round(originRGB[2] * w1 + currentPrimaryRGB[2] * w2),
-  ]
-  // 将颜色值转换为 16 进制表示形式
-  const newColor = toHex(blended)
-  return newColor
-}
-
-// 辅助函数：将颜色值转换为 [r, g, b] 数组形式
-export function toRGB(color: string) {
-  const matchedValues = color.match(/[A-Za-z0-9]{2}/g)
-  return matchedValues!.map(value => Number.parseInt(value, 16))
-}
-
-// 辅助函数：将 [r, g, b] 数组形式的颜色值转换为 16 进制表示形式
-export function toHex(rgb: number[]) {
-  return `#${rgb.map(value => value.toString(16).padStart(2, '0')).join('')}`
-}
+/* ================================= */
 // 操作 html style 变量
 export function setHtmlProperty(key: string, value: string) {
   document.documentElement.style.setProperty(key, value)
@@ -52,11 +23,12 @@ export function removeHtmlProperty(key: string) {
 export function setPropertyPrimary(isDark: boolean, type: SceneType, mode: string, level: number, color: string) {
   for (let i = 1; i <= level; i++) {
     let chex = ''
+    const level = i / 10
     // 通过当前模式，判断是加深还是变浅
     if (isDark)
-      chex = mode === 'dark' ? lighten(color, i / 10) : darken(color, i / 10)
+      chex = mode === 'dark' ? lighten(color, level) : darken(color, level)
     else
-      chex = mode === 'dark' ? darken(color, i / 10) : lighten(color, i / 10)
+      chex = mode === 'dark' ? darken(color, level) : lighten(color, level)
     document.documentElement.style.setProperty(`--el-color-${type}-${mode}-${i}`, chex)
   }
 }
@@ -78,7 +50,8 @@ export function setEpHtmlVars(isDark: boolean, primaryColor: string, onlyEffectP
 // function handleColorLevel(mode: string, type: SceneType, color: string, level: number) {
 //   const arr = []
 //   for (let i = 1; i <= level; i++) {
-//     const c = mode === 'dark' ? darken(color, i / 10) : lighten(color, i / 10)
+// const level = i / 10
+//     const c = mode === 'dark' ? darken(color, level) : lighten(color, level)
 //     arr.push(`--el-color-${type}-${mode}-${i}:${c}`)
 //   }
 

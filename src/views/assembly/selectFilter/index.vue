@@ -19,27 +19,27 @@ const filterData = [
       {
         label: '已下单',
         value: '1',
-        icon: 'ShoppingCart',
+        icon: 'IEpShoppingCart',
       },
       {
         label: '已发货',
         value: '2',
-        icon: 'Van',
+        icon: 'IEpVan',
       },
       {
         label: '已签收',
         value: '3',
-        icon: 'Edit',
+        icon: 'IEpEdit',
       },
       {
         label: '已退回',
         value: '4',
-        icon: 'Guide',
+        icon: 'IEpGuide',
       },
       {
         label: '已完成',
         value: '5',
-        icon: 'CircleCheck',
+        icon: 'IEpCircleCheck',
       },
     ],
   },
