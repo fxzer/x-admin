@@ -172,4 +172,7 @@ function handleClear() {
     }
   }
 }
+// span{
+//   color:#afafaf;
+// }
 </style>

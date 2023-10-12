@@ -7,7 +7,7 @@ const emit = defineEmits(['update:modelValue'])
 const visible = useVModel(props, 'modelValue', emit)
 const globalStore = useGlobalStore()
 const { primary } = storeToRefs(globalStore)
-const activeCate = ref('蓝色系')
+const activeCate = ref('品牌色')
 </script>
 
 <template>
