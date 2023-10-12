@@ -35,8 +35,10 @@ router.beforeEach(async (to, from, next) => {
   const userStore = useUserStore()
   const authStore = useAuthStore()
 
+  const isRefresh = !from.name && to.name !== LOGIN_URL
   // 1.NProgress 开始
-  NProgress.start()
+  if (!isRefresh)
+    NProgress.start()
 
   // 2.动态设置标题
   const title = import.meta.env.VITE_APP_TITLE
