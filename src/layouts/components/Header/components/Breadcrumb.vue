@@ -26,8 +26,8 @@ function onClick(item: Menu.MenuOptions, index: number) {
 </script>
 
 <template>
-  <el-breadcrumb class="flex overflow-hidden">
-    <transition-group name="breadcrumb">
+  <el-breadcrumb class="relative flex overflow-hidden">
+    <transition-group name="breadcrumb" appear>
       <el-breadcrumb-item v-for="(item, index) in breadcrumbList" :key="item.path">
         <div class="el-breadcrumb__inner is-link flex-y-center space-x-2" @click="onClick(item, index)">
           <el-icon v-show="item.meta.icon && showBreadcrumbIcon" class="breadcrumb-icon">
@@ -45,17 +45,17 @@ function onClick(item: Menu.MenuOptions, index: number) {
 .breadcrumb-leave-active {
   transition: all 0.5s;
 }
-
 .breadcrumb-enter-from{
   opacity: 0;
-  transform: translateX(-40px);
+  transform: translateY(-20px);
 }
 .breadcrumb-leave-to {
   opacity: 0;
-  transform: translateX(40px);
+  transform: translateY(20px);
 }
 //不会出现挤出空白的情况
 .breadcrumb-leave-active {
   position: absolute;
+  display: none;
 }
 </style>

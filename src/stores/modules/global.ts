@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 import type { Animation, LanguageType, LayoutType, SizeConfig, SizeType } from '../interface'
 import { DEFAULT_PRIMARY } from '@/config'
-import { initLanguage, is, removeHtmlProperty, setEpHtmlVars, setHtmlProperty } from '@/utils'
+import { initLanguage, removeHtmlProperty, setEpHtmlVars, setHtmlProperty } from '@/utils'
 import { asideTheme, generatePairAnimates } from '@/constants'
 
 export const useGlobalStore = defineStore('store-global', () => {

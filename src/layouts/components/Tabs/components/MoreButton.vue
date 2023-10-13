@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useRoute, useRouter } from 'vue-router'
+import TriggerIcon from './TriggerIcon.vue'
 import { HOME_URL } from '@/config'
 import { setGlobalState, useKeepAliveStore, useTabsStore } from '@/stores'
 
@@ -51,8 +52,8 @@ function closeAllTab() {
   <el-dropdown
     :teleported="false"
   >
-    <div class="more-button">
-      <i-ep-arrow-down class="wh-5" />
+    <div class="h-full w-9 flex-center">
+      <TriggerIcon />
     </div>
     <template #dropdown>
       <el-dropdown-menu>

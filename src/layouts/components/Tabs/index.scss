@@ -1,13 +1,16 @@
 .tabs-box {
   background-color: var(--el-bg-color);
+
   .tabs-menu {
     position: relative;
     width: 100%;
+
     .el-dropdown {
       position: absolute;
       top: 0;
       right: 0;
       bottom: 0;
+
       .more-button {
         display: flex;
         align-items: center;
@@ -15,40 +18,55 @@
         width: 43px;
         cursor: pointer;
         transition: all 0.3s;
+
         &:hover {
           background-color: var(--el-color-info-light-9);
         }
       }
     }
+
     :deep(.el-tabs) {
+      --el-tabs-header-height: 36px;
+
       .el-tabs__header {
-        border:none;
-        box-sizing: border-box;
-        height: 40px;
+        border: none;
         padding: 0 10px;
         margin: 0;
+
         .el-tabs__nav-wrap {
           position: absolute;
           width: calc(100% - 70px);
+
           .el-tabs__nav {
             display: flex;
             border: none;
+
             .el-tabs__item {
               display: flex;
               align-items: center;
               justify-content: center;
               color: #afafaf;
               border: none;
-              padding:0 10px;
+              // padding:0 10px;
+              border-radius: 10px 10px 0 0;
+
               .tabs-icon {
                 margin: 1.5px 4px 0 0;
                 font-size: 15px;
               }
+
               .is-icon-close {
                 margin-top: 1px;
               }
+
+              &:hover {
+                background-color: var(--el-color-info-light-9);
+              }
+
               &.is-active {
                 color: var(--el-color-primary);
+                background-color: var(--el-color-primary-light-9);
+
                 &::before {
                   position: absolute;
                   bottom: 0;
@@ -58,6 +76,16 @@
                   border-bottom: 2px solid var(--el-color-primary) !important;
                 }
               }
+
+            }
+
+          }
+
+          .el-tabs__nav-next,
+          .el-tabs__nav-prev {
+            line-height: 36px;
+            &:hover {
+              color: var(--el-color-primary);
             }
           }
         }
