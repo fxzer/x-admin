@@ -9,13 +9,22 @@ const activeLayout = useVModel(props, 'layout', emit)
 function setLayout(val: LayoutType) {
   activeLayout.value = val
 }
+const index = computed(() => layouts.findIndex(item => item.value === activeLayout.value))
+// 通过 index 坐标计算出激活边框的定位
+const style = computed(() => {
+  const x = index.value % 2 * 146
+  const y = Math.floor(index.value / 2) * 92
+  return {
+    transform: `translate(${x}px, ${y}px)`,
+  }
+})
 </script>
 
 <template>
-  <div class="layout-box">
+  <div class="layout-box relative">
     <el-tooltip v-for="{ name, value } in layouts" :key="value" effect="dark" :content="name" placement="top" :show-after="200">
       <div
-        class="layout-item" :class="[`layout-${value}`, activeLayout === value ? 'is-active' : '']"
+        class="layout-item" :class="[`layout-${value}`]"
         @click="setLayout(value)"
       >
         <template v-if="value === 'vertical'">
@@ -46,18 +55,21 @@ function setLayout(val: LayoutType) {
         </el-icon>
       </div>
     </el-tooltip>
+    <div
+      class="absolute top-0 h-18 w-25 cursor-pointer border-2px border-primary rounded-5px transition-all duration-300"
+      :style="style"
+    />
   </div>
 </template>
 
 <style scoped lang='scss'>
 .layout-box {
-  position: relative;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     flex-wrap: wrap;
   .layout-item {
     position: relative;
-    box-sizing: border-box;
     width: 100px;
     height: 72px;
     padding: 6px;

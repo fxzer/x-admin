@@ -25,7 +25,7 @@ export const useGlobalStore = defineStore('store-global', () => {
   const animationName = ref('fade-slide')
   const isRandownAnimate = ref(false)
   // 面包屑
-  const breadcrumbAnimateName = ref('slide-right')
+  const breadAnimateName = ref('slide-right')
   const breadcrumbType = ref('arrow')
   const pairAnimates = generatePairAnimates()
   const animationList = ref<Animation[]>([{
@@ -131,7 +131,7 @@ export const useGlobalStore = defineStore('store-global', () => {
     Object.entries(asideTheme).forEach(([key, value]) => val ? setHtmlProperty(key, value) : removeHtmlProperty(key))
   }, { immediate: true })
 
-  return { layout, currentSize, menuWidth, itemHeight, size, language, maximize, primary, isDark, isGrey, isWeak, asideInverted, isCollapse, settingsVisible, isAccordion, showBreadcurmb, showBreadcrumbIcon, showTab, showTabIcon, showFooter, sizeList, onlyEffectPrimary, animationName, animationList, currentAnimation, enterActiveClass, leaveActiveClass, isRandownAnimate, breadcrumbAnimateName, breadcrumbType, toggleMenu, openSettings, randomAnimate }
+  return { layout, currentSize, menuWidth, itemHeight, size, language, maximize, primary, isDark, isGrey, isWeak, asideInverted, isCollapse, settingsVisible, isAccordion, showBreadcurmb, showBreadcrumbIcon, showTab, showTabIcon, showFooter, sizeList, onlyEffectPrimary, animationName, animationList, currentAnimation, enterActiveClass, leaveActiveClass, isRandownAnimate, breadAnimateName, breadcrumbType, toggleMenu, openSettings, randomAnimate }
 }, {
   persist: true,
 })

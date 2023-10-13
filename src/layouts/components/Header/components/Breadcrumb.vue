@@ -7,7 +7,7 @@ const route = useRoute()
 const router = useRouter()
 const authStore = useAuthStore()
 const globalStore = useGlobalStore()
-const { showBreadcrumbIcon, breadcrumbType, breadcrumbAnimateName } = storeToRefs(globalStore)
+const { showBreadcrumbIcon, breadcrumbType, breadAnimateName } = storeToRefs(globalStore)
 const breadcrumbList = computed(() => {
   const lastPath = route.matched[route.matched.length - 1].path
   let breadcrumbData = authStore.breadcrumbList[lastPath] ?? []
@@ -31,7 +31,7 @@ function onClick(item: Menu.MenuOptions, index: number) {
       arrow: breadcrumbType === 'arrow',
     }"
   >
-    <transition-group :name="breadcrumbAnimateName" appear>
+    <transition-group :name="breadAnimateName" appear>
       <el-breadcrumb-item v-for="(item, index) in breadcrumbList" :key="item.path">
         <div class="el-breadcrumb__inner is-link flex-y-center space-x-2" @click="onClick(item, index)">
           <el-icon v-show="item.meta.icon && showBreadcrumbIcon" class="breadcrumb-icon">
@@ -45,48 +45,6 @@ function onClick(item: Menu.MenuOptions, index: number) {
 </template>
 
 <style lang="scss" scoped>
-/* 向下滑入 */
-.slide-bottom-enter-active {
-  transition: all 0.3s;
-}
-
-.slide-bottom-enter-from,
-.slide-bottom-leave-active{
-  opacity: 0;
-  transform: translateY(-20px) skewX(-45deg);
-}
-/* 向上滑入 */
-.slide-top-enter-active {
-  transition: all 0.3s;
-}
-
-.slide-top-enter-from,
-.slide-top-leave-active {
-  opacity: 0;
-  transform: translateY(20px) skewX(-45deg);
-}
-/* 向左滑入 */
-.slide-left-enter-active {
-  transition: all 0.3s;
-}
-
-.slide-left-enter-from,
-.slide-left-leave-active {
-  opacity: 0;
-  position:absolute;
-  transform: translateX(20px) skewX(-45deg);
-}
-/* 向右滑入 */
-.slide-right-enter-active {
-  transition: all 0.3s;
-}
-
-.slide-right-enter-from,
-.slide-right-leave-active {
-  opacity: 0;
-  transform: translateX(-20px) skewX(-45deg);
-}
-
 .el-breadcrumb.arrow {
 
   :deep(.el-breadcrumb__item) {

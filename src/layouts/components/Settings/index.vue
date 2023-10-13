@@ -3,7 +3,8 @@ import { storeToRefs } from 'pinia'
 import LayoutSelect from './components/LayoutSelect.vue'
 import MoreColorIcon from './components/MoreColorIcon.vue'
 import MoreColorDialog from './components/MoreColorDialog.vue'
-
+import BreadAnimates from './components/BreadAnimates.vue'
+import ClearCache from './components/ClearCache.vue'
 import { useGlobalStore } from '@/stores'
 import { DEFAULT_PRIMARY } from '@/config'
 import SwitchDark from '@/components/SwitchDark/index.vue'
@@ -31,7 +32,7 @@ const {
   isRandownAnimate,
   animationList,
   breadcrumbType,
-  breadcrumbAnimateName,
+  breadAnimateName,
 } = storeToRefs(globalStore)
 
 // 预定义主题颜色
@@ -46,33 +47,10 @@ const colorList = [
   '#f39c12',
   '#9b59b6',
 ]
-const bcAnimates = [
-  {
-    label: '向右滑入',
-    value: 'slide-right',
-  },
-  {
-    label: '向左滑入',
-    value: 'slide-left',
-  },
-  {
-    label: '向上滑入',
-    value: 'slide-top',
-  },
-  {
-    label: '向下滑入',
-    value: 'slide-bottom',
-  },
-]
-
-function handleClear() {
-  localStorage.clear()
-  location.reload()
-}
 </script>
 
 <template>
-  <el-drawer v-model="visible" title="偏好设置" size="290px">
+  <el-drawer v-model="visible" title="偏好设置" size="290px" class="text-[var(--el-text-color-primary)]">
     <!-- 布局样式 -->
     <el-divider class="divider">
       <el-icon><IEpNotification /></el-icon>
@@ -116,16 +94,18 @@ function handleClear() {
       </span>
       <el-switch v-model="asideInverted" />
     </div>
-
-    <div class="setting-item">
-      <span>灰色模式</span>
-      <el-switch v-model="isGrey" />
-    </div>
-    <div class="setting-item mb40">
-      <span>色弱模式</span>
-      <el-switch v-model="isWeak" />
-    </div>
-
+    <Transition name="slide-bottom" appear mode="out-in">
+      <div v-if="!isWeak" class="setting-item">
+        <span>灰色模式</span>
+        <el-switch v-model="isGrey" />
+      </div>
+    </Transition>
+    <Transition name="slide-bottom" appear mode="out-in">
+      <div v-if="!isGrey" class="setting-item mb40">
+        <span>色弱模式</span>
+        <el-switch v-model="isWeak" />
+      </div>
+    </Transition>
     <!-- 界面设置 -->
     <el-divider class="divider">
       <el-icon><IEpSetting /></el-icon>
@@ -140,14 +120,6 @@ function handleClear() {
       <el-switch v-model="isAccordion" />
     </div>
     <div class="setting-item">
-      <span>面包屑</span>
-      <el-switch v-model="showBreadcurmb" />
-    </div>
-    <div class="setting-item">
-      <span>面包屑图标</span>
-      <el-switch v-model="showBreadcrumbIcon" />
-    </div>
-    <div class="setting-item">
       <span>标签栏</span>
       <el-switch v-model="showTab" />
     </div>
@@ -158,6 +130,25 @@ function handleClear() {
     <div class="setting-item">
       <span>页脚</span>
       <el-switch v-model="showFooter" />
+    </div>
+    <div class="setting-item">
+      <span>面包屑</span>
+      <el-switch v-model="showBreadcurmb" />
+    </div>
+    <div class="setting-item">
+      <span>面包屑图标</span>
+      <el-switch v-model="showBreadcrumbIcon" />
+    </div>
+    <div class="setting-item">
+      <span>面包屑风格</span>
+      <el-radio-group v-model="breadcrumbType">
+        <el-radio-button label="default">
+          默认
+        </el-radio-button>
+        <el-radio-button label="arrow">
+          箭头
+        </el-radio-button>
+      </el-radio-group>
     </div>
     <el-divider class="divider">
       <el-icon><IEpSetting /></el-icon>
@@ -185,32 +176,10 @@ function handleClear() {
       </el-select>
     </div>
     <div class="setting-item">
-      <span>面包屑风格</span>
-      <el-radio-group v-model="breadcrumbType">
-        <el-radio-button label="default">
-          默认
-        </el-radio-button>
-        <el-radio-button label="arrow">
-          箭头
-        </el-radio-button>
-      </el-radio-group>
-    </div>
-    <div class="setting-item">
       <span>面包屑动画</span>
-      <el-select v-model="breadcrumbAnimateName" class="w-36" placeholder="选择动画">
-        <el-option
-          v-for="{ label, value } in bcAnimates"
-          :key="label"
-          :label="label"
-          :value="value"
-        />
-      </el-select>
+      <BreadAnimates v-model="breadAnimateName" />
     </div>
-    <div class="flex-x-center">
-      <el-button type="primary" @click="handleClear">
-        清空缓存并退出
-      </el-button>
-    </div>
+    <ClearCache />
     <MoreColorDialog v-model="moreColorVisible" />
   </el-drawer>
 </template>
