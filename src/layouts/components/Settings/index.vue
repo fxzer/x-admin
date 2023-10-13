@@ -30,6 +30,8 @@ const {
   animationName,
   isRandownAnimate,
   animationList,
+  breadcrumbType,
+  breadcrumbAnimateName,
 } = storeToRefs(globalStore)
 
 // 预定义主题颜色
@@ -44,6 +46,25 @@ const colorList = [
   '#f39c12',
   '#9b59b6',
 ]
+const bcAnimates = [
+  {
+    label: '向右滑入',
+    value: 'slide-right',
+  },
+  {
+    label: '向左滑入',
+    value: 'slide-left',
+  },
+  {
+    label: '向上滑入',
+    value: 'slide-top',
+  },
+  {
+    label: '向下滑入',
+    value: 'slide-bottom',
+  },
+]
+
 function handleClear() {
   localStorage.clear()
   location.reload()
@@ -163,6 +184,28 @@ function handleClear() {
         />
       </el-select>
     </div>
+    <div class="setting-item">
+      <span>面包屑风格</span>
+      <el-radio-group v-model="breadcrumbType">
+        <el-radio-button label="default">
+          默认
+        </el-radio-button>
+        <el-radio-button label="arrow">
+          箭头
+        </el-radio-button>
+      </el-radio-group>
+    </div>
+    <div class="setting-item">
+      <span>面包屑动画</span>
+      <el-select v-model="breadcrumbAnimateName" class="w-36" placeholder="选择动画">
+        <el-option
+          v-for="{ label, value } in bcAnimates"
+          :key="label"
+          :label="label"
+          :value="value"
+        />
+      </el-select>
+    </div>
     <div class="flex-x-center">
       <el-button type="primary" @click="handleClear">
         清空缓存并退出
@@ -200,7 +243,4 @@ function handleClear() {
     }
   }
 }
-// span{
-//   color:#afafaf;
-// }
 </style>

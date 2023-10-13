@@ -7,7 +7,7 @@ const route = useRoute()
 const router = useRouter()
 const authStore = useAuthStore()
 const globalStore = useGlobalStore()
-const { showBreadcrumbIcon } = storeToRefs(globalStore)
+const { showBreadcrumbIcon, breadcrumbType, breadcrumbAnimateName } = storeToRefs(globalStore)
 const breadcrumbList = computed(() => {
   const lastPath = route.matched[route.matched.length - 1].path
   let breadcrumbData = authStore.breadcrumbList[lastPath] ?? []
@@ -26,8 +26,12 @@ function onClick(item: Menu.MenuOptions, index: number) {
 </script>
 
 <template>
-  <el-breadcrumb class="relative flex overflow-hidden">
-    <transition-group name="breadcrumb" appear>
+  <el-breadcrumb
+    class="relative flex overflow-hidden" :class="{
+      arrow: breadcrumbType === 'arrow',
+    }"
+  >
+    <transition-group :name="breadcrumbAnimateName" appear>
       <el-breadcrumb-item v-for="(item, index) in breadcrumbList" :key="item.path">
         <div class="el-breadcrumb__inner is-link flex-y-center space-x-2" @click="onClick(item, index)">
           <el-icon v-show="item.meta.icon && showBreadcrumbIcon" class="breadcrumb-icon">
@@ -41,21 +45,63 @@ function onClick(item: Menu.MenuOptions, index: number) {
 </template>
 
 <style lang="scss" scoped>
-.breadcrumb-enter-active,
-.breadcrumb-leave-active {
-  transition: all 0.5s;
+/* 向下滑入 */
+.slide-bottom-enter-active {
+  transition: all 0.3s;
 }
-.breadcrumb-enter-from{
+
+.slide-bottom-enter-from,
+.slide-bottom-leave-active{
   opacity: 0;
-  transform: translateY(-20px);
+  transform: translateY(-20px) skewX(-45deg);
 }
-.breadcrumb-leave-to {
+/* 向上滑入 */
+.slide-top-enter-active {
+  transition: all 0.3s;
+}
+
+.slide-top-enter-from,
+.slide-top-leave-active {
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(20px) skewX(-45deg);
 }
-//不会出现挤出空白的情况
-.breadcrumb-leave-active {
-  position: absolute;
-  display: none;
+/* 向左滑入 */
+.slide-left-enter-active {
+  transition: all 0.3s;
+}
+
+.slide-left-enter-from,
+.slide-left-leave-active {
+  opacity: 0;
+  position:absolute;
+  transform: translateX(20px) skewX(-45deg);
+}
+/* 向右滑入 */
+.slide-right-enter-active {
+  transition: all 0.3s;
+}
+
+.slide-right-enter-from,
+.slide-right-leave-active {
+  opacity: 0;
+  transform: translateX(-20px) skewX(-45deg);
+}
+
+.el-breadcrumb.arrow {
+
+  :deep(.el-breadcrumb__item) {
+    .el-breadcrumb__inner {
+      background-color: var(--el-fill-color);
+      transition: background-color .3s, var(--el-transition-color);
+      padding: 2px 8px;
+      -webkit-clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 50%, calc(100% - 8px) 100%, 0 100%, 8px 50%);
+      clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 50%, calc(100% - 8px) 100%, 0 100%, 8px 50%);
+    }
+
+    .el-breadcrumb__separator {
+      display: none;
+    }
+
+  }
 }
 </style>
