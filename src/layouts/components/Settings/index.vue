@@ -27,6 +27,9 @@ const {
   showBreadcrumbIcon,
   asideInverted,
   onlyEffectPrimary,
+  animationName,
+  isRandownAnimate,
+  animationList,
 } = storeToRefs(globalStore)
 
 // 预定义主题颜色
@@ -50,7 +53,7 @@ function handleClear() {
 <template>
   <el-drawer v-model="visible" title="偏好设置" size="290px">
     <!-- 布局样式 -->
-    <el-divider class="divider !mt0">
+    <el-divider class="divider">
       <el-icon><IEpNotification /></el-icon>
       布局样式
     </el-divider>
@@ -134,6 +137,31 @@ function handleClear() {
     <div class="setting-item">
       <span>页脚</span>
       <el-switch v-model="showFooter" />
+    </div>
+    <el-divider class="divider">
+      <el-icon><IEpSetting /></el-icon>
+      动画设置
+    </el-divider>
+    <div class="setting-item">
+      <span>动画类型
+        <el-tooltip content="随机" placement="top">
+          <i-fad:random-1dice
+            :class="{
+              'text-primary': isRandownAnimate,
+            }"
+            @click="isRandownAnimate = !isRandownAnimate"
+          />
+        </el-tooltip>
+
+      </span>
+      <el-select v-model="animationName" class="w-36" placeholder="选择动画">
+        <el-option
+          v-for="{ label, value } in animationList"
+          :key="label"
+          :label="label"
+          :value="value"
+        />
+      </el-select>
     </div>
     <div class="flex-x-center">
       <el-button type="primary" @click="handleClear">

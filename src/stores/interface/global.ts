@@ -10,3 +10,9 @@ export interface SizeConfig {
   fold: 64 | 56 | 48
   unfold: 210 | 200 | 190
 }
+export interface Animation {
+  label: string
+  value: string
+  enterActiveClass?: string
+  leaveActiveClass?: string
+}

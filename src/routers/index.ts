@@ -1,6 +1,6 @@
 import type { App } from 'vue'
 import { createRouter, createWebHashHistory } from 'vue-router'
-import { useAuthStore, useUserStore } from '@/stores'
+import { useAuthStore, useGlobalStore, useUserStore } from '@/stores'
 import { LOGIN_URL, ROUTER_WHITE_LIST } from '@/config'
 import { initDynamicRouter, initStaticRouter } from '@/routers/utils'
 import NProgress from '@/config/nprogress'
@@ -34,12 +34,13 @@ const router = createRouter({
 router.beforeEach(async (to, from, next) => {
   const userStore = useUserStore()
   const authStore = useAuthStore()
-
+  const globalStore = useGlobalStore()
   const isRefresh = !from.name && to.name !== LOGIN_URL
   // 1.NProgress 开始
   if (!isRefresh)
     NProgress.start()
 
+  globalStore.randomAnimate()
   // 2.动态设置标题
   const title = import.meta.env.VITE_APP_TITLE
   document.title = to.meta.title ? `${to.meta.title} - ${title}` : title

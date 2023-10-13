@@ -9,6 +9,7 @@ import { LOGIN_URL } from '@/config'
 
 const router = useRouter()
 const userStore = useUserStore()
+const { userInfo: { name = '' }, setToken } = userStore
 
 // 退出登录
 function logout() {
@@ -21,7 +22,7 @@ function logout() {
     await logoutApi()
 
     // 2.清除 Token
-    userStore.setToken('')
+    setToken('')
 
     // 3.重定向到登陆页
     router.replace(LOGIN_URL)
@@ -47,6 +48,11 @@ function openDialog(ref: string) {
     </div>
     <template #dropdown>
       <el-dropdown-menu>
+        <el-dropdown-item>
+          <p v-copy="name" class="max-w-20 w-full truncate text-center" :title="name">
+            {{ name }}
+          </p>
+        </el-dropdown-item>
         <el-dropdown-item @click="openDialog('infoRef')">
           <el-icon><IEpUser /></el-icon>{{ $t("header.personalData") }}
         </el-dropdown-item>

@@ -1,16 +1,9 @@
 import { defineStore } from 'pinia'
-import type { LanguageType, LayoutType, SizeConfig, SizeType } from '../interface'
+import type { Animation, LanguageType, LayoutType, SizeConfig, SizeType } from '../interface'
 import { DEFAULT_PRIMARY } from '@/config'
-import { initLanguage, removeHtmlProperty, setEpHtmlVars, setHtmlProperty } from '@/utils'
+import { initLanguage, is, removeHtmlProperty, setEpHtmlVars, setHtmlProperty } from '@/utils'
+import { asideTheme, generatePairAnimates } from '@/constants'
 
-const asideTheme = {
-  '--el-menu-bg-color': '#141414',
-  '--el-menu-hover-bg-color': '#000000',
-  '--el-menu-active-bg-color': '#000000',
-  '--el-menu-text-color': '#bdbdc0',
-  '--el-menu-active-color': '#ffffff',
-  '--el-menu-hover-text-color': '#ffffff',
-}
 export const useGlobalStore = defineStore('store-global', () => {
   const layout = ref<LayoutType>('vertical')
   const size = ref<SizeType>('default')
@@ -29,7 +22,42 @@ export const useGlobalStore = defineStore('store-global', () => {
   const showTabIcon = ref(true)
   const showFooter = ref(true)
   const asideInverted = ref(false)
+  const animationName = ref('fade-slide')
+  const isRandownAnimate = ref(false)
+  const pairAnimates = generatePairAnimates()
+  const animationList = ref<Animation[]>([{
+    label: '无动画',
+    value: 'none',
+  }, {
+    label: '渐显',
+    value: 'fade',
+  }, {
+    label: '滑动渐显',
+    value: 'fade-slide',
+  }, {
+    label: '底部渐显',
+    value: 'fade-bottom',
+  },
+  {
+    label: '顶部渐显',
+    value: 'fade-top',
+  },
+  {
+    label: '缩放渐显',
+    value: 'fade-zoom',
+  },
+  ...pairAnimates,
 
+  ])
+  const currentAnimation = computed(() => animationList.value.find(item => item.label === animationName.value)!)
+  const enterActiveClass = computed(() => currentAnimation.value?.enterActiveClass)
+  const leaveActiveClass = computed(() => currentAnimation.value?.leaveActiveClass)
+  function randomAnimate() {
+    if (isRandownAnimate.value) {
+      const index = Math.floor(Math.random() * animationList.value.length)
+      animationName.value = animationList.value[index].value
+    }
+  }
   const sizeList = ref<SizeConfig[]>([
     {
       label: '大型',
@@ -50,7 +78,7 @@ export const useGlobalStore = defineStore('store-global', () => {
       unfold: 190,
     },
   ])
-  const settingsVisible = ref(false)
+  const settingsVisible = ref(true)
   function getCurrentSize(): SizeConfig {
     return sizeList.value.find((item => item.key === size.value))!
   }
@@ -100,7 +128,7 @@ export const useGlobalStore = defineStore('store-global', () => {
     Object.entries(asideTheme).forEach(([key, value]) => val ? setHtmlProperty(key, value) : removeHtmlProperty(key))
   }, { immediate: true })
 
-  return { layout, currentSize, menuWidth, itemHeight, size, language, maximize, primary, isDark, isGrey, isWeak, asideInverted, isCollapse, settingsVisible, isAccordion, showBreadcurmb, showBreadcrumbIcon, showTab, showTabIcon, showFooter, sizeList, onlyEffectPrimary, toggleMenu, openSettings }
+  return { layout, currentSize, menuWidth, itemHeight, size, language, maximize, primary, isDark, isGrey, isWeak, asideInverted, isCollapse, settingsVisible, isAccordion, showBreadcurmb, showBreadcrumbIcon, showTab, showTabIcon, showFooter, sizeList, onlyEffectPrimary, animationName, animationList, currentAnimation, enterActiveClass, leaveActiveClass, isRandownAnimate, toggleMenu, openSettings, randomAnimate }
 }, {
   persist: true,
 })

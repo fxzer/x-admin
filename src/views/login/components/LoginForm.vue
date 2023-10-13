@@ -54,7 +54,7 @@ function login(formEl: FormInstance | undefined) {
         title: getTimeState(),
         message: '欢迎登录 x-admin',
         type: 'success',
-        duration: 3000,
+        duration: 10,
       })
     }
     finally {

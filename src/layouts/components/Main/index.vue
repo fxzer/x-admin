@@ -6,7 +6,7 @@ import Tabs from '@/layouts/components/Tabs/index.vue'
 import Footer from '@/layouts/components/Footer/index.vue'
 
 const globalStore = useGlobalStore()
-const { maximize, layout, showTab, showFooter } = storeToRefs(globalStore)
+const { maximize, layout, showTab, showFooter, animationName, enterActiveClass, leaveActiveClass } = storeToRefs(globalStore)
 
 const keepAliveStore = useKeepAliveStore()
 const { aliveNames } = storeToRefs(keepAliveStore)
@@ -45,7 +45,11 @@ watch(
   <el-main class="main-box relative" :class="{ '!pb-42px': showFooter }">
     <!-- TODO:动画过渡 -->
     <router-view v-slot="{ Component, route }">
-      <transition appear name="fade-transform" mode="out-in">
+      <transition
+        :name="animationName" mode="out-in"
+        :enter-active-class="enterActiveClass"
+        :leave-active-class="leaveActiveClass"
+      >
         <keep-alive :include="aliveNames">
           <component :is="Component" v-if="isRouterShow" :key="route.fullPath" />
         </keep-alive>

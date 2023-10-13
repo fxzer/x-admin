@@ -12,7 +12,14 @@ body,
 :-webkit-any(article, aside, nav, section) h1 {
   font-size: 2em;
 }
-
+/* 滚动条 */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+}
 /* clearfix */
 .clearfix::after {
   display: block;
@@ -22,39 +29,11 @@ body,
   content: "";
 }
 
-
-
 /* 文字多了自动換行 */
 .break-word {
   word-break: break-all;
   word-wrap: break-word;
 }
-
-/* fade-transform */
-.fade-transform-leave-active,
-.fade-transform-enter-active {
-  transition: all 0.2s;
-}
-.fade-transform-enter-from {
-  opacity: 0;
-  transition: all 0.2s;
-  transform: translateX(-30px);
-}
-.fade-transform-leave-to {
-  opacity: 0;
-  transition: all 0.2s;
-  transform: translateX(30px);
-}
-
-/* scroll bar */
-::-webkit-scrollbar {
-  width: 4px;
-  height: 4px;
-}
-::-webkit-scrollbar-thumb {
-  border-radius: 20px;
-}
-
 /* nprogress */
 #nprogress .bar {
   background: var(--el-color-primary) !important;
@@ -65,4 +44,17 @@ body,
 }
 #nprogress .peg {
   box-shadow: 0 0 10px var(--el-color-primary), 0 0 5px var(--el-color-primary) !important;
+}
+/* 迷雾遮罩 */
+.fog-mask {
+  padding-right: 10px;
+  mask-image: linear-gradient(90deg, #000000 0%, #000000 calc(100% - 50px), transparent);
+}
+/* custom card */
+.card {
+  padding: 20px;
+  overflow-x: hidden;
+  background-color: var(--el-bg-color);
+  border-radius: 6px;
+  box-shadow: 0 0 12px rgb(0 0 0 / 5%);
 }

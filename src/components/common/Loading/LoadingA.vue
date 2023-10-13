@@ -1,18 +1,17 @@
 <script setup lang="ts">
+import Logo from '@/layouts/components/Header/components/Logo.vue'
+
 const loadingClasses = [
   'left-0 top-0',
   'left-0 bottom-0 animate-delay-500',
   'right-0 top-0 animate-delay-1000',
   'right-0 bottom-0 animate-delay-1500',
 ]
-
-// addThemeColorCssVars()
 </script>
 
 <template>
   <div class="fixed-center flex-col">
-    <!-- <system-logo class="text-128px text-primary" /> -->
-    <div>LOGO</div>
+    <Logo :show-title="false" />
     <div class="my-36px h-56px w-56px">
       <div class="relative h-full animate-spin">
         <div

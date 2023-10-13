@@ -44,6 +44,7 @@
     "@vueuse/core": "^10.5.0",
     "@wangeditor/editor": "^5.1.23",
     "@wangeditor/editor-for-vue": "^5.1.12",
+    "animate.css": "^4.1.1",
     "axios": "^1.5.1",
     "dayjs": "^1.11.10",
     "echarts": "^5.4.3",

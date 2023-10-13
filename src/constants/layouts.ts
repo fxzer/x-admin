@@ -16,3 +16,12 @@ export const layouts = [
     value: 'columns',
   },
 ] as const
+
+export const asideTheme = {
+  '--el-menu-bg-color': '#141414',
+  '--el-menu-hover-bg-color': '#000000',
+  '--el-menu-active-bg-color': '#000000',
+  '--el-menu-text-color': '#bdbdc0',
+  '--el-menu-active-color': '#ffffff',
+  '--el-menu-hover-text-color': '#ffffff',
+}
