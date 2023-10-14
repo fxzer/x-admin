@@ -33,10 +33,10 @@ export function setPropertyPrimary(isDark: boolean, type: SceneType, mode: strin
   }
 }
 /** 修改 html style 变量 ，设置 `element-plus` 主题色 */
-export function setEpHtmlVars(isDark: boolean, primaryColor: string, onlyEffectPrimary = false) {
+export function setEpHtmlVars(isDark: boolean, primaryColor: string, isMixinPrimary = false) {
   baseColorTypeMap.primary = primaryColor
   Object.entries(baseColorTypeMap).forEach(([type, baseColor]) => {
-    if (!onlyEffectPrimary && type !== 'primary')
+    if (isMixinPrimary && type !== 'primary')
       baseColor = mix(baseColor, primaryColor, 0.8)
 
     setHtmlProperty(`--el-color-${type}`, baseColor)
@@ -58,10 +58,10 @@ export function setEpHtmlVars(isDark: boolean, primaryColor: string, onlyEffectP
 //   return arr
 // }
 
-// export function setHtmlVars(primaryColor: string, onlyEffectPrimary = false, weight = 0.8) {
+// export function setHtmlVars(primaryColor: string, isMixinPrimary = false, weight = 0.8) {
 //   baseColorTypeMap.primary = primaryColor
 //   const arr = Object.entries(baseColorTypeMap).map(([type, baseColor]) => {
-//     if (!onlyEffectPrimary && type !== 'primary')
+//     if (isMixinPrimary && type !== 'primary')
 //       baseColor = mix(baseColor, primaryColor, weight)
 
 //     const pArr = []

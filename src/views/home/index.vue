@@ -1,4 +1,28 @@
-<script setup lang="ts" name="home">
+<script lang="ts" setup>
+import { ElMessage } from 'element-plus'
+
+function open1() {
+  ElMessage('this is a message.')
+}
+function open2() {
+  ElMessage({
+    message: 'Congrats, this is a success message.',
+    type: 'success',
+    customClass: 'message-antd',
+    duration: 0,
+  })
+}
+function open3() {
+  ElMessage({
+    message: 'Warning, this is a warning message.',
+    type: 'warning',
+    customClass: 'message-antd',
+    duration: 0,
+  })
+}
+function open4() {
+  ElMessage.error('Oops, this is a error message.')
+}
 </script>
 
 <template>
@@ -64,6 +88,18 @@
         Danger
       </el-button>
     </el-row>
+    <el-button :plain="true" @click="open2">
+      success
+    </el-button>
+    <el-button :plain="true" @click="open3">
+      warning
+    </el-button>
+    <el-button :plain="true" @click="open1">
+      message
+    </el-button>
+    <el-button :plain="true" @click="open4">
+      error
+    </el-button>
   </div>
 </template>
 

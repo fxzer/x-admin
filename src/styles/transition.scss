@@ -82,6 +82,7 @@
 .slide-bottom-enter-from,
 .slide-bottom-leave-active{
   opacity: 0;
+  position:absolute;
   transform: translateY(-20px) skewX(-45deg);
 }
 /* 向上滑入 */
@@ -92,6 +93,7 @@
 .slide-top-enter-from,
 .slide-top-leave-active {
   opacity: 0;
+  position:absolute;
   transform: translateY(20px) skewX(-45deg);
 }
 /* 向左滑入 */
@@ -103,7 +105,7 @@
 .slide-left-leave-active {
   opacity: 0;
   position:absolute;
-  transform: translateX(20px) skewX(-45deg);
+  transform: translateX(20px) skewX(45deg);
 }
 /* 向右滑入 */
 .slide-right-enter-active {
@@ -113,5 +115,6 @@
 .slide-right-enter-from,
 .slide-right-leave-active {
   opacity: 0;
+  position:absolute;
   transform: translateX(-20px) skewX(-45deg);
 }

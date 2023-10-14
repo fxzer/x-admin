@@ -10,9 +10,9 @@ export const useGlobalStore = defineStore('store-global', () => {
   const language = ref<LanguageType>(initLanguage())
   const maximize = ref(false)
   const primary = ref(DEFAULT_PRIMARY)
-  const onlyEffectPrimary = ref(true)
+  const isMixinPrimary = ref(false)
   const isDark = ref(false)
-  const isGrey = ref(false)
+  const isGray = ref(false)
   const isWeak = ref(false)
   const isCollapse = ref(false)
   const isAccordion = ref(false)
@@ -24,6 +24,8 @@ export const useGlobalStore = defineStore('store-global', () => {
   const asideInverted = ref(false)
   const animationName = ref('fade-slide')
   const isRandownAnimate = ref(false)
+  // 主题彩虹色变换
+  const isRainbow = ref(false)
   // 面包屑
   const breadAnimateName = ref('slide-right')
   const breadcrumbType = ref('arrow')
@@ -110,14 +112,14 @@ export const useGlobalStore = defineStore('store-global', () => {
   }
 
   // 监听主题色变化
-  watch([isDark, primary, onlyEffectPrimary], (val) => {
+  watch([isDark, primary, isMixinPrimary], (val) => {
     const [i, p, o] = val
     setEpHtmlVars(i, p, o)
   }, { immediate: true })
   // 监听灰色、弱色模式
   const htmlClass = document.documentElement.classList
-  watch(isGrey, (val) => {
-    val ? htmlClass.add('is-grey') : htmlClass.remove('is-grey')
+  watch(isGray, (val) => {
+    val ? htmlClass.add('is-gray') : htmlClass.remove('is-gray')
   }, { immediate: true })
   watch(isWeak, (val) => {
     val ? htmlClass.add('is-weak') : htmlClass.remove('is-weak')
@@ -131,7 +133,7 @@ export const useGlobalStore = defineStore('store-global', () => {
     Object.entries(asideTheme).forEach(([key, value]) => val ? setHtmlProperty(key, value) : removeHtmlProperty(key))
   }, { immediate: true })
 
-  return { layout, currentSize, menuWidth, itemHeight, size, language, maximize, primary, isDark, isGrey, isWeak, asideInverted, isCollapse, settingsVisible, isAccordion, showBreadcurmb, showBreadcrumbIcon, showTab, showTabIcon, showFooter, sizeList, onlyEffectPrimary, animationName, animationList, currentAnimation, enterActiveClass, leaveActiveClass, isRandownAnimate, breadAnimateName, breadcrumbType, toggleMenu, openSettings, randomAnimate }
+  return { layout, currentSize, menuWidth, itemHeight, size, language, maximize, primary, isDark, isGray, isWeak, asideInverted, isCollapse, settingsVisible, isAccordion, showBreadcurmb, showBreadcrumbIcon, showTab, showTabIcon, showFooter, sizeList, isMixinPrimary, animationName, animationList, currentAnimation, enterActiveClass, leaveActiveClass, isRandownAnimate, breadAnimateName, breadcrumbType, isRainbow, toggleMenu, openSettings, randomAnimate }
 }, {
   persist: true,
 })

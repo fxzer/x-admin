@@ -1,8 +1,10 @@
 <script setup lang='ts'>
+import { useGlobalStore } from '@/stores'
+
 const props = defineProps(['modelValue'])
 const emit = defineEmits(['update:modelValue'])
 const name = useVModel(props, 'modelValue', emit)
-
+const { settingsVisible } = storeToRefs(useGlobalStore())
 const breadAnimates = [
   {
     label: '向右滑入',
@@ -21,19 +23,20 @@ const breadAnimates = [
     value: 'slide-bottom',
   },
 ]
+
+// count will increase every 200ms
 function handleCilck(value: string) {
   name.value = value
 }
 const activeIndex = computed(() => breadAnimates.findIndex(item => item.value === name.value))
-
 const left = computed(() => activeIndex.value * 9)
-const show = ref(false)
-// 重复隔一秒切换一次
-const timer = setInterval(() => {
-  show.value = !show.value
-}, 1000)
-onUnmounted(() => {
-  clearInterval(timer)
+const show = ref(true)
+const { pause, resume } = useIntervalFn(() => show.value = !show.value, 1000)
+watch(settingsVisible, () => {
+  if (settingsVisible.value)
+    resume()
+  else
+    pause()
 })
 </script>
 

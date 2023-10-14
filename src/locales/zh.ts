@@ -19,7 +19,7 @@ export default {
     layoutConfig: '布局设置',
     primary: 'primary',
     darkMode: '暗黑模式',
-    greyMode: '灰色模式',
+    grayMode: '灰色模式',
     weakMode: '色弱模式',
     fullScreen: '全屏',
     exitFullScreen: '退出全屏',

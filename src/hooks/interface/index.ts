@@ -25,8 +25,3 @@ export module Table {
 export module HandleData {
   export type MessageType = '' | 'success' | 'warning' | 'info' | 'error'
 }
-
-export module Theme {
-  export type ThemeType = 'light' | 'inverted' | 'dark'
-  export type GreyOrWeakType = 'grey' | 'weak'
-}

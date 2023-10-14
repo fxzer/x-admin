@@ -13,5 +13,6 @@
   padding:0 10px;
   position: relative;
   height: var(--el-menu-item-height);
+  background: var(--el-menu-bg-color);
 }
 </style>

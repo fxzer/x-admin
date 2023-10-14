@@ -7,6 +7,7 @@ import BreadAnimates from './components/BreadAnimates.vue'
 import ClearCache from './components/ClearCache.vue'
 import { useGlobalStore } from '@/stores'
 import { DEFAULT_PRIMARY } from '@/config'
+import { rainbowColors } from '@/constants'
 import SwitchDark from '@/components/SwitchDark/index.vue'
 
 const props = defineProps(['modelValue'])
@@ -18,7 +19,7 @@ const globalStore = useGlobalStore()
 const {
   layout,
   primary,
-  isGrey,
+  isGray,
   isWeak,
   isAccordion,
   showTab,
@@ -27,12 +28,13 @@ const {
   showBreadcurmb,
   showBreadcrumbIcon,
   asideInverted,
-  onlyEffectPrimary,
+  isMixinPrimary,
   animationName,
   isRandownAnimate,
   animationList,
   breadcrumbType,
   breadAnimateName,
+  isRainbow,
 } = storeToRefs(globalStore)
 
 // 预定义主题颜色
@@ -47,6 +49,20 @@ const colorList = [
   '#f39c12',
   '#9b59b6',
 ]
+const { counter: colorIndex, reset, pause, resume } = useInterval(3000, { controls: true })
+watch(colorIndex, () => {
+  primary.value = rainbowColors[colorIndex.value]
+  if (colorIndex.value >= rainbowColors.length)
+    reset()
+})
+watch(isRainbow, () => {
+  if (isRainbow.value)
+    resume()
+  else
+    pause()
+})
+onMounted(resume)
+onUnmounted(pause)
 </script>
 
 <template>
@@ -68,22 +84,20 @@ const colorList = [
       <SwitchDark />
     </div>
     <div class="setting-item">
-      <span>主题颜色</span>
+      <span>主题颜色
+        <el-tooltip content="跑马灯" placement="top">
+          <i-game-icons:lamprey-mouth class="mx-1 !wh-18px" :class="{ 'text-primary': isRainbow }" @click="isRainbow = !isRainbow" />
+        </el-tooltip>
+        <el-tooltip content="其他场景颜色(Success,Warning,Danger,Info)混入主色调" placement="top">
+          <i-ph:circles-four :class="{ 'text-primary': isMixinPrimary }" @click="isMixinPrimary = !isMixinPrimary" />
+        </el-tooltip>
+      </span>
       <div class="group flex-y-center space-x-2">
         <el-tooltip content="更多颜色" placement="top">
           <MoreColorIcon @click="moreColorVisible = true" />
         </el-tooltip>
         <el-color-picker v-model="primary" :predefine="colorList" />
       </div>
-    </div>
-    <div class="setting-item">
-      <span>
-        仅影响主色
-        <el-tooltip effect="dark" content="若开启则主题颜色仅影响主色，反之，其他场景颜色(Success,Warning,Danger,Info)会混入主色调">
-          <el-icon><IEpQuestionFilled /></el-icon>
-        </el-tooltip>
-      </span>
-      <el-switch v-model="onlyEffectPrimary" />
     </div>
     <div class="setting-item">
       <span>
@@ -97,11 +111,11 @@ const colorList = [
     <Transition name="slide-bottom" appear mode="out-in">
       <div v-if="!isWeak" class="setting-item">
         <span>灰色模式</span>
-        <el-switch v-model="isGrey" />
+        <el-switch v-model="isGray" />
       </div>
     </Transition>
     <Transition name="slide-bottom" appear mode="out-in">
-      <div v-if="!isGrey" class="setting-item mb40">
+      <div v-if="!isGray" class="setting-item mb40">
         <span>色弱模式</span>
         <el-switch v-model="isWeak" />
       </div>

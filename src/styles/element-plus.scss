@@ -1,20 +1,21 @@
-
-
 /* el-dialog */
 .el-dialog {
   .el-dialog__header {
     padding: 15px 20px;
     margin: 0;
+
     .el-dialog__title {
       font-size: 17px;
     }
   }
 }
+
 /* 重置滚动条样式 */
-.el-scrollbar__bar{
-  width:4px !important;
+.el-scrollbar__bar {
+  width: 4px !important;
   opacity: 0.3;
 }
+
 /* 设置 notification、message 层级在 loading 之上 */
 .el-message,
 .el-notification {
@@ -25,25 +26,31 @@
 .el-alert {
   border: 1px solid;
 }
+
 /* el-drawer */
 .el-drawer {
   .el-drawer__header {
     padding: 16px 20px;
     margin-bottom: 0;
+
     span {
       font-size: 18px;
       color: var(--el-text-color-primary) !important;
     }
   }
+
   .el-drawer__body {
-    padding-top:0;
+    padding-top: 0;
   }
+
   // drawer-form 中存在两列 form-item 样式
   .drawer-multiColumn-form {
     display: flex;
     flex-wrap: wrap;
+
     .el-form-item {
       width: 47%;
+
       &:nth-child(2n-1) {
         margin-right: 5%;
       }
@@ -57,8 +64,23 @@
     height: 40px !important;
     font-size: 14px !important;
   }
+
   .el-table__row {
     height: 40px !important;
     font-size: 13px !important;
   }
 }
+
+//重置 Message 样式为 Antd 样式
+.el-message.message-antd {
+  padding: 9px 12px;
+  border-radius: 6px;
+  border:none;
+  background-color: #fff;
+  box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
+  
+}
+.dark .el-message.message-antd{
+  background: #1f1f1f;
+}
+

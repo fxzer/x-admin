@@ -70,8 +70,8 @@ watch(isAccordion, (val) => {
       </HeaderWrap>
       <Main />
     </el-container>
+    <MobbileMenu v-if="isMoblie" />
   </el-container>
-  <MobbileMenu v-if="isMoblie" />
 </template>
 
 <style scoped lang="scss">

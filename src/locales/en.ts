@@ -19,7 +19,7 @@ export default {
     layoutConfig: 'Layout config',
     primary: 'primary',
     darkMode: 'Dark Mode',
-    greyMode: 'Grey mode',
+    grayMode: 'Gray mode',
     weakMode: 'Weak mode',
     fullScreen: 'Full Screen',
     exitFullScreen: 'Exit Full Screen',
