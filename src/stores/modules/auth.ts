@@ -25,6 +25,26 @@ export const useAuthStore = defineStore('store-auth', () => {
     const { data } = await requestAuthButtonList()
     authButtonList.value = data
   }
+  // 搜索历史
+  const searchHistory = ref<Menu.MenuOptions[]>([])
+  // 添加搜索历史
+  function addHistory(item: Menu.MenuOptions) {
+    const index = searchHistory.value.findIndex(i => i.path === item.path)
+    if (index !== -1)
+      searchHistory.value.splice(index, 1)
+
+    searchHistory.value.unshift(item)
+  }
+  // 删除搜索历史
+  function removeHistory(item: Menu.MenuOptions) {
+    const index = searchHistory.value.findIndex(i => i.path === item.path)
+    if (index !== -1)
+      searchHistory.value.splice(index, 1)
+  }
+  // 清空搜索历史
+  function clearHistory() {
+    searchHistory.value = []
+  }
   // 获取路由权限
   async function getAuthMenuList() {
     const { data } = await requestAuthRouteList()
@@ -34,5 +54,5 @@ export const useAuthStore = defineStore('store-auth', () => {
   function setRouteName(name: string) {
     routeName.value = name
   }
-  return { authButtonList, authRouteList, routeName, authMenuList, flatMenuList, breadcrumbList, getAuthButtonList, getAuthMenuList, setRouteName }
+  return { authButtonList, authRouteList, routeName, authMenuList, flatMenuList, breadcrumbList, searchHistory, addHistory, removeHistory, clearHistory, getAuthButtonList, getAuthMenuList, setRouteName }
 })

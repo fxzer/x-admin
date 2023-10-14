@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import SearchResult from './SearchResult.vue'
 import SearchFooter from './SearchFooter.vue'
+import SearchHistory from './SearchHistory.vue'
 import { useAuthStore } from '@/stores'
 
 const props = defineProps<{
@@ -10,7 +11,9 @@ const emit = defineEmits(['update:modelValue'])
 const router = useRouter()
 const visible = useVModel(props, 'modelValue', emit)
 const authStore = useAuthStore()
-const menuList = computed(() => authStore.flatMenuList.filter(item => !item.meta.isHide))
+const { flatMenuList } = storeToRefs(authStore)
+const { addHistory } = authStore
+const menuList = computed(() => flatMenuList.value.filter(item => !item.meta.isHide))
 const resultList = ref<Menu.MenuOptions[]>([])
 
 function handleSearch(keyword: string) {
@@ -48,6 +51,7 @@ function filterNode(keyword: string) {
 }
 // 跳转菜单
 function handleSelect(e: Event, item: Menu.MenuOptions) {
+  addHistory(item)
   const { meta: { isLink }, path } = item || resultList.value[activeIndex.value]
   if (isLink)
     window.open(isLink, '_blank')
@@ -79,6 +83,7 @@ onKeyStroke(['ArrowDown'], () => {
         <i-iconamoon:search-light />
       </template>
     </el-input>
+    <SearchHistory @select="handleSelect" />
     <SearchResult :active-index="activeIndex" :result-list="resultList" @select="handleSelect" />
     <template #footer>
       <SearchFooter />
@@ -87,5 +92,31 @@ onKeyStroke(['ArrowDown'], () => {
 </template>
 
 <style  scoped lang="scss">
+//重置 el-tag 样式
+.el-tag{
+  padding:2px 4px;
+  border: none;
+  height: 24px;
+  position: relative;
+  --el-icon-size:14px;
+   :deep(.el-tag__close){
+    width: 12px;
+    height: 12px;
+    display: none;
+    position: absolute;
+    right: -6px;
+    top: -6px;
+    color:#fff;
+    background-color: var(--el-color-info-light-6);
+    &:hover {
+      background-color: var(--el-tag-hover-color);
+    }
+  }
 
+  &:hover{
+    :deep(.el-tag__close){
+      display: block;
+    }
+  }
+}
 </style>

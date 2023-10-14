@@ -59,6 +59,7 @@ declare module 'vue' {
     ElTimePicker: typeof import('element-plus/es')['ElTimePicker']
     ElTooltip: typeof import('element-plus/es')['ElTooltip']
     ElUpload: typeof import('element-plus/es')['ElUpload']
+    'IAntDesign:clearOutlined': typeof import('~icons/ant-design/clear-outlined')['default']
     'IAntDesign:enterOutlined': typeof import('~icons/ant-design/enter-outlined')['default']
     'IAntDesign:fullscreenExitOutlined': typeof import('~icons/ant-design/fullscreen-exit-outlined')['default']
     'IAntDesign:fullscreenOutlined': typeof import('~icons/ant-design/fullscreen-outlined')['default']

@@ -7,7 +7,7 @@ const isEmpty = computed(() => !resultList.value.length)
 </script>
 
 <template>
-  <div class="mt-5 h-140">
+  <div class="h-140">
     <div v-if="isEmpty" class="wh-full flex-center">
       <el-empty :image-size="240" description="暂无搜索结果" />
     </div>
