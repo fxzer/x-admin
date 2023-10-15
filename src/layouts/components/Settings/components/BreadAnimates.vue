@@ -45,7 +45,7 @@ watch(settingsVisible, () => {
 
   <div class="relative grid grid-cols-4 gap-1">
     <div
-      v-for="{ value } in breadAnimates" :key="value" class="h-6 w-8 cursor-pointer border-1 rounded-1 p-2px"
+      v-for="{ value } in breadAnimates" :key="value" class="h-6 w-8 cursor-pointer border-1 border-info-light-2 rounded-1 p-2px"
       @click="handleCilck(value)"
     >
       <Transition :name="value" appear mode="out-in">
