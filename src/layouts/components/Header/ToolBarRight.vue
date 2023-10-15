@@ -2,7 +2,6 @@
 import Size from './components/Size.vue'
 import Language from './components/Language.vue'
 import GlobalSearch from './components/GlobalSearch/index.vue'
-import Setting from './components/Setting.vue'
 import Message from './components/Message.vue'
 import Fullscreen from './components/Fullscreen.vue'
 import Avatar from './components/Avatar.vue'
@@ -16,7 +15,6 @@ import Avatar from './components/Avatar.vue'
       <Language />
       <Fullscreen />
       <Message />
-      <Setting />
       <Avatar />
     </div>
   </div>

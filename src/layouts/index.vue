@@ -2,6 +2,7 @@
 <script setup lang="ts" name="layout">
 import { type Component } from 'vue'
 import Settings from './components/Settings/index.vue'
+import SettingIcon from './components/SettingIcon/index.vue'
 import LayoutVertical from './LayoutVertical/index.vue'
 import LayoutClassic from './LayoutClassic/index.vue'
 import LayoutTransverse from './LayoutTransverse/index.vue'
@@ -22,6 +23,7 @@ const { layout, settingsVisible } = storeToRefs(globalStore)
 
 <template>
   <component :is="LayoutComponents[layout]" />
+  <SettingIcon />
   <Settings v-model="settingsVisible" />
 </template>
 
