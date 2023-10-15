@@ -12,6 +12,8 @@ export const useGlobalStore = defineStore('store-global', () => {
   const primary = ref(DEFAULT_PRIMARY)
   const isMixinPrimary = ref(false)
   const isDark = ref(false)
+  const isFollowSystem = ref(false)
+  const isPreDark = usePreferredDark()
   const isGray = ref(false)
   const isWeak = ref(false)
   const isCollapse = ref(false)
@@ -83,6 +85,10 @@ export const useGlobalStore = defineStore('store-global', () => {
       unfold: 190,
     },
   ])
+  watch([isFollowSystem, isPreDark], ([f]) => {
+    if (f)
+      isDark.value = isPreDark.value
+  }, { immediate: true })
   const settingsVisible = ref(true)
   function getCurrentSize(): SizeConfig {
     return sizeList.value.find((item => item.key === size.value))!
@@ -138,7 +144,7 @@ export const useGlobalStore = defineStore('store-global', () => {
     Object.entries(asideTheme).forEach(([key, value]) => val ? setHtmlProperty(key, value) : removeHtmlProperty(key))
   }, { immediate: true })
 
-  return { layout, currentSize, menuWidth, itemHeight, size, language, maximize, primary, isDark, isGray, isWeak, asideInverted, isCollapse, settingsVisible, isAccordion, showBreadcurmb, showBreadcrumbIcon, showTab, showTabIcon, showFooter, sizeList, isMixinPrimary, animationName, animationList, currentAnimation, enterActiveClass, leaveActiveClass, isRandownAnimate, breadAnimateName, breadcrumbType, isRainbow, toggleMenu, openSettings, randomAnimate }
+  return { layout, currentSize, menuWidth, itemHeight, size, language, maximize, primary, isDark, isFollowSystem, isGray, isWeak, asideInverted, isCollapse, settingsVisible, isAccordion, showBreadcurmb, showBreadcrumbIcon, showTab, showTabIcon, showFooter, sizeList, isMixinPrimary, animationName, animationList, currentAnimation, enterActiveClass, leaveActiveClass, isRandownAnimate, breadAnimateName, breadcrumbType, isRainbow, toggleMenu, openSettings, randomAnimate }
 }, {
   persist: true,
 })

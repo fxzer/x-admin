@@ -21,6 +21,7 @@ const {
   primary,
   isGray,
   isWeak,
+  isFollowSystem,
   isAccordion,
   showTab,
   showTabIcon,
@@ -83,6 +84,10 @@ onUnmounted(pause)
     <div class="setting-item">
       <span>暗黑模式</span>
       <SwitchDark />
+    </div>
+    <div class="setting-item">
+      <span>跟随系统</span>
+      <el-switch v-model="isFollowSystem" />
     </div>
     <div class="setting-item">
       <span>主题颜色
