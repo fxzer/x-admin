@@ -2,7 +2,7 @@ import { defineStore } from 'pinia'
 import type { Animation, LanguageType, LayoutType, SizeConfig, SizeType } from '../interface'
 import { DEFAULT_PRIMARY } from '@/config'
 import { initLanguage, removeHtmlProperty, setEpHtmlVars, setHtmlProperty } from '@/utils'
-import { asideTheme, generatePairAnimates } from '@/constants'
+import { Regs, asideTheme, generatePairAnimates } from '@/constants'
 
 export const useGlobalStore = defineStore('store-global', () => {
   const layout = ref<LayoutType>('vertical')
@@ -114,6 +114,11 @@ export const useGlobalStore = defineStore('store-global', () => {
   // 监听主题色变化
   watch([isDark, primary, isMixinPrimary], (val) => {
     const [i, p, o] = val
+    if (!p || !Regs.hexColor.test(p)) {
+      primary.value = DEFAULT_PRIMARY
+      ElMessage.success('主题色格式错误，已重置为默认主题色')
+      return
+    }
     setEpHtmlVars(i, p, o)
   }, { immediate: true })
   // 监听灰色、弱色模式

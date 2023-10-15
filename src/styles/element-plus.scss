@@ -84,3 +84,8 @@
   background: #1f1f1f;
 }
 
+//隐藏颜色选择器清空按钮
+.el-color-picker__panel .el-color-dropdown__btns .is-text{
+    display: none !important;
+}
+

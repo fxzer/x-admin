@@ -51,7 +51,8 @@ const colorList = [
 ]
 const { counter: colorIndex, reset, pause, resume } = useInterval(3000, { controls: true })
 watch(colorIndex, () => {
-  primary.value = rainbowColors[colorIndex.value]
+  if (isRainbow.value)
+    primary.value = rainbowColors[colorIndex.value]
   if (colorIndex.value >= rainbowColors.length)
     reset()
 })
@@ -96,7 +97,7 @@ onUnmounted(pause)
         <el-tooltip content="更多颜色" placement="top">
           <MoreColorIcon @click="moreColorVisible = true" />
         </el-tooltip>
-        <el-color-picker v-model="primary" :predefine="colorList" />
+        <ElColorPicker v-model="primary" :predefine="colorList" />
       </div>
     </div>
     <div class="setting-item">
