@@ -102,7 +102,10 @@ declare module 'vue' {
     'IPh:circlesFour': typeof import('~icons/ph/circles-four')['default']
     'ISystemUicons:exitLeft': typeof import('~icons/system-uicons/exit-left')['default']
     Loading: typeof import('./../components/common/Loading/index.vue')['default']
-    LoadingA: typeof import('./../components/common/Loading/LoadingA.vue')['default']
+    LoadingA: typeof import('./../components/common/Loading/components/LoadingA.vue')['default']
+    LoadingB: typeof import('./../components/common/Loading/components/LoadingB.vue')['default']
+    LoadingC: typeof import('./../components/common/Loading/components/LoadingC.vue')['default']
+    LoadingD: typeof import('./../components/common/Loading/components/LoadingD.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }

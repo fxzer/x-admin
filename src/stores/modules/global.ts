@@ -29,6 +29,7 @@ export const useGlobalStore = defineStore('store-global', () => {
   // 主题彩虹色变换
   const isRainbow = ref(false)
   // 面包屑
+  const loadingName = ref('LoadingA')
   const breadAnimateName = ref('slide-right')
   const breadcrumbType = ref('arrow')
   const pairAnimates = generatePairAnimates()
@@ -144,7 +145,7 @@ export const useGlobalStore = defineStore('store-global', () => {
     Object.entries(asideTheme).forEach(([key, value]) => val ? setHtmlProperty(key, value) : removeHtmlProperty(key))
   }, { immediate: true })
 
-  return { layout, currentSize, menuWidth, itemHeight, size, language, maximize, primary, isDark, isFollowSystem, isGray, isWeak, asideInverted, isCollapse, settingsVisible, isAccordion, showBreadcurmb, showBreadcrumbIcon, showTab, showTabIcon, showFooter, sizeList, isMixinPrimary, animationName, animationList, currentAnimation, enterActiveClass, leaveActiveClass, isRandownAnimate, breadAnimateName, breadcrumbType, isRainbow, toggleMenu, openSettings, randomAnimate }
+  return { layout, currentSize, menuWidth, itemHeight, size, language, maximize, primary, isDark, isFollowSystem, isGray, isWeak, asideInverted, isCollapse, settingsVisible, isAccordion, showBreadcurmb, showBreadcrumbIcon, showTab, showTabIcon, showFooter, sizeList, isMixinPrimary, animationName, animationList, currentAnimation, enterActiveClass, leaveActiveClass, isRandownAnimate, breadAnimateName, breadcrumbType, isRainbow, loadingName, toggleMenu, openSettings, randomAnimate }
 }, {
   persist: true,
 })

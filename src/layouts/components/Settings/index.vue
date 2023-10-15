@@ -4,6 +4,7 @@ import LayoutSelect from './components/LayoutSelect.vue'
 import MoreColorIcon from './components/MoreColorIcon.vue'
 import MoreColorDialog from './components/MoreColorDialog.vue'
 import BreadAnimates from './components/BreadAnimates.vue'
+import LoadingAnimates from './components/LoadingAnimates.vue'
 import ClearCache from './components/ClearCache.vue'
 import { useGlobalStore } from '@/stores'
 import { DEFAULT_PRIMARY } from '@/config'
@@ -198,6 +199,10 @@ onUnmounted(pause)
     <div class="setting-item">
       <span>面包屑动画</span>
       <BreadAnimates v-model="breadAnimateName" />
+    </div>
+    <div class="setting-item">
+      <span>加载动画</span>
+      <LoadingAnimates />
     </div>
     <ClearCache />
     <MoreColorDialog v-model="moreColorVisible" />
