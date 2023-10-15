@@ -43,7 +43,7 @@ watch(settingsVisible, () => {
 <template>
   <!-- :class="name === value ? 'border-primary' : ''" -->
 
-  <div class="relative grid grid-cols-4 gap-1">
+  <div class="relative grid grid-cols-4 gap-1 overflow-hidden">
     <div
       v-for="{ value } in breadAnimates" :key="value" class="h-6 w-8 cursor-pointer border-1 border-info-light-2 rounded-1 p-2px"
       @click="handleCilck(value)"

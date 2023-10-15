@@ -4,6 +4,7 @@ import LayoutSelect from './components/LayoutSelect.vue'
 import MoreColorIcon from './components/MoreColorIcon.vue'
 import MoreColorDialog from './components/MoreColorDialog.vue'
 import BreadAnimates from './components/BreadAnimates.vue'
+import DarkThemes from './components/DarkThemes.vue'
 import LoadingAnimates from './components/LoadingAnimates.vue'
 import ClearCache from './components/ClearCache.vue'
 import { useGlobalStore } from '@/stores'
@@ -83,7 +84,9 @@ onUnmounted(pause)
       全局主题
     </el-divider>
     <div class="setting-item">
-      <span>暗黑模式</span>
+      <span>暗黑模式
+        <DarkThemes />
+      </span>
       <SwitchDark />
     </div>
     <div class="setting-item">
@@ -92,15 +95,15 @@ onUnmounted(pause)
     </div>
     <div class="setting-item">
       <span>主题颜色
-        <el-tooltip content="跑马灯" placement="top">
+        <el-tooltip content="跑马灯">
           <i-game-icons:lamprey-mouth class="mx-1 !wh-18px" :class="{ 'text-primary': isRainbow }" @click="isRainbow = !isRainbow" />
         </el-tooltip>
-        <el-tooltip content="其他场景颜色(Success,Warning,Danger,Info)混入主色调" placement="top">
+        <el-tooltip content="其他场景颜色(Success,Warning,Danger,Info)混入主色调">
           <i-ph:circles-four :class="{ 'text-primary': isMixinPrimary }" @click="isMixinPrimary = !isMixinPrimary" />
         </el-tooltip>
       </span>
       <div class="group flex-y-center space-x-2">
-        <el-tooltip content="更多颜色" placement="top">
+        <el-tooltip content="更多颜色">
           <MoreColorIcon @click="moreColorVisible = true" />
         </el-tooltip>
         <ElColorPicker v-model="primary" :predefine="colorList" />
@@ -177,7 +180,7 @@ onUnmounted(pause)
     </el-divider>
     <div class="setting-item">
       <span>动画类型
-        <el-tooltip content="随机" placement="top">
+        <el-tooltip content="随机">
           <i-fad:random-1dice
             :class="{
               'text-primary': isRandownAnimate,

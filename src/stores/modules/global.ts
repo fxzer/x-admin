@@ -12,6 +12,7 @@ export const useGlobalStore = defineStore('store-global', () => {
   const primary = ref(DEFAULT_PRIMARY)
   const isMixinPrimary = ref(false)
   const isDark = ref(false)
+  const darkTheme = ref('dark-vueuse')
   const isFollowSystem = ref(false)
   const isPreDark = usePreferredDark()
   const isGray = ref(false)
@@ -136,8 +137,19 @@ export const useGlobalStore = defineStore('store-global', () => {
   watch(isWeak, (val) => {
     val ? htmlClass.add('is-weak') : htmlClass.remove('is-weak')
   }, { immediate: true })
+
+  function darkThemeChange() {
+    if (darkTheme.value)
+      isDark.value ? htmlClass.add(darkTheme.value) : htmlClass.remove(darkTheme.value)
+  }
+  // 监听暗黑主题变化
+  watch(darkTheme, (_, oldVal) => {
+    oldVal && htmlClass.remove(oldVal)
+    darkThemeChange()
+  }, { immediate: true })
   watch(isDark, (val) => {
     val ? htmlClass.add('dark') : htmlClass.remove('dark')
+    darkThemeChange()
   }, { immediate: true })
 
   // 侧边栏反色
@@ -145,7 +157,7 @@ export const useGlobalStore = defineStore('store-global', () => {
     Object.entries(asideTheme).forEach(([key, value]) => val ? setHtmlProperty(key, value) : removeHtmlProperty(key))
   }, { immediate: true })
 
-  return { layout, currentSize, menuWidth, itemHeight, size, language, maximize, primary, isDark, isFollowSystem, isGray, isWeak, asideInverted, isCollapse, settingsVisible, isAccordion, showBreadcurmb, showBreadcrumbIcon, showTab, showTabIcon, showFooter, sizeList, isMixinPrimary, animationName, animationList, currentAnimation, enterActiveClass, leaveActiveClass, isRandownAnimate, breadAnimateName, breadcrumbType, isRainbow, loadingName, toggleMenu, openSettings, randomAnimate }
+  return { layout, currentSize, menuWidth, itemHeight, size, language, maximize, primary, isDark, darkTheme, isFollowSystem, isGray, isWeak, asideInverted, isCollapse, settingsVisible, isAccordion, showBreadcurmb, showBreadcrumbIcon, showTab, showTabIcon, showFooter, sizeList, isMixinPrimary, animationName, animationList, currentAnimation, enterActiveClass, leaveActiveClass, isRandownAnimate, breadAnimateName, breadcrumbType, isRainbow, loadingName, toggleMenu, openSettings, randomAnimate }
 }, {
   persist: true,
 })

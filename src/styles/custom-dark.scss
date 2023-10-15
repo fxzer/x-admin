@@ -1,30 +1,40 @@
-/* Element Chalk Variables */
-// html.dark-github {
-//   background:#03080C !important; 
-//   --el-bg-color-page:#0F1216;
-//   --el-bg-color: #03080C; 
-//   --el-bg-color-overlay: #03080C; //下拉背景
-//   // --el-text-color-primary: #afafaf; //语雀文字：262626
-//   // --el-text-color-regular: #CFD3DC;
-//   // --el-text-color-secondary: #A3A6AD;
-//   // --el-text-color-placeholder: #8D9095;
-//   // --el-text-color-disabled: #6C6E72;
-//   // --el-border-color-darker: #636466;
-//   // --el-border-color-dark: #58585B;
-//   // --el-border-color: #4C4D4F;
-//   // --el-border-color-light: #414243;
-//   // --el-border-color-lighter: #363637;
-//   // --el-border-color-extra-light: #2B2B2C;
-//   // --el-fill-color-darker: #424243;
-//   // --el-fill-color-dark: #39393A;
-//   // // --el-fill-color: #bb3a87;
-//   // --el-fill-color-light: #262727;
-//   // --el-fill-color-lighter: #1D1D1D;
-//   // --el-fill-color-extra-light: #191919;
-//   // --el-fill-color-blank: transparent;
-//   // --el-mask-color: rgba(0, 0, 0, 0.8);
-//   // --el-mask-color-extra-light: rgba(0, 0, 0, 0.3);
-// }
+html.dark-github {
+  background:#0c0303 !important; 
+  --el-bg-color-page:#16100f;
+  --el-bg-color: #0c0303; 
+  --el-bg-color-overlay: #0c0603; 
+  --el-text-color-primary: #c1c1c1; 
+  --el-text-color-regular: #CFD3DC;
+  --el-fill-color: #292929;
+  --el-fill-color-light: #0F1216;
+  --el-fill-color-lighter: #1E2228;
+  --el-overlay-color-lighter:#2f323467;
+}
+html.dark-douyin {
+  background:#16171F !important; //菜单背景，头部背景
+  --el-bg-color-page:#16171F; //主容器背景
+  --el-bg-color: #21222C; //EP容器背景，tab 头部背景，弹窗body,抽屉 body
+  --el-bg-color-overlay: #20212B; //下拉背景
+  --el-text-color-primary: #FFFFFF80; //语雀文字：262626
+  --el-text-color-regular:#ffffff90; //主题文字:菜单文字，面包屑，表头,设置,弹窗标题
+  --el-fill-color: #292929;//分页数字按钮填充色
+  --el-fill-color-light: rgba(255,255,255,0.08);
+  --el-fill-color-lighter: #1E2228;//表头填充，
+  --el-overlay-color-lighter:rgba(0,0,0,.6);   //弹窗遮罩 
+}
+html.dark-vueuse{
+  background:#161618 !important; 
+  --el-bg-color-page:#090909; 
+  --el-bg-color: #202126; 
+  --el-bg-color-overlay: #202126; 
+  --el-text-color-primary: rgba(255, 255, 245, .86);
+  --el-text-color-regular:rgba(245, 235, 235, 0.6); 
+  --el-fill-color: #282A2F; 
+  --el-fill-color-light:#282A2F; 
+  --el-fill-color-lighter: #2b2e33;
+  --el-overlay-color-lighter:rgba(0,0,0,.6); 
+  
+}
 // html.dark {
 //   --el-bg-color-page: #000000;
 //   --el-bg-color: #191919;
@@ -57,15 +67,3 @@ html.dark .el-card {
   --el-card-bg-color: var(--el-bg-color-overlay);
 }
 
-html.dark .el-empty {
-  --el-empty-fill-color-0: var(--el-color-black);
-  --el-empty-fill-color-1: #4b4b52;
-  --el-empty-fill-color-2: #36383d;
-  --el-empty-fill-color-3: #1e1e20;
-  --el-empty-fill-color-4: #262629;
-  --el-empty-fill-color-5: #202124;
-  --el-empty-fill-color-6: #212224;
-  --el-empty-fill-color-7: #1b1c1f;
-  --el-empty-fill-color-8: #1c1d1f;
-  --el-empty-fill-color-9: #18181a;
-}/*# sourceMappingURL=css-vars.css.map */
