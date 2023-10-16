@@ -1,4 +1,5 @@
 import { defineStore } from 'pinia'
+import { routes } from '@/routers/modules/index'
 import { requestAuthButtonList, requestAuthRouteList } from '@/api/modules/login'
 import { getAllBreadcrumbList, getFlatMenuList, getShowMenuList } from '@/utils'
 
@@ -47,8 +48,9 @@ export const useAuthStore = defineStore('store-auth', () => {
   }
   // 获取路由权限
   async function getAuthMenuList() {
-    const { data } = await requestAuthRouteList()
-    authRouteList.value = data
+    // const { data } = await requestAuthRouteList()
+    // authRouteList.value = data
+    authRouteList.value = routes
   }
   // 设置当前路由name
   function setRouteName(name: string) {
