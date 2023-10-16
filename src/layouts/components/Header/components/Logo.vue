@@ -26,7 +26,7 @@ const titleVisable = computed(() => showTitle.value && (layout.value === 'column
     class="h-[var(--el-menu-item-height)] flex-center overflow-hidden duration-300 space-x-1"
     :style="{ width: showTitle ? menuWidth : 'auto', height: showTitle ? '' : '70px' }"
   >
-    <img v-if="showLogo" class="wh-7 rounded-full object-contain" src="@/assets/images/logo.svg" alt="logo">
+    <img v-if="showLogo" class="wh-7 rounded-full object-contain" src="/logo.svg" alt="logo">
     <span v-show="titleVisable" class="truncate text-xl font-semibold text-[var(--el-color-primary)]">{{ title
     }}</span>
   </div>

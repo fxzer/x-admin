@@ -14,7 +14,7 @@ import Logo from '@/layouts/components/Header/components/Logo.vue'
 
 const authStore = useAuthStore()
 const globalStore = useGlobalStore()
-const { isCollapse, isAccordion, menuWidth } = toRefs(globalStore)
+const { isCollapse, isAccordion, menuWidth, menuClass } = toRefs(globalStore)
 
 const breakpoints = useBreakpoints(breakpointsTailwind)
 
@@ -51,9 +51,8 @@ watch(isAccordion, (val) => {
       <Logo />
       <el-scrollbar class="flex-1">
         <el-menu
-          ref="elMenuRef"
-          :router="false" :default-active="activeMenu" :collapse="isCollapse" :unique-opened="isAccordion"
-          :collapse-transition="false"
+          ref="elMenuRef" :class="menuClass" :router="false" :default-active="activeMenu"
+          :collapse="isCollapse" :unique-opened="isAccordion" :collapse-transition="false"
         >
           <SubMenu :menu-list="menuList" />
         </el-menu>
@@ -75,5 +74,6 @@ watch(isAccordion, (val) => {
 </template>
 
 <style scoped lang="scss">
-@import '../styles/el-menu.scss'
+@import '../styles/el-menu.scss';
+@import '../styles/menu-card.scss';
 </style>

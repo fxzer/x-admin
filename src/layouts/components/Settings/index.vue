@@ -37,7 +37,7 @@ const {
   animationList,
   breadcrumbType,
   breadAnimateName,
-  isRainbow,
+  isRainbow, menuClass,
 } = storeToRefs(globalStore)
 
 // 预定义主题颜色
@@ -135,6 +135,17 @@ onUnmounted(pause)
       <el-icon><IEpSetting /></el-icon>
       界面设置
     </el-divider>
+    <div class="setting-item">
+      <span> 菜单风格</span>
+      <el-radio-group v-model="menuClass">
+        <el-radio-button label="menu-default">
+          默认
+        </el-radio-button>
+        <el-radio-button label="menu-card">
+          卡片
+        </el-radio-button>
+      </el-radio-group>
+    </div>
     <div class="setting-item">
       <span>菜单手风琴
         <el-tooltip effect="dark" content="开启后，展开菜单时将自动收起其他展开项">

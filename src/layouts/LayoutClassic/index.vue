@@ -12,7 +12,7 @@ import Logo from '@/layouts/components/Header/components/Logo.vue'
 const route = useRoute()
 const authStore = useAuthStore()
 const globalStore = useGlobalStore()
-const { isAccordion, isCollapse, menuWidth } = toRefs(globalStore)
+const { isAccordion, isCollapse, menuWidth, menuClass } = toRefs(globalStore)
 const { authMenuList } = toRefs(authStore)
 const activeMenu = computed(() => (route.meta.activeMenu || route.path) as string)
 </script>
@@ -31,6 +31,7 @@ const activeMenu = computed(() => (route.meta.activeMenu || route.path) as strin
         <div class="aside-box" :style="{ width: menuWidth }">
           <el-scrollbar>
             <el-menu
+              :class="menuClass"
               :router="false"
               :default-active="activeMenu"
               :collapse="isCollapse"
@@ -51,5 +52,6 @@ const activeMenu = computed(() => (route.meta.activeMenu || route.path) as strin
 
 <style scoped lang="scss">
 @import "./index.scss";
-@import '../styles/el-menu.scss'
+@import '../styles/el-menu.scss';
+@import '../styles/menu-card.scss';
 </style>

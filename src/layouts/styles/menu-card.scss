@@ -1,26 +1,3 @@
-.el-menu{
-  width: 100%;
-  border: none;
-  overflow: hidden;
-
-  &.el-menu--collapse :deep(.el-menu-item) {
-    .el-menu-tooltip__trigger {
-      padding: 0 !important;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-  }
-
-  &.el-menu--collapse :deep(.el-sub-menu) {
-    .el-sub-menu__title {
-      padding: 0 !important;
-      justify-content: center;
-
-    }
-  }
-}
-
 @mixin item-bg($color) {
   &::before {
     position: absolute;
@@ -34,7 +11,7 @@
     background-color: $color !important;
   }
 }
-:deep(.menu-card.el-menu) {
+ :deep(.menu-card.el-menu) {
   .el-menu-item {
     &>* {
       z-index: 1;
@@ -53,6 +30,7 @@
     .el-sub-menu__title {
       &>* {
       z-index: 1;
+    
     }
       &:hover {
         color: var( --el-text-color-regular) !important;
@@ -64,8 +42,8 @@
     &.is-active{
       .el-sub-menu__title {
         color:var(--el-color-primary) !important;
+        background-color: transparent !important;
       }
     }
   }
-
 }

@@ -34,6 +34,8 @@ export const useGlobalStore = defineStore('store-global', () => {
   const breadAnimateName = ref('slide-right')
   const breadcrumbType = ref('arrow')
   const pairAnimates = generatePairAnimates()
+  // 菜单风格
+  const menuClass = ref('menu-default')
   const animationList = ref<Animation[]>([{
     label: '无动画',
     value: 'none',
@@ -56,7 +58,6 @@ export const useGlobalStore = defineStore('store-global', () => {
     value: 'fade-zoom',
   },
   ...pairAnimates,
-
   ])
   const currentAnimation = computed(() => animationList.value.find(item => item.label === animationName.value)!)
   const enterActiveClass = computed(() => currentAnimation.value?.enterActiveClass)
@@ -108,6 +109,7 @@ export const useGlobalStore = defineStore('store-global', () => {
     currentSize.value = getCurrentSize()
     itemHeight.value = getCurrentSize()!.fold - 4
     setHtmlProperty('--el-menu-item-height', `${itemHeight.value}px`)
+    setHtmlProperty('--el-menu-horizontal-sub-item-height', `${itemHeight.value}px`)
   }, {
     immediate: true,
   })
@@ -151,13 +153,12 @@ export const useGlobalStore = defineStore('store-global', () => {
     val ? htmlClass.add('dark') : htmlClass.remove('dark')
     darkThemeChange()
   }, { immediate: true })
-
   // 侧边栏反色
   watch(asideInverted, (val) => {
     Object.entries(asideTheme).forEach(([key, value]) => val ? setHtmlProperty(key, value) : removeHtmlProperty(key))
   }, { immediate: true })
 
-  return { layout, currentSize, menuWidth, itemHeight, size, language, maximize, primary, isDark, darkTheme, isFollowSystem, isGray, isWeak, asideInverted, isCollapse, settingsVisible, isAccordion, showBreadcurmb, showBreadcrumbIcon, showTab, showTabIcon, showFooter, sizeList, isMixinPrimary, animationName, animationList, currentAnimation, enterActiveClass, leaveActiveClass, isRandownAnimate, breadAnimateName, breadcrumbType, isRainbow, loadingName, toggleMenu, openSettings, randomAnimate }
+  return { layout, currentSize, menuWidth, menuClass, itemHeight, size, language, maximize, primary, isDark, darkTheme, isFollowSystem, isGray, isWeak, asideInverted, isCollapse, settingsVisible, isAccordion, showBreadcurmb, showBreadcrumbIcon, showTab, showTabIcon, showFooter, sizeList, isMixinPrimary, animationName, animationList, currentAnimation, enterActiveClass, leaveActiveClass, isRandownAnimate, breadAnimateName, breadcrumbType, isRainbow, loadingName, toggleMenu, openSettings, randomAnimate }
 }, {
   persist: true,
 })
