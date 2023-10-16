@@ -15,5 +15,10 @@ export const useUserStore = defineStore('store-user', () => {
   function setUserInfo(info: UserInfo) {
     userInfo.value = info
   }
-  return { token, userInfo, setToken, setUserInfo }
+  // 保存当前路由，用于存储上一次路由
+  const preRouter = ref()
+  function setPreRouter(router: any) {
+    preRouter.value = router
+  }
+  return { token, userInfo, preRouter, setToken, setUserInfo, setPreRouter }
 }, { persist: true })
