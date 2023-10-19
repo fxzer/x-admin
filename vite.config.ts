@@ -15,7 +15,7 @@ const __APP_INFO__ = {
   lastBuildTime: dayjs().format('YYYY-MM-DD HH:mm:ss'),
 }
 
-// @see: https://vitejs.dev/config/
+/** @see: https://vitejs.dev/config/ */
 export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
   const root = process.cwd()
   const env = loadEnv(mode, root)

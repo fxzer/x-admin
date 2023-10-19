@@ -6,24 +6,18 @@ type ProxyList = ProxyItem[]
 
 type ProxyTargetList = Record<string, ProxyOptions>
 
-/**
- * 创建代理，用于解析 .env.development 代理配置
- * @param list
- */
-export function setupProxy(list: ProxyList = []) {
+/** 创建代理，用于解析 .env.development 代理配置 */
+// https://github.com/http-party/node-http-proxy#options
+export function setupProxy(proxyList: ProxyList = []) {
   const ret: ProxyTargetList = {}
-  for (const [prefix, target] of list) {
-    const httpsRE = /^https:\/\//
-    const isHttps = httpsRE.test(target)
-
-    // https://github.com/http-party/node-http-proxy#options
+  for (const [prefix, target] of proxyList) {
+    const isHttps = /^https:\/\//.test(target)
     ret[prefix] = {
       target,
       changeOrigin: true,
       ws: true,
-      rewrite: path => path.replace(new RegExp(`^${prefix}`), ''),
-      // https is require secure=false
-      ...(isHttps ? { secure: false } : {}),
+      rewrite: path => path.replace(prefix, ''),
+      secure: !isHttps,
     }
   }
   return ret

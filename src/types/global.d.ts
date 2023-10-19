@@ -54,6 +54,7 @@ declare interface ViteEnv {
   VITE_API_URL: string
   VITE_PROXY: [string, string][]
   VITE_AUTO_EP: boolean
+  VITE_INSPECT: boolean
 }
 
 interface ImportMetaEnv extends ViteEnv {

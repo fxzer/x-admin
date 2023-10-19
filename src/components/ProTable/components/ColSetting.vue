@@ -28,7 +28,7 @@ defineExpose({
         </el-table-column>
         <template #empty>
           <div class="table-empty">
-            <img src="@/assets/images/notData.png" alt="notData">
+            <el-empty description="暂无数据" />
             <div>暂无可配置列</div>
           </div>
         </template>

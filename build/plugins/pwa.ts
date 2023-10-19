@@ -1,10 +1,6 @@
 import { VitePWA } from 'vite-plugin-pwa'
 import type { PluginOption } from 'vite'
 
-/**
- * @description VitePwa
- * @param viteEnv
- */
 export function setupVitePWA(viteEnv: ViteEnv): PluginOption | PluginOption[] {
   const { VITE_APP_TITLE } = viteEnv
   return VitePWA({

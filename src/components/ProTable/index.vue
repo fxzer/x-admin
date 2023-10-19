@@ -250,7 +250,6 @@ defineExpose({
       <template #empty>
         <div class="table-empty">
           <slot name="empty">
-            <img src="@/assets/images/notData.png" alt="notData">
             <div>暂无数据</div>
           </slot>
         </div>

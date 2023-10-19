@@ -2,14 +2,6 @@
   "compilerOptions": {
     "target": "ESNext",
     "lib": ["ESNext", "DOM"],
-    // "noImplicitAny": true,                 /* Raise error on expressions and declarations with an implied 'any' type. */
-    // "strictNullChecks": true,              /* Enable strict null checks. */
-    // "strictFunctionTypes": true,           /* Enable strict checking of function types. */
-    // "strictBindCallApply": true,           /* Enable strict 'bind', 'call', and 'apply' methods on functions. */
-    // "strictPropertyInitialization": true,  /* Enable strict checking of property initialization in classes. */
-    // "noImplicitThis": true,                /* Raise error on 'this' expressions with an implied 'any' type. */
-    // "alwaysStrict": true,                  /* Parse in strict mode and emit "use strict" for each source file. */
-
     "jsx": "preserve",
     "useDefineForClassFields": true,
     "module": "ESNext",
@@ -19,13 +11,12 @@
       "@": ["src"],
       "@/*": ["src/*"]
     },
-    "types": ["vite/client", "element-plus/global"],
+    "types": ["vite/client", "element-plus/global","vite-plugin-svg-icons/client"],
 
     "resolveJsonModule": true,
     "noEmit": true,
     "isolatedModules": true,
     "esModuleInterop": true,
-    /* Strict Type-Checking Options */
     "strict": true /* Enable all strict type-checking options. */,
     "skipLibCheck": true
   },

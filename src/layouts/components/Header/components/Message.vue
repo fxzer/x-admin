@@ -52,13 +52,13 @@ const activeName = ref('first')
         </el-tab-pane>
         <el-tab-pane label="消息(0)" name="second">
           <div class="message-empty">
-            <img src="@/assets/images/notData.png" alt="notData">
+            <el-empty description="暂无数据" />
             <div>暂无消息</div>
           </div>
         </el-tab-pane>
         <el-tab-pane label="代办(0)" name="third">
           <div class="message-empty">
-            <img src="@/assets/images/notData.png" alt="notData">
+            <el-empty description="暂无数据" />
             <div>暂无代办</div>
           </div>
         </el-tab-pane>

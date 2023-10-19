@@ -1,10 +1,7 @@
 import viteCompression from 'vite-plugin-compression'
 import type { PluginOption } from 'vite'
 
-/**
- * @description 根据 compress 配置，生成不同的压缩规则
- * @param viteEnv
- */
+/** 根据 compress 压缩模式配置，生成不同的压缩规则 */
 export function setupCompression(viteEnv: ViteEnv): PluginOption | PluginOption[] {
   const { VITE_COMPRESS_ALGORITHM = 'none', VITE_DELETE_COMPRESS_ORIGIN_FILE } = viteEnv
   const algorithmList = VITE_COMPRESS_ALGORITHM.split(',')

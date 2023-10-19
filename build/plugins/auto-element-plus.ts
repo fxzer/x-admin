@@ -3,9 +3,7 @@ import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 
 import IconsResolver from 'unplugin-icons/resolver'
 
-/**
- * @description: 按需自动导入 Element Plus API
- */
+/**  按需自动导入 Element Plus API */
 export function setupAtuoEpApi() {
   return [
     // 自动导入 Element Plus 相关函数，如：ElMessage, ElMessageBox... (带样式)

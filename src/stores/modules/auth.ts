@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { routes } from '@/routers/modules/index'
-import { requestAuthButtonList, requestAuthRouteList } from '@/api/modules/login'
+import { requestAuthButtonList } from '@/api/modules/login'
 import { getAllBreadcrumbList, getFlatMenuList, getShowMenuList } from '@/utils'
 
 interface AuthButtonList {

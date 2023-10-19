@@ -4,7 +4,7 @@ import { useKeepAliveStore } from './keepAlive'
 import router from '@/routers'
 
 export const useTabsStore = defineStore('store-tabs', () => {
-  const keepAliveStore = useKeepAliveStore() // 注意： 须写在回调函数里面，否则不能再 index.ts统一导出而报错
+  const keepAliveStore = useKeepAliveStore() // 注意： 须写在回调函数里面，否则不能在 index.ts统一导出而报错
   const tabList = ref<TabsMenuProps[]>([])
 
   // 添加 Tab

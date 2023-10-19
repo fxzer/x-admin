@@ -12,7 +12,7 @@ import SwitchDark from '@/components/SwitchDark/index.vue'
       </div>
       <div class="login-form">
         <div class="login-logo">
-          <img class="login-icon" src="@/assets/images/logo.svg" alt="">
+          <img class="login-icon" src="/logo.svg" alt="">
           <h2 class="logo-text">
             x-admin
           </h2>
