@@ -12,7 +12,7 @@ export const useGlobalStore = defineStore('store-global', () => {
   const primary = ref(DEFAULT_PRIMARY)
   const isMixinPrimary = ref(false)
   const isDark = ref(false)
-  const darkTheme = ref('dark-vueuse')
+  const darkTheme = ref('')
   const isFollowSystem = ref(false)
   const isPreDark = usePreferredDark()
   const isGray = ref(false)
