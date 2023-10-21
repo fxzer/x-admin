@@ -14,7 +14,8 @@ interface ElType extends HTMLElement {
   __handleClick__: () => any
   disabled: boolean
 }
-const throttle: Directive = {
+
+export default {
   mounted(el: ElType, binding: DirectiveBinding) {
     if (typeof binding.value !== 'function')
       throw new Error('callback must be a function')
@@ -37,6 +38,4 @@ const throttle: Directive = {
   beforeUnmount(el: ElType) {
     el.removeEventListener('click', el.__handleClick__)
   },
-}
-
-export default throttle
+} as Directive

@@ -1,10 +1,10 @@
 /**
- * v-longpress
+ * v-long-press
  * 长按指令，长按时触发事件
  */
 import type { Directive, DirectiveBinding } from 'vue'
 
-const directive: Directive = {
+export default {
   mounted(el: HTMLElement, binding: DirectiveBinding) {
     if (typeof binding.value !== 'function')
       throw new Error('callback must be a function')
@@ -43,6 +43,4 @@ const directive: Directive = {
     el.addEventListener('touchend', cancel)
     el.addEventListener('touchcancel', cancel)
   },
-}
-
-export default directive
+} as Directive

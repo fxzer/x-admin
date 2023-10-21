@@ -65,3 +65,13 @@ body,
   border-radius: 6px;
   box-shadow: 0 0 12px rgb(0 0 0 / 5%);
 }
+
+//图片加载指令样式
+.img-loading{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 50px;
+  height: 50px;
+}

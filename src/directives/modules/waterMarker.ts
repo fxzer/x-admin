@@ -6,12 +6,12 @@
     2、将其设置为背景图片，从而实现页面或组件水印效果
 
   使用：设置水印文案，颜色，字体大小即可
-  <div v-waterMarker="{text:'版权所有',textColor:'rgba(180, 180, 180, 0.4)'}"></div>
+  <div v-water-mark="{text:'版权所有',textColor:'rgba(180, 180, 180, 0.4)'}"></div>
 */
 
 import type { Directive, DirectiveBinding } from 'vue'
 
-const addWaterMarker: Directive = (str: string, parentNode: any, font: any, textColor: string) => {
+function addWaterMarker(str: string, parentNode: any, font: any, textColor: string) {
   // 水印文字，父元素，字体，文字颜色
   const can: HTMLCanvasElement = document.createElement('canvas')
   parentNode.appendChild(can)
@@ -28,10 +28,8 @@ const addWaterMarker: Directive = (str: string, parentNode: any, font: any, text
   parentNode.style.backgroundImage = `url(${can.toDataURL('image/png')})`
 }
 
-const waterMarker = {
+export default {
   mounted(el: DirectiveBinding, binding: DirectiveBinding) {
     addWaterMarker(binding.value.text, el, binding.value.font, binding.value.textColor)
   },
-}
-
-export default waterMarker
+} as Directive

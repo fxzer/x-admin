@@ -15,7 +15,7 @@ import type { Directive } from 'vue'
 interface ElType extends HTMLElement {
   parentNode: any
 }
-const draggable: Directive = {
+export default {
   mounted(el: ElType) {
     el.style.cursor = 'move'
     el.style.position = 'absolute'
@@ -45,5 +45,4 @@ const draggable: Directive = {
       }
     }
   },
-}
-export default draggable
+} as Directive

@@ -17,7 +17,7 @@ function isBelowViewport(el: HTMLElement) {
   const rect = el.getBoundingClientRect()
   return rect.top > window.innerHeight
 }
-const slideIn: Directive = {
+export default {
   mounted(el: HTMLElement, binding: any) {
     // 视口上方的元素不做处理
     if (!isBelowViewport(el))
@@ -47,5 +47,4 @@ const slideIn: Directive = {
     ob.unobserve(el)
   },
 
-}
-export default slideIn
+} as Directive

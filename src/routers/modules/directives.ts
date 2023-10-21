@@ -110,6 +110,20 @@ export default {
         isKeepAlive: true,
       },
     },
+    {
+      path: '/directives/loadingDirect',
+      name: 'loadingDirect',
+      component: '/directives/loadingDirect/index',
+      meta: {
+        icon: 'IEpMenu',
+        title: '加载指令',
+        isLink: '',
+        isHide: false,
+        isFull: false,
+        isAffix: false,
+        isKeepAlive: true,
+      },
+    },
 
   ],
 }

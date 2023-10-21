@@ -3,7 +3,6 @@ import { storeToRefs } from 'pinia'
 import Maximize from './components/Maximize.vue'
 import { useGlobalStore, useKeepAliveStore } from '@/stores'
 import Tabs from '@/layouts/components/Tabs/index.vue'
-import Footer from '@/layouts/components/Footer/index.vue'
 
 const globalStore = useGlobalStore()
 const { maximize, layout, showTab, showFooter, animationName, enterActiveClass, leaveActiveClass } = storeToRefs(globalStore)

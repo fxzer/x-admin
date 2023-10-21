@@ -5,7 +5,7 @@
 import type { Directive, DirectiveBinding } from 'vue'
 import { useAuthStore } from '@/stores'
 
-const auth: Directive = {
+export default {
   mounted(el: HTMLElement, binding: DirectiveBinding) {
     const { value } = binding
     const authStore = useAuthStore()
@@ -20,6 +20,4 @@ const auth: Directive = {
         el.remove()
     }
   },
-}
-
-export default auth
+} as Directive

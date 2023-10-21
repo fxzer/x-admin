@@ -8,7 +8,8 @@ import type { Directive, DirectiveBinding } from 'vue'
 interface ElType extends HTMLElement {
   __handleClick__: () => any
 }
-const debounce: Directive = {
+
+export default {
   mounted(el: ElType, binding: DirectiveBinding) {
     if (typeof binding.value !== 'function')
       throw new Error('callback must be a function')
@@ -27,6 +28,4 @@ const debounce: Directive = {
   beforeUnmount(el: ElType) {
     el.removeEventListener('click', el.__handleClick__)
   },
-}
-
-export default debounce
+} as Directive
