@@ -55,7 +55,7 @@ watch(
         </keep-alive>
       </transition>
     </router-view>
-    <Footer v-if="showFooter" />
+    <!-- <Footer v-if="showFooter" /> -->
   </el-main>
 </template>
 

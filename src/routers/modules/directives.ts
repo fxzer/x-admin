@@ -96,6 +96,20 @@ export default {
         isAffix: false,
         isKeepAlive: true,
       },
+    }, {
+      path: '/directives/slideinDirect',
+      name: 'slideinDirect',
+      component: '/directives/slideinDirect/index',
+      meta: {
+        icon: 'IEpMenu',
+        title: '缓动上升',
+        isLink: '',
+        isHide: false,
+        isFull: false,
+        isAffix: false,
+        isKeepAlive: true,
+      },
     },
+
   ],
 }

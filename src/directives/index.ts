@@ -5,7 +5,8 @@ import waterMarker from './modules/waterMarker'
 import draggable from './modules/draggable'
 import debounce from './modules/debounce'
 import throttle from './modules/throttle'
-import longpress from './modules/longpress'
+import longPress from './modules/longPress'
+import slideIn from './modules/slideIn'
 
 const directivesList: { [key: string]: Directive } = {
   auth,
@@ -14,7 +15,8 @@ const directivesList: { [key: string]: Directive } = {
   draggable,
   debounce,
   throttle,
-  longpress,
+  longPress,
+  slideIn,
 }
 
 const directives = {
@@ -27,4 +29,6 @@ const directives = {
 
 export function setupDirectives(app: App) {
   app.use(directives)
+  // 查看全局已注册的指令
+  console.log(app._context.directives)
 }

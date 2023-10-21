@@ -7,7 +7,7 @@ import Main from '@/layouts/components/Main/index.vue'
 import ToolBarLeft from '@/layouts/components/Header/ToolBarLeft.vue'
 import ToolBarRight from '@/layouts/components/Header/ToolBarRight.vue'
 import SubMenu from '@/layouts/components/Menu/SubMenu.vue'
-import MobbileMenu from '@/layouts/components/Menu/MobileMenu.vue'
+import MobileMenu from '@/layouts/components/Menu/MobileMenu.vue'
 import CollapseIcon from '@/layouts/components/Header/components/CollapseIcon.vue'
 import HeaderWrap from '@/layouts/components/Header/HeaderWrap.vue'
 import Logo from '@/layouts/components/Header/components/Logo.vue'
@@ -18,10 +18,10 @@ const { isCollapse, isAccordion, menuWidth, menuClass } = toRefs(globalStore)
 
 const breakpoints = useBreakpoints(breakpointsTailwind)
 
-const isMoblie = ref(breakpoints.isSmaller('md'))
+const isMobile = ref(breakpoints.isSmaller('md'))
 useResizeObserver(document.body,
   () => {
-    isMoblie.value = breakpoints.isSmaller('md')
+    isMobile.value = breakpoints.isSmaller('md')
   },
 )
 const route = useRoute()
@@ -69,7 +69,7 @@ watch(isAccordion, (val) => {
       </HeaderWrap>
       <Main />
     </el-container>
-    <MobbileMenu v-if="isMoblie" />
+    <MobileMenu v-if="isMobile" />
   </el-container>
 </template>
 
