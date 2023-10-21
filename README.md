@@ -2,7 +2,7 @@
 
 ### 介绍 📖
 
-x-admin 一款基于 Vue3.3、TypeScript、Vite4、Pinia、Element-Plus 开源的后台管理框架，使用目前最新技术栈开发。
+x-admin 一款基于[Geeker-Admin](https://github.com/HalseySpicy/Geeker-Admin)改造的后台框架。使用 Vue3.3、TypeScript、Vite4、Pinia、Element-Plus，<span style="color:green">UnoCss</span> 等目前最新技术栈开发。
 
 ### 在线预览 👀
 
@@ -21,17 +21,24 @@ x-admin 一款基于 Vue3.3、TypeScript、Vite4、Pinia、Element-Plus 开源�
 
 ### 项目功能 🔨
 
-- 使用 Vue3.3 + TypeScript 开发，单文件组件**＜ script setup ＞**
-- 采用 Vite4 作为项目开发、打包工具（配置 Gzip 打包、TSX 语法、跨域代理…）
+- 使用 Vue3.3 + TypeScript 全面使用 Composition 语法开发（包括 Pinia）
+- 使用 Vite4 工具，进行组件和第三方库（ElementPlus）自动按需导入/注册，<br>
+  集成（配置 Gzip 打包、TSX 语法、跨域代理、构建体积打印、PWA、新功能用户通知…）等插件
 - 使用 Pinia Composition API 替代 Vuex，集成 Pinia 持久化插件
 - 使用 TypeScript 对 Axios 整个二次封装（请求拦截、取消、常用请求封装…）
-- 支持 Element 组件大小切换、暗黑模式、暗黑主题选择、i18n 国际化
+- 支持 Element 组件大小切换，<span style="color:green">联动布局大小切换、</span>暗黑模式、暗黑主题选择、i18n 国际化
 - 使用 VueRouter 进行路由权限拦截、页面按钮权限配置、路由懒加载
 - 使用 KeepAlive 对页面进行缓存，支持多级嵌套页面缓存
 - 常用自定义指令开发（权限、复制、水印、拖拽、节流、防抖、长按…）
-- 集成 unocss 进行样式编写、全局主题变量管理，
+- 集成 unocss 进行样式编写、全局快捷键等规则制定及主题变量管理，
 - 使用 @antfu/eslint-config和@unocss/eslint-config 自动检查、格式化代码，自动整理排序 UnoCss 类名，无需进行繁琐的Prettier、 ESLint、Stylelint插件安装和配置、及冲突解决
 - 使用 simple-git-hooks、lint-staged、commitlint、czg、cz-git、standard-version， 简化 git-hook 配置，规范提交信息，提交前自动修复和格式化代码，及自动生成更新日志文档
+  
+### 新特性
+- 主题跟随系统、黑暗主题色、主题色加入流行品牌色和中国传统色，主题跑马灯、其他场景色混入主题色等设置
+- 面包屑风格、全局路由切换动画及 Loading 动画选择
+- 记录登录前目标路径和上次退出前路径，登录后快捷跳转
+- 布局设配移动端
 
 ### 使用步骤 📔
 
