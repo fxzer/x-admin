@@ -1,9 +1,9 @@
 import {
   defineConfig,
+  presetAttributify, presetIcons,
   presetUno,
   transformerDirectives,
   transformerVariantGroup,
-  // presetIcons,
 } from 'unocss'
 import presetRemToPx from '@unocss/preset-rem-to-px'
 
@@ -76,7 +76,8 @@ export default defineConfig({
   presets: [
     presetUno(),
     presetRemToPx(),
-    // presetIcons({ /* options */ }), // 以 CSS 方式使用 iconify
+    presetAttributify(),
+    presetIcons({ /* options */ }), // 以 CSS 方式使用 iconify
   ],
   safelist: [...Object.keys(connectEpTheme()) // 生成所需的静态类名组合
     .map(key => [

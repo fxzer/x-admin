@@ -22,6 +22,7 @@
   },
   "scripts": {
     "dev": "vite",
+    "build": "vue-tsc && vite build",
     "build:dev": "vue-tsc && vite build --mode development",
     "build:test": "vue-tsc && vite build --mode test",
     "report": "vue-tsc && vite build --report",

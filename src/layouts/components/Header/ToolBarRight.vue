@@ -15,6 +15,10 @@ import Avatar from './components/Avatar.vue'
       <Language />
       <Fullscreen />
       <Message />
+      <!-- <button
+        class="i-ri-sun-line dark:i-ri-moon-line"
+        @click="toggleDark"
+      /> -->
       <Avatar />
     </div>
   </div>
