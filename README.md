@@ -27,7 +27,7 @@ x-admin 一款基于[Geeker-Admin](https://github.com/HalseySpicy/Geeker-Admin)�
 
 - 项目文档地址：
 
-### 项目功能 🔨
+### 项目功能 🎨
 
 - 使用 Vue3.3 + TypeScript 全面使用 Composition 语法开发（包括 Pinia）
 - 使用 Vite4 工具，进行组件和第三方库（ElementPlus）自动按需导入/注册，<br>
@@ -42,13 +42,13 @@ x-admin 一款基于[Geeker-Admin](https://github.com/HalseySpicy/Geeker-Admin)�
 - 使用 @antfu/eslint-config和@unocss/eslint-config 自动检查、格式化代码，自动整理排序 UnoCss 类名，无需进行繁琐的Prettier、 ESLint、Stylelint插件安装和配置、及冲突解决
 - 使用 simple-git-hooks、lint-staged、commitlint、czg、cz-git、standard-version， 简化 git-hook 配置，规范提交信息，提交前自动修复和格式化代码，及自动生成更新日志文档
   
-### 新特性
+### 新特性 🎉
 - 主题跟随系统、黑暗主题色、主题色加入流行品牌色和中国传统色，主题跑马灯、其他场景色混入主题色等设置
 - 面包屑风格、全局路由切换动画及 Loading 动画选择
 - 记录登录前目标路径和上次退出前路径，登录后快捷跳转
 - 布局设配移动端
 
-### 使用步骤 📔
+### 使用步骤 📋
 
 - **Clone：**
 
