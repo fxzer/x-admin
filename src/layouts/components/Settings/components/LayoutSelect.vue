@@ -1,15 +1,26 @@
 <script setup lang='ts'>
 import type { LayoutType } from '@/stores'
 import { layouts } from '@/constants'
+import { useMobile } from '@/hooks'
 
 const props = defineProps<{ layout: LayoutType }>()
 const emit = defineEmits(['update:layout'])
+
+// 设置布局
+const { isMobile } = useMobile()
+watch(isMobile, (val) => {
+  if (val)
+    setLayout('vertical')
+}, { immediate: true })
+
 const activeLayout = useVModel(props, 'layout', emit)
 // 设置布局方式
 function setLayout(val: LayoutType) {
   activeLayout.value = val
 }
-const index = computed(() => layouts.findIndex(item => item.value === activeLayout.value))
+const layoutList = computed(() => isMobile.value ? layouts.filter(item => item.value === 'vertical') : layouts)
+
+const index = computed(() => layoutList.value.findIndex(item => item.value === activeLayout.value))
 // 通过 index 坐标计算出激活边框的定位
 const style = computed(() => {
   const x = index.value % 2 * 146
@@ -21,12 +32,12 @@ const style = computed(() => {
 </script>
 
 <template>
-  <div class="layout-box relative">
-    <el-tooltip v-for="{ name, value } in layouts" :key="value" effect="dark" :content="name" placement="top" :show-after="200">
-      <div
-        class="layout-item" :class="[`layout-${value}`]"
-        @click="setLayout(value)"
-      >
+  <div class="layout-box">
+    <el-tooltip
+      v-for="{ name, value } in layoutList" :key="value" effect="dark" :content="name" placement="top"
+      :show-after="200"
+    >
+      <div class="layout-item" :class="[`layout-${value}`]" @click="setLayout(value)">
         <template v-if="value === 'vertical'">
           <div class="layout-menu" />
           <div class="layout-container">
@@ -64,10 +75,15 @@ const style = computed(() => {
 
 <style scoped lang='scss'>
 .layout-box {
-     display: flex;
-     align-items: center;
-     justify-content: space-between;
-     flex-wrap: wrap;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  flex-wrap: wrap;
+  @media (max-width: 768px) {
+    justify-content: center;
+  }
+
   .layout-item {
     position: relative;
     width: 100px;
@@ -77,19 +93,24 @@ const style = computed(() => {
     border-radius: 5px;
     box-shadow: 0 0 5px 1px var(--el-border-color-dark);
     transition: all 0.2s;
-    & *{
+
+    & * {
       border-radius: 3px;
     }
+
     .layout-menu {
       background-color: var(--el-color-primary);
     }
+
     .layout-header {
       background-color: var(--el-color-primary-light-5);
     }
+
     .layout-content {
       background-color: var(--el-color-primary-light-8);
       border: 1px dashed var(--el-color-primary);
     }
+
     .el-icon {
       position: absolute;
       right: 10px;
@@ -97,84 +118,103 @@ const style = computed(() => {
       color: var(--el-color-primary);
       transition: all 0.2s;
     }
+
     &:hover {
       box-shadow: 0 0 5px 1px var(--el-text-color-secondary);
     }
   }
+
   .is-active {
     box-shadow: 0 0 0 2px var(--el-color-primary) !important;
   }
+
   .layout-vertical {
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
+
     .layout-menu {
       width: 20%;
     }
+
     .layout-container {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      flex:1;
-      margin-left:5px;
+      flex: 1;
+      margin-left: 5px;
+
       .layout-header {
         height: 20%;
         margin-bottom: 5px;
       }
+
       .layout-content {
-        flex:1;
+        flex: 1;
       }
     }
   }
+
   .layout-classic {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     margin-bottom: 20px;
+
     .layout-menu {
       height: 22%;
       margin-bottom: 5px;
     }
+
     .layout-container {
-      flex:1;
+      flex: 1;
       display: flex;
       justify-content: space-between;
+
       .layout-header {
         width: 20%;
         margin-right: 5px;
       }
+
       .layout-content {
-       flex:1;
+        flex: 1;
       }
     }
   }
+
   .layout-transverse {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     margin-bottom: 10px;
+
     .layout-menu {
       height: 20%;
       margin-bottom: 5px;
     }
+
     .layout-content {
-      flex:1;
+      flex: 1;
     }
   }
+
   .layout-columns {
     display: flex;
     justify-content: space-between;
     margin-bottom: 10px;
+
     .layout-menu {
       width: 14%;
       margin-right: 5px;
     }
+
     .layout-header {
       width: 18%;
       margin-right: 5px;
     }
+
     .layout-content {
-      flex:1;
+      flex: 1;
     }
   }
 }

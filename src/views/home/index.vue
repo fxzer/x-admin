@@ -8,7 +8,7 @@ function open2() {
   ElMessage({
     message: 'Congrats, this is a success message.',
     type: 'success',
-    customClass: 'message-antd',
+    customClass: 'ant',
     duration: 0,
   })
 }
@@ -16,7 +16,7 @@ function open3() {
   ElMessage({
     message: 'Warning, this is a warning message.',
     type: 'warning',
-    customClass: 'message-antd',
+    customClass: 'ant',
     duration: 0,
   })
 }

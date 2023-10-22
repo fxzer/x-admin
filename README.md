@@ -1,8 +1,16 @@
-# x-admin
+<br>
+
+<p align="center">
+<img src="./public/logo.svg" style="width:100px;" />
+</p>
+
+<h1 align="center">X-ADMIN</h1>
 
 ### 介绍 📖
 
-x-admin 一款基于[Geeker-Admin](https://github.com/HalseySpicy/Geeker-Admin)改造的后台框架。使用 Vue3.3、TypeScript、Vite4、Pinia、Element-Plus，<span style="color:green">UnoCss</span> 等目前最新技术栈开发。
+x-admin 一款基于[Geeker-Admin](https://github.com/HalseySpicy/Geeker-Admin)改造的后台框架。
+<br>
+使用 Vue3.3、TypeScript、Vite4、Pinia、Element-Plus，<span style="color:green">UnoCss</span> 等目前最新技术栈开发。
 
 ### 在线预览 👀
 

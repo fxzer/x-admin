@@ -8,7 +8,7 @@ import Logo from '@/layouts/components/Header/components/Logo.vue'
 const route = useRoute()
 const globalStore = useGlobalStore()
 const authStore = useAuthStore()
-const { isCollapse, isAccordion, asideInverted } = toRefs(globalStore)
+const { isCollapse, isAccordion, asideInverted, menuClass } = toRefs(globalStore)
 const { authMenuList } = toRefs(authStore)
 const activeMenu = computed(() => (route.meta.activeMenu || route.path) as string)
 const visible = computed<boolean>({
@@ -28,6 +28,7 @@ const visible = computed<boolean>({
         <Logo />
         <el-scrollbar class="flex-1">
           <el-menu
+            :class="menuClass"
             :router="false" :default-active="activeMenu" :unique-opened="isAccordion"
           >
             <SubMenu :menu-list="authMenuList" />
@@ -45,7 +46,6 @@ const visible = computed<boolean>({
 .el-menu{
   border-right:none;
 }
-
  .mobile-menu {
   &:deep(.el-drawer .el-drawer__body){
     padding:0 !important;

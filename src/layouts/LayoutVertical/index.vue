@@ -1,8 +1,8 @@
 <!-- 纵向布局 -->
 <script setup lang="ts" name="layoutVertical">
 import { useRoute } from 'vue-router'
-import { breakpointsTailwind, useBreakpoints, useResizeObserver } from '@vueuse/core'
 import { useAuthStore, useGlobalStore } from '@/stores'
+import { useMobile } from '@/hooks'
 import Main from '@/layouts/components/Main/index.vue'
 import ToolBarLeft from '@/layouts/components/Header/ToolBarLeft.vue'
 import ToolBarRight from '@/layouts/components/Header/ToolBarRight.vue'
@@ -16,16 +16,8 @@ const authStore = useAuthStore()
 const globalStore = useGlobalStore()
 const { isCollapse, isAccordion, menuWidth, menuClass } = toRefs(globalStore)
 
-const breakpoints = useBreakpoints(breakpointsTailwind)
-
-const isMobile = ref(breakpoints.isSmaller('md'))
-useResizeObserver(document.body,
-  () => {
-    isMobile.value = breakpoints.isSmaller('md')
-  },
-)
 const route = useRoute()
-
+const { isMobile } = useMobile()
 const menuList = computed(() => authStore.authMenuList)
 const activeMenu = computed(() => (route.meta.activeMenu ? route.meta.activeMenu : route.path) as string)
 //

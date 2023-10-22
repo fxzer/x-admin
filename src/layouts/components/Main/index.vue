@@ -3,6 +3,7 @@ import { storeToRefs } from 'pinia'
 import Maximize from './components/Maximize.vue'
 import { useGlobalStore, useKeepAliveStore } from '@/stores'
 import Tabs from '@/layouts/components/Tabs/index.vue'
+import Footer from '@/layouts/components/Footer/index.vue'
 
 const globalStore = useGlobalStore()
 const { maximize, layout, showTab, showFooter, animationName, enterActiveClass, leaveActiveClass } = storeToRefs(globalStore)
@@ -42,28 +43,32 @@ watch(
   <Maximize v-if="maximize" />
   <Tabs v-if="showTab" />
   <el-main class="main-box relative" :class="{ '!pb-42px': showFooter }">
-    <!-- TODO:动画过渡 -->
-    <router-view v-slot="{ Component, route }">
-      <transition
-        :name="animationName" mode="out-in"
-        :enter-active-class="enterActiveClass"
-        :leave-active-class="leaveActiveClass"
-      >
-        <keep-alive :include="aliveNames">
-          <component :is="Component" v-if="isRouterShow" :key="route.fullPath" />
-        </keep-alive>
-      </transition>
-    </router-view>
-    <!-- <Footer v-if="showFooter" /> -->
+    <el-scrollbar>
+      <!-- TODO:动画过渡 -->
+      <router-view v-slot="{ Component, route }">
+        <transition
+          :name="animationName" mode="out-in"
+          :enter-active-class="enterActiveClass"
+          :leave-active-class="leaveActiveClass"
+        >
+          <keep-alive :include="aliveNames">
+            <component :is="Component" v-if="isRouterShow" :key="route.fullPath" />
+          </keep-alive>
+        </transition>
+      </router-view>
+    </el-scrollbar>
+
+    <Footer v-if="showFooter" />
   </el-main>
 </template>
 
 <style scoped lang="scss">
 .el-main {
   padding: 10px;
-  overflow-x: hidden;
-  height: calc(100vh - 100px);
+  // overflow:auto;
+  height: calc(100vh - 88px);
   background-color: var(--el-bg-color-page);
+  // position: relative;
 }
 .el-footer {
   height: auto;

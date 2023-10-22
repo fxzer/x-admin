@@ -20,6 +20,7 @@ function handleClick(this: any) {
   document.body.removeChild(input)
   ElMessage({
     type: 'success',
+    customClass: 'ant',
     message: '复制成功',
   })
 }

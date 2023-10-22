@@ -24,7 +24,6 @@ const breadAnimates = [
   },
 ]
 
-// count will increase every 200ms
 function handleCilck(value: string) {
   name.value = value
 }

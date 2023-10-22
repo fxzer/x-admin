@@ -17,6 +17,7 @@ const menuList = computed(() => flatMenuList.value.filter(item => !item.meta.isH
 const resultList = ref<Menu.MenuOptions[]>([])
 
 function handleSearch(keyword: string) {
+  // TODO: 新增拼音搜索
   resultList.value = keyword ? menuList.value.filter(filterNode(keyword)) : menuList.value
 }
 

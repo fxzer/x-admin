@@ -41,33 +41,5 @@ export default {
         isKeepAlive: true,
       },
     },
-    {
-      path: '/link/geekerDocs',
-      name: 'geekerDocs',
-      component: '/link/geekerDocs/index',
-      meta: {
-        icon: 'IEpMenu',
-        title: '项目文档',
-        isLink: 'https://docs.spicyboy.cn',
-        isHide: false,
-        isFull: false,
-        isAffix: false,
-        isKeepAlive: true,
-      },
-    },
-    {
-      path: '/link/juejin',
-      name: 'juejin',
-      component: '/link/juejin/index',
-      meta: {
-        icon: 'IEpMenu',
-        title: '掘金主页',
-        isLink: 'https://juejin.cn/user/3263814531551816/posts',
-        isHide: false,
-        isFull: false,
-        isAffix: false,
-        isKeepAlive: true,
-      },
-    },
   ],
 }
