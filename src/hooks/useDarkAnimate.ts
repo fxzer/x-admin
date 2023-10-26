@@ -1,13 +1,15 @@
 import { useGlobalStore } from '@/stores'
 
-const { isDark } = storeToRefs(useGlobalStore())
+const globalStore = useGlobalStore()
+const { toggleDark } = globalStore
 // @ts-expect-error: Transition API
 const isAppearanceTransition = document.startViewTransition
 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
-export function toggleDark(event?: MouseEvent) {
+export function toggleDarkAnimate(event?: MouseEvent) {
+  console.log('[ event ]-10', event)
   if (!isAppearanceTransition || !event) {
-    isDark.value = !isDark.value
+    toggleDark()
     return
   }
   const x = event.clientX
@@ -18,7 +20,7 @@ export function toggleDark(event?: MouseEvent) {
   )
   // @ts-expect-error: Transition API
   const transition = document.startViewTransition(async () => {
-    isDark.value = !isDark.value
+    toggleDark()
     await nextTick()
   })
   transition.ready.then(() => {
@@ -28,14 +30,14 @@ export function toggleDark(event?: MouseEvent) {
     ]
     document.documentElement.animate(
       {
-        clipPath: isDark.value
+        clipPath: globalStore.isDark
           ? [...clipPath].reverse()
           : clipPath,
       },
       {
         duration: 400,
         easing: 'ease-in',
-        pseudoElement: isDark.value
+        pseudoElement: globalStore.isDark
           ? '::view-transition-old(root)'
           : '::view-transition-new(root)',
       },

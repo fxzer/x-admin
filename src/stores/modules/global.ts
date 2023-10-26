@@ -98,6 +98,9 @@ export const useGlobalStore = defineStore('store-global', () => {
   }
   const currentSize = ref<SizeConfig>(getCurrentSize())
   const itemHeight = ref(52)
+  function toggleDark() {
+    isDark.value = !isDark.value
+  }
   // 当前菜单宽度
   const menuWidth = computed(() => {
     const { fold, unfold } = currentSize.value!
@@ -158,7 +161,7 @@ export const useGlobalStore = defineStore('store-global', () => {
     Object.entries(asideTheme).forEach(([key, value]) => val ? setHtmlProperty(key, value) : removeHtmlProperty(key))
   }, { immediate: true })
 
-  return { layout, currentSize, menuWidth, menuClass, itemHeight, size, language, maximize, primary, isDark, darkTheme, isFollowSystem, isGray, isWeak, asideInverted, isCollapse, settingsVisible, isAccordion, showBreadcurmb, showBreadcrumbIcon, showTab, showTabIcon, showFooter, sizeList, isMixinPrimary, animationName, animationList, currentAnimation, enterActiveClass, leaveActiveClass, isRandownAnimate, breadAnimateName, breadcrumbType, isRainbow, loadingName, toggleMenu, openSettings, randomAnimate }
+  return { layout, currentSize, menuWidth, menuClass, itemHeight, size, language, maximize, primary, isDark, darkTheme, isFollowSystem, isGray, isWeak, asideInverted, isCollapse, settingsVisible, isAccordion, showBreadcurmb, showBreadcrumbIcon, showTab, showTabIcon, showFooter, sizeList, isMixinPrimary, animationName, animationList, currentAnimation, enterActiveClass, leaveActiveClass, isRandownAnimate, breadAnimateName, breadcrumbType, isRainbow, loadingName, toggleDark, toggleMenu, openSettings, randomAnimate }
 }, {
   persist: true,
 })

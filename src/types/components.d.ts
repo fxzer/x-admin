@@ -92,6 +92,8 @@ declare module 'vue' {
     IMdiKeyboardReturn: typeof import('~icons/mdi/keyboard-return')['default']
     'IPh:bellLight': typeof import('~icons/ph/bell-light')['default']
     'IPh:circlesFour': typeof import('~icons/ph/circles-four')['default']
+    IRiMoonLine: typeof import('~icons/ri/moon-line')['default']
+    IRiSunLine: typeof import('~icons/ri/sun-line')['default']
     'ISystemUicons:exitLeft': typeof import('~icons/system-uicons/exit-left')['default']
     Loading: typeof import('./../components/common/Loading/index.vue')['default']
     LoadingA: typeof import('./../components/common/Loading/components/LoadingA.vue')['default']
