@@ -1,105 +1,54 @@
 <script lang="ts" setup>
 import { ElMessage } from 'element-plus'
-
-function open1() {
-  ElMessage('this is a message.')
-}
-function open2() {
-  ElMessage({
-    message: 'Congrats, this is a success message.',
-    type: 'success',
-    customClass: 'ant',
-    duration: 0,
-  })
-}
-function open3() {
-  ElMessage({
-    message: 'Warning, this is a warning message.',
-    type: 'warning',
-    customClass: 'ant',
-    duration: 0,
-  })
-}
-function open4() {
-  ElMessage.error('Oops, this is a error message.')
-}
 </script>
 
 <template>
   <div class="card home flex-col text-pink">
     <!-- <img class="home-bg" src="@/assets/images/welcome.png" alt="welcome"> -->
     <el-row class="mb-4">
-      <el-button>Default</el-button>
-      <el-button type="primary">
+      <el-button v-wave>
+        Default
+      </el-button>
+      <el-button v-wave type="primary">
         Primary
       </el-button>
-      <el-button type="success">
+      <el-button v-wave type="success">
         Success
       </el-button>
-      <el-button type="info">
+      <el-button v-wave type="info">
         Info
       </el-button>
-      <el-button type="warning">
+      <el-button v-wave type="warning">
         Warning
       </el-button>
-      <el-button type="danger">
+      <el-button v-wave type="danger">
         Danger
       </el-button>
     </el-row>
 
     <el-row class="mb-4">
-      <el-button plain>
+      <el-button v-wave plain>
         Plain
       </el-button>
-      <el-button type="primary" plain>
+      <el-button v-wave type="primary" plain>
         Primary
       </el-button>
-      <el-button type="success" plain>
+      <el-button v-wave type="success" plain>
         Success
       </el-button>
-      <el-button type="info" plain>
+      <el-button v-wave type="info" plain>
         Info
       </el-button>
-      <el-button type="warning" plain>
+      <el-button v-wave type="warning" plain>
         Warning
       </el-button>
-      <el-button type="danger" plain>
+      <el-button v-wave type="danger" plain>
         Danger
       </el-button>
     </el-row>
-
-    <el-row class="mb-4">
-      <el-button round>
-        Round
-      </el-button>
-      <el-button type="primary" round>
-        Primary
-      </el-button>
-      <el-button type="success" round>
-        Success
-      </el-button>
-      <el-button type="info" round>
-        Info
-      </el-button>
-      <el-button type="warning" round>
-        Warning
-      </el-button>
-      <el-button type="danger" round>
-        Danger
-      </el-button>
-    </el-row>
-    <el-button :plain="true" @click="open2">
+    <button :plain="true" @click="open2">
       success
-    </el-button>
-    <el-button :plain="true" @click="open3">
-      warning
-    </el-button>
-    <el-button :plain="true" @click="open1">
-      message
-    </el-button>
-    <el-button :plain="true" @click="open4">
-      error
-    </el-button>
+    </button>
   </div>
 </template>
 

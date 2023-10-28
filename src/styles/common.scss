@@ -89,3 +89,19 @@ body,
 .dark::view-transition-old(root) {
   z-index: 9999;
 }
+
+/* 波纹指令 */
+.waves-ripple{
+  position: absolute;
+  border-radius: 50%;
+  background-color: rgba(0,0,0,.15);
+  pointer-events: none;
+  user-select: none;
+  transform: scale(0);
+  opacity: 1;
+  &.z-active{
+    opacity: 0;
+    transform: scale(2);
+    transition: opacity 1s ease-out, transform .3s cubic-bezier(.68, 0.01, 0.62, 0.6);
+  }
+}
