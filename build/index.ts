@@ -12,7 +12,7 @@ import VueDevTools from 'vite-plugin-vue-devtools'
 import { setupAtuoComponent, setupAtuoImport, setupCompression, setupCreateSvgIcon, setupPrintBuildInfo, setupVitePWA, setupWebUpdateNotification } from './plugins'
 
 export function setupVitePlugins(viteEnv: ViteEnv): (PluginOption | PluginOption[])[] {
-  const { VITE_APP_TITLE, VITE_REPORT, VITE_PWA, VITE_INSPECT } = viteEnv
+  const { VITE_APP_TITLE, VITE_REPORT, VITE_INSPECT } = viteEnv
   return [
     vue(),
     // vue 可以使用 jsx/tsx 语法
@@ -41,7 +41,7 @@ export function setupVitePlugins(viteEnv: ViteEnv): (PluginOption | PluginOption
     }),
     setupCreateSvgIcon(),
     // vitePWA
-    VITE_PWA && setupVitePWA(viteEnv),
+    setupVitePWA(viteEnv),
     // 是否生成包预览，分析依赖包大小做优化处理
     VITE_REPORT && (visualizer({ gzipSize: true, brotliSize: true }) as PluginOption),
   ]

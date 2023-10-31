@@ -7,7 +7,6 @@ const isAppearanceTransition = document.startViewTransition
 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
 export function toggleDarkAnimate(event?: MouseEvent) {
-  console.log('[ event ]-10', event)
   if (!isAppearanceTransition || !event) {
     toggleDark()
     return

@@ -49,7 +49,6 @@ declare interface ViteEnv {
   VITE_COMPRESS_ALGORITHM: 'gzip' | 'brotli' | 'gzip,brotli' | 'none'
   VITE_DELETE_COMPRESS_ORIGIN_FILE: boolean
   VITE_DROP_CONSOLE: boolean
-  VITE_PWA: boolean
   VITE_PUBLIC_PATH: string
   VITE_API_URL: string
   VITE_PROXY: [string, string][]
