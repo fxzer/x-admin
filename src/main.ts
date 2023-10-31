@@ -21,7 +21,6 @@ async function setupApp() {
 
   // 初始化 Directives
   setupDirectives(app)
-
   // 初始化 Store
   setupStore(app)
 
@@ -36,6 +35,7 @@ async function setupApp() {
 
   // 卸载加载动画
   appLoading.unmount()
+
   app.mount('#app')
 }
 setupApp()

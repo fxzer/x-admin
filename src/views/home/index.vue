@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import { ElMessage } from 'element-plus'
 </script>
 
 <template>

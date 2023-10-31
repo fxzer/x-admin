@@ -1,4 +1,5 @@
 import type { App } from 'vue'
+import VWave from 'v-wave'
 import directivesMap from './modules'
 
 const directives = {
@@ -11,4 +12,9 @@ const directives = {
 
 export function setupDirectives(app: App) {
   app.use(directives)
+  app.use(VWave, {
+    color: '#009CF9',
+    initialOpacity: 0.4,
+    easing: 'ease-in-out',
+  })
 }
