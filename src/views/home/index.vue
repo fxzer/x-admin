@@ -45,9 +45,6 @@
         Danger
       </el-button>
     </el-row>
-    <button :plain="true" @click="open2">
-      success
-    </button>
   </div>
 </template>
 

@@ -61,7 +61,7 @@ function beforeExcelUpload(file: UploadRawFile) {
       title: '温馨提示',
       message: '上传文件只能是 xls / xlsx 格式！',
       type: 'warning',
-      duration: 10,
+      duration: 300,
     })
   }
   if (!fileSize) {
@@ -70,7 +70,7 @@ function beforeExcelUpload(file: UploadRawFile) {
         title: '温馨提示',
         message: `上传文件大小不能超过 ${parameter.value.fileSize}MB！`,
         type: 'warning',
-        duration: 10,
+        duration: 300,
       })
     }, 0)
   }
@@ -83,7 +83,7 @@ function handleExceed() {
     title: '温馨提示',
     message: '最多只能上传一个文件！',
     type: 'warning',
-    duration: 10,
+    duration: 300,
   })
 }
 

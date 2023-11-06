@@ -93,7 +93,7 @@ const beforeUpload: UploadProps['beforeUpload'] = (rawFile) => {
       title: '温馨提示',
       message: '上传图片不符合所需的格式！',
       type: 'warning',
-      duration: 10,
+      duration: 300,
     })
   }
   if (!imgSize) {
