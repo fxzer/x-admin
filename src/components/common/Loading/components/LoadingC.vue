@@ -9,7 +9,7 @@ const colors = ['#1875e5', '#c5523f', '#499255', '#f2b736']
 </template>
 
 <style lang="scss" scoped>
-.loading{
+.loading {
   animation: rotate 1s infinite linear;
   justify-items: center;
 }

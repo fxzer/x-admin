@@ -8,11 +8,7 @@ import { ElNotification } from 'element-plus'
  * @param {boolean} isNotify 是否有导出消息提示 (默认为 true)
  * @param {string} fileType 导出的文件格式 (默认为.xlsx)
  */
-export async function useDownload(api: (param: any) => Promise<any>,
-  tempName: string,
-  params: any = {},
-  isNotify: boolean = true,
-  fileType: string = '.xlsx') {
+export async function useDownload(api: (param: any) => Promise<any>, tempName: string, params: any = {}, isNotify: boolean = true, fileType: string = '.xlsx') {
   if (isNotify) {
     ElNotification({
       title: '温馨提示',

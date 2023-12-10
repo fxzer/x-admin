@@ -24,7 +24,7 @@
   margin-left: -4px;
   border-radius: 100%;
   animation: ball-spin-clockwise 1s infinite ease-in-out;
- animation-delay: var(--delay);
+  animation-delay: var(--delay);
 }
 
 .loading > span:nth-child(1) {

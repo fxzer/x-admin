@@ -45,7 +45,7 @@ function handleClickMenu(subItem: Menu.MenuOptions) {
     }
   }
 }
-.el-menu-item{
+.el-menu-item {
   &:hover {
     color: var(--el-menu-hover-text-color);
   }
@@ -57,11 +57,10 @@ function handleClickMenu(subItem: Menu.MenuOptions) {
       top: 0;
       bottom: 0;
       width: 4px;
-      content: "";
+      content: '';
       background-color: var(--el-color-primary);
     }
   }
-
 }
 
 .vertical,

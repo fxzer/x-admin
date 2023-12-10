@@ -7,7 +7,7 @@ interface SearchFormItem {
   searchParam: { [key: string]: any }
 }
 const props = defineProps<SearchFormItem>()
-
+const componentType = 'el-option'
 // Re receive SearchParam
 const _searchParam = computed(() => props.searchParam)
 
@@ -80,7 +80,7 @@ const clearable = computed(() => {
     </template>
     <template v-if="column.search?.el === 'select'">
       <component
-        is="el-option"
+        :is="componentType"
         v-for="(col, index) in columnEnum"
         :key="index"
         :label="col[fieldNames.label]"

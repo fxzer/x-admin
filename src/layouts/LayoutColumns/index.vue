@@ -102,7 +102,7 @@ function isTitleOverflow(title: string): boolean {
 </template>
 
 <style scoped lang="scss">
-@import "./index.scss";
+@import './index.scss';
 @import '../styles/el-menu.scss';
 @import '../styles/menu-card.scss';
 </style>

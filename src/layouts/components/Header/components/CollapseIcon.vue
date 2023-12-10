@@ -16,7 +16,7 @@ const { toggleMenu } = globalStore
 <style scoped lang="scss">
 .collapse-icon {
   &:hover {
-    color:var(--el-color-primary)
+    color: var(--el-color-primary);
   }
 }
 </style>

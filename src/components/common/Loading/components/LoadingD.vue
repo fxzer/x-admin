@@ -26,28 +26,28 @@
   width: 165px;
   height: 165px;
   border: 1.5px solid #ff9191a5;
-  animation: spin3D 2s linear -.5s infinite;
+  animation: spin3D 2s linear -0.5s infinite;
 }
 
 .green {
   width: 120px;
   height: 120px;
   border: 1.5px solid #91ffbfa5;
-  animation: spin3D 2s linear  infinite;
+  animation: spin3D 2s linear infinite;
 }
 
 .red {
   width: 90px;
   height: 90px;
   border: 1.5px solid #ffca91a5;
-  animation: spin3D 1s linear  infinite;
+  animation: spin3D 1s linear infinite;
 }
 
 .primary {
   width: 60px;
   height: 60px;
   border: 2px solid var(--el-color-primary);
-  animation: spin3D 2s linear  infinite;
+  animation: spin3D 2s linear infinite;
 }
 
 .w1 {
@@ -56,11 +56,11 @@
 }
 
 .w2 {
-  transform: rotate3D(1, 2, .5, 0deg);
+  transform: rotate3D(1, 2, 0.5, 0deg);
 }
 
 .w3 {
-  transform: rotate3D(.5, 1, 2, 180deg);
+  transform: rotate3D(0.5, 1, 2, 180deg);
 }
 
 .three-quarter-spinner {
@@ -69,14 +69,14 @@
   border: 3px solid #fb5b53;
   border-top: 3px solid transparent;
   border-radius: 50%;
-  animation: spin .5s linear  infinite;
+  animation: spin 0.5s linear infinite;
 }
 
 @keyframes spin3D {
   from {
-    transform: rotate3d(.5,.5,.5, 360deg);
+    transform: rotate3d(0.5, 0.5, 0.5, 360deg);
   }
-  to{
+  to {
     transform: rotate3d(0deg);
   }
 }

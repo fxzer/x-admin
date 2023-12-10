@@ -4,7 +4,7 @@ const globalStore = useGlobalStore()
 const { toggleDark } = globalStore
 // @ts-expect-error: Transition API
 const isAppearanceTransition = document.startViewTransition
-&& !window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  && !window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
 export function toggleDarkAnimate(event?: MouseEvent) {
   if (!isAppearanceTransition || !event) {

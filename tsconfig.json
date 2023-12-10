@@ -1,23 +1,23 @@
 {
   "compilerOptions": {
     "target": "ESNext",
-    "lib": ["ESNext", "DOM"],
     "jsx": "preserve",
+    "lib": ["ESNext", "DOM"],
     "useDefineForClassFields": true,
+    "baseUrl": "./",
     "module": "ESNext",
     "moduleResolution": "Node",
-    "baseUrl": "./",
     "paths": {
       "@": ["src"],
       "@/*": ["src/*"]
     },
-    "types": ["vite/client", "element-plus/global", "vite-plugin-svg-icons/client"],
 
     "resolveJsonModule": true,
-    "noEmit": true,
-    "isolatedModules": true,
-    "esModuleInterop": true,
+    "types": ["node", "vite/client", "element-plus/global", "vite-plugin-svg-icons/client"],
     "strict": true /* Enable all strict type-checking options. */,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "isolatedModules": true,
     "skipLibCheck": true
   },
   "include": [

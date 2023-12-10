@@ -196,7 +196,7 @@ defineExpose({
   />
 
   <!-- 表格内容 card -->
-  <div class="table-main card">
+  <div class="card table-main">
     <!-- 表格头部 操作按钮 -->
     <div class="table-header">
       <div class="header-button-lf">

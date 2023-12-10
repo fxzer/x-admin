@@ -1,4 +1,5 @@
 import { resolve } from 'node:path'
+import process from 'node:process'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 
 // 用于生成 svg 雪碧图

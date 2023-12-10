@@ -37,5 +37,5 @@ import SvgIcon from '@/components/SvgIcon/index.vue'
 </template>
 
 <style scoped lang="scss">
-@import "./index.scss";
+@import './index.scss';
 </style>

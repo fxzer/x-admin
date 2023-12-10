@@ -51,7 +51,7 @@ const activeMenu = computed(() => (route.meta.activeMenu || route.path) as strin
 </template>
 
 <style scoped lang="scss">
-@import "./index.scss";
+@import './index.scss';
 @import '../styles/el-menu.scss';
 @import '../styles/menu-card.scss';
 </style>

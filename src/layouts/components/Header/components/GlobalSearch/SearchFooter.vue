@@ -21,8 +21,11 @@
 </template>
 
 <style scoped lang='scss'>
-.icon{
-  box-shadow: inset 0 -2px var(--el-border-color), inset 0 0 1px 1px var(--el-border-color), 0 1px 2px 1px var(--el-bg-color-page);
-  @apply mr-2 p-2px
+.icon {
+  box-shadow:
+    inset 0 -2px var(--el-border-color),
+    inset 0 0 1px 1px var(--el-border-color),
+    0 1px 2px 1px var(--el-bg-color-page);
+  @apply mr-2 p-2px;
 }
 </style>

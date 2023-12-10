@@ -10,7 +10,7 @@
 .dot-spin {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap:5px;
+  gap: 5px;
   width: 40px;
   height: 40px;
   transform: rotate(45deg);
@@ -26,7 +26,9 @@
     background-color: var(--el-color-primary);
     animation: ant-spin-move 1s infinite linear alternate;
 
-    &:nth-child(2),&:nth-child(3),&:nth-child(4){
+    &:nth-child(2),
+    &:nth-child(3),
+    &:nth-child(4) {
       animation-delay: var(--delay);
     }
   }

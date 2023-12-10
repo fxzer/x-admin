@@ -206,5 +206,5 @@ function closeTabsOnSide(path: string, direction: 'left' | 'right') {
 </template>
 
 <style scoped lang="scss">
-@import "./index.scss";
+@import './index.scss';
 </style>

@@ -1,6 +1,8 @@
 import type { App } from 'vue'
 
-import { createPinia } from 'pinia' // store中使用了其他 store 报错问题
+import { createPinia } from 'pinia'
+
+// store中使用了其他 store 报错问题
 
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
 

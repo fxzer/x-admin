@@ -1,6 +1,6 @@
 <!-- 💥 异步加载 LayoutComponents -->
 <script setup lang="ts" name="layoutAsync">
-import { type Component } from 'vue'
+import type { Component } from 'vue'
 import Settings from './components/Settings/index.vue'
 
 import type { LayoutType } from '@/stores'

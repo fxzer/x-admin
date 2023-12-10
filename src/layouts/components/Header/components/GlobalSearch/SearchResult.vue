@@ -1,5 +1,5 @@
 <script setup lang='ts'>
-const props = defineProps<{ activeIndex: number; resultList: Menu.MenuOptions[] }>()
+const props = defineProps<{ activeIndex: number, resultList: Menu.MenuOptions[] }>()
 defineEmits(['select'])
 
 const { resultList = ref([]), activeIndex } = toRefs(props)
@@ -14,7 +14,7 @@ const isEmpty = computed(() => !resultList.value.length)
     <el-scrollbar v-else class="h-full">
       <div
         v-for="(item, index) in resultList" :key="index" :class="{ 'bg-primary-light-7!': activeIndex === index }"
-        class="mb-2 flex-y-center cursor-pointer rounded-sm bg-gray-100 p-2 dark:bg-gray-500/10 hover:(font-semibold text-primary)"
+        class="mb-2 flex-y-center cursor-pointer rounded-sm bg-gray-100 p-2 dark:bg-gray-500/10 hover:(text-primary font-semibold)"
         @click="$emit('select', $event, item)"
         @keyup.enter="$emit('select', $event, item)"
       >

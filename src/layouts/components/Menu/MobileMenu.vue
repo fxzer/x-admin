@@ -43,19 +43,19 @@ const visible = computed<boolean>({
 </template>
 
 <style scoped lang='scss'>
-.el-menu{
-  border-right:none;
+.el-menu {
+  border-right: none;
 }
- .mobile-menu {
-  &:deep(.el-drawer .el-drawer__body){
-    padding:0 !important;
+.mobile-menu {
+  &:deep(.el-drawer .el-drawer__body) {
+    padding: 0 !important;
     //隐藏滚动条
-    &::-webkit-scrollbar{
+    &::-webkit-scrollbar {
       display: none;
     }
   }
-  :deep(.el-drawer.inverted){
+  :deep(.el-drawer.inverted) {
     background-color: #141414;
   }
- }
+}
 </style>

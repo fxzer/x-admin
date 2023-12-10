@@ -1,76 +1,85 @@
-
 //重置 animate.css动画时间
-:root{
-  --animate-duration:.3s !important;
-  --animate-delay:0s !important;
+:root {
+  --animate-duration: 0.3s !important;
+  --animate-delay: 0s !important;
 }
 
 /* 自定义动画  */
 /* 消退 */
-.fade-enter-active,.fade-leave-active {
-    transition: opacity .2s ease-in-out
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.2s ease-in-out;
 }
 
-.fade-enter-from,.fade-leave-to {
-    opacity: 0
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 
 /* 向右滑动消退 */
-.fade-slide-leave-active,.fade-slide-enter-active {
-    transition: all .2s
+.fade-slide-leave-active,
+.fade-slide-enter-active {
+  transition: all 0.2s;
 }
 
 .fade-slide-enter-from {
-    opacity: 0;
-    transform: translateX(-30px)
+  opacity: 0;
+  transform: translateX(-30px);
 }
 
 .fade-slide-leave-to {
-    opacity: 0;
-    transform: translateX(30px)
+  opacity: 0;
+  transform: translateX(30px);
 }
 
 /* 向下滑动消退 */
-.fade-bottom-enter-active,.fade-bottom-leave-active {
-    transition: opacity .25s,transform .3s
+.fade-bottom-enter-active,
+.fade-bottom-leave-active {
+  transition:
+    opacity 0.25s,
+    transform 0.3s;
 }
 
 .fade-bottom-enter-from {
-    opacity: 0;
-    transform: translateY(-10%)
+  opacity: 0;
+  transform: translateY(-10%);
 }
 
 .fade-bottom-leave-to {
-    opacity: 0;
-    transform: translateY(10%)
+  opacity: 0;
+  transform: translateY(10%);
 }
 /* 缩放消退 */
-.fade-zoom-leave-active,.fade-zoom-enter-active {
-    transition: all .25s
+.fade-zoom-leave-active,
+.fade-zoom-enter-active {
+  transition: all 0.25s;
 }
 
 .fade-zoom-enter-from {
-    opacity: 0;
-    transform: scale(1.2)
+  opacity: 0;
+  transform: scale(1.2);
 }
 
 .fade-zoom-leave-to {
-    opacity: 0;
-    transform: scale(.8)
+  opacity: 0;
+  transform: scale(0.8);
 }
 /* 向上滑动消退 */
-.fade-top-enter-active,.fade-top-leave-active {
-    transition: opacity .2s,transform .25s
+.fade-top-enter-active,
+.fade-top-leave-active {
+  transition:
+    opacity 0.2s,
+    transform 0.25s;
 }
 
 .fade-top-enter-from {
-    opacity: 0;
-    transform: translateY(8%)
+  opacity: 0;
+  transform: translateY(8%);
 }
 
 .fade-top-leave-to {
-    opacity: 0;
-    transform: translateY(-8%)
+  opacity: 0;
+  transform: translateY(-8%);
 }
 
 /* 面包屑过渡动画 */
@@ -80,9 +89,9 @@
 }
 
 .slide-bottom-enter-from,
-.slide-bottom-leave-active{
+.slide-bottom-leave-active {
   opacity: 0;
-  position:absolute;
+  position: absolute;
   transform: translateY(-20px) skewX(-45deg);
 }
 /* 向上滑入 */
@@ -93,7 +102,7 @@
 .slide-top-enter-from,
 .slide-top-leave-active {
   opacity: 0;
-  position:absolute;
+  position: absolute;
   transform: translateY(20px) skewX(-45deg);
 }
 /* 向左滑入 */
@@ -104,7 +113,7 @@
 .slide-left-enter-from,
 .slide-left-leave-active {
   opacity: 0;
-  position:absolute;
+  position: absolute;
   transform: translateX(20px) skewX(45deg);
 }
 /* 向右滑入 */
@@ -115,6 +124,6 @@
 .slide-right-enter-from,
 .slide-right-leave-active {
   opacity: 0;
-  position:absolute;
+  position: absolute;
   transform: translateX(-20px) skewX(-45deg);
 }

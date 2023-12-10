@@ -7,7 +7,7 @@
     border-radius: 3px;
     width: 86%;
     height: 86%;
-    content: "";
+    content: '';
     background-color: $color !important;
   }
 }
@@ -15,7 +15,7 @@
 .el-container {
   width: 100%;
   height: 100%;
-  /* 一级菜单 */
+
   .first-menu {
     display: flex;
     flex-direction: column;
@@ -25,54 +25,62 @@
     position: relative;
     background-color: var(--el-menu-bg-color);
 
-    &.inverted::after{
-      background-color: #2B2B2C;
+    &.inverted::after {
+      background-color: #2b2b2c;
     }
+
     .el-scrollbar {
       height: calc(100% - 68px);
+
       .first-menu-list {
-        .first-menu-item{
-          &:hover{
+        .first-menu-item {
+          &:hover {
             background-color: var(--el-menu-hover-bg-color);
           }
         }
+
         .is-active {
           background-color: var(--el-color-primary) !important;
+
           .el-icon,
           .title {
             color: #ffffff !important;
           }
         }
       }
+
       /* 自定义菜单风格*/
-      .first-menu-list.menu-card{
-       .first-menu-item{
-        position: relative;
-        &>* {
-          z-index: 1;
-          
-        }
-        
-         &:hover{
-          background-color: transparent !important;
-          @include item-bg(var(--el-color-info-light-9));
-         }
-        &.is-active{
-          background-color: transparent !important;
-          @include item-bg(var(--el-menu-hover-bg-color));
-          &>*{
-            color:var(--el-color-primary) !important;
+      .first-menu-list.menu-card {
+        .first-menu-item {
+          position: relative;
+
+          & > * {
+            z-index: 1;
+          }
+
+          &:hover {
+            background-color: transparent !important;
+            @include item-bg(var(--el-color-info-light-9));
+          }
+
+          &.is-active {
+            background-color: transparent !important;
+            @include item-bg(var(--el-menu-hover-bg-color));
+
+            & > * {
+              color: var(--el-color-primary) !important;
+            }
           }
         }
-       }
       }
-
     }
   }
+
   .is-hide {
     width: 0 !important;
     border-right: none !important;
   }
+
   /* 展开栏 */
   .el-aside {
     display: flex;
@@ -82,8 +90,10 @@
     position: relative;
     background-color: var(--el-menu-bg-color);
     transition: width 0.3s ease;
+
     .el-scrollbar {
       height: calc(100% - var(--el-menu-item-height));
+
       .el-menu {
         width: 100%;
         overflow-x: hidden;

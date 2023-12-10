@@ -75,18 +75,20 @@
 .el-message.ant {
   padding: 9px 12px;
   border-radius: 6px;
-  border:none;
+  border: none;
   background-color: #fff;
-  box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
-  
+  box-shadow:
+    0 6px 16px 0 rgba(0, 0, 0, 0.08),
+    0 3px 6px -4px rgba(0, 0, 0, 0.12),
+    0 9px 28px 8px rgba(0, 0, 0, 0.05);
 }
-.dark .el-message.ant{
+.dark .el-message.ant {
   background: #1f1f1f;
 }
 
 //隐藏颜色选择器清空按钮
-.el-color-picker__panel .el-color-dropdown__btns .is-text{
-    display: none !important;
+.el-color-picker__panel .el-color-dropdown__btns .is-text {
+  display: none !important;
 }
 // .el-overlay{
 //   backdrop-filter: blur(1px);
@@ -100,56 +102,57 @@
     border-radius: 3px;
     width: 94%;
     height: 80%;
-    content: "";
+    content: '';
     background-color: $color !important;
   }
 }
 
 /* 横向布局 */
-.menu-card{
-  .el-container .el-header .el-menu .el-menu--horizontal .el-sub-menu.is-active{
+.menu-card {
+  .el-container
+    .el-header
+    .el-menu
+    .el-menu--horizontal
+    .el-sub-menu.is-active {
     background-color: transparent !important;
-    border-bottom-color:transparent !important;
-    .el-sub-menu__title{
+    border-bottom-color: transparent !important;
+    .el-sub-menu__title {
       border-bottom-color: transparent !important;
     }
   }
-  .el-popper .el-menu--horizontal .el-menu{
+  .el-popper .el-menu--horizontal .el-menu {
     .el-menu-item {
-      &>* {
+      & > * {
         z-index: 1;
       }
       background-color: transparent !important;
-      &:hover{
+      &:hover {
         @include item-bg(var(--el-color-info-light-9));
-        color: var( --el-text-color-regular);
+        color: var(--el-text-color-regular);
       }
       &.is-active {
         background-color: transparent !important;
         @include item-bg(var(--el-menu-hover-bg-color));
       }
     }
-    .el-sub-menu{
+    .el-sub-menu {
       .el-sub-menu__title {
-        &>* {
-        z-index: 1;
-      
-      }
+        & > * {
+          z-index: 1;
+        }
         &:hover {
-          color: var( --el-text-color-regular) !important;
+          color: var(--el-text-color-regular) !important;
           background-color: transparent !important;
           @include item-bg(var(--el-color-info-light-9));
         }
       }
       //激活的二级菜单标题
-      &.is-active{
+      &.is-active {
         .el-sub-menu__title {
-          color:var(--el-color-primary) !important;
+          color: var(--el-color-primary) !important;
           background-color: transparent !important;
         }
       }
     }
+  }
 }
-}
-
-

@@ -48,17 +48,13 @@ export const useGlobalStore = defineStore('store-global', () => {
   }, {
     label: '底部渐显',
     value: 'fade-bottom',
-  },
-  {
+  }, {
     label: '顶部渐显',
     value: 'fade-top',
-  },
-  {
+  }, {
     label: '缩放渐显',
     value: 'fade-zoom',
-  },
-  ...pairAnimates,
-  ])
+  }, ...pairAnimates])
   const currentAnimation = computed(() => animationList.value.find(item => item.label === animationName.value)!)
   const enterActiveClass = computed(() => currentAnimation.value?.enterActiveClass)
   const leaveActiveClass = computed(() => currentAnimation.value?.leaveActiveClass)

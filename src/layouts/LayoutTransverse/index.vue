@@ -55,16 +55,16 @@ function handleClickMenu(subItem: Menu.MenuOptions) {
 </template>
 
 <style scoped lang="scss">
-@import "./index.scss";
-  //反转样式
+@import './index.scss';
+//反转样式
 .el-header.inverted {
-  color:var(--el-menu-text-color);
+  color: var(--el-menu-text-color);
   background-color: var(--el-menu-bg-color);
-  :deep(.el-dropdown .el-tooltip__trigger){
-    color:var(--el-menu-text-color);
+  :deep(.el-dropdown .el-tooltip__trigger) {
+    color: var(--el-menu-text-color);
   }
   :deep(.el-breadcrumb .el-breadcrumb__inner) {
-    color:var(--el-menu-text-color);
+    color: var(--el-menu-text-color);
   }
 }
 </style>

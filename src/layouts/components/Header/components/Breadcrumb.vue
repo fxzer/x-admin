@@ -46,20 +46,34 @@ function onClick(item: Menu.MenuOptions, index: number) {
 
 <style lang="scss" scoped>
 .el-breadcrumb.arrow {
-
   :deep(.el-breadcrumb__item) {
     .el-breadcrumb__inner {
       background-color: var(--el-fill-color);
-      transition: background-color .3s, var(--el-transition-color);
+      transition:
+        background-color 0.3s,
+        var(--el-transition-color);
       padding: 2px 8px;
-      -webkit-clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 50%, calc(100% - 8px) 100%, 0 100%, 8px 50%);
-      clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 50%, calc(100% - 8px) 100%, 0 100%, 8px 50%);
+      -webkit-clip-path: polygon(
+        0 0,
+        calc(100% - 8px) 0,
+        100% 50%,
+        calc(100% - 8px) 100%,
+        0 100%,
+        8px 50%
+      );
+      clip-path: polygon(
+        0 0,
+        calc(100% - 8px) 0,
+        100% 50%,
+        calc(100% - 8px) 100%,
+        0 100%,
+        8px 50%
+      );
     }
 
     .el-breadcrumb__separator {
       display: none;
     }
-
   }
 }
 </style>

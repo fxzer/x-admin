@@ -73,16 +73,9 @@ declare const __APP_INFO__: {
 
 /* Generic Tools */
 type ObjToKeyValUnion<T> = {
-  [K in keyof T]: { key: K; value: T[K] };
+  [K in keyof T]: { key: K, value: T[K] };
 }[keyof T]
 
 type ObjToKeyValArray<T> = {
   [K in keyof T]: [K, T[K]];
 }[keyof T]
-
-// 声明 @pureadmin/utils 模块 ，模块中含 getPackageSize 方法
-declare module '@pureadmin/utils' {
-  export function getPackageSize(options: { folder: string; callback: (size: string) => void }): void
-  export function darken(color: string, weight: number): string
-  export function lighten(color: string, weight: number): string
-}

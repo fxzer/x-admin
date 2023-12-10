@@ -37,7 +37,8 @@ const {
   animationList,
   breadcrumbType,
   breadAnimateName,
-  isRainbow, menuClass,
+  isRainbow,
+  menuClass,
 } = storeToRefs(globalStore)
 
 // 预定义主题颜色

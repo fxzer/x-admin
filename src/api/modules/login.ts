@@ -1,4 +1,3 @@
-import type { Login } from '@/api/interface/index'
 import { PORT1 } from '@/api/config/servicePort'
 import http from '@/api'
 
@@ -6,7 +5,8 @@ import http from '@/api'
  * @name 登录模块
  */
 // 用户登录
-export function loginApi(params: Login.ReqLoginForm) {
+export function loginApi() {
+// export function loginApi(params: Login.ReqLoginForm) {
   // return http.post<Login.ResLogin>(`${PORT1}/login`, params, { noLoading: true }) // 正常 post json 请求  ==>  application/json
   return Promise.resolve({ code: 200, data: { access_token: 'bqddxxwqmfncffacvbpkuxvwvqrhln' }, msg: '成功' })
 }

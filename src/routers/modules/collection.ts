@@ -143,20 +143,6 @@ export default {
       },
     },
     {
-      path: '/collection/wangEditor',
-      name: 'wangEditor',
-      component: '/collection/wangEditor/index',
-      meta: {
-        icon: 'IEpMenu',
-        title: '富文本编辑器',
-        isLink: '',
-        isHide: false,
-        isFull: false,
-        isAffix: false,
-        isKeepAlive: true,
-      },
-    },
-    {
       path: '/collection/draggable',
       name: 'draggable',
       component: '/collection/draggable/index',
