@@ -2,7 +2,6 @@
 import { useRouter } from 'vue-router'
 import { ElForm, ElNotification } from 'element-plus'
 import { CircleClose, UserFilled } from '@element-plus/icons-vue'
-import md5 from 'md5'
 import { HOME_URL } from '@/config'
 import { getTimeState } from '@/utils'
 import type { Login } from '@/api/interface'
@@ -38,7 +37,7 @@ function login(formEl: FormInstance | undefined) {
     loading.value = true
     try {
       // 1.执行登录接口
-      const { data } = await loginApi({ ...loginForm, password: md5(loginForm.password) })
+      const { data } = await loginApi()
       userStore.setToken(data.access_token)
 
       // 2.添加动态路由
