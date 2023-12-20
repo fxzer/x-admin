@@ -5,7 +5,7 @@ export default {
   meta: {
     order: 999,
     icon: 'IEpInfoFilled',
-    title: '关于项目',
+    title: '互联网出口',
     isLink: '',
     isHide: false,
     isFull: false,

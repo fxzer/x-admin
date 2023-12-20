@@ -5,7 +5,7 @@ export default {
   meta: {
     order: 1,
     icon: 'IEpHomeFilled',
-    title: '首页',
+    title: '总览',
     isLink: '',
     isHide: false,
     isFull: false,
