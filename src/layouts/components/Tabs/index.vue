@@ -3,18 +3,18 @@ import Sortable from 'sortablejs'
 import type { TabPaneName, TabsPaneContext } from 'element-plus'
 import MoreButton from './components/MoreButton.vue'
 import { HOME_URL } from '@/config'
-import { setGlobalState, useAuthStore, useGlobalStore, useKeepAliveStore, useTabsStore } from '@/stores'
+import { setGlobalState, useAuthStore, useKeepAliveStore, useTabsStore } from '@/stores'
 import type { TabsMenuProps } from '@/stores'
 
 const route = useRoute()
 const router = useRouter()
 const tabStore = useTabsStore()
 const authStore = useAuthStore()
-const globalStore = useGlobalStore()
+// const globalStore = useGlobalStore()
 const keepAliveStore = useKeepAliveStore()
 
 const tabsMenuValue = ref(route.fullPath)
-const { showTabIcon } = storeToRefs(globalStore)
+// const { showTabIcon } = storeToRefs(globalStore)
 const { tabList } = toRefs(tabStore)
 
 onMounted(() => {
@@ -158,9 +158,9 @@ function closeTabsOnSide(path: string, direction: 'left' | 'right') {
         <el-tab-pane v-for="item in tabList" :key="item.path" :label="item.title" :name="item.path" :closable="item.closable">
           <template #label>
             <span class="flex-center" @contextmenu="handleContextMenu($event, item)">
-              <el-icon v-show="item.icon && showTabIcon" class="tabs-icon">
+              <!-- <el-icon v-show="item.icon && showTabIcon" class="tabs-icon">
                 <component :is="item.icon" />
-              </el-icon>
+              </el-icon> -->
               {{ item.title }}
             </span>
           </template>

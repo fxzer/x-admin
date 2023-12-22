@@ -1,5 +1,6 @@
 <script setup lang='ts'>
-
+const list = await fetch('/api/networking/sdwan/network').then(res => res.json())
+console.log('[ list ]-3', list)
 </script>
 
 <template>

@@ -7,7 +7,7 @@ const route = useRoute()
 const router = useRouter()
 const authStore = useAuthStore()
 const globalStore = useGlobalStore()
-const { showBreadcrumbIcon, breadcrumbType, breadAnimateName } = storeToRefs(globalStore)
+const { breadcrumbType, breadAnimateName } = storeToRefs(globalStore)
 const breadcrumbList = computed(() => {
   const lastPath = route.matched[route.matched.length - 1].path
   let breadcrumbData = authStore.breadcrumbList[lastPath] ?? []
@@ -34,9 +34,10 @@ function onClick(item: Menu.MenuOptions, index: number) {
     <transition-group :name="breadAnimateName" appear>
       <el-breadcrumb-item v-for="(item, index) in breadcrumbList" :key="item.path">
         <div class="el-breadcrumb__inner is-link flex-y-center space-x-2" @click="onClick(item, index)">
-          <el-icon v-show="item.meta.icon && showBreadcrumbIcon" class="breadcrumb-icon">
+          <!-- <el-icon v-show="item.meta.icon && showBreadcrumbIcon" class="breadcrumb-icon">
             <component :is="item.meta.icon" />
-          </el-icon>
+          </el-icon> -->
+          <i :class="item.meta.icon" text-333 text-lg />
           <span class="breadcrumb-title">{{ item.meta.title }}</span>
         </div>
       </el-breadcrumb-item>
