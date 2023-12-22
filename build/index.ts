@@ -9,7 +9,7 @@ import Icons from 'unplugin-icons/vite'
 
 import Inspect from 'vite-plugin-inspect'
 import VueDevTools from 'vite-plugin-vue-devtools'
-import { setupAtuoComponent, setupAtuoImport, setupCompression, setupCreateSvgIcon, setupPrintBuildInfo, setupVitePWA, setupWebUpdateNotification } from './plugins'
+import { configMockPlugin, setupAtuoComponent, setupAtuoImport, setupCompression, setupCreateSvgIcon, setupPrintBuildInfo, setupVitePWA, setupWebUpdateNotification } from './plugins'
 
 export function setupVitePlugins(viteEnv: ViteEnv): (PluginOption | PluginOption[])[] {
   const { VITE_APP_TITLE, VITE_REPORT, VITE_INSPECT } = viteEnv
@@ -40,6 +40,7 @@ export function setupVitePlugins(viteEnv: ViteEnv): (PluginOption | PluginOption
       },
     }),
     setupCreateSvgIcon(),
+    configMockPlugin({ isBuild: viteEnv.VITE_USER_NODE_ENV === 'build' }),
     // vitePWA
     setupVitePWA(viteEnv),
     // 是否生成包预览，分析依赖包大小做优化处理

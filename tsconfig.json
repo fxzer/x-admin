@@ -11,8 +11,8 @@
       "@": ["src"],
       "@/*": ["src/*"]
     },
-
     "resolveJsonModule": true,
+    "typeRoots": ["./node_modules"],
     "types": ["node", "vite/client", "element-plus/global", "vite-plugin-svg-icons/client"],
     "strict": true /* Enable all strict type-checking options. */,
     "noEmit": true,
@@ -28,6 +28,6 @@
     "build/**/*.ts",
     "build/**/*.d.ts",
     "vite.config.ts",
-    "safeIcons.ts"],
-  "exclude": ["node_modules", "dist", "**/*.js"]
+    "safeIcons.ts", "types/vite-env.d.ts"],
+  "exclude": ["node_modules", "dist", "**/*.js", "./mock"]
 }

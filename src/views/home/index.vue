@@ -1,4 +1,7 @@
 <script lang="ts" setup>
+fetch('/api/test')
+  .then(res => res.json())
+  .then(res => console.log(res))
 const route = useRoute()
 </script>
 

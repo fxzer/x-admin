@@ -41,7 +41,7 @@ declare namespace File {
 declare type Recordable<T = any> = Record<string, T>
 
 declare interface ViteEnv {
-  VITE_USER_NODE_ENV: 'development' | 'production' | 'test'
+  VITE_USER_NODE_ENV: 'development' | 'production' | 'test' | 'build'
   VITE_APP_TITLE: string
   VITE_PORT: number
   VITE_OPEN: boolean
@@ -54,10 +54,6 @@ declare interface ViteEnv {
   VITE_PROXY: [string, string][]
   VITE_AUTO_EP: boolean
   VITE_INSPECT: boolean
-}
-
-interface ImportMetaEnv extends ViteEnv {
-  __: unknown
 }
 
 /* __APP_INFO__ */
