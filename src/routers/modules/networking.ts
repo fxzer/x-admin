@@ -4,7 +4,7 @@ const cloudPlus = {
   name: 'cloudplus',
   redirect: '/networking/cloudplus/cloud',
   meta: {
-    icon: 'IEpMenu',
+    icon: 'i-tabler:cloud-plus',
     title: '云网络+',
   },
   children: [
@@ -13,7 +13,7 @@ const cloudPlus = {
       name: 'cloudplus-cloud',
       component: '/networking/cloudplus/cloud/index',
       meta: {
-        icon: 'IEpMenu',
+        icon: '',
         title: '云网络',
       },
     },
@@ -70,7 +70,7 @@ const sdwan = {
   path: '/networking/sdwan',
   name: 'sdwan',
   meta: {
-    icon: 'IEpMenu',
+    icon: 'i-carbon:hybrid-networking',
     title: 'SD-Wan',
   },
   children: [
@@ -186,7 +186,7 @@ export default {
   redirect: '/networking/cloudplus',
   meta: {
     order: 2,
-    icon: 'IEpList',
+    icon: 'i-charm:globe',
     title: '智能组网',
   },
   children: [

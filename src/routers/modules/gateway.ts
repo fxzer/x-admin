@@ -4,7 +4,7 @@ export default {
   component: '/gateway/index',
   meta: {
     order: 6,
-    icon: 'IEpInfoFilled',
+    icon: 'i-carbon:gateway-api',
     title: '智能网关',
     isKeepAlive: true,
   },

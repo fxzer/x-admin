@@ -55,6 +55,7 @@ declare module 'vue' {
     'IAntDesign:fullscreenExitOutlined': typeof import('~icons/ant-design/fullscreen-exit-outlined')['default']
     'IAntDesign:fullscreenOutlined': typeof import('~icons/ant-design/fullscreen-outlined')['default']
     'IArcticons:galaxyThemes': typeof import('~icons/arcticons/galaxy-themes')['default']
+    'ICharm:appsPlus': typeof import('~icons/charm/apps-plus')['default']
     IEpAvatar: typeof import('~icons/ep/avatar')['default']
     IEpCircleCheckFilled: typeof import('~icons/ep/circle-check-filled')['default']
     IEpCircleClose: typeof import('~icons/ep/circle-close')['default']

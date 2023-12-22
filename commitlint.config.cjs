@@ -1,11 +1,11 @@
 // @see: https://cz-git.qbenben.com/zh/guide
-const fs = require('node:fs')
+/* const fs = require('node:fs')
 const path = require('node:path')
 
 const scopes = fs
   .readdirSync(path.resolve(__dirname, 'src'), { withFileTypes: true })
   .filter(dirent => dirent.isDirectory())
-  .map(dirent => dirent.name.replace(/s$/, ''))
+  .map(dirent => dirent.name.replace(/s$/, '')) */
 
 /** @type {import('cz-git').UserConfig} */
 module.exports = {
@@ -153,7 +153,7 @@ module.exports = {
       // { value: "types", name: "类型:   🔰  类型定义文件修改", emoji: "🔰" }
     ],
     useEmoji: true,
-    scopes: [...scopes],
+    // scopes: [...scopes],
     customScopesAlign: 'bottom',
     emptyScopesAlias: 'empty',
     customScopesAlias: 'custom',

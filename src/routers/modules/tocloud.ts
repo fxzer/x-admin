@@ -4,7 +4,7 @@ export default {
   redirect: '/tocloud/dedicated',
   meta: {
     order: 3,
-    icon: 'IEpBriefcase',
+    icon: 'i-mdi:cloud-upload-outline',
     title: '高速上云',
     isKeepAlive: true,
   },
@@ -15,7 +15,7 @@ export default {
       component: '/tocloud/dedicated/index',
       meta: {
         title: '云专线',
-        icon: 'IEpMenu',
+        icon: 'i-carbon:ibm-cloud-direct-link-1-connect',
         isKeepAlive: true,
       },
     },
@@ -24,7 +24,7 @@ export default {
       name: 'tocloud-sdwan',
       component: '/tocloud/sdwan/index',
       meta: {
-        icon: 'IEpMenu',
+        icon: 'i-carbon:hybrid-networking',
         title: 'SD-Wan上云',
         isKeepAlive: true,
       },
@@ -34,7 +34,7 @@ export default {
       name: 'tocloud-operation',
       component: '/tocloud/operation/index',
       meta: {
-        icon: 'IEpMenu',
+        icon: 'i-icon-park-outline:reverse-operation-in',
         title: ' 运营报告',
         isKeepAlive: true,
       },
@@ -44,7 +44,7 @@ export default {
       name: 'tocloud-alarm',
       component: '/tocloud/alarm/index',
       meta: {
-        icon: 'IEpMenu',
+        icon: 'i-mdi:clipboard-text-clock',
         title: '告警记录',
       },
     },
@@ -53,7 +53,7 @@ export default {
       name: 'tocloud-fault',
       component: '/tocloud/fault/index',
       meta: {
-        icon: 'IEpMenu',
+        icon: 'i-material-symbols:autoplay',
         title: '故障演练',
       },
     },
@@ -62,7 +62,7 @@ export default {
       name: 'tocloud-speed',
       component: '/tocloud/speed/index',
       meta: {
-        icon: 'IEpMenu',
+        icon: 'i-icon-park-outline:speed-one',
         title: '速度测试',
       },
     },

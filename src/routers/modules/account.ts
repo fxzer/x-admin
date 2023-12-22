@@ -4,7 +4,7 @@ export default {
   redirect: '/account/info',
   meta: {
     order: 8,
-    icon: 'IEpLock',
+    icon: 'i-material-symbols:account-circle-full',
     title: '账户中心',
     isKeepAlive: true,
   },
@@ -14,7 +14,7 @@ export default {
       name: 'account-info',
       component: '/account/info/index',
       meta: {
-        icon: 'IEpMenu',
+        icon: 'i-ph:info-bold',
         title: '账户信息',
         isKeepAlive: true,
       },
@@ -24,7 +24,7 @@ export default {
       name: 'account-safety',
       component: '/account/safety/index',
       meta: {
-        icon: 'IEpMenu',
+        icon: 'i-material-symbols:health-and-safety-outline',
         title: '安全设置',
         isKeepAlive: true,
       },
@@ -34,7 +34,7 @@ export default {
       name: 'account-alarmContact',
       component: '/account/alarmContact/index',
       meta: {
-        icon: 'IEpMenu',
+        icon: 'i-material-symbols:notification-add-outline-rounded',
         title: '告警联系人',
         isKeepAlive: true,
       },
@@ -44,7 +44,7 @@ export default {
       name: 'account-user',
       component: '/account/user/index',
       meta: {
-        icon: 'IEpMenu',
+        icon: 'i-material-symbols:supervisor-account-outline-rounded',
         title: '子用户信息',
         isKeepAlive: true,
       },
@@ -54,7 +54,7 @@ export default {
       name: 'account-role',
       component: '/account/role/index',
       meta: {
-        icon: 'IEpMenu',
+        icon: 'i-carbon:user-role',
         title: '角色管理',
         isKeepAlive: true,
       },

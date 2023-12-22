@@ -4,9 +4,8 @@ export default {
   component: '/export/index',
   meta: {
     order: 5,
-    icon: 'IEpInfoFilled',
+    icon: 'i-ph:export-bold',
     title: '互联网出口',
-    isLink: '',
     isHide: false,
     isFull: false,
     isAffix: false,

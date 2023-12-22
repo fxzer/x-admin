@@ -63,9 +63,8 @@ function isTitleOverflow(title: string): boolean {
             :class="[{ 'is-active': splitActive.includes(item.path) }]"
             @click="changeSubMenu(item)"
           >
-            <el-icon class="!text-22px">
-              <component :is="item.meta.icon" />
-            </el-icon>
+            <!-- <i :class="`i-${item.meta.icon}`" text-white /> -->
+            <i :class="item.meta.icon" text-xl text-white />
             <!-- 菜单文本溢出处理 -->
             <el-tooltip v-if="isTitleOverflow(item.meta.title)" :content="item.meta.title" placement="right">
               <span class="title mt-2 w-full truncate text-xs">{{ item.meta.title }}</span>

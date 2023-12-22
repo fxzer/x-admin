@@ -4,7 +4,7 @@ export default {
   component: '/home/index',
   meta: {
     order: 1,
-    icon: 'IEpHomeFilled',
+    icon: 'i-charm:apps-plus',
     title: '总览',
     isAffix: true,
     isKeepAlive: true,

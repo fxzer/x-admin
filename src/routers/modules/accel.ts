@@ -4,7 +4,7 @@ export default {
   component: '/accel/index',
   meta: {
     order: 4,
-    icon: 'IEpList',
+    icon: 'i-icon-park-outline:acceleration',
     title: '智能加速',
   },
 }
