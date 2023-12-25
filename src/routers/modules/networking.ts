@@ -84,6 +84,15 @@ const sdwan = {
       },
     },
     {
+      path: '/networking/sdwan/network/:uuid',
+      name: 'sdwan-network-detail',
+      component: '/networking/sdwan/network/detail',
+      meta: {
+        isHide: true,
+        title: '网络详情',
+      },
+    },
+    {
       path: '/networking/sdwan/aduit',
       name: 'sdwan-aduit',
       meta: {

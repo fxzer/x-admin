@@ -20,7 +20,8 @@ const locale = computed(() => {
   return language.value === 'zh' ? zh : en
 })
 
-// element button config
+provide('cellStyle', { textAlign: 'center', padding: '8px 0', color: '#505050' })
+provide('headerCellStyle', { textAlign: 'center', backgroundColor: '#F5F7FA', padding: '8px 0' })
 const buttonConfig = reactive({ autoInsertSpace: false })
 </script>
 
