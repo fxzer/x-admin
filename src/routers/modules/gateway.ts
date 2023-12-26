@@ -8,4 +8,15 @@ export default {
     title: '智能网关',
     isKeepAlive: true,
   },
+  children: [
+    {
+      path: '/gateway/:esn',
+      name: 'gateway-detail',
+      component: '/gateway/detail',
+      meta: {
+        isHide: true,
+        title: '云网络详情',
+      },
+    },
+  ],
 }

@@ -22,7 +22,7 @@ export function setupPrintBuildInfo(): Plugin {
     buildStart() {
       const { name, version, repository: { url } } = pkg
       // eslint-disable-next-line no-console
-      console.log(pc.bold(pc.green(`👏欢迎使用${pc.blue(`[${name}]:${version}`)}，如果您感觉不错，记得点击后面链接给个star哦💖${url} `)))
+      console.log(pc.bold(pc.green(`👏欢迎使用${pc.blue(`[${name}]:${version}`)}${url} `)))
       if (config.command === 'build')
         startTime = dayjs(new Date())
     },

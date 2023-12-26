@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import Size from './components/Size.vue'
-import Language from './components/Language.vue'
+
+// import Language from './components/Language.vue'
 import GlobalSearch from './components/GlobalSearch/index.vue'
-import Message from './components/Message.vue'
+
+// import Message from './components/Message.vue'
 import Fullscreen from './components/Fullscreen.vue'
 import Avatar from './components/Avatar.vue'
 import DarkToggle from './components/DarkToggle.vue'
@@ -14,9 +16,9 @@ import DarkToggle from './components/DarkToggle.vue'
       <DarkToggle />
       <GlobalSearch />
       <Size />
-      <Language />
+      <!-- <Language /> -->
       <Fullscreen />
-      <Message />
+      <!-- <Message /> -->
       <Avatar />
     </div>
   </div>

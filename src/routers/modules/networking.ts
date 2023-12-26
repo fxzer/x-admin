@@ -18,6 +18,15 @@ const cloudPlus = {
       },
     },
     {
+      path: '/networking/cloudplus/cloud/:uuid',
+      name: 'cloud-network-detail',
+      component: '/networking/cloudplus/cloud/detail',
+      meta: {
+        isHide: true,
+        title: '云网络详情',
+      },
+    },
+    {
       path: '/networking/cloudplus/operation',
       component: '/networking/cloudplus/operation/index',
       name: 'cloudplus-operation',
