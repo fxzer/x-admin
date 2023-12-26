@@ -45,9 +45,9 @@ const cloudPlus = {
       },
     },
     {
-      path: '/networking/cloudplus',
-      name: 'menu24',
-      component: '/networking/cloudplus',
+      path: '/networking/cloudplus/fault',
+      name: 'cloudplus-fault',
+      component: '/networking/cloudplus/fault/index',
       meta: {
         icon: 'IEpMenu',
         title: '故障演练',
@@ -62,15 +62,7 @@ const cloudPlus = {
         title: '速度测试',
       },
     },
-    {
-      path: '/networking/cloudplus/tools',
-      name: 'cloudplus-tools',
-      component: '/networking/cloudplus/tools/index',
-      meta: {
-        icon: 'IEpMenu',
-        title: '运维工具',
-      },
-    },
+
   ],
 }
 
@@ -99,6 +91,24 @@ const sdwan = {
       meta: {
         isHide: true,
         title: '网络详情',
+      },
+    },
+    {
+      path: '/networking/sdwan/network/site/:uuid',
+      name: 'sdwan-network-site',
+      component: '/networking/sdwan/network/site',
+      meta: {
+        isHide: true,
+        title: '管理站点',
+      },
+    },
+    {
+      path: '/networking/sdwan/network/sites/:uuid',
+      name: 'sdwan-network-sites',
+      component: '/networking/sdwan/network/sites',
+      meta: {
+        isHide: true,
+        title: '管理站点',
       },
     },
     {
@@ -139,9 +149,9 @@ const sdwan = {
       },
       children: [
         {
-          path: '/networking/sdwan/template/business',
-          name: 'template-business',
-          component: '/networking/sdwan/template/business/index',
+          path: '/networking/sdwan/template/category',
+          name: 'template-category',
+          component: '/networking/sdwan/template/category/index',
           meta: {
             icon: 'IEpMenu',
             title: '业务分类',
@@ -194,6 +204,15 @@ const sdwan = {
           },
         },
       ],
+    },
+    {
+      path: '/networking/sdwan/tools',
+      name: 'sdwan-tools',
+      component: '/networking/sdwan/tools/index',
+      meta: {
+        icon: 'IEpMenu',
+        title: '运维工具',
+      },
     },
   ],
 }

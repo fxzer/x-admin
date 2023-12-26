@@ -109,16 +109,6 @@ const { currentNet } = storeToRefs(networkStore)
           </el-card>
         </div>
       </el-tab-pane>
-      <el-tab-pane
-        label="站点管理"
-      >
-        站点管理
-      </el-tab-pane>
-      <el-tab-pane
-        label="CPE管理"
-      >
-        CPE管理
-      </el-tab-pane>
     </el-tabs>
   </div>
 </template>

@@ -17,23 +17,24 @@ const networks = networkStore.networks
       :header-cell-style="headerCellStyle"
     >
       <el-table-column type="index" width="50" />
-      <el-table-column
-        label="网络名称"
-      >
-        <template #default="{ row }">
-          <router-link :to="`/networking/sdwan/network/${row.uuid}`" text-blue>
-            {{ row.name }}
-          </router-link>
-        </template>
-      </el-table-column>
-      <el-table-column prop="accountName" label="账户">
-        <template #default="{ row }">
-          <div>账户名：{{ row.accountName }}</div>
-          <div>公司：{{ row.company }}</div>
-        </template>
-      </el-table-column>
+      <el-table-column label="网络名称" prop="name" />
       <el-table-column label="站点数量" prop="siteCount" />
       <el-table-column label="类型" prop="type" />
+      <el-table-column label="操作">
+        <el-dropdown split-button size="small" type="primary" @click="$router.push('/networking/sdwan/network/site/i')">
+          管理站点
+          <template #dropdown>
+            <el-dropdown-menu>
+              <el-dropdown-item @click="$router.push('/gateway')">
+                智能网关
+              </el-dropdown-item>
+              <el-dropdown-item>启用/禁用</el-dropdown-item>
+              <el-dropdown-item>查看拓扑</el-dropdown-item>
+              <el-dropdown-item />
+            </el-dropdown-menu>
+          </template>
+        </el-dropdown>
+      </el-table-column>
     </el-table>
   </div>
 </template>

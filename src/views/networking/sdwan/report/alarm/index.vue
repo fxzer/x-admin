@@ -4,7 +4,7 @@
 
 <template>
   <div>
-    alarm work!
+    <img src="/sdwan/alarm.png" alt="">
   </div>
 </template>
 

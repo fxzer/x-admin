@@ -66,14 +66,5 @@ export default {
         title: '速度测试',
       },
     },
-    {
-      path: '/tocloud/tools',
-      name: 'tocloud-tools',
-      component: '/tocloud/tools/index',
-      meta: {
-        icon: 'IEpMenu',
-        title: ' 运维工具',
-      },
-    },
   ],
 }

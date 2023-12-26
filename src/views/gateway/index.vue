@@ -119,7 +119,7 @@ const headerCellStyle: any = inject('headerCellStyle')
 
       <el-table-column label="操作" width="80" fixed="right">
         <template #default="{ row }">
-          <el-dropdown size="medium" :disabled="!row.siteUuid">
+          <el-dropdown size="medium">
             <span class="el-dropdown-link text-blue">
               <span class="el-dropdown-link flex-center text-blue">更多<i-ep-arrow-down /></span>
             </span>

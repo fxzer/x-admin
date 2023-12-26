@@ -4,7 +4,7 @@
 
 <template>
   <div>
-    流量审计 work!
+    <img src="/cpe/flow-aduit.png" alt="">
   </div>
 </template>
 

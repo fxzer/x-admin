@@ -4,7 +4,7 @@
 
 <template>
   <div>
-    offline work!
+    <img src="/sdwan/offline.png" alt="">
   </div>
 </template>
 

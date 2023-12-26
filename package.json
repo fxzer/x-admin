@@ -1,5 +1,5 @@
 {
-  "name": "x-admin",
+  "name": "x-wan",
   "type": "module",
   "version": "0.0.1",
   "private": true,
@@ -32,11 +32,9 @@
     "type:check": "vue-tsc --noEmit --skipLibCheck",
     "preview": "npm run build:dev && vite preview",
     "preinstall": "npx only-allow pnpm",
-    "prepare": "simple-git-hooks",
     "release": "standard-version",
     "lint": "eslint .",
     "lintf": "eslint . --fix",
-    "lint-staged": "lint-staged",
     "commitlint": "commitlint --config commitlint.config.cjs -e -V",
     "commit": "git add -A && czg && git push",
     "clean:cache": "rimraf node_modules && rimraf .eslintcache && rm -rf dist && pnpm install"
@@ -96,7 +94,6 @@
     "rimraf": "^5.0.5",
     "rollup-plugin-visualizer": "^5.11.0",
     "sass": "^1.69.5",
-    "simple-git-hooks": "^2.9.0",
     "standard-version": "^9.5.0",
     "typescript": "^5.3.3",
     "unocss": "^0.58.0",
@@ -131,11 +128,5 @@
     "commitizen": {
       "path": "node_modules/cz-git"
     }
-  },
-  "simple-git-hooks": {
-    "pre-commit": "pnpm lint-staged"
-  },
-  "lint-staged": {
-    "*": "eslint --fix"
   }
 }

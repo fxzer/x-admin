@@ -4,7 +4,7 @@
       <a
         href="https://www.github.com/fxzer/x-admin" target="_blank"
         class="text-sm text-[val(--el-text-color-secondary)] hover:!text-primary-light-2"
-      > 2023 © x-admin By fxzer Technology. </a>
+      > 2023 © x-wan By fxzer Technology. </a>
     </div>
   </el-footer>
 </template>

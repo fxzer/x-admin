@@ -17,8 +17,8 @@ const data = [{
       :cell-style="cellStyle"
       :header-cell-style="headerCellStyle"
     >
-      <el-table-column label="序号" prop="uuid" width="55" />
-      <el-table-column label="VID" prop="vid" width="55" />
+      <el-table-column label="序号" prop="uuid" width="65" />
+      <el-table-column label="VID" prop="vid" width="65" />
       <el-table-column label="云网络名称" prop="name">
         <template #default="{ row }">
           <router-link :to="`/networking/cloudplus/cloud/${row.uuid}`" text-blue>

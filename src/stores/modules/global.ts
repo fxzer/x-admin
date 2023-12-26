@@ -21,7 +21,7 @@ export const useGlobalStore = defineStore('store-global', () => {
   const isAccordion = ref(false)
   const showBreadcurmb = ref(true)
   const showBreadcrumbIcon = ref(true)
-  const showTab = ref(true)
+  const showTab = ref(false)
   const showTabIcon = ref(true)
   const showFooter = ref(true)
   const asideInverted = ref(false)
@@ -88,7 +88,7 @@ export const useGlobalStore = defineStore('store-global', () => {
     if (f)
       isDark.value = isPreDark.value
   }, { immediate: true })
-  const settingsVisible = ref(true)
+  const settingsVisible = ref(false)
   function getCurrentSize(): SizeConfig {
     return sizeList.value.find((item => item.key === size.value))!
   }
