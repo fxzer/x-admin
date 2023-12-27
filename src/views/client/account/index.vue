@@ -4,7 +4,7 @@
 
 <template>
   <div>
-    账号 work!
+    <img src="/client-accout.png" alt="">
   </div>
 </template>
 

@@ -13,7 +13,7 @@ const data = [{
 </script>
 
 <template>
-  <div bg-white p5>
+  <div bg-white p2>
     <el-table
       :data="data" stripe border
       :cell-style="cellStyle"

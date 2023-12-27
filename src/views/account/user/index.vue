@@ -4,7 +4,7 @@
 
 <template>
   <div>
-    子用户管理work!
+    <img src="/user.png" alt="">
   </div>
 </template>
 

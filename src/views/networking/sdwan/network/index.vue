@@ -10,7 +10,7 @@ const networks = networkStore.networks
 </script>
 
 <template>
-  <div bg-white p5>
+  <div bg-white p2>
     <el-table
       :data="networks" stripe border
       :cell-style="cellStyle"

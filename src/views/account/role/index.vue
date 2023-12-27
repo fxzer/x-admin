@@ -4,7 +4,7 @@
 
 <template>
   <div>
-    角色管理work!
+    <img src="/role.png" alt="">
   </div>
 </template>
 

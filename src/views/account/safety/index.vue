@@ -4,7 +4,7 @@
 
 <template>
   <div>
-    安全设置work!
+    <img src="/safe.png" alt="">
   </div>
 </template>
 

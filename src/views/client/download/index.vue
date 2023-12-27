@@ -4,7 +4,7 @@
 
 <template>
   <div>
-    下载work!
+    <img src="/dl.png" alt="">
   </div>
 </template>
 

@@ -10,7 +10,7 @@ const { currentNet } = storeToRefs(networkStore)
 </script>
 
 <template>
-  <div bg-white p5>
+  <div bg-white p2>
     <el-tabs type="border-card" tab-position="top">
       <el-tab-pane
         label="网络详情"

@@ -4,7 +4,7 @@
 
 <template>
   <div>
-    账户信息 work!
+    <img src="/info.png" alt="">
   </div>
 </template>
 
