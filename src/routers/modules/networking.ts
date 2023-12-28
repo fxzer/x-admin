@@ -223,7 +223,7 @@ export default {
   redirect: '/networking/cloudplus',
   meta: {
     order: 2,
-    icon: 'i-charm:globe',
+    icon: 'i-gis:earth-network-o',
     title: '智能组网',
   },
   children: [

@@ -10,10 +10,10 @@ import presetRemToPx from '@unocss/preset-rem-to-px'
 
 const safeIcons = [
   'i-charm:apps-plus',
-  'i-charm:globe',
+  'i-gis:earth-network-o',
   'i-charm:cloud',
   'i-mdi:cloud-upload-outline',
-  'i-ph:export-bold',
+  'i-iconoir:internet',
   'i-carbon:gateway-api',
   'i-icon-park-outline:acceleration',
   'i-icon-park-outline:add-computer',
@@ -35,6 +35,7 @@ const safeIcons = [
   'i-ph:info-bold',
   'i-carbon:user-role',
   'i-material-symbols:health-and-safety-outline',
+  'i-bi:router-fill',
 ]
 export default defineConfig({
   content: {

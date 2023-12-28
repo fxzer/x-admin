@@ -4,7 +4,7 @@ export default {
   component: '/export/index',
   meta: {
     order: 5,
-    icon: 'i-ph:export-bold',
+    icon: 'i-iconoir:internet',
     title: '互联网出口',
     isHide: false,
     isFull: false,
