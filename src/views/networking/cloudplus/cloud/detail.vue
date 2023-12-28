@@ -9,25 +9,43 @@ const data = reactive([
     bandwidth: '100M',
     cidr: '10.254.251.2',
     status: '已连接',
-    createTime: '2023-09-01',
+    createTime: '2023-12-01',
   },
   {
     uuid: 2,
     name: '北京百度云',
     type: '云端口',
     bandwidth: '500M',
-    cidr: '10.254.251.3',
+    cidr: '10.254.257.3',
     status: '已连接',
-    createTime: '2023-09-11',
+    createTime: '2023-12-11',
   },
   {
     uuid: 3,
     name: '香港百度云',
     type: '云端口',
     bandwidth: '150M',
-    cidr: '10.254.251.5',
-    status: '未连接',
-    createTime: '2023-09-21',
+    cidr: '10.254.256.5',
+    status: '已连接',
+    createTime: '2023-12-23',
+  },
+  {
+    uuid: 4,
+    name: '皓宽机房',
+    type: '数据中心',
+    bandwidth: '100M',
+    cidr: '10.254.252.6',
+    status: '已连接',
+    createTime: '2023-12-21',
+  },
+  {
+    uuid: 5,
+    name: '北京总部',
+    type: '企业分支',
+    bandwidth: '250M',
+    cidr: '10.254.253.7',
+    status: '已连接',
+    createTime: '2023-12-28',
   },
 
 ])
@@ -51,7 +69,7 @@ const data = reactive([
       />
       <el-table-column
         prop="type"
-        label="类型"
+        label="连接类型"
       />
       <el-table-column
         prop="bandwidth"
