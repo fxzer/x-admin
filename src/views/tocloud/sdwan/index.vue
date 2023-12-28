@@ -8,7 +8,7 @@ const data = [{
   status: '正常',
   state: '已开通',
   bandwidth: '10M',
-  createTime: '2023-08-01',
+  createTime: '2023-12-01',
 }]
 </script>
 

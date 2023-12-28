@@ -10,7 +10,7 @@ const data = [{
   downTotal: '560M',
   upAvg: '3.18K',
   upTotal: '800M',
-  createTime: '2023-08-01',
+  createTime: '2023-12-01',
   avgbd: '5.1%',
 }, {
   uuid: '2',
@@ -21,7 +21,7 @@ const data = [{
   downTotal: '1.2G',
   upAvg: '1.68K',
   upTotal: '800M',
-  createTime: '2023-08-11',
+  createTime: '2023-12-11',
   avgbd: '3.6%',
 }, {
   uuid: '3',
@@ -32,7 +32,7 @@ const data = [{
   downTotal: '1.12G',
   upAvg: '1.61K',
   upTotal: '800M',
-  createTime: '2023-08-11',
+  createTime: '2023-12-11',
   avgbd: '6.9%',
 }]
 </script>

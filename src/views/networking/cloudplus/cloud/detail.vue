@@ -5,7 +5,7 @@ const data = reactive([
   {
     uuid: 1,
     name: '上海办公室',
-    type: '智能网关',
+    type: 'SD-Wan',
     bandwidth: '100M',
     cidr: '10.254.251.2',
     status: '已连接',
@@ -32,7 +32,7 @@ const data = reactive([
   {
     uuid: 4,
     name: '皓宽机房',
-    type: '数据中心',
+    type: '楼内纤',
     bandwidth: '100M',
     cidr: '10.254.252.6',
     status: '已连接',
@@ -41,7 +41,7 @@ const data = reactive([
   {
     uuid: 5,
     name: '北京总部',
-    type: '企业分支',
+    type: '专线',
     bandwidth: '250M',
     cidr: '10.254.253.7',
     status: '已连接',

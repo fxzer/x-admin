@@ -9,19 +9,19 @@ const transformselect = ref('拒绝')
 </script>
 
 <template>
-  <el-tabs v-model="activeTab" type="border-card" tab-position="top">
+  <el-tabs v-model="activeTab" type="border-card" tab-position="top" h-100>
     <el-tab-pane
       label="出口 1"
       name="1"
     >
-      <div class="w-1/2 bg-green-100/70 text-gray-600" px-3 py-2 text-sm space-x-7>
+      <div class="bg-green-100/70 text-gray-600" mx-4 my-2 px-3 py-2 text-sm space-x-7>
         <span>站点：上海办公室 </span>
         <span>智能网关：0c1197df0000</span>
         <span>公网地址池：11.44.15.57/29</span>
         <span>带宽：200M</span>
       </div>
 
-      <div flex bg-white p2>
+      <div flex bg-white p4>
         <div class="left" flex-1 gap-2>
           <div>
             <h2 mb-3 text-center text-gray-700 font-bold>
@@ -262,5 +262,8 @@ const transformselect = ref('拒绝')
   :deep(.el-descriptions__cell) {
     padding-bottom: 0px !important;
   }
+}
+.el-tabs--border-card :deep(.el-tabs__content) {
+  padding: 0px !important;
 }
 </style>

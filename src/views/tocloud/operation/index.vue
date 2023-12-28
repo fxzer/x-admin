@@ -10,7 +10,7 @@ const data = [{
   downTotal: '560M',
   upAvg: '3.18K',
   upTotal: '800M',
-  createTime: '2023-08-01',
+  createTime: '2023-12-01',
   avgbd: '5.1%',
 }]
 </script>
