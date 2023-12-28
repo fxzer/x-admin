@@ -119,13 +119,13 @@ const data = reactive([
         label="操作"
       >
         <template #default="{ row }">
-          <el-button v-if="row.uuid === 1" type="primary" size="small" @click="$router.push(`/gateway/${row.uuid}`)">
-            前往智能网关
-          </el-button>
-          <el-dropdown v-else trigger="hover">
+          <el-dropdown trigger="hover">
             <span class="el-dropdown-link flex-center text-blue">更多<i-ep-arrow-down /></span>
             <template #dropdown>
               <el-dropdown-menu>
+                <el-dropdown-item @click="$router.push(`/gateway/${row.uuid}`)">
+                  前往CPE
+                </el-dropdown-item>
                 <el-dropdown-item>互联设置</el-dropdown-item>
                 <el-dropdown-item>路由设置</el-dropdown-item>
                 <el-dropdown-item>BGP策略</el-dropdown-item>

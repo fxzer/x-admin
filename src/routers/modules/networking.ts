@@ -112,33 +112,13 @@ const sdwan = {
       },
     },
     {
-      path: '/networking/sdwan/aduit',
-      name: 'sdwan-aduit',
+      path: '/networking/sdwan/flow-analysis',
+      name: 'sdwan-flow-analysis',
+      component: '/networking/sdwan/analysis/index',
       meta: {
         icon: 'IEpMenu',
-        title: '审计',
+        title: '流量分析',
       },
-      children: [
-        {
-          path: '/networking/sdwan/aduit/http',
-          name: 'aduit-http',
-          component: '/networking/sdwan/aduit/http/index',
-          meta: {
-            icon: 'IEpMenu',
-            title: 'HTTP 审计',
-          },
-        },
-        {
-          path: '/networking/sdwan/aduit/flow',
-          component: '/networking/sdwan/aduit/flow/index',
-          name: 'aduit-flow',
-          meta: {
-            icon: 'IEpMenu',
-            title: '流量审计',
-          },
-
-        },
-      ],
     },
     {
       path: '/networking/sdwan/template',

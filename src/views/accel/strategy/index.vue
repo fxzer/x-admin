@@ -14,7 +14,7 @@ const activeNames = ref('1')
               <span><b text-gray-700 font-semibold>加速模式：</b>白名单</span>
               <span><b text-gray-700 font-semibold>访问模式：</b> 无证书</span>
             </div>
-            <span flex-center>
+            <span ml-20 flex-center>
               监控： <i-material-symbols:add-chart-outline-sharp text="green-500" />
             </span>
           </div>

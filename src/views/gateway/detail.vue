@@ -58,13 +58,19 @@ const activeTabName = ref('baseInfo')
       <el-tab-pane label="自定义监控" name="customMonitor">
         <img src="/cpe/custom-monitor.png">
       </el-tab-pane>
-      <el-tab-pane
+      <el-tab-pane label="流量分析" name="analysis">
+        流量分析
+      </el-tab-pane>
+      <el-tab-pane label="防火墙" name="firewall">
+        防火墙
+      </el-tab-pane>
+      <!-- <el-tab-pane
 
         label="端到端监控"
         name="businessMonitor"
       >
         <img src="/cpe/duan-duan.png">
-      </el-tab-pane>
+      </el-tab-pane> -->
     </el-tabs>
   </div>
 </template>
