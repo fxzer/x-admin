@@ -18,6 +18,15 @@ const cloudPlus = {
       },
     },
     {
+      path: '/networking/cloudplus/analysis',
+      name: 'cloudplus-analysis',
+      component: '/networking/cloudplus/analysis/index',
+      meta: {
+        icon: '',
+        title: '流量分析',
+      },
+    },
+    {
       path: '/networking/cloudplus/cloud/:uuid',
       name: 'cloud-network-detail',
       component: '/networking/cloudplus/cloud/detail',
