@@ -189,12 +189,12 @@ const headerCellStyle: any = inject('headerCellStyle')
           <template #default>
             <p class="cpe-state-line">
               <span
-                class="table-span-label cpe-link-type"
-              >公网链路</span>
+                class="table-span-label cpe-link-type enable-color"
+              >主</span>
               <span
-                class="table-span-label cpe-link-type"
+                class="table-span-label cpe-link-type enable-color"
               >
-                承载链路
+                公网
               </span>
               <span class="table-span-label cpe-link-rtt">2ms</span>
               <span class="table-span-label cpe-link-loss">2%</span>
@@ -202,12 +202,12 @@ const headerCellStyle: any = inject('headerCellStyle')
 
             <p class="cpe-state-line">
               <span
-                class="table-span-label cpe-link-type"
-              >承载链路</span>
+                class="table-span-label cpe-link-type enable-color"
+              >主</span>
               <span
-                class="table-span-label cpe-link-type"
+                class="table-span-label cpe-link-type enable-color"
               >
-                公网链路
+                公网
               </span>
               <span class="table-span-label cpe-link-rtt">4ms</span>
               <span class="table-span-label cpe-link-loss">3%</span>
@@ -237,7 +237,7 @@ const headerCellStyle: any = inject('headerCellStyle')
               <span
                 class="table-span-label cpe-link-type enable-color"
               >
-                <template v-if="row.masterCpe">公网链路</template>
+                <template v-if="row.masterCpe">公网</template>
               </span>
               <span class="table-span-label cpe-link-rtt">
                 6ms
@@ -256,7 +256,7 @@ const headerCellStyle: any = inject('headerCellStyle')
               <span
                 class="table-span-label cpe-link-type enable-color"
               >
-                <template v-if="row.masterCpe">承载链路</template>
+                <template v-if="row.masterCpe"> 公网</template>
               </span>
               <span class="table-span-label cpe-link-rtt">
                 5ms
@@ -297,7 +297,7 @@ const headerCellStyle: any = inject('headerCellStyle')
 
           <template #default>
             <el-button type="primary" size="small" @click="$router.push('/networking/sdwan/network/sites/1')">
-              智能网关
+              前往CPE
             </el-button>
           </template>
         </el-table-column>
@@ -371,7 +371,7 @@ const headerCellStyle: any = inject('headerCellStyle')
 }
 // 站点信息
 .cpe-link-type {
-  width: 58px;
+  padding: 0 2px;
 }
 .cpe-link-rtt,
 .cpe-link-loss {

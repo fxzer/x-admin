@@ -80,11 +80,11 @@ const accessOption = ref<ECOption>({
       type: 'pie',
       radius: '50%',
       data: [
-        { value: 1048, name: '张三' },
-        { value: 735, name: '李四' },
-        { value: 580, name: '王五' },
-        { value: 484, name: '赵六' },
-        { value: 300, name: '孙七' },
+        { value: 1048, name: '192.168.211.176' },
+        { value: 735, name: '192.168.211.196' },
+        { value: 580, name: '192.168.211.151' },
+        { value: 484, name: '192.168.211.172' },
+        { value: 300, name: '192.168.211.184' },
       ],
       emphasis: {
         itemStyle: {

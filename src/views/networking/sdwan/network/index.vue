@@ -26,7 +26,7 @@ const networks = networkStore.networks
           <template #dropdown>
             <el-dropdown-menu>
               <el-dropdown-item @click="$router.push('/gateway')">
-                智能网关
+                前往CPE
               </el-dropdown-item>
               <el-dropdown-item>启用/禁用</el-dropdown-item>
               <el-dropdown-item>查看拓扑</el-dropdown-item>

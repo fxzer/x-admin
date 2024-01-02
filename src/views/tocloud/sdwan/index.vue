@@ -46,7 +46,7 @@ const data = [{
             <template #dropdown>
               <el-dropdown-menu>
                 <el-dropdown-item @click="$router.push(`/gateway/1`)">
-                  前往智能网关
+                  前往CPE
                 </el-dropdown-item>
                 <el-dropdown-item>
                   终止

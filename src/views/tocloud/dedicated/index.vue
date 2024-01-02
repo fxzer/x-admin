@@ -4,7 +4,7 @@ const headerCellStyle: any = inject('headerCellStyle')
 const data = [{
   uuid: '1',
   n: '百度云 10M 专线',
-  name: ' 北京百度云-香港百度云',
+  name: '皓宽机房-北京百度云',
   status: '正常',
   state: '已开通',
   bandwidth: '10M',
