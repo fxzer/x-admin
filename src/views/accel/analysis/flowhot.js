@@ -168,7 +168,7 @@ export default {
     left: 20,
     right: 20,
     top: 40,
-    bottom: 50,
+    bottom: 10,
   },
   series: [{ name: '', yAxisIndex: 0, type: 'line', showSymbol: false, smooth: false, areaStyle: { opacity: 0.1 }, data }],
 }
