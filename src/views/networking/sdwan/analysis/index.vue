@@ -4,7 +4,7 @@
 
 <template>
   <div>
-    <img src="/cpe/flow-aduit.png" alt="">
+    <img src="/analysis.png" alt="">
   </div>
 </template>
 

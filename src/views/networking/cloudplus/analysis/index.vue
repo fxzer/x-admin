@@ -3,8 +3,8 @@
 </script>
 
 <template>
-  <div>
-    云网络流量分析 work!
+  <div h-200 flex-center bg-white>
+    云网络流量分析暂未开通！
   </div>
 </template>
 

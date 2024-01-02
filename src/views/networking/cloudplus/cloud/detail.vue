@@ -5,7 +5,7 @@ const data = reactive([
   {
     uuid: 1,
     name: '上海办公室',
-    type: 'SD-Wan',
+    type: 'SD-Wan(公网）',
     bandwidth: '100M',
     cidr: '10.254.251.2',
     status: '已连接',
@@ -14,7 +14,7 @@ const data = reactive([
   {
     uuid: 2,
     name: '北京百度云',
-    type: '云端口',
+    type: '云 NNI',
     bandwidth: '500M',
     cidr: '10.254.257.3',
     status: '已连接',
@@ -23,7 +23,7 @@ const data = reactive([
   {
     uuid: 3,
     name: '香港百度云',
-    type: '云端口',
+    type: '云 NNI',
     bandwidth: '150M',
     cidr: '10.254.256.5',
     status: '已连接',
@@ -32,7 +32,7 @@ const data = reactive([
   {
     uuid: 4,
     name: '皓宽机房',
-    type: '楼内纤',
+    type: '专线',
     bandwidth: '100M',
     cidr: '10.254.252.6',
     status: '已连接',
@@ -41,7 +41,7 @@ const data = reactive([
   {
     uuid: 5,
     name: '北京总部',
-    type: '专线',
+    type: 'SD-Wan（专线）',
     bandwidth: '250M',
     cidr: '10.254.253.7',
     status: '已连接',
@@ -123,7 +123,7 @@ const data = reactive([
             <span class="el-dropdown-link flex-center text-blue">更多<i-ep-arrow-down /></span>
             <template #dropdown>
               <el-dropdown-menu>
-                <el-dropdown-item @click="$router.push(`/gateway/${row.uuid}`)">
+                <el-dropdown-item v-if="row.uuid === 1 || row.uuid === 5" @click="$router.push(`/gateway/${row.uuid}`)">
                   前往CPE
                 </el-dropdown-item>
                 <el-dropdown-item>互联设置</el-dropdown-item>

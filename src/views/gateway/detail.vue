@@ -1,5 +1,10 @@
-<script setup>
+<script lang="ts" setup>
 const activeTabName = ref('baseInfo')
+const cellStyle: any = inject('cellStyle')
+const headerCellStyle: any = inject('headerCellStyle')
+const inselect = ref('拒绝')
+const outselect = ref('接受')
+const transformselect = ref('拒绝')
 </script>
 
 <template>
@@ -59,10 +64,74 @@ const activeTabName = ref('baseInfo')
         <img src="/cpe/custom-monitor.png">
       </el-tab-pane>
       <el-tab-pane label="流量分析" name="analysis">
-        流量分析
+        <img src="/analysis.png" alt="">
       </el-tab-pane>
       <el-tab-pane label="防火墙" name="firewall">
-        防火墙
+        <div ml-2 flex-1 px-2>
+          <div>
+            <h3 text-14px text-gray-700 font-semibold italic>
+              常规设置
+            </h3>
+            <el-form size="small" m-3 label-position="right" label-width="80px">
+              <el-form-item label="入站数据">
+                <el-select v-model="inselect">
+                  <el-option label="接受" value="接受" />
+                  <el-option label="拒绝" value="拒绝" />
+                </el-select>
+              </el-form-item>
+              <el-form-item label="出站数据">
+                <el-select v-model="outselect">
+                  <el-option label="接受" value="接受" />
+                  <el-option label="拒绝" value="拒绝" />
+                </el-select>
+              </el-form-item>
+              <el-form-item label="转发">
+                <el-select v-model="transformselect">
+                  <el-option label="接受" value="接受" />
+                  <el-option label="拒绝" value="拒绝" />
+                </el-select>
+              </el-form-item>
+            </el-form>
+          </div>
+          <div>
+            <h3 mt-3 text-14px text-gray-700 font-semibold italic>
+              端口转发
+            </h3>
+            <p mb-4 text-sm text-gray-400>
+              端口转发允许互联网上的远程计算机连接到内部网络中的特定计算机或服务。
+            </p>
+            <el-table
+              size="small"
+              :data="[]" stripe border
+              :cell-style="cellStyle"
+              :header-cell-style="headerCellStyle"
+            >
+              <el-table-column label="名称" />
+              <el-table-column label="匹配规则" />
+              <el-table-column label="操作" />
+              <el-table-column label="启用" />
+            </el-table>
+          </div>
+          <div>
+            <h3 mt-4 text-14px text-gray-700 font-semibold italic>
+              NAT规则
+            </h3>
+            <p mb-3 text-sm text-gray-400>
+              NAT 规则允许对源IP进行精细控制，以用于出站或转发流量。
+            </p>
+            <el-table
+              size="small"
+              :data="[]" stripe border
+              :cell-style="cellStyle"
+              :header-cell-style="headerCellStyle"
+            >
+              <el-table-column label="名称" />
+              <el-table-column label="匹配规则" />
+              <el-table-column label="操作" />
+              <el-table-column label="启用" />
+            </el-table>
+          </div>
+        </div>
       </el-tab-pane>
       <!-- <el-tab-pane
 
