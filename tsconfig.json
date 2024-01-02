@@ -28,6 +28,6 @@
     "build/**/*.ts",
     "build/**/*.d.ts",
     "vite.config.ts",
-    "safeIcons.ts", "types/vite-env.d.ts"],
+    "safeIcons.ts", "types/vite-env.d.ts", "src/views/accel/analysis/flowhot.js"],
   "exclude": ["node_modules", "dist", "**/*.js", "./mock"]
 }
