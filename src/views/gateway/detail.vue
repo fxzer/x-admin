@@ -51,6 +51,7 @@ const transformselect = ref('拒绝')
           </div>
         </div>
         <img src="/cpe/cpe-detail.png">
+        <img src="/cpe/lan.png">
       </el-tab-pane>
 
       <el-tab-pane label="网络信息" name="portConfig">
