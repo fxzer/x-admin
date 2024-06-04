@@ -1,10 +1,10 @@
 import type { Plugin } from 'vite'
 import type { Dayjs } from 'dayjs'
 import dayjs from 'dayjs'
-import utils from '@pureadmin/utils'
 import duration from 'dayjs/plugin/duration'
-import { blue, bold, green } from 'picocolors'
+import pc from 'picocolors'
 import pkg from '../../package.json'
+import { getPackageSize } from './utils'
 
 dayjs.extend(duration)
 
@@ -20,9 +20,9 @@ export function setupPrintBuildInfo(): Plugin {
       outDir = resolvedConfig.build?.outDir ?? 'dist'
     },
     buildStart() {
-      const { name, version, repository: { url } } = pkg
+      const { name, version } = pkg
       // eslint-disable-next-line no-console
-      console.log(bold(green(`👏欢迎使用${blue(`[${name}]:${version}`)}，如果您感觉不错，记得点击后面链接给个star哦💖${url} `)))
+      console.log(pc.bold(pc.green(`👏欢迎使用${pc.blue(`[${name}]:${version}`)} `)))
       if (config.command === 'build')
         startTime = dayjs(new Date())
     },
@@ -31,13 +31,10 @@ export function setupPrintBuildInfo(): Plugin {
         return
       endTime = dayjs(new Date())
       const timeString = dayjs.duration(endTime.diff(startTime)).format('mm分ss秒')
-      utils.getPackageSize({
-        folder: outDir,
-        callback: (size: string) => {
-          // eslint-disable-next-line no-console
-          console.log(bold(green(`🎉恭喜打包完成（总用时${timeString}，总体积${size}）`)),
-          )
-        },
+      getPackageSize(outDir, (size: string) => {
+        // eslint-disable-next-line no-console
+        console.log(pc.bold(pc.green(`🎉恭喜打包完成（总用时${timeString}，总体积${size}）`)),
+        )
       })
     },
   }

@@ -36,7 +36,7 @@ export function deleteUser(params: { id: string[] }) {
 }
 
 // 切换用户状态
-export function changeUserStatus(params: { id: string; status: number }) {
+export function changeUserStatus(params: { id: string, status: number }) {
   return http.post(`${PORT1}/user/change`, params)
 }
 

@@ -17,7 +17,7 @@ document.addEventListener('keydown', (event) => {
 </template>
 
 <style scoped lang='scss'>
-:deep(.search-dialog ){
+:deep(.search-dialog) {
   @media (min-width: 768px) {
     width: 640px;
   }

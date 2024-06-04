@@ -1,4 +1,5 @@
 import { resolve } from 'node:path'
+import { cwd } from 'node:process'
 import type { ConfigEnv, UserConfig } from 'vite'
 import { defineConfig, loadEnv } from 'vite'
 import dayjs from 'dayjs'
@@ -17,7 +18,7 @@ const __APP_INFO__ = {
 
 /** @see: https://vitejs.dev/config/ */
 export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
-  const root = process.cwd()
+  const root = cwd()
   const env = loadEnv(mode, root)
   const viteEnv = wrapperEnv(env)
 
@@ -38,7 +39,7 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
       //   scss: {
       //     additionalData: '@import "@/styles/var.scss";',
       //   },
-      // },
+
     },
     server: {
       host: '0.0.0.0',

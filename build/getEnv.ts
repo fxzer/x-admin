@@ -1,4 +1,5 @@
 import path from 'node:path'
+import { cwd } from 'node:process'
 
 export function isDevFn(mode: string): boolean {
   return mode === 'development'
@@ -34,5 +35,5 @@ export function wrapperEnv(envConf: Recordable): ViteEnv {
  * @param dir file path
  */
 export function getRootPath(...dir: string[]) {
-  return path.resolve(process.cwd(), ...dir)
+  return path.resolve(cwd(), ...dir)
 }

@@ -79,13 +79,13 @@ const clearable = computed(() => {
       <span>{{ data[fieldNames.label] }}</span>
     </template>
     <template v-if="column.search?.el === 'select'">
-      <component
+      <!-- <component
         is="el-option"
         v-for="(col, index) in columnEnum"
         :key="index"
         :label="col[fieldNames.label]"
         :value="col[fieldNames.value]"
-      />
+      /> -->
     </template>
     <slot v-else />
   </component>

@@ -30,14 +30,15 @@ const {
   showFooter,
   showBreadcurmb,
   showBreadcrumbIcon,
-  asideInverted,
+  darkAside,
   isMixinPrimary,
   animationName,
   isRandownAnimate,
   animationList,
   breadcrumbType,
   breadAnimateName,
-  isRainbow, menuClass,
+  isRainbow,
+  menuClass,
 } = storeToRefs(globalStore)
 
 // 预定义主题颜色
@@ -67,6 +68,10 @@ watch(isRainbow, () => {
 })
 onMounted(resume)
 onUnmounted(pause)
+const asideTheme = ref('light')
+watch(asideTheme, (val) => {
+  darkAside.value = val === 'dark'
+})
 </script>
 
 <template>
@@ -111,12 +116,16 @@ onUnmounted(pause)
     </div>
     <div class="setting-item">
       <span>
-        侧边栏反转色
-        <el-tooltip effect="dark" content="侧边栏颜色变为深色模式">
-          <el-icon><IEpQuestionFilled /></el-icon>
-        </el-tooltip>
+        侧边栏主题
       </span>
-      <el-switch v-model="asideInverted" />
+      <el-radio-group v-model="asideTheme">
+        <el-radio-button label="light">
+          浅色
+        </el-radio-button>
+        <el-radio-button label="dark">
+          深色
+        </el-radio-button>
+      </el-radio-group>
     </div>
     <Transition name="slide-bottom" appear mode="out-in">
       <div v-if="!isWeak" class="setting-item">

@@ -103,7 +103,7 @@ function handleContextMenu(e: MouseEvent, item: TabsMenuProps) {
     triggerRef.value?.click()
   }
   else {
-    if (menuVisible) {
+    if (menuVisible.value) {
       // triggerRef.value?.click()
       dropdownRef.value.handleClose()
       setTimeout(() => {
@@ -206,5 +206,5 @@ function closeTabsOnSide(path: string, direction: 'left' | 'right') {
 </template>
 
 <style scoped lang="scss">
-@import "./index.scss";
+@import './index.scss';
 </style>

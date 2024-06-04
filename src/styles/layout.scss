@@ -1,13 +1,11 @@
-
-
 //模拟边框，避免 box-sizing造成的宽度少 1px 问题，记得给父元素设置 position: relative
-@mixin imitate-border{
+@mixin imitate-border {
   content: '';
   position: absolute;
   background-color: var(--el-border-color-extra-light);
 }
 
-.border-right::after{
+.border-right::after {
   @include imitate-border;
   top: 0;
   bottom: 0;
@@ -15,7 +13,7 @@
   width: 1px;
 }
 
-.border-bottom::after{
+.border-bottom::after {
   @include imitate-border;
   left: 0;
   right: 0;

@@ -1,6 +1,6 @@
 // 辅助函数：将颜色值转换为 [r, g, b] 数组形式
 export function hexToRgb(color: string) {
-  const matchedValues = color.match(/[A-Za-z0-9]{2}/g)
+  const matchedValues = color.match(/[A-Z0-9]{2}/gi)
   return matchedValues!.map(value => Number.parseInt(value, 16))
 }
 

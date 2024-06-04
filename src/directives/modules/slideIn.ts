@@ -34,8 +34,7 @@ export default {
         transform: 'translateY(0)',
         opacity: 1,
       },
-    ],
-    {
+    ], {
       duration: DURATION,
       easing: 'ease-in-out',
     })

@@ -13,7 +13,7 @@ const router = useRouter()
 const authStore = useAuthStore()
 const { authMenuList } = toRefs(authStore)
 const globalStore = useGlobalStore()
-const { asideInverted } = toRefs(globalStore)
+const { darkAside } = toRefs(globalStore)
 const activeMenu = computed(() => (route.meta.activeMenu || route.path) as string)
 
 function handleClickMenu(subItem: Menu.MenuOptions) {
@@ -25,7 +25,7 @@ function handleClickMenu(subItem: Menu.MenuOptions) {
 
 <template>
   <el-container direction="vertical">
-    <HeaderWrap :class="{ inverted: asideInverted }">
+    <HeaderWrap :class="{ inverted: darkAside }">
       <Logo class="-ml-10px" />
       <el-menu mode="horizontal" :router="false" :default-active="activeMenu">
         <template v-for="subItem in authMenuList" :key="subItem.path">
@@ -55,16 +55,16 @@ function handleClickMenu(subItem: Menu.MenuOptions) {
 </template>
 
 <style scoped lang="scss">
-@import "./index.scss";
-  //反转样式
+@import './index.scss';
+//反转样式
 .el-header.inverted {
-  color:var(--el-menu-text-color);
+  color: var(--el-menu-text-color);
   background-color: var(--el-menu-bg-color);
-  :deep(.el-dropdown .el-tooltip__trigger){
-    color:var(--el-menu-text-color);
+  :deep(.el-dropdown .el-tooltip__trigger) {
+    color: var(--el-menu-text-color);
   }
   :deep(.el-breadcrumb .el-breadcrumb__inner) {
-    color:var(--el-menu-text-color);
+    color: var(--el-menu-text-color);
   }
 }
 </style>

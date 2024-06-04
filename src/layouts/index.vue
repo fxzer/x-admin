@@ -1,6 +1,6 @@
 <!-- 💥 一次性加载 LayoutComponents -->
 <script setup lang="ts" name="layout">
-import { type Component } from 'vue'
+import type { Component } from 'vue'
 import Settings from './components/Settings/index.vue'
 import SettingIcon from './components/SettingIcon/index.vue'
 import LayoutVertical from './LayoutVertical/index.vue'

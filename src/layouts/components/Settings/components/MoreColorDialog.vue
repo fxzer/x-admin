@@ -17,7 +17,7 @@ const width = computed(() => (isMobile.value ? '90%' : '690px'))
 
 <template>
   <el-dialog v-model="visible" :width="width" :modal="false" append-to-body>
-    <h3 class="mb-4 text-center text-2xl font-semibold text-primary -mt-5">
+    <h3 class="mb-4 text-center text-2xl text-primary font-semibold -mt-5">
       中国传统色
     </h3>
     <el-tabs v-model="activeCate" tab-position="top">

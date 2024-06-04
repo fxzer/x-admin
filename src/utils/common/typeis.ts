@@ -128,10 +128,3 @@ export function isNull(val: unknown): val is null {
 export function isNullOrUnDef(val: unknown): val is null | undefined {
   return isUnDef(val) || isNull(val)
 }
-
-/**
- * @description: 是否为 16 进制颜色
- */
-export function isHexColor(str: string) {
-  return /^#?([0-9A-Fa-f]{3}|[0-9A-Fa-f]{6})$/.test(str)
-}

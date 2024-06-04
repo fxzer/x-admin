@@ -1,4 +1,4 @@
-.el-menu{
+.el-menu {
   width: 100%;
   border: none;
   overflow: hidden;
@@ -16,7 +16,6 @@
     .el-sub-menu__title {
       padding: 0 !important;
       justify-content: center;
-
     }
   }
 }
@@ -30,42 +29,41 @@
     border-radius: 3px;
     width: 90%;
     height: 80%;
-    content: "";
+    content: '';
     background-color: $color !important;
   }
 }
 :deep(.menu-card.el-menu) {
   .el-menu-item {
-    &>* {
+    & > * {
       z-index: 1;
     }
     background-color: transparent !important;
-    &:hover{
+    &:hover {
       @include item-bg(var(--el-color-info-light-9));
-      color: var( --el-text-color-regular);
+      color: var(--el-text-color-regular);
     }
     &.is-active {
       background-color: transparent !important;
       @include item-bg(var(--el-menu-hover-bg-color));
     }
   }
-  .el-sub-menu{
+  .el-sub-menu {
     .el-sub-menu__title {
-      &>* {
-      z-index: 1;
-    }
+      & > * {
+        z-index: 1;
+      }
       &:hover {
-        color: var( --el-text-color-regular) !important;
+        color: var(--el-text-color-regular) !important;
         background-color: transparent !important;
         @include item-bg(var(--el-color-info-light-9));
       }
     }
     //激活的二级菜单标题
-    &.is-active{
+    &.is-active {
       .el-sub-menu__title {
-        color:var(--el-color-primary) !important;
+        color: var(--el-color-primary) !important;
       }
     }
   }
-
 }

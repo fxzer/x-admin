@@ -14,7 +14,7 @@ const route = useRoute()
 const router = useRouter()
 const authStore = useAuthStore()
 const globalStore = useGlobalStore()
-const { isAccordion, isCollapse, menuWidth, menuClass, asideInverted } = toRefs(globalStore)
+const { isAccordion, isCollapse, menuWidth, menuClass, darkAside } = toRefs(globalStore)
 const { authMenuList } = toRefs(authStore)
 const activeMenu = computed(() => (route.meta.activeMenu || route.path) as string)
 
@@ -52,7 +52,7 @@ function isTitleOverflow(title: string): boolean {
 
 <template>
   <el-container>
-    <div class="border-right first-menu" :class="{ inverted: asideInverted }">
+    <div class="border-right first-menu" :class="{ inverted: darkAside }">
       <Logo :show-title="false" />
       <el-scrollbar>
         <div class="first-menu-list flex-1" :class="menuClass">
@@ -102,7 +102,7 @@ function isTitleOverflow(title: string): boolean {
 </template>
 
 <style scoped lang="scss">
-@import "./index.scss";
+@import './index.scss';
 @import '../styles/el-menu.scss';
 @import '../styles/menu-card.scss';
 </style>

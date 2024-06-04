@@ -1,6 +1,7 @@
 import {
   defineConfig,
-  presetAttributify, presetIcons,
+  presetAttributify,
+  presetIcons,
   presetUno,
   transformerDirectives,
   transformerVariantGroup,

@@ -24,13 +24,12 @@ export interface ReqPage {
 }
 
 // 文件上传模块
-export namespace Upload {
-  export interface ResFileUrl {
-    fileUrl: string
-  }
+export interface ResFileUrl {
+  fileUrl: string
 }
 
 // 登录模块
+// eslint-disable-next-line ts/no-namespace
 export namespace Login {
   export interface ReqLoginForm {
     username: string
@@ -45,6 +44,7 @@ export namespace Login {
 }
 
 // 用户管理模块
+// eslint-disable-next-line ts/no-namespace
 export namespace User {
   export interface ReqUserParams extends ReqPage {
     username: string

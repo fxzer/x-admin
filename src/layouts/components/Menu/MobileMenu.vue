@@ -8,7 +8,7 @@ import Logo from '@/layouts/components/Header/components/Logo.vue'
 const route = useRoute()
 const globalStore = useGlobalStore()
 const authStore = useAuthStore()
-const { isCollapse, isAccordion, asideInverted, menuClass } = toRefs(globalStore)
+const { isCollapse, isAccordion, darkAside, menuClass } = toRefs(globalStore)
 const { authMenuList } = toRefs(authStore)
 const activeMenu = computed(() => (route.meta.activeMenu || route.path) as string)
 const visible = computed<boolean>({
@@ -23,7 +23,7 @@ const visible = computed<boolean>({
 
 <template>
   <div class="mobile-menu">
-    <el-drawer v-model="visible" :with-header="false" size="200px" direction="ltr" :class="{ inverted: asideInverted }">
+    <el-drawer v-model="visible" :with-header="false" size="200px" direction="ltr" :class="{ inverted: darkAside }">
       <div class="h-full flex-col">
         <Logo />
         <el-scrollbar class="flex-1">
@@ -35,7 +35,7 @@ const visible = computed<boolean>({
           </el-menu>
         </el-scrollbar>
         <div class="h-6 w-full flex-end-center">
-          <CollapseIcon :class="asideInverted ? 'text-info' : ''" />
+          <CollapseIcon :class="darkAside ? 'text-info' : ''" />
         </div>
       </div>
     </el-drawer>
@@ -43,19 +43,19 @@ const visible = computed<boolean>({
 </template>
 
 <style scoped lang='scss'>
-.el-menu{
-  border-right:none;
+.el-menu {
+  border-right: none;
 }
- .mobile-menu {
-  &:deep(.el-drawer .el-drawer__body){
-    padding:0 !important;
+.mobile-menu {
+  &:deep(.el-drawer .el-drawer__body) {
+    padding: 0 !important;
     //隐藏滚动条
-    &::-webkit-scrollbar{
+    &::-webkit-scrollbar {
       display: none;
     }
   }
-  :deep(.el-drawer.inverted){
+  :deep(.el-drawer.inverted) {
     background-color: #141414;
   }
- }
+}
 </style>

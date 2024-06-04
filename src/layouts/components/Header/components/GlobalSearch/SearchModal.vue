@@ -94,28 +94,28 @@ onKeyStroke(['ArrowDown'], () => {
 
 <style  scoped lang="scss">
 //重置 el-tag 样式
-.el-tag{
-  padding:2px 4px;
+.el-tag {
+  padding: 2px 4px;
   border: none;
   height: 24px;
   position: relative;
-  --el-icon-size:14px;
-   :deep(.el-tag__close){
+  --el-icon-size: 14px;
+  :deep(.el-tag__close) {
     width: 12px;
     height: 12px;
     display: none;
     position: absolute;
     right: -6px;
     top: -6px;
-    color:#fff;
+    color: #fff;
     background-color: var(--el-color-info-light-6);
     &:hover {
       background-color: var(--el-tag-hover-color);
     }
   }
 
-  &:hover{
-    :deep(.el-tag__close){
+  &:hover {
+    :deep(.el-tag__close) {
       display: block;
     }
   }

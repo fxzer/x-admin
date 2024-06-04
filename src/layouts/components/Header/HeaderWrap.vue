@@ -9,8 +9,8 @@
 </template>
 
 <style scoped lang='scss'>
-.el-header{
-  padding:0 10px;
+.el-header {
+  padding: 0 10px;
   position: relative;
   height: var(--el-menu-item-height);
   background: var(--el-bg-color);

@@ -9,7 +9,8 @@ export function setupAtuoImport(viteEnv: ViteEnv) {
     // 指定要进行自动导入的文件类型
     include: [
       /\.[tj]sx?$/, // .ts, .tsx, .js, .jsx
-      /\.vue$/, /\.vue\?vue/, // .vue
+      /\.vue$/,
+      /\.vue\?vue/, // .vue
       /\.md$/, // .md
     ],
     // 指定需自动导入的库

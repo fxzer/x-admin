@@ -96,7 +96,8 @@ export default {
         isAffix: false,
         isKeepAlive: true,
       },
-    }, {
+    },
+    {
       path: '/directives/slideinDirect',
       name: 'slideinDirect',
       component: '/directives/slideinDirect/index',

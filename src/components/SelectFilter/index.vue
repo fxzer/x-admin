@@ -110,5 +110,5 @@ function select(item: SelectDataProps, option: OptionsProps) {
 </template>
 
 <style scoped lang="scss">
-@import "./index.scss";
+@import './index.scss';
 </style>
