@@ -119,10 +119,10 @@ watch(asideTheme, (val) => {
         侧边栏主题
       </span>
       <el-radio-group v-model="asideTheme">
-        <el-radio-button label="light">
+        <el-radio-button value="light">
           浅色
         </el-radio-button>
-        <el-radio-button label="dark">
+        <el-radio-button value="dark">
           深色
         </el-radio-button>
       </el-radio-group>
@@ -147,10 +147,10 @@ watch(asideTheme, (val) => {
     <div class="setting-item">
       <span> 菜单风格</span>
       <el-radio-group v-model="menuClass">
-        <el-radio-button label="menu-default">
+        <el-radio-button value="menu-default">
           默认
         </el-radio-button>
-        <el-radio-button label="menu-card">
+        <el-radio-button value="menu-card">
           卡片
         </el-radio-button>
       </el-radio-group>
@@ -186,10 +186,10 @@ watch(asideTheme, (val) => {
     <div class="setting-item">
       <span>面包屑风格</span>
       <el-radio-group v-model="breadcrumbType">
-        <el-radio-button label="default">
+        <el-radio-button value="default">
           默认
         </el-radio-button>
-        <el-radio-button label="arrow">
+        <el-radio-button value="arrow">
           箭头
         </el-radio-button>
       </el-radio-group>

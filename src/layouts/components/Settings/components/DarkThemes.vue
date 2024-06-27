@@ -12,7 +12,7 @@ const { darkTheme } = storeToRefs(globalStore)
       <i-arcticons:galaxy-themes class="hover:text-primary" />
     </template>
     <el-radio-group v-model="darkTheme" size="small">
-      <el-radio-button v-for="theme in darkThemes" :key="theme.name" :label="theme.value">
+      <el-radio-button v-for="theme in darkThemes" :key="theme.name" :value="theme.value">
         {{ theme.name }}
       </el-radio-button>
     </el-radio-group>
